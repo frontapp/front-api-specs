@@ -1,0 +1,268 @@
+{
+  "openapi": "3.0.0",
+  "x-api-id": "front",
+  "x-explorer-enabled": false,
+  "x-proxy-enabled": true,
+  "x-samples-enabled": true,
+  "info": {
+    "version": "1.0.0",
+    "title": "Channel API",
+    "contact": {
+      "name": "Front Platform",
+      "email": "api@frontapp.com"
+    }
+  },
+  "security": [
+    {
+      "http": []
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://api2.frontapp.com"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "http": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "responses": {
+      "acceptedMessage": {
+        "description": "An accepted message",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "default": "accepted"
+                },
+                "message_uid": {
+                  "type": "string",
+                  "description": "Message unique identifier"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "InboundMessage": {
+        "required": [
+          "sender",
+          "body",
+          "metadata"
+        ],
+        "properties": {
+          "sender": {
+            "type": "object",
+            "description": "Data of the sender",
+            "required": [
+              "handle"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the sender"
+              },
+              "handle": {
+                "type": "string",
+                "description": "Handle of the sender. It can be any string used to uniquely identify the sender"
+              }
+            }
+          },
+          "subject": {
+            "type": "string",
+            "description": "Subject of the message"
+          },
+          "body": {
+            "type": "string",
+            "description": "Body of the message"
+          },
+          "metadata": {
+            "type": "object",
+            "required": [
+              "external_id",
+              "external_conversation_id"
+            ],
+            "properties": {
+              "external_id": {
+                "type": "string",
+                "maxLength": 200,
+                "description": "External identifier of the message"
+              },
+              "external_conversation_id": {
+                "type": "string",
+                "maxLength": 200,
+                "description": "External identifier of the conversation. Will be used to thread messages."
+              }
+            }
+          },
+          "delivered_at": {
+            "type": "integer",
+            "description": "Time in seconds at which message was created in external system"
+          },
+          "attachments": {
+            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb).",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "binary"
+            }
+          }
+        }
+      },
+      "OutboundMessage": {
+        "required": [
+          "to",
+          "body",
+          "metadata"
+        ],
+        "description": "Payload to receive an outbound message from an external system into Front.",
+        "properties": {
+          "sender_name": {
+            "type": "string",
+            "description": "Name of the sender"
+          },
+          "to": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "description": "Data of the message recipient",
+              "required": [
+                "handle"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Name of the recipient"
+                },
+                "handle": {
+                  "type": "string",
+                  "description": "Handle of the recipient. It can be any string used to uniquely identify the sender"
+                }
+              }
+            }
+          },
+          "subject": {
+            "type": "string",
+            "description": "Subject of the message"
+          },
+          "body": {
+            "type": "string",
+            "description": "Body of the message"
+          },
+          "metadata": {
+            "type": "object",
+            "required": [
+              "external_id",
+              "external_conversation_id"
+            ],
+            "properties": {
+              "external_id": {
+                "type": "string",
+                "maxLength": 200,
+                "description": "External identifier of the message"
+              },
+              "external_conversation_id": {
+                "type": "string",
+                "maxLength": 200,
+                "description": "External identifier of the conversation. Will be used to thread messages."
+              }
+            }
+          },
+          "delivered_at": {
+            "type": "integer",
+            "description": "Time in seconds at which message was created in external system"
+          },
+          "attachments": {
+            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb).",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "binary"
+            }
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/channels/{channel_id}/inbound_messages": {
+      "post": {
+        "summary": "Sync inbound message",
+        "description": "Import a message that was received by the channel.",
+        "tags": [
+          "Messages"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "channel_id",
+            "required": true,
+            "description": "The channel ID",
+            "schema": {
+              "type": "string",
+              "default": "cha_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InboundMessage"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "$ref": "#/components/responses/acceptedMessage"
+          }
+        }
+      }
+    },
+    "/channels/{channel_id}/outbound_messages": {
+      "post": {
+        "summary": "Sync outbound message",
+        "description": "Import a message that was sent from the channel.",
+        "tags": [
+          "Messages"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "channel_id",
+            "required": true,
+            "description": "The channel ID",
+            "schema": {
+              "type": "string",
+              "default": "cha_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OutboundMessage"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "$ref": "#/components/responses/acceptedMessage"
+          }
+        }
+      }
+    }
+  }
+}

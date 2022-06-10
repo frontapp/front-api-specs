@@ -1,0 +1,24 @@
+name: Publish OpenAPI definitions to ReadMe
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '*-api/**.json'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps: 
+      - uses: actions/checkout@v2
+
+      - name: Sync Public API definition
+        uses: readmeio/rdme@7.2.0
+        with:
+          rdme: openapi core-api/core-api.json --key=${{ secrets.README_API_KEY }} --id=5e4c9919ca81b300660e92d6
+      
+      - name: Sync Channel API definition
+        uses: readmeio/rdme@7.2.0
+        with:
+          rdme: openapi channel-api/channel_api.json --key=${{ secrets.README_API_KEY }} --id=5e4c9919ca81b300660e92d8

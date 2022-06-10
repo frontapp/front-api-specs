@@ -6,7 +6,7 @@
   "x-samples-enabled": true,
   "info": {
     "version": "1.0.0",
-    "title": "Channel API",
+    "title": "Channel API ",
     "contact": {
       "name": "Front Platform",
       "email": "api@frontapp.com"
@@ -53,6 +53,18 @@
       }
     },
     "schemas": {
+      "UpdateChannel": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Status of the channel",
+            "enum": [
+              "offline",
+              "ok"
+            ]
+          }
+        }
+      },
       "InboundMessage": {
         "required": [
           "sender",
@@ -194,6 +206,42 @@
     }
   },
   "paths": {
+    "/channels/{channel_id}": {
+      "patch": {
+        "summary": "Update Channel",
+        "description": "Update a channel.",
+        "tags": [
+          "Channels"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "channel_id",
+            "required": true,
+            "description": "The Channel ID",
+            "schema": {
+              "type": "string",
+              "default": "cha_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Channel details",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateChannel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content"
+          }
+        }
+      }
+    },
     "/channels/{channel_id}/inbound_messages": {
       "post": {
         "summary": "Sync inbound message",

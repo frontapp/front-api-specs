@@ -6,7 +6,7 @@
   "x-samples-enabled": true,
   "info": {
     "version": "1.0.0",
-    "title": "Core API",
+    "title": "Core API ",
     "contact": {
       "name": "Front Platform",
       "email": "api@frontapp.com"
@@ -286,6 +286,7 @@
       "AnalyticsMetricId": {
         "type": "string",
         "enum": [
+          "avg_csat_survey_response",
           "avg_first_response_time",
           "avg_handle_time",
           "avg_response_time",
@@ -592,6 +593,24 @@
           "custom_fields": {
             "type": "object",
             "description": "Custom field attributes for this contact. Leave empty if you do not wish to update the attributes. Not sending existing attributes will automatically remove them."
+          }
+        }
+      },
+      "MergeContacts": {
+        "required": [
+          "contact_ids"
+        ],
+        "properties": {
+          "target_contact_id": {
+            "type": "string",
+            "description": "Optional contact ID to merge the other contacts into."
+          },
+          "contact_ids": {
+            "type": "array",
+            "description": "Array of all the contact IDs of the contacts to be merged.  If a target contact id is provided and that contact id is not in this array, the length of this array must be between 1 and 49.  If no target contact id is provided or it is contained in this array, the length must be between 2 and 50.",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -1468,6 +1487,11 @@
             "type": "string",
             "description": "Body of the signature"
           },
+          "is_default": {
+            "type": "boolean",
+            "description": "If true, the signature will be set as the default signature for the teammate.",
+            "default": false
+          },
           "channel_ids": {
             "type": "array",
             "items": {
@@ -1501,6 +1525,11 @@
             "type": "boolean",
             "description": "Whether or not the signature is visible in all individual channels for teammates in the given team."
           },
+          "is_default": {
+            "type": "boolean",
+            "description": "If true, the signature will be set as the default signature for the team.",
+            "default": false
+          },
           "channel_ids": {
             "type": "array",
             "items": {
@@ -1529,6 +1558,11 @@
           "is_visible_for_all_teammate_channels": {
             "type": "boolean",
             "description": "Whether or not the signature is visible in all individual channels for teammates in the given team. Can only be set for shared signatures."
+          },
+          "is_default": {
+            "type": "boolean",
+            "description": "If true, the signature will be set as the default signature for the team or teammate.",
+            "default": false
           },
           "channel_ids": {
             "type": "array",
@@ -2980,6 +3014,11 @@
             "type": "boolean",
             "description": "Whether or not the signature is available in teammate channels.",
             "example": true
+          },
+          "is_default": {
+            "type": "boolean",
+            "description": "Whether the signature is the default signature for the team or teammate.",
+            "example": false
           },
           "channel_ids": {
             "type": "array",
@@ -5784,6 +5823,29 @@
         }
       }
     },
+    "/contacts/merge": {
+      "post": {
+        "summary": "Merge contacts",
+        "description": "Merges the contacts specified into a single contact, deleting the merged-in contacts.\nIf a target contact ID is supplied, the other contacts will be merged into that one.\nOtherwise, some contact in the contact ID list will be treated as the target contact.\nMerge conflicts will be resolved in the following ways:\n  * name will prioritize manually-updated and non-private contact names\n  * descriptions will be concatenated and separated by newlines in order from\n    oldest to newest with the (optional) target contact's description first\n  * all handles, groups, links, and notes will be preserved\n  * other conflicts will use the most recently updated contact's value\n",
+        "tags": [
+          "Contacts"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MergeContacts"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/contact"
+          }
+        }
+      }
+    },
     "/contacts/{contact_id}/handles": {
       "post": {
         "summary": "Add contact handle",
@@ -7602,7 +7664,7 @@
     "/conversations/search/{query}": {
       "get": {
         "summary": "Search conversations",
-        "description": "Search for conversations. Response will include a count of total matches and an array of conversations in descending order by last activity.\nSee the [search syntax documentation](https://dev.frontapp.com/docs/search-1) for usage examples.\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n",
+        "description": "Search for conversations. Response will include a count of total matches (limited to 10000) and an array of conversations in descending order by last activity.\nSee the [search syntax documentation](https://dev.frontapp.com/docs/search-1) for usage examples.\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n",
         "operationId": "search-conversations",
         "tags": [
           "Conversations"

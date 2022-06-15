@@ -2651,6 +2651,10 @@
                   "message_replied_to": {
                     "type": "string",
                     "description": "Link to message this message replied to"
+                  },
+                  "message_seen": {
+                    "type": "string",
+                    "description": "Link to message seen informatiion"
                   }
                 }
               }
@@ -2914,6 +2918,35 @@
           "is_private": {
             "type": "boolean",
             "description": "Whether or not the rule is individual"
+          }
+        }
+      },
+      "SeenReceiptResponse": {
+        "properties": {
+          "_links": {
+            "type": "object",
+            "properties": {
+              "self": {
+                "type": "string",
+                "description": "Link to self"
+              },
+              "related": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string",
+                    "description": "Link to message associated with the seen record"
+                  }
+                }
+              }
+            }
+          },
+          "first_seen_at": {
+            "type": "string",
+            "description": "Timestamp when message was seen"
+          },
+          "seen_by": {
+            "$ref": "#/components/schemas/ContactHandle"
           }
         }
       },
@@ -3703,6 +3736,42 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/MessageResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "listOfSeenReceipts": {
+        "description": "Array of seen receipts",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "_pagination": {
+                  "type": "object",
+                  "properties": {
+                    "next": {
+                      "type": "string",
+                      "description": "Link to next page of results"
+                    }
+                  }
+                },
+                "_links": {
+                  "type": "object",
+                  "properties": {
+                    "self": {
+                      "type": "string",
+                      "description": "Link to resource"
+                    }
+                  }
+                },
+                "_results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SeenReceiptResponse"
                   }
                 }
               }
@@ -7429,6 +7498,30 @@
       }
     },
     "/messages/{message_id}/seen": {
+      "get": {
+        "summary": "Get message seen status",
+        "description": "Get the seen receipts for the given message. If no seen-by information is available, there will be a single entry for the first time the message was seen by any recipient. If seen-by information is available, there will be an entry for each recipient who has seen the message.",
+        "tags": [
+          "Messages"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "message_id",
+            "required": true,
+            "description": "The message ID",
+            "schema": {
+              "type": "string",
+              "default": "msg_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfSeenReceipts"
+          }
+        }
+      },
       "post": {
         "summary": "Mark message seen",
         "description": "Mark an outbound message from Front as seen. Note, the message seen route should only be called in response to an actual end-user's message-seen action. In accordance with this behavior, the route is rate limited to 10 requests per hour.",
@@ -7664,7 +7757,7 @@
     "/conversations/search/{query}": {
       "get": {
         "summary": "Search conversations",
-        "description": "Search for conversations. Response will include a count of total matches (limited to 10000) and an array of conversations in descending order by last activity.\nSee the [search syntax documentation](https://dev.frontapp.com/docs/search-1) for usage examples.\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n",
+        "description": "Search for conversations. Response will include a count of total matches and an array of conversations in descending order by last activity.\nSee the [search syntax documentation](https://dev.frontapp.com/docs/search-1) for usage examples.\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n",
         "operationId": "search-conversations",
         "tags": [
           "Conversations"

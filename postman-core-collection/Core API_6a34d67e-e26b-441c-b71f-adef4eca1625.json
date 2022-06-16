@@ -795,7 +795,7 @@
 								}
 							]
 						},
-						"description": "Lists all the detailed events which occured in the inboxes of the company ordered in reverse chronological order (newest first).\n> â ï¸ Deprecated field may be included\n>\n> This route return the deprecated `last_message` conversation field for conversations\n> associated with individual events. Please use the conversation's\n> `_links.related.last_message` field instead.\n"
+						"description": "Lists all the detailed events which occured in the inboxes of the company ordered in reverse chronological order (newest first).\n> ⚠️ Deprecated field may be included\n>\n> This route return the deprecated `last_message` conversation field for conversations\n> associated with individual events. Please use the conversation's\n> `_links.related.last_message` field instead.\n"
 					},
 					"response": [
 						{
@@ -879,7 +879,7 @@
 								}
 							]
 						},
-						"description": "Fetch an event.\n> â ï¸ Deprecated field may be included\n>\n> This route return the deprecated `last_message` conversation field for conversations\n> associated with individual events. Please use the conversation's\n> `_links.related.last_message` field instead.\n"
+						"description": "Fetch an event.\n> ⚠️ Deprecated field may be included\n>\n> This route return the deprecated `last_message` conversation field for conversations\n> associated with individual events. Please use the conversation's\n> `_links.related.last_message` field instead.\n"
 					},
 					"response": [
 						{
@@ -5742,7 +5742,7 @@
 										}
 									]
 								},
-								"description": "List the conversations assigned to a teammate in reverse chronological order (most recently updated first). For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> â ï¸ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n"
+								"description": "List the conversations assigned to a teammate in reverse chronological order (most recently updated first). For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n"
 							},
 							"response": [
 								{
@@ -7481,7 +7481,7 @@
 										}
 									]
 								},
-								"description": "List the conversations for a contact in reverse chronological order (newest first). For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> â ï¸ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n"
+								"description": "List the conversations for a contact in reverse chronological order (newest first). For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n"
 							},
 							"response": [
 								{
@@ -9042,7 +9042,7 @@
 										}
 									]
 								},
-								"description": "List the conversations in an inbox. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> â ï¸ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n"
+								"description": "List the conversations in an inbox. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n"
 							},
 							"response": [
 								{
@@ -10673,7 +10673,7 @@
 										}
 									]
 								},
-								"description": "Fetch a conversation.\n> â ï¸ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the main body. Please use the\n> `_links.related.last_message` field instead.\n"
+								"description": "Fetch a conversation.\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the main body. Please use the\n> `_links.related.last_message` field instead.\n"
 							},
 							"response": [
 								{
@@ -11243,7 +11243,7 @@
 								}
 							]
 						},
-						"description": "List the conversations in the company in reverse chronological order (most recently updated first). For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> â ï¸ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n"
+						"description": "List the conversations in the company in reverse chronological order (most recently updated first). For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n"
 					},
 					"response": [
 						{
@@ -11324,7 +11324,7 @@
 								"conversations"
 							]
 						},
-						"description": "Create a conversation.\n> â ï¸ Currently, only discussions can be created with this endpoint.\n"
+						"description": "Create a conversation.\n> ⚠️ Currently, only discussions can be created with this endpoint.\n"
 					},
 					"response": [
 						{
@@ -11416,7 +11416,7 @@
 								}
 							]
 						},
-						"description": "Search for conversations. Response will include a count of total matches and an array of conversations in descending order by last activity.\n> â ï¸ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n"
+						"description": "Search for conversations. Response will include a count of total matches and an array of conversations in descending order by last activity.\nSee the [search syntax documentation](https://dev.frontapp.com/docs/search-1) for usage examples.\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n"
 					},
 					"response": [
 						{
@@ -11670,7 +11670,7 @@
 								"custom_fields"
 							]
 						},
-						"description": "Lists the custom fields in your company that are application to a Contact.\n> â ï¸ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the fully compatible `GET /contacts/custom_fields` endpoint instead.\n"
+						"description": "Lists the custom fields in your company that are application to a Contact.\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the fully compatible `GET /contacts/custom_fields` endpoint instead.\n"
 					},
 					"response": [
 						{
@@ -11743,7 +11743,7 @@
 								}
 							]
 						},
-						"description": "Update a custom field. (â ï¸ Deprecated)"
+						"description": "Update a custom field. (⚠️ Deprecated)"
 					},
 					"response": [
 						{
@@ -11854,11 +11854,11 @@
 							],
 							"variable": [
 								{
-									"id": "9a629d86-b27d-41ca-8169-0545aa9c87d1",
 									"key": "message_id",
 									"value": "msg_123",
-									"type": "any",
-									"description": "(Required) The draft ID"
+									"description": "(Required) The draft ID",
+									"id": "9a629d86-b27d-41ca-8169-0545aa9c87d1",
+									"type": "any"
 								}
 							]
 						},
@@ -13703,7 +13703,7 @@
 										}
 									]
 								},
-								"description": "List the conversations tagged with a tag. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> â ï¸ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n"
+								"description": "List the conversations tagged with a tag. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n"
 							},
 							"response": [
 								{
@@ -14153,7 +14153,7 @@
 										}
 									]
 								},
-								"description": "List the conversations linked to a specific link. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> â ï¸ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n"
+								"description": "List the conversations linked to a specific link. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n"
 							},
 							"response": [
 								{
@@ -14540,6 +14540,90 @@
 					"cookie": [],
 					"responseTime": null,
 					"body": "{\n  \"_links\": {\n    \"self\": \"labore\"\n  },\n  \"id\": -70450280,\n  \"name\": \"et quis\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Merge contacts",
+			"id": "cb862235-5911-4f29-8155-79008f0a5dc6",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"contact_ids\": [\n    \"mollit adipisicing cillum\",\n    \"occaecat ullamco\"\n  ],\n  \"target_contact_id\": \"culpa dolore est\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/contacts/merge",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"contacts",
+						"merge"
+					]
+				},
+				"description": "Merges the contacts specified into a single contact, deleting the merged-in contacts.\nIf a target contact ID is supplied, the other contacts will be merged into that one.\nOtherwise, some contact in the contact ID list will be treated as the target contact.\nMerge conflicts will be resolved in the following ways:\n  * name will prioritize manually-updated and non-private contact names\n  * descriptions will be concatenated and separated by newlines in order from\n    oldest to newest with the (optional) target contact's description first\n  * all handles, groups, links, and notes will be preserved\n  * other conflicts will use the most recently updated contact's value\n"
+			},
+			"response": [
+				{
+					"id": "34d9a677-6d70-4f52-9ab3-328c6229e651",
+					"name": "A contact",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: bearer",
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"contact_ids\": [\n    \"amet cillum eu\",\n    \"incididunt officia aliquip do do\"\n  ],\n  \"target_contact_id\": \"incididunt minim sed adipisicing\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/contacts/merge",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"contacts",
+								"merge"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n  \"_links\": {\n    \"self\": \"in exercitation dolor\",\n    \"related\": {\n      \"notes\": \"occaecat ea\",\n      \"conversations\": \"non id ut\",\n      \"owner\": \"fugiat velit\"\n    }\n  },\n  \"id\": \"esse in velit dolor \",\n  \"name\": \"sunt eu irure\",\n  \"description\": \"est eu aliquip\",\n  \"avatar_url\": \"laboris nostrud enim\",\n  \"is_spammer\": false,\n  \"links\": [\n    \"veniam ex\",\n    \"mollit consequat deserunt\"\n  ],\n  \"groups\": [\n    {\n      \"_links\": {\n        \"self\": \"magna cupidatat in eiusmod Ut\",\n        \"related\": {\n          \"contacts\": \"consectetur ad irure est\",\n          \"owner\": \"commodo culpa dolor consequat m\"\n        }\n      },\n      \"id\": \"amet ullamco non elit ipsum\",\n      \"name\": \"aliqua commodo incididunt irure\",\n      \"is_private\": true\n    },\n    {\n      \"_links\": {\n        \"self\": \"occaecat dolore\",\n        \"related\": {\n          \"contacts\": \"Ut elit consectetur\",\n          \"owner\": \"consectetur ullamco proident fugiat\"\n        }\n      },\n      \"id\": \"qui\",\n      \"name\": \"cillum incididunt aliquip nulla et\",\n      \"is_private\": false\n    }\n  ],\n  \"handles\": [\n    {\n      \"handle\": \"et tempor\",\n      \"source\": \"phone\"\n    },\n    {\n      \"handle\": \"ea fugiat veniam irure\",\n      \"source\": \"front_chat\"\n    }\n  ],\n  \"custom_fields\": {},\n  \"is_private\": false\n}"
 				}
 			]
 		}

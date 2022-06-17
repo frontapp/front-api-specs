@@ -1,0 +1,47 @@
+name: Copy OpenAPI schemas from main branch to dev branches
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '*-api/**.json'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+      
+    steps:
+      - name: checkout front-api-specs repo
+        uses: actions/checkout@v3
+        with:
+          path: ./front-api-specs
+
+      - name: copy core-api spec to dev branch
+        env:
+          SRC_FOLDER_PATH: 'core-api'
+          TARGET_BRANCH: 'core-api'
+        run: |
+          files=$(find $SRC_FOLDER_PATH -type f) # get the file list
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git fetch
+          git checkout $TARGET_BRANCH
+          git checkout ${GITHUB_REF##*/} -- $files # copy files from the source branch
+          git add -A
+          git diff-index --quiet HEAD ||  git commit -am "Copy spec file from main branch"
+          git push origin $TARGET_BRANCH
+
+      - name: copy channel-api spec to dev branch
+        env:
+          SRC_FOLDER_PATH: 'channel-api'
+          TARGET_BRANCH: 'channel-api'
+        run: |
+          files=$(find $SRC_FOLDER_PATH -type f) # get the file list
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git fetch
+          git checkout $TARGET_BRANCH
+          git checkout ${GITHUB_REF##*/} -- $files # copy files from the source branch
+          git add -A
+          git diff-index --quiet HEAD ||  git commit -am "Copy spec file from main branch"
+          git push origin $TARGET_BRANCH

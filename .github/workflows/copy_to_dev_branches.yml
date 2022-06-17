@@ -1,0 +1,39 @@
+name: Copy OpenAPI schemas from main branch to dev branches
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '*-api/**.json'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+      
+    steps:
+      - name: checkout front-api-specs repo
+        uses: actions/checkout@v3
+        with:
+          path: ./front-api-specs
+
+      - name: copy core-api spec to dev branch
+        env:
+          TARGET_BRANCH: 'core-api'
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git fetch
+          git checkout $TARGET_BRANCH
+          git merge origin/main
+          git push
+
+      - name: copy channel-api spec to dev branch
+        env:
+          TARGET_BRANCH: 'channel-api'
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git fetch
+          git checkout $TARGET_BRANCH
+          git merge origin/main
+          git push

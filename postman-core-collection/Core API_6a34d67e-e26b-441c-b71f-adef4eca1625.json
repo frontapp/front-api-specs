@@ -7811,6 +7811,90 @@
 							"body": "{\n  \"_links\": {\n    \"self\": \"cillum adipisicing proident et id\"\n  },\n  \"_results\": [\n    {\n      \"_links\": {\n        \"self\": \"reprehenderit quis E\"\n      },\n      \"id\": \"elit reprehenderit id Duis\",\n      \"name\": \"ex\",\n      \"description\": \"commodo\",\n      \"type\": \"boolean\"\n    },\n    {\n      \"_links\": {\n        \"self\": \"nisi deserunt amet esse\"\n      },\n      \"id\": \"cillum incididunt\",\n      \"name\": \"est\",\n      \"description\": \"elit\",\n      \"type\": \"number\"\n    }\n  ]\n}"
 						}
 					]
+				},
+				{
+					"name": "Merge contacts",
+					"id": "cb862235-5911-4f29-8155-79008f0a5dc6",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"contact_ids\": [\n    \"mollit adipisicing cillum\",\n    \"occaecat ullamco\"\n  ],\n  \"target_contact_id\": \"culpa dolore est\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/contacts/merge",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"contacts",
+								"merge"
+							]
+						},
+						"description": "Merges the contacts specified into a single contact, deleting the merged-in contacts.\nIf a target contact ID is supplied, the other contacts will be merged into that one.\nOtherwise, some contact in the contact ID list will be treated as the target contact.\nMerge conflicts will be resolved in the following ways:\n  * name will prioritize manually-updated and non-private contact names\n  * descriptions will be concatenated and separated by newlines in order from\n    oldest to newest with the (optional) target contact's description first\n  * all handles, groups, links, and notes will be preserved\n  * other conflicts will use the most recently updated contact's value\n"
+					},
+					"response": [
+						{
+							"id": "34d9a677-6d70-4f52-9ab3-328c6229e651",
+							"name": "A contact",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"contact_ids\": [\n    \"amet cillum eu\",\n    \"incididunt officia aliquip do do\"\n  ],\n  \"target_contact_id\": \"incididunt minim sed adipisicing\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/contacts/merge",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"contacts",
+										"merge"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"_links\": {\n    \"self\": \"in exercitation dolor\",\n    \"related\": {\n      \"notes\": \"occaecat ea\",\n      \"conversations\": \"non id ut\",\n      \"owner\": \"fugiat velit\"\n    }\n  },\n  \"id\": \"esse in velit dolor \",\n  \"name\": \"sunt eu irure\",\n  \"description\": \"est eu aliquip\",\n  \"avatar_url\": \"laboris nostrud enim\",\n  \"is_spammer\": false,\n  \"links\": [\n    \"veniam ex\",\n    \"mollit consequat deserunt\"\n  ],\n  \"groups\": [\n    {\n      \"_links\": {\n        \"self\": \"magna cupidatat in eiusmod Ut\",\n        \"related\": {\n          \"contacts\": \"consectetur ad irure est\",\n          \"owner\": \"commodo culpa dolor consequat m\"\n        }\n      },\n      \"id\": \"amet ullamco non elit ipsum\",\n      \"name\": \"aliqua commodo incididunt irure\",\n      \"is_private\": true\n    },\n    {\n      \"_links\": {\n        \"self\": \"occaecat dolore\",\n        \"related\": {\n          \"contacts\": \"Ut elit consectetur\",\n          \"owner\": \"consectetur ullamco proident fugiat\"\n        }\n      },\n      \"id\": \"qui\",\n      \"name\": \"cillum incididunt aliquip nulla et\",\n      \"is_private\": false\n    }\n  ],\n  \"handles\": [\n    {\n      \"handle\": \"et tempor\",\n      \"source\": \"phone\"\n    },\n    {\n      \"handle\": \"ea fugiat veniam irure\",\n      \"source\": \"front_chat\"\n    }\n  ],\n  \"custom_fields\": {},\n  \"is_private\": false\n}"
+						}
+					]
 				}
 			],
 			"id": "eb0748f3-d2d0-4540-ab3d-2c19d32e204d"

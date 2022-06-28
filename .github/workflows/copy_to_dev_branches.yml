@@ -18,13 +18,13 @@ jobs:
 
       - name: copy core-api spec to dev branch
         env:
-          TARGET_BRANCH: 'core-api'
+          TARGET_BRANCH: 'origin/core-api'
         run: |
           cd ./front-api-specs
           git config user.name github-actions
           git config user.email github-actions@github.com
           git fetch
-          git checkout $TARGET_BRANCH
+          git checkout $TARGET_BRANCH --
           git merge origin/main
           git push
 
@@ -36,6 +36,6 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           git fetch
-          git checkout $TARGET_BRANCH
+          git checkout $TARGET_BRANCH --
           git merge origin/main
           git push

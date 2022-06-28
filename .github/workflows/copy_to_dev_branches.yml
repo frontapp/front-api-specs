@@ -20,6 +20,7 @@ jobs:
         env:
           TARGET_BRANCH: 'core-api'
         run: |
+          cd ./front-api-specs
           git config user.name github-actions
           git config user.email github-actions@github.com
           git fetch
@@ -31,6 +32,7 @@ jobs:
         env:
           TARGET_BRANCH: 'channel-api'
         run: |
+          cd ./front-api-specs
           git config user.name github-actions
           git config user.email github-actions@github.com
           git fetch

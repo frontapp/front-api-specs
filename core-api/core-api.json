@@ -7498,6 +7498,30 @@
       }
     },
     "/messages/{message_id}/seen": {
+      "get": {
+        "summary": "Get message seen status",
+        "description": "Get the seen receipts for the given message. If no seen-by information is available, there will be a single entry for the first time the message was seen by any recipient. If seen-by information is available, there will be an entry for each recipient who has seen the message.",
+        "tags": [
+          "Messages"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "message_id",
+            "required": true,
+            "description": "The message ID",
+            "schema": {
+              "type": "string",
+              "default": "msg_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfSeenReceipts"
+          }
+        }
+      },
       "post": {
         "summary": "Mark message seen",
         "description": "Mark an outbound message from Front as seen. Note, the message seen route should only be called in response to an actual end-user's message-seen action. In accordance with this behavior, the route is rate limited to 10 requests per hour.",

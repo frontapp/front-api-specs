@@ -18,7 +18,7 @@ jobs:
 
       - name: copy core-api spec to dev branch
         env:
-          TARGET_BRANCH: 'origin/core-api'
+          TARGET_BRANCH: 'core-api'
         run: |
           cd ./front-api-specs
           git config user.name github-actions

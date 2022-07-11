@@ -871,11 +871,11 @@
 							],
 							"variable": [
 								{
-									"id": "92ec92ef-2ce7-4583-a3d0-32b0adeaacc6",
 									"key": "event_id",
 									"value": "evt_55c8c149",
-									"type": "any",
-									"description": "(Required) The event ID"
+									"description": "(Required) The event ID",
+									"id": "92ec92ef-2ce7-4583-a3d0-32b0adeaacc6",
+									"type": "any"
 								}
 							]
 						},
@@ -5734,11 +5734,11 @@
 									],
 									"variable": [
 										{
-											"id": "a8047550-3042-4603-b1da-a06ec93c0b57",
 											"key": "teammate_id",
 											"value": "tea_123",
-											"type": "any",
-											"description": "(Required) The teammate ID"
+											"description": "(Required) The teammate ID",
+											"id": "a8047550-3042-4603-b1da-a06ec93c0b57",
+											"type": "any"
 										}
 									]
 								},
@@ -7473,11 +7473,11 @@
 									],
 									"variable": [
 										{
-											"id": "800f4b1a-266a-441d-8335-9be8f1f41a5d",
 											"key": "contact_id",
 											"value": "crd_123",
-											"type": "any",
-											"description": "(Required) The Contact ID"
+											"description": "(Required) The Contact ID",
+											"id": "800f4b1a-266a-441d-8335-9be8f1f41a5d",
+											"type": "any"
 										}
 									]
 								},
@@ -9118,11 +9118,11 @@
 									],
 									"variable": [
 										{
-											"id": "3bdeb72b-503b-4b42-9887-3de5918feb3c",
 											"key": "inbox_id",
 											"value": "inb_123",
-											"type": "any",
-											"description": "(Required) The Inbox ID"
+											"description": "(Required) The Inbox ID",
+											"id": "3bdeb72b-503b-4b42-9887-3de5918feb3c",
+											"type": "any"
 										}
 									]
 								},
@@ -10749,11 +10749,11 @@
 									],
 									"variable": [
 										{
-											"id": "e8cc3ade-d24f-4848-8882-0858995438a4",
 											"key": "conversation_id",
 											"value": "cnv_123",
-											"type": "any",
-											"description": "(Required) The conversation ID"
+											"description": "(Required) The conversation ID",
+											"id": "e8cc3ade-d24f-4848-8882-0858995438a4",
+											"type": "any"
 										}
 									]
 								},
@@ -11492,11 +11492,11 @@
 							],
 							"variable": [
 								{
-									"id": "1282dee5-ac8c-46b7-9502-64618656034b",
 									"key": "query",
 									"value": "inbox%3Ainb_123%20tag%3Atag_345",
-									"type": "any",
-									"description": "(Required) Search query string. See available Conversation Search Parameters below"
+									"description": "(Required) Search query string. See available Conversation Search Parameters below",
+									"id": "1282dee5-ac8c-46b7-9502-64618656034b",
+									"type": "any"
 								}
 							]
 						},
@@ -11819,11 +11819,11 @@
 							],
 							"variable": [
 								{
-									"id": "f25d7b04-08e2-4102-b7a4-c1161ee06c27",
 									"key": "custom_field_id",
 									"value": "fld_123",
-									"type": "any",
-									"description": "(Required) Custom Field ID"
+									"description": "(Required) Custom Field ID",
+									"id": "f25d7b04-08e2-4102-b7a4-c1161ee06c27",
+									"type": "any"
 								}
 							]
 						},
@@ -12288,6 +12288,85 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Get message seen status",
+					"id": "9766cb92-2d61-489c-9587-a2f8e93e6e8c",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/messages/:message_id/seen",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"messages",
+								":message_id",
+								"seen"
+							],
+							"variable": [
+								{
+									"id": "6285997f-9a87-499d-9b39-f78c5d5f68e5",
+									"key": "message_id",
+									"value": "ut ea",
+									"description": "(Required) The message ID"
+								}
+							]
+						},
+						"description": "Get the seen receipts for the given message. If no seen-by information is available, there will be a single entry for the first time the message was seen by any recipient. If seen-by information is available, there will be an entry for each recipient who has seen the message."
+					},
+					"response": [
+						{
+							"id": "2a1facf8-29aa-4ebc-a117-680182899144",
+							"name": "Array of seen receipts",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/messages/:message_id/seen",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"messages",
+										":message_id",
+										"seen"
+									],
+									"variable": [
+										{
+											"key": "message_id",
+											"value": "ut ea",
+											"description": "(Required) The message ID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"_pagination\": {\n    \"next\": \"velit reprehenderit\"\n  },\n  \"_links\": {\n    \"self\": \"esse aliquip\"\n  },\n  \"_results\": [\n    {\n      \"_links\": {\n        \"self\": \"sit veniam\",\n        \"related\": {\n          \"message\": \"nostrud consequat ut\"\n        }\n      },\n      \"first_seen_at\": \"sed officia irure\",\n      \"seen_by\": {\n        \"handle\": \"est quis amet dolor\",\n        \"source\": \"facebook\"\n      }\n    },\n    {\n      \"_links\": {\n        \"self\": \"commodo magna\",\n        \"related\": {\n          \"message\": \"laboris adipisicing dolore aliquip et\"\n        }\n      },\n      \"first_seen_at\": \"ex magna\",\n      \"seen_by\": {\n        \"handle\": \"tempor deserunt dolore fugiat\",\n        \"source\": \"custom\"\n      }\n    }\n  ]\n}"
 						}
 					]
 				}
@@ -13779,11 +13858,11 @@
 									],
 									"variable": [
 										{
-											"id": "4265176d-7b6f-4d36-b6dd-f8caccc84f5b",
 											"key": "tag_id",
 											"value": "tag_123",
-											"type": "any",
-											"description": "(Required) The ID of the tag"
+											"description": "(Required) The ID of the tag",
+											"id": "4265176d-7b6f-4d36-b6dd-f8caccc84f5b",
+											"type": "any"
 										}
 									]
 								},
@@ -14229,11 +14308,11 @@
 									],
 									"variable": [
 										{
-											"id": "5b8c0054-d974-4543-b0d1-444b2a1686e6",
 											"key": "link_id",
 											"value": "top_123",
-											"type": "any",
-											"description": "(Required) The Link ID"
+											"description": "(Required) The Link ID",
+											"id": "5b8c0054-d974-4543-b0d1-444b2a1686e6",
+											"type": "any"
 										}
 									]
 								},
@@ -14624,90 +14703,6 @@
 					"cookie": [],
 					"responseTime": null,
 					"body": "{\n  \"_links\": {\n    \"self\": \"labore\"\n  },\n  \"id\": -70450280,\n  \"name\": \"et quis\"\n}"
-				}
-			]
-		},
-		{
-			"name": "Merge contacts",
-			"id": "cb862235-5911-4f29-8155-79008f0a5dc6",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "Accept",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"contact_ids\": [\n    \"mollit adipisicing cillum\",\n    \"occaecat ullamco\"\n  ],\n  \"target_contact_id\": \"culpa dolore est\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{baseUrl}}/contacts/merge",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"contacts",
-						"merge"
-					]
-				},
-				"description": "Merges the contacts specified into a single contact, deleting the merged-in contacts.\nIf a target contact ID is supplied, the other contacts will be merged into that one.\nOtherwise, some contact in the contact ID list will be treated as the target contact.\nMerge conflicts will be resolved in the following ways:\n  * name will prioritize manually-updated and non-private contact names\n  * descriptions will be concatenated and separated by newlines in order from\n    oldest to newest with the (optional) target contact's description first\n  * all handles, groups, links, and notes will be preserved\n  * other conflicts will use the most recently updated contact's value\n"
-			},
-			"response": [
-				{
-					"id": "34d9a677-6d70-4f52-9ab3-328c6229e651",
-					"name": "A contact",
-					"originalRequest": {
-						"method": "POST",
-						"header": [
-							{
-								"description": "Added as a part of security scheme: bearer",
-								"key": "Authorization",
-								"value": "Bearer <token>"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"contact_ids\": [\n    \"amet cillum eu\",\n    \"incididunt officia aliquip do do\"\n  ],\n  \"target_contact_id\": \"incididunt minim sed adipisicing\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/contacts/merge",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"contacts",
-								"merge"
-							]
-						}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json"
-						}
-					],
-					"cookie": [],
-					"responseTime": null,
-					"body": "{\n  \"_links\": {\n    \"self\": \"in exercitation dolor\",\n    \"related\": {\n      \"notes\": \"occaecat ea\",\n      \"conversations\": \"non id ut\",\n      \"owner\": \"fugiat velit\"\n    }\n  },\n  \"id\": \"esse in velit dolor \",\n  \"name\": \"sunt eu irure\",\n  \"description\": \"est eu aliquip\",\n  \"avatar_url\": \"laboris nostrud enim\",\n  \"is_spammer\": false,\n  \"links\": [\n    \"veniam ex\",\n    \"mollit consequat deserunt\"\n  ],\n  \"groups\": [\n    {\n      \"_links\": {\n        \"self\": \"magna cupidatat in eiusmod Ut\",\n        \"related\": {\n          \"contacts\": \"consectetur ad irure est\",\n          \"owner\": \"commodo culpa dolor consequat m\"\n        }\n      },\n      \"id\": \"amet ullamco non elit ipsum\",\n      \"name\": \"aliqua commodo incididunt irure\",\n      \"is_private\": true\n    },\n    {\n      \"_links\": {\n        \"self\": \"occaecat dolore\",\n        \"related\": {\n          \"contacts\": \"Ut elit consectetur\",\n          \"owner\": \"consectetur ullamco proident fugiat\"\n        }\n      },\n      \"id\": \"qui\",\n      \"name\": \"cillum incididunt aliquip nulla et\",\n      \"is_private\": false\n    }\n  ],\n  \"handles\": [\n    {\n      \"handle\": \"et tempor\",\n      \"source\": \"phone\"\n    },\n    {\n      \"handle\": \"ea fugiat veniam irure\",\n      \"source\": \"front_chat\"\n    }\n  ],\n  \"custom_fields\": {},\n  \"is_private\": false\n}"
 				}
 			]
 		}

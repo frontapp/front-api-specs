@@ -194,7 +194,7 @@
           },
           "custom_fields": {
             "type": "object",
-            "description": "Custom attributes for this account."
+            "description": "Custom field attributes for this account. Do not include the custom_fields object if you do not wish to update the attributes. Including the custom_fields object with empty values will automatically remove the unspecified fields from the account."
           }
         }
       },
@@ -592,7 +592,7 @@
           },
           "custom_fields": {
             "type": "object",
-            "description": "Custom field attributes for this contact. Leave empty if you do not wish to update the attributes. Not sending existing attributes will automatically remove them."
+            "description": "Custom field attributes for this contact. Do not include the custom_fields object if you do not wish to update the attributes. Including the custom_fields object with empty values will automatically remove the unspecified fields from the contact."
           }
         }
       },
@@ -1654,6 +1654,10 @@
           "is_available": {
             "type": "boolean",
             "description": "New availability status"
+          },
+          "custom_fields": {
+            "type": "object",
+            "description": "Custom field attributes for this teammate. Do not include the custom_fields object if you do not wish to update the attributes. Including the custom_fields object with empty values will automatically remove the unspecified fields from the teammate."
           }
         }
       },

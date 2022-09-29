@@ -53,18 +53,6 @@
       }
     },
     "schemas": {
-      "UpdateChannel": {
-        "properties": {
-          "status": {
-            "type": "string",
-            "description": "Status of the channel",
-            "enum": [
-              "offline",
-              "ok"
-            ]
-          }
-        }
-      },
       "InboundMessage": {
         "required": [
           "sender",
@@ -200,6 +188,18 @@
               "type": "string",
               "format": "binary"
             }
+          }
+        }
+      },
+      "UpdateChannel": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Status of the channel",
+            "enum": [
+              "offline",
+              "ok"
+            ]
           }
         }
       }

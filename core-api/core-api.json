@@ -1874,6 +1874,10 @@
               "type": "string"
             }
           },
+          "conversation_id": {
+            "type": "string",
+            "description": "If supplied, Front will thread this message into conversation with the given ID. Note that including this parameter nullifies the `thread_ref` parameter _completely_."
+          },
           "metadata": {
             "type": "object",
             "required": [

@@ -2173,6 +2173,10 @@
               "headers": {
                 "type": "object",
                 "description": "For `custom` messages only. Custom object holding internal information."
+              },
+              "chat_visitor_url": {
+                "type": "string",
+                "description": "For `front_chat` messages only. Source URL from the chat widget when sending a message."
               }
             }
           }

@@ -118,11 +118,11 @@
             "description": "Custom Attributes for this account"
           },
           "created_at": {
-            "type": "integer",
+            "type": "number",
             "description": "Timestamp when the account was created"
           },
           "updated_at": {
-            "type": "integer",
+            "type": "number",
             "description": "Timestamp when the account was updated"
           }
         }
@@ -570,7 +570,7 @@
             "description": "Content of the comment"
           },
           "posted_at": {
-            "type": "integer",
+            "type": "number",
             "description": "Date at which the comment was posted"
           },
           "attachments": {
@@ -711,7 +711,7 @@
             "description": "Content of the note"
           },
           "created_at": {
-            "type": "integer",
+            "type": "number",
             "description": "Date at which the note have been created"
           }
         }
@@ -876,7 +876,7 @@
             }
           },
           "created_at": {
-            "type": "integer",
+            "type": "number",
             "description": "Timestamp at which the conversation have been created."
           },
           "is_private": {
@@ -2090,7 +2090,7 @@
             "description": "The current version of the message in Front"
           },
           "created_at": {
-            "type": "integer",
+            "type": "number",
             "description": "Date at which the message as been sent or received"
           },
           "subject": {
@@ -2497,15 +2497,15 @@
             }
           },
           "created_at": {
-            "type": "integer",
+            "type": "number",
             "description": "Timestamp at which the conversation reminder has been created"
           },
           "scheduled_at": {
-            "type": "integer",
+            "type": "number",
             "description": "Timestamp that the conversation reminder has been scheduled for"
           },
           "updated_at": {
-            "type": "integer",
+            "type": "number",
             "description": "Timestamp at which the conversation reminder has been updated"
           }
         }
@@ -2739,10 +2739,10 @@
             "$ref": "#/components/schemas/ShiftIntervals"
           },
           "created_at": {
-            "type": "integer"
+            "type": "number"
           },
           "updated_at": {
-            "type": "integer"
+            "type": "number"
           }
         }
       },
@@ -2878,11 +2878,11 @@
             "description": "Whether the tag is visible in conversation lists."
           },
           "created_at": {
-            "type": "integer",
+            "type": "number",
             "description": "Timestamp of tag create creation"
           },
           "updated_at": {
-            "type": "integer",
+            "type": "number",
             "description": "Timestamp of the last tag update"
           }
         }

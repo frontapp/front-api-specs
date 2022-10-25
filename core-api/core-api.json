@@ -2058,14 +2058,20 @@
             "type": "string",
             "description": "Type of the message",
             "enum": [
+              "custom",
               "email",
-              "tweet",
-              "sms",
-              "smooch",
-              "facebook",
+              "googleplay",
               "intercom",
-              "truly-call",
-              "custom"
+              "internal",
+              "smooch",
+              "phone-call",
+              "call",
+              "sms",
+              "tweet",
+              "tweet_dm",
+              "whatsapp",
+              "yalo_wha",
+              "front_chat"
             ]
           },
           "is_inbound": {

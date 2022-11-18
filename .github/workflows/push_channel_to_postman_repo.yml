@@ -1,0 +1,36 @@
+name: Copy Channel OpenAPI schema to Postman repo
+on:
+  push:
+    branches:
+      - prod
+    paths:
+      - channel-api
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+      
+    steps:
+      - name: checkout front-api-specs repo
+        uses: actions/checkout@v3
+        with:
+          path: ./front-api-specs
+
+      - name: checkout postman-channel-api repo
+        uses: actions/checkout@v3
+        with: 
+          repository: frontapp/postman-channel-api
+          token: ${{ secrets.GH_POSTMAN_COPY }}
+          path: ./postman-channel-api
+
+      - name: copy specs to postman repo
+        run: |
+          cp ./channel-api/channel-api.json ./postman-channel-api/channel-api.json
+
+      - name: push changes to postman repo
+        run: |
+          cd ./postman-channel-api
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git commit -am "Update OpenAPI schema" || true
+          git push

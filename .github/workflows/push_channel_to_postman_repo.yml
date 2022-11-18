@@ -25,7 +25,7 @@ jobs:
 
       - name: copy specs to postman repo
         run: |
-          cp ./channel-api/channel-api.json ./postman-channel-api/channel-api.json
+          cp ./front-api-specs/channel-api/channel-api.json ./postman-channel-api/channel-api.json
 
       - name: push changes to postman repo
         run: |

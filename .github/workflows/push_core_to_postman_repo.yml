@@ -25,7 +25,7 @@ jobs:
 
       - name: copy specs to postman repo
         run: |
-          cp ./core-api/core-api.json ./postman-core-api/core-api.json
+          cp ./front-api-specs/core-api/core-api.json ./postman-core-api/core-api.json
 
       - name: push changes to postman repo
         run: |

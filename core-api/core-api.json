@@ -6358,7 +6358,13 @@
             "$ref": "#/components/parameters/activityQuery"
           },
           {
-            "$ref": "#/components/parameters/limit"
+            "in": "query",
+            "name": "limit",
+            "description": "Max number of results per page (max 15)",
+            "schema": {
+              "type": "integer",
+              "default": 15
+            }
           },
           {
             "$ref": "#/components/parameters/pageToken"

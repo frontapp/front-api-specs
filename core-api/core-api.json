@@ -933,6 +933,10 @@
               "all_teammates_can_reply": {
                 "type": "boolean",
                 "description": "Whether teammates without inbox access can reply on this channel. Only allowed for shared channels."
+              },
+              "webhook_url": {
+                "type": "string",
+                "description": "The webhook URL outbound messages should be sent to. Only allowed for \"custom\" type channels."
               }
             }
           },

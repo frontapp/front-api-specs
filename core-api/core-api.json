@@ -3100,7 +3100,7 @@
             "description": "ID of the teammate to create a reminder for. For a private conversation, specify the id of the teammate that owns the conversation. For a shared conversation, use the id of any teammate that has access to the conversation's shared inbox."
           },
           "scheduled_at": {
-            "type": "string",
+            "type": "number",
             "description": "Timestamp to schedule the reminder for. Set to null to cancel."
           }
         }

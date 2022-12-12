@@ -3025,6 +3025,10 @@
             "type": "string",
             "description": "Name of the channel"
           },
+          "inbox_id": {
+            "type": "string",
+            "description": "ID of the inbox to move this channel to"
+          },
           "settings": {
             "type": "object",
             "description": "Settings to replace.\nFor custom channels, all settings may be replaced.\nFor all other channels, only `undo_send_time` and `all_teammates_can_reply` may be replaced.\n",

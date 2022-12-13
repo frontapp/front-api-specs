@@ -3027,7 +3027,7 @@
           },
           "inbox_id": {
             "type": "string",
-            "description": "ID of the inbox to move this channel to"
+            "description": "ID of the inbox to move this channel to. Will also move corresponding conversations."
           },
           "settings": {
             "type": "object",

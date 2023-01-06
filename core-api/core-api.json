@@ -1350,6 +1350,14 @@
               "description": "The specific inboxes this template is available in. If unspecified or null, then it will be available in all inboxes. Array should be non-empty."
             },
             "example": null
+          },
+          "attachments": {
+            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://dev.frontapp.com/docs/attachments-1).",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "binary"
+            }
           }
         }
       },
@@ -3152,6 +3160,14 @@
             "items": {
               "type": "string",
               "description": "The specific inboxes this template is available in. If null, then it will be available in all inboxes. Array should be non-empty. If unspecified, will retain previous value."
+            }
+          },
+          "attachments": {
+            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://dev.frontapp.com/docs/attachments-1). Specify an empty array to delete all attachments from a message template. If unspecified, it will retain previous value.",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "binary"
             }
           }
         }

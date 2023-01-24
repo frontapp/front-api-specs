@@ -875,6 +875,10 @@
               "$ref": "#/components/schemas/LinkResponse"
             }
           },
+          "custom_fields": {
+            "type": "object",
+            "description": "Custom Attributes for this conversation"
+          },
           "created_at": {
             "type": "number",
             "description": "Timestamp at which the conversation have been created."

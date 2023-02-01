@@ -877,7 +877,7 @@
           },
           "custom_fields": {
             "type": "object",
-            "description": "Custom Attributes for this conversation"
+            "description": "Custom field attributes for this conversation"
           },
           "created_at": {
             "type": "number",
@@ -3091,6 +3091,10 @@
             "items": {
               "$ref": "#/components/schemas/ResourceID"
             }
+          },
+          "custom_fields": {
+            "type": "object",
+            "description": "Custom field attributes for this conversation. Do not include the custom_fields object if you do not wish to update the attributes. Including the custom_fields object with empty values will automatically remove the unspecified fields from the conversation."
           }
         }
       },

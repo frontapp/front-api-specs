@@ -5493,7 +5493,7 @@
     "/conversations": {
       "get": {
         "summary": "List conversations",
-        "description": "List the conversations in the company in reverse chronological order (most recently updated first). For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n",
+        "description": "List the conversations in the company in reverse chronological order (most recently updated first). The order will respect your company's [bump settings](https://help.front.com/t/y729th/customize-when-conversations-bump-up), which determine when conversations bump to the top. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n",
         "operationId": "list-conversations",
         "tags": [
           "Conversations"
@@ -5787,7 +5787,7 @@
     "/conversations/{conversation_id}/events": {
       "get": {
         "summary": "List conversation events",
-        "description": "List the events that occured for a conversation in reverse chronological order (newest first).",
+        "description": "List the events that occured for a conversation in reverse chronological order (newest first). The order will respect your company's [bump settings](https://help.front.com/t/y729th/customize-when-conversations-bump-up), which determine when conversations bump to the top.",
         "tags": [
           "Conversations"
         ],
@@ -6381,7 +6381,7 @@
     "/events": {
       "get": {
         "summary": "List events",
-        "description": "Lists all the detailed events which occured in the inboxes of the company ordered in reverse chronological order (newest first).\n> ⚠️ Deprecated field may be included\n>\n> This route return the deprecated `last_message` conversation field for conversations\n> associated with individual events. Please use the conversation's\n> `_links.related.last_message` field instead.\n",
+        "description": "Lists all the detailed events which occured in the inboxes of the company ordered in reverse chronological order (newest first).\nRefer to the [Events](https://dev.frontapp.com/reference/events) topic for more information, including sorting and filtering.\n> ⚠️ Deprecated field may be included\n>\n> This route return the deprecated `last_message` conversation field for conversations\n> associated with individual events. Please use the conversation's\n> `_links.related.last_message` field instead.\n",
         "tags": [
           "Events"
         ],
@@ -6412,7 +6412,7 @@
     "/events/{event_id}": {
       "get": {
         "summary": "Get event",
-        "description": "Fetch an event.\n> ⚠️ Deprecated field may be included\n>\n> This route return the deprecated `last_message` conversation field for conversations\n> associated with individual events. Please use the conversation's\n> `_links.related.last_message` field instead.\n",
+        "description": "Fetch an event.\nRefer to the [Events](https://dev.frontapp.com/reference/events) topic for more information, including sorting and filtering.\n> ⚠️ Deprecated field may be included\n>\n> This route return the deprecated `last_message` conversation field for conversations\n> associated with individual events. Please use the conversation's\n> `_links.related.last_message` field instead.\n",
         "tags": [
           "Events"
         ],

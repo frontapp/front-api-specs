@@ -970,7 +970,7 @@
           },
           "body": {
             "type": "string",
-            "description": "Content of the comment"
+            "description": "Content of the comment. Can include markdown formatting."
           },
           "attachments": {
             "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb).",

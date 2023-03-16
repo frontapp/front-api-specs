@@ -2431,6 +2431,10 @@
             "type": "string",
             "description": "Text version of the body for email messages"
           },
+          "quote_body": {
+            "type": "string",
+            "description": "Body for the quote that the message is referencing. Only available on email channels."
+          },
           "options": {
             "type": "object",
             "properties": {

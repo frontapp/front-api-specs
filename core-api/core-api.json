@@ -5000,6 +5000,56 @@
         }
       }
     },
+    "/company/rules": {
+      "get": {
+        "summary": "List all company rules",
+        "description": "List the company rules.",
+        "tags": [
+          "Rules"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfRules"
+          }
+        }
+      }
+    },
+    "/company/tags": {
+      "get": {
+        "summary": "List company tags",
+        "description": "List the company tags.",
+        "tags": [
+          "Tags"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfTags"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create company tag",
+        "description": "Create a company tag.",
+        "tags": [
+          "Tags"
+        ],
+        "requestBody": {
+          "description": "Tag to create",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTag"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/tag"
+          }
+        }
+      }
+    },
     "/contact_groups": {
       "get": {
         "summary": "List groups",
@@ -7330,7 +7380,7 @@
     },
     "/rules": {
       "get": {
-        "summary": "List rule",
+        "summary": "List rules",
         "description": "List the rules of the company.",
         "tags": [
           "Rules"
@@ -8276,7 +8326,7 @@
     },
     "/teammates/{teammate_id}/rules": {
       "get": {
-        "summary": "List teammate rule",
+        "summary": "List teammate rules",
         "description": "List the rules of a teammate.",
         "tags": [
           "Rules"

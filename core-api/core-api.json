@@ -7698,7 +7698,7 @@
     "/tags": {
       "get": {
         "summary": "List tags",
-        "description": "List the tags of the company.",
+        "description": "List all the tags of the company that the API token has access to, whether they be company tags, team tags, or teammate tags.",
         "tags": [
           "Tags"
         ],
@@ -7710,7 +7710,7 @@
       },
       "post": {
         "summary": "Create tag",
-        "description": "Create a tag.",
+        "description": "Create a tag in the oldest team. This is a legacy endpoint. Use the Create company tag, Create team tag, or Create teammate tag endpoints instead.",
         "tags": [
           "Tags"
         ],

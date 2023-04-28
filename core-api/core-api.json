@@ -1986,6 +1986,10 @@
           "is_private": {
             "type": "boolean",
             "description": "Whether or not the inbox is individual"
+          },
+          "custom_fields": {
+            "type": "object",
+            "description": "Custom field attributes for this inbox"
           }
         }
       },
@@ -3032,6 +3036,10 @@
           "is_blocked": {
             "type": "boolean",
             "description": "Whether or not the teammate account has been blocked"
+          },
+          "custom_fields": {
+            "type": "object",
+            "description": "Custom field attributes for this teammate"
           }
         }
       },

@@ -484,15 +484,26 @@
             "type": "string",
             "description": "Type of the channel",
             "enum": [
-              "smtp",
-              "imap",
-              "twilio",
-              "twitter",
+              "custom",
               "facebook",
-              "smooch",
+              "gmail",
+              "google_play",
+              "imap",
               "intercom",
+              "form",
+              "office365",
+              "layer_anon",
+              "smooch",
+              "smtp",
+              "talkdesk",
               "truly",
-              "custom"
+              "twilio",
+              "twilio_whatsapp",
+              "twitter",
+              "twitter_dm",
+              "yalo_wha",
+              "front_chat",
+              "front_mail"
             ]
           },
           "send_as": {

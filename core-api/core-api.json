@@ -952,6 +952,14 @@
               "webhook_url": {
                 "type": "string",
                 "description": "The webhook URL outbound messages should be sent to. Only allowed for \"custom\" type channels."
+              },
+              "sid": {
+                "type": "string",
+                "description": "The SID of the Twilio channel. Only allowed for \"twilio\" type channels."
+              },
+              "auth_token": {
+                "type": "string",
+                "description": "The auth token for the Twilio account. Only allowed for \"twilio\" type channels."
               }
             }
           },

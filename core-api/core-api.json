@@ -3366,7 +3366,7 @@
       "activityQuery": {
         "name": "q",
         "in": "query",
-        "description": "Search query object with optional properties `before`, `after`, or `types`. `before` and `after` should be a timestamp in seconds with up to 3 decimal places. `types` should be a list of event types.",
+        "description": "[Search query object](https://dev.frontapp.com/docs/query-object-q) with optional properties `before`, `after`, or `types`. `before` and `after` should be a timestamp in seconds with up to 3 decimal places. `types` should be a list of [event types](https://dev.frontapp.com/reference/events).",
         "schema": {
           "type": "string"
         }
@@ -3374,7 +3374,7 @@
       "cardQuery": {
         "name": "q",
         "in": "query",
-        "description": "Search query object with the optional properties `updated_after` and `updated_before`, whose value should be a timestamp in seconds with up to 3 decimal places.",
+        "description": "[Search query object](https://dev.frontapp.com/docs/query-object-q) with the optional properties `updated_after` and `updated_before`, whose value should be a timestamp in seconds with up to 3 decimal places.",
         "schema": {
           "type": "string"
         }
@@ -3382,7 +3382,7 @@
       "conversationQuery": {
         "name": "q",
         "in": "query",
-        "description": "Search query object with a property `statuses`, whose value should be a list of conversation statuses (`assigned`, `unassigned`, `archived`, or `deleted`).",
+        "description": "[Search query object](https://dev.frontapp.com/docs/query-object-q) with a property `statuses`, whose value should be a list of conversation statuses (`assigned`, `unassigned`, `archived`, or `deleted`).",
         "schema": {
           "type": "string"
         }
@@ -3390,7 +3390,7 @@
       "topicQuery": {
         "name": "q",
         "in": "query",
-        "description": "Search query object with a property `types`, whose value should be a list of link types (examples - `web`, `jira`, `asana` ).",
+        "description": "[Search query object](https://dev.frontapp.com/docs/query-object-q) with a property `types`, whose value should be a list of link types (examples - `web`, `jira`, `asana` ).",
         "schema": {
           "type": "string"
         }

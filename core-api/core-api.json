@@ -1147,6 +1147,10 @@
             "type": "string",
             "description": "Body of the draft"
           },
+          "quote_body": {
+            "type": "string",
+            "description": "Body for the quote that the message is referencing. Only available on email channels."
+          },
           "attachments": {
             "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb).",
             "type": "array",

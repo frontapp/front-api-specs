@@ -7963,7 +7963,7 @@
             "in": "path",
             "name": "teammate_id",
             "required": true,
-            "description": "The teammate ID",
+            "description": "The teammate ID. Alternatively, you can supply an email as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "tea_123"
@@ -7987,7 +7987,7 @@
             "in": "path",
             "name": "teammate_id",
             "required": true,
-            "description": "The teammate ID",
+            "description": "The teammate ID. Alternatively, you can supply an email as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "tea_123"
@@ -8022,7 +8022,7 @@
             "in": "path",
             "name": "teammate_id",
             "required": true,
-            "description": "The teammate ID",
+            "description": "The teammate ID. Alternatively, you can supply an email as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "tea_123"
@@ -8048,7 +8048,7 @@
             "in": "path",
             "name": "teammate_id",
             "required": true,
-            "description": "The teammate ID",
+            "description": "The teammate ID. Alternatively, you can supply an email as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "tea_123"
@@ -8072,7 +8072,7 @@
             "in": "path",
             "name": "teammate_id",
             "required": true,
-            "description": "The teammate ID",
+            "description": "The teammate ID. Alternatively, you can supply an email as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "tea_123"
@@ -8107,7 +8107,7 @@
             "in": "path",
             "name": "teammate_id",
             "required": true,
-            "description": "The teammate ID",
+            "description": "The teammate ID. Alternatively, you can supply an email as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "tea_123"
@@ -8146,7 +8146,7 @@
             "in": "path",
             "name": "teammate_id",
             "required": true,
-            "description": "The teammate ID",
+            "description": "The teammate ID. Alternatively, you can supply an email as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "tea_123"
@@ -8181,7 +8181,7 @@
             "in": "path",
             "name": "teammate_id",
             "required": true,
-            "description": "The teammate ID",
+            "description": "The teammate ID. Alternatively, you can supply an email as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "tea_123"
@@ -8217,7 +8217,7 @@
             "in": "path",
             "name": "teammate_id",
             "required": true,
-            "description": "The teammate ID",
+            "description": "The teammate ID. Alternatively, you can supply an email as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "tea_123"
@@ -8243,7 +8243,7 @@
             "in": "path",
             "name": "teammate_id",
             "required": true,
-            "description": "The teammate ID",
+            "description": "The teammate ID. Alternatively, you can supply an email as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "tea_123"
@@ -8277,7 +8277,7 @@
             "in": "path",
             "name": "teammate_id",
             "required": true,
-            "description": "The teammate ID",
+            "description": "The teammate ID. Alternatively, you can supply an email as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "tea_123"
@@ -8303,7 +8303,7 @@
             "in": "path",
             "name": "teammate_id",
             "required": true,
-            "description": "The teammate ID",
+            "description": "The teammate ID. Alternatively, you can supply an email as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "tea_123"
@@ -8337,7 +8337,7 @@
             "in": "path",
             "name": "teammate_id",
             "required": true,
-            "description": "The teammate ID",
+            "description": "The teammate ID. Alternatively, you can supply an email as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "tea_123"
@@ -8363,7 +8363,7 @@
             "in": "path",
             "name": "teammate_id",
             "required": true,
-            "description": "The teammate ID",
+            "description": "The teammate ID. Alternatively, you can supply an email as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "tea_123"
@@ -8389,7 +8389,7 @@
             "in": "path",
             "name": "teammate_id",
             "required": true,
-            "description": "The teammate ID",
+            "description": "The teammate ID. Alternatively, you can supply an email as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "tea_123"
@@ -8415,7 +8415,7 @@
             "in": "path",
             "name": "teammate_id",
             "required": true,
-            "description": "The teammate ID",
+            "description": "The teammate ID. Alternatively, you can supply an email as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "tea_123"
@@ -8449,7 +8449,7 @@
             "in": "path",
             "name": "teammate_id",
             "required": true,
-            "description": "The teammate ID",
+            "description": "The teammate ID. Alternatively, you can supply an email as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "tea_123"
@@ -8475,7 +8475,7 @@
             "in": "path",
             "name": "teammate_id",
             "required": true,
-            "description": "The teammate ID",
+            "description": "The teammate ID. Alternatively, you can supply an email as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "tea_123"
@@ -8499,7 +8499,7 @@
             "in": "path",
             "name": "teammate_id",
             "required": true,
-            "description": "The teammate ID",
+            "description": "The teammate ID. Alternatively, you can supply an email as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "tea_123"
@@ -9034,7 +9034,7 @@
             "in": "path",
             "name": "team_id",
             "required": true,
-            "description": "The teammate ID",
+            "description": "The team ID",
             "schema": {
               "type": "string",
               "default": "tim_123"

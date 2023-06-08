@@ -4477,7 +4477,7 @@
             "in": "path",
             "name": "account_id",
             "required": true,
-            "description": "The Account ID",
+            "description": "The Account ID. Alternatively, you can supply the account domain or external ID as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "acc_123"
@@ -4501,7 +4501,7 @@
             "in": "path",
             "name": "account_id",
             "required": true,
-            "description": "The Account ID",
+            "description": "The Account ID. Alternatively, you can supply the account domain or external ID as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "acc_123"
@@ -4534,7 +4534,7 @@
             "in": "path",
             "name": "account_id",
             "required": true,
-            "description": "The Account ID",
+            "description": "The Account ID. Alternatively, you can supply the account domain or external ID as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "acc_123"
@@ -4560,7 +4560,7 @@
             "in": "path",
             "name": "account_id",
             "required": true,
-            "description": "The Account ID",
+            "description": "The Account ID. Alternatively, you can supply the account domain or external ID as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "acc_123"
@@ -4599,7 +4599,7 @@
             "in": "path",
             "name": "account_id",
             "required": true,
-            "description": "The Account ID",
+            "description": "The Account ID. Alternatively, you can supply the account domain or external ID as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "acc_123"
@@ -4632,7 +4632,7 @@
             "in": "path",
             "name": "account_id",
             "required": true,
-            "description": "The Account ID",
+            "description": "The Account ID. Alternatively, you can supply the account domain or external ID as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "acc_123"
@@ -4800,7 +4800,7 @@
             "in": "path",
             "name": "channel_id",
             "required": true,
-            "description": "The Channel ID",
+            "description": "The Channel ID. Alternatively, you can supply the channel address as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "cha_123"
@@ -4824,7 +4824,7 @@
             "in": "path",
             "name": "channel_id",
             "required": true,
-            "description": "The Channel ID",
+            "description": "The Channel ID. Alternatively, you can supply the channel address as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "cha_123"
@@ -4860,7 +4860,7 @@
             "in": "path",
             "name": "channel_id",
             "required": true,
-            "description": "The channel ID",
+            "description": "The channel ID. Alternatively, you can supply the channel address as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "cha_123"
@@ -4895,7 +4895,7 @@
             "in": "path",
             "name": "channel_id",
             "required": true,
-            "description": "The channel ID",
+            "description": "The channel ID. Alternatively, you can supply the channel address as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "cha_123"
@@ -4930,7 +4930,7 @@
             "in": "path",
             "name": "channel_id",
             "required": true,
-            "description": "The sending channel ID",
+            "description": "The sending channel ID. Alternatively, you can supply the sending channel address as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "cha_123"
@@ -4965,7 +4965,7 @@
             "in": "path",
             "name": "channel_id",
             "required": true,
-            "description": "The Channel ID",
+            "description": "The Channel ID. Alternatively, you can supply the channel address as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "cha_123"

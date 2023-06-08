@@ -218,7 +218,7 @@
             "in": "path",
             "name": "channel_id",
             "required": true,
-            "description": "The Channel ID",
+            "description": "The Channel ID. Alternatively, you can supply the channel address as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "cha_123"
@@ -254,7 +254,7 @@
             "in": "path",
             "name": "channel_id",
             "required": true,
-            "description": "The channel ID",
+            "description": "The channel ID. Alternatively, you can supply the channel address as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "cha_123"
@@ -289,7 +289,7 @@
             "in": "path",
             "name": "channel_id",
             "required": true,
-            "description": "The channel ID",
+            "description": "The channel ID. Alternatively, you can supply the channel address as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "cha_123"

@@ -4367,7 +4367,7 @@
                 },
                 "message_uid": {
                   "type": "string",
-                  "description": "Message unique identifier"
+                  "description": "Message unique identifier. You can use the message UID as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1) for the message ID."
                 }
               }
             }
@@ -5342,7 +5342,7 @@
             "in": "path",
             "name": "contact_id",
             "required": true,
-            "description": "The contact ID",
+            "description": "The contact ID. Alternatively, you can supply the contact's source and handle as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "crd_123"
@@ -5366,7 +5366,7 @@
             "in": "path",
             "name": "contact_id",
             "required": true,
-            "description": "The contact ID",
+            "description": "The contact ID. Alternatively, you can supply the contact's source and handle as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "crd_123"
@@ -5399,7 +5399,7 @@
             "in": "path",
             "name": "contact_id",
             "required": true,
-            "description": "The contact ID",
+            "description": "The contact ID. Alternatively, you can supply the contact's source and handle as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "crd_123"
@@ -5425,7 +5425,7 @@
             "in": "path",
             "name": "contact_id",
             "required": true,
-            "description": "The Contact ID",
+            "description": "The Contact ID. Alternatively, you can supply the contact's source and handle as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "crd_123"
@@ -5460,7 +5460,7 @@
             "in": "path",
             "name": "contact_id",
             "required": true,
-            "description": "The contact ID",
+            "description": "The contact ID. Alternatively, you can supply the contact's source and handle as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "crd_123"
@@ -5493,7 +5493,7 @@
             "in": "path",
             "name": "contact_id",
             "required": true,
-            "description": "The contact ID",
+            "description": "The contact ID. Alternatively, you can supply the contact's source and handle as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "crd_123"
@@ -5528,7 +5528,7 @@
             "in": "path",
             "name": "contact_id",
             "required": true,
-            "description": "The contact ID",
+            "description": "The contact ID. Alternatively, you can supply the contact's source and handle as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "crd_123"
@@ -5552,7 +5552,7 @@
             "in": "path",
             "name": "contact_id",
             "required": true,
-            "description": "The contact ID",
+            "description": "The contact ID. Alternatively, you can supply the contact's source and handle as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "schema": {
               "type": "string",
               "default": "crd_123"

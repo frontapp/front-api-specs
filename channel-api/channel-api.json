@@ -154,6 +154,10 @@
             "type": "string",
             "description": "Subject of the message"
           },
+          "author_id": {
+            "type": "string",
+            "description": "ID of the teammate on behalf of whom the message is sent"
+          },
           "body": {
             "type": "string",
             "description": "Body of the message"

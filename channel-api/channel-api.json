@@ -109,7 +109,7 @@
             "description": "Time in seconds at which message was created in external system"
           },
           "attachments": {
-            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb).",
+            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb) or read more about [Attachments](https://dev.frontapp.com/docs/attachments-1).",
             "type": "array",
             "items": {
               "type": "string",
@@ -186,7 +186,7 @@
             "description": "Time in seconds at which message was created in external system"
           },
           "attachments": {
-            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb).",
+            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb) or read more about [Attachments](https://dev.frontapp.com/docs/attachments-1).",
             "type": "array",
             "items": {
               "type": "string",

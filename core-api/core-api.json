@@ -605,7 +605,7 @@
           },
           "avatar": {
             "type": "string",
-            "description": "Binary data of avatar. Must use `Content-Type: multipart/form-data` if specified.",
+            "description": "Binary data of avatar. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb) or read more about [Attachments](https://dev.frontapp.com/docs/attachments-1).",
             "format": "binary"
           },
           "is_spammer": {
@@ -992,7 +992,7 @@
             "description": "Content of the comment. Can include markdown formatting."
           },
           "attachments": {
-            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb).",
+            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb) or read more about [Attachments](https://dev.frontapp.com/docs/attachments-1).",
             "type": "array",
             "items": {
               "type": "string",
@@ -1097,7 +1097,7 @@
                 "type": "string"
               },
               "attachments": {
-                "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb).",
+                "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb) or read more about [Attachments](https://dev.frontapp.com/docs/attachments-1).",
                 "type": "array",
                 "items": {
                   "type": "string",
@@ -1152,7 +1152,7 @@
             "description": "Body for the quote that the message is referencing. Only available on email channels."
           },
           "attachments": {
-            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb).",
+            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb) or read more about [Attachments](https://dev.frontapp.com/docs/attachments-1).",
             "type": "array",
             "items": {
               "type": "string",
@@ -1597,7 +1597,7 @@
             }
           },
           "attachments": {
-            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb).",
+            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb) or read more about [Attachments](https://dev.frontapp.com/docs/attachments-1).",
             "type": "array",
             "items": {
               "type": "string",
@@ -1943,7 +1943,7 @@
             }
           },
           "attachments": {
-            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb).",
+            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb) or read more about [Attachments](https://dev.frontapp.com/docs/attachments-1).",
             "type": "array",
             "items": {
               "type": "string",
@@ -2391,7 +2391,7 @@
             }
           },
           "attachments": {
-            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb).",
+            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb) or read more about [Attachments](https://dev.frontapp.com/docs/attachments-1).",
             "type": "array",
             "items": {
               "type": "string",
@@ -2480,7 +2480,7 @@
             }
           },
           "attachments": {
-            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb).",
+            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb) or read more about [Attachments](https://dev.frontapp.com/docs/attachments-1).",
             "type": "array",
             "items": {
               "type": "string",

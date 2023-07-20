@@ -3095,6 +3095,10 @@
               "all_teammates_can_reply": {
                 "type": "boolean",
                 "description": "Whether teammates without inbox access can reply on this channel. Only allowed for shared channels."
+              },
+              "webhook_url": {
+                "type": "string",
+                "description": "The webhook URL outbound messages should be sent to. Only allowed for \"custom\" type channels."
               }
             }
           }
@@ -7426,7 +7430,7 @@
     "/rules/{rule_id}": {
       "get": {
         "summary": "Get rule",
-        "description": "Fetche a rule.",
+        "description": "Fetch a rule.",
         "tags": [
           "Rules"
         ],
@@ -7765,7 +7769,7 @@
     "/tags/{tag_id}": {
       "get": {
         "summary": "Get tag",
-        "description": "Fetche a tag.",
+        "description": "Fetch a tag.",
         "tags": [
           "Tags"
         ],

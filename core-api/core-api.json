@@ -5056,6 +5056,14 @@
         "tags": [
           "Tags"
         ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/pageToken"
+          }
+        ],
         "responses": {
           "200": {
             "$ref": "#/components/responses/listOfTags"
@@ -7737,6 +7745,14 @@
         "tags": [
           "Tags"
         ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/pageToken"
+          }
+        ],
         "responses": {
           "200": {
             "$ref": "#/components/responses/listOfTags"
@@ -8488,6 +8504,12 @@
               "type": "string",
               "default": "tea_123"
             }
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/pageToken"
           }
         ],
         "responses": {
@@ -9073,6 +9095,12 @@
               "type": "string",
               "default": "tim_123"
             }
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/pageToken"
           }
         ],
         "responses": {

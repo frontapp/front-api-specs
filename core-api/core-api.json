@@ -3406,7 +3406,7 @@
       "pageToken": {
         "name": "page_token",
         "in": "query",
-        "description": "Token to use to request the next page",
+        "description": "Token to use to request the [next page](https://dev.frontapp.com/docs/pagination)",
         "schema": {
           "type": "string"
         }
@@ -3414,7 +3414,7 @@
       "limit": {
         "name": "limit",
         "in": "query",
-        "description": "Max number of results per page",
+        "description": "Max number of results per [page](https://dev.frontapp.com/docs/pagination)",
         "schema": {
           "type": "integer",
           "maximum": 100
@@ -3454,7 +3454,7 @@
                   "properties": {
                     "next": {
                       "type": "string",
-                      "description": "Link to next page of results"
+                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)"
                     }
                   }
                 },
@@ -3490,7 +3490,7 @@
                   "properties": {
                     "next": {
                       "type": "string",
-                      "description": "Link to next page of results"
+                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)"
                     }
                   }
                 },
@@ -3526,7 +3526,7 @@
                   "properties": {
                     "next": {
                       "type": "string",
-                      "description": "Link to next page of results"
+                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)"
                     }
                   }
                 },
@@ -3697,7 +3697,7 @@
                   "properties": {
                     "next": {
                       "type": "string",
-                      "description": "Link to next page of results"
+                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)"
                     }
                   }
                 },
@@ -3733,7 +3733,7 @@
                   "properties": {
                     "next": {
                       "type": "string",
-                      "description": "Link to next page of results"
+                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)"
                     }
                   }
                 },
@@ -3823,7 +3823,7 @@
                   "properties": {
                     "next": {
                       "type": "string",
-                      "description": "Link to next page of results"
+                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)"
                     }
                   }
                 },
@@ -3859,7 +3859,7 @@
                   "properties": {
                     "next": {
                       "type": "string",
-                      "description": "Link to next page of results"
+                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)"
                     }
                   }
                 },
@@ -3895,7 +3895,7 @@
                   "properties": {
                     "next": {
                       "type": "string",
-                      "description": "Link to next page of results"
+                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)"
                     }
                   }
                 },
@@ -3931,7 +3931,7 @@
                   "properties": {
                     "next": {
                       "type": "string",
-                      "description": "Link to next page of results"
+                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)"
                     }
                   }
                 },
@@ -3962,7 +3962,7 @@
                   "properties": {
                     "next": {
                       "type": "string",
-                      "description": "Link to next page of results"
+                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)"
                     }
                   }
                 },

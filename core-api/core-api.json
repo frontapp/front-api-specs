@@ -5648,7 +5648,7 @@
             "in": "path",
             "name": "query",
             "required": true,
-            "description": "Search query string. See available Conversation Search Parameters below",
+            "description": "Search query string. See [Search](https://dev.frontapp.com/docs/search-1) topic for usage details.",
             "schema": {
               "type": "string",
               "default": "inbox%3Ainb_123%20tag%3Atag_345"

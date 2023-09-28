@@ -1534,10 +1534,38 @@
               "string",
               "boolean",
               "datetime",
-              "number"
+              "number",
+              "teammate",
+              "teammate_list",
+              "inbox",
+              "enum"
             ]
+          },
+          "values": {
+            "type": "array",
+            "description": "List of possible values for a custom field of type `enum`.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "description": "Value of the custom field"
+                },
+                "label": {
+                  "type": "string",
+                  "description": "Human readable label for the value"
+                }
+              }
+            }
           }
-        }
+        },
+        "required": [
+          "_links",
+          "id",
+          "name",
+          "type",
+          "description"
+        ]
       },
       "CustomMessage": {
         "required": [
@@ -3164,18 +3192,6 @@
           }
         }
       },
-      "UpdateCustomField": {
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "Name of the custom field"
-          },
-          "description": {
-            "type": "string",
-            "description": "Description of the custom field"
-          }
-        }
-      },
       "UpdateLink": {
         "properties": {
           "name": {
@@ -4469,6 +4485,21 @@
         }
       }
     },
+    "/accounts/custom_fields": {
+      "get": {
+        "summary": "List Account's custom fields",
+        "description": "Lists the custom fields that can be attached to an Account.",
+        "operationId": "list-account-custom-fields",
+        "tags": [
+          "Custom Fields"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfCustomFields"
+          }
+        }
+      }
+    },
     "/accounts/{account_id}": {
       "get": {
         "summary": "Fetch an account",
@@ -5307,7 +5338,7 @@
     "/contacts/custom_fields": {
       "get": {
         "summary": "List Contact's custom fields",
-        "description": "Lists the custom fields in your company that are application to a Contact.",
+        "description": "Lists the custom fields that can be attached to a Contact.",
         "operationId": "list-contact-custom-fields",
         "tags": [
           "Custom Fields"
@@ -5631,6 +5662,21 @@
         "responses": {
           "201": {
             "$ref": "#/components/responses/conversation"
+          }
+        }
+      }
+    },
+    "/conversations/custom_fields": {
+      "get": {
+        "summary": "List Conversation's custom fields",
+        "description": "Lists the custom fields that can be attached to a Conversation.",
+        "operationId": "list-conversation-custom-fields",
+        "tags": [
+          "Custom Fields"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfCustomFields"
           }
         }
       }
@@ -6333,7 +6379,7 @@
       "get": {
         "deprecated": true,
         "summary": "List Contact's custom fields",
-        "description": "Lists the custom fields in your company that are application to a Contact.\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the fully compatible `GET /contacts/custom_fields` endpoint instead.\n",
+        "description": "Lists the custom fields that can be attached to a Contact.\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the fully compatible `GET /contacts/custom_fields` endpoint instead.\n",
         "operationId": "list-custom-fields",
         "tags": [
           "Custom Fields"
@@ -6341,43 +6387,6 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/listOfCustomFields"
-          }
-        }
-      }
-    },
-    "/custom_fields/{custom_field_id}": {
-      "patch": {
-        "deprecated": true,
-        "summary": "Update custom field",
-        "description": "Update a custom field. (⚠️ Deprecated)",
-        "tags": [
-          "Custom Fields"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "custom_field_id",
-            "required": true,
-            "description": "Custom Field ID",
-            "schema": {
-              "type": "string",
-              "default": "fld_123"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "Custom field",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateCustomField"
-              }
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "No content"
           }
         }
       }

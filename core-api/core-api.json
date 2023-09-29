@@ -6580,6 +6580,21 @@
         }
       }
     },
+    "/inboxes/custom_fields": {
+      "get": {
+        "summary": "List Inbox's custom fields",
+        "description": "Lists the custom fields that can be attached to an Inbox.",
+        "operationId": "list-inbox-custom-fields",
+        "tags": [
+          "Custom Fields"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfCustomFields"
+          }
+        }
+      }
+    },
     "/inboxes/{inbox_id}": {
       "get": {
         "summary": "Get inbox",
@@ -7351,7 +7366,7 @@
     "/messages/{message_id}": {
       "get": {
         "summary": "Get message",
-        "description": "Fetch a message.",
+        "description": "Fetch a message.\n\n> ℹ️ The HTTP Header `Accept` can be used to request the message in a different format.\n> By default, Front will return the documented JSON response. By requesting `message/rfc822`, the response will contain the message in the EML format (for email messages only).\n",
         "tags": [
           "Messages"
         ],
@@ -7983,6 +7998,21 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/listOfTeammates"
+          }
+        }
+      }
+    },
+    "/teammates/custom_fields": {
+      "get": {
+        "summary": "List Teammate's custom fields",
+        "description": "Lists the custom fields that can be attached to a Teammate.",
+        "operationId": "list-teammate-custom-fields",
+        "tags": [
+          "Custom Fields"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfCustomFields"
           }
         }
       }

@@ -5393,7 +5393,7 @@
           }
         ],
         "responses": {
-          "201": {
+          "200": {
             "$ref": "#/components/responses/contact"
           }
         }

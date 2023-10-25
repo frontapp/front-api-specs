@@ -2935,6 +2935,10 @@
             "type": "string",
             "description": "Name of the tag"
           },
+          "description": {
+            "type": "string",
+            "description": "Description of the tag"
+          },
           "highlight": {
             "type": "string",
             "description": "Highlight color of the tag.",
@@ -7853,7 +7857,7 @@
           }
         ],
         "requestBody": {
-          "description": "Child Tag to create",
+          "description": "Child Tag to update",
           "content": {
             "application/json": {
               "schema": {

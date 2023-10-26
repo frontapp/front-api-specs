@@ -1482,6 +1482,10 @@
             "type": "string",
             "description": "Name of the tag"
           },
+          "description": {
+            "type": "string",
+            "description": "Description of the tag"
+          },
           "highlight": {
             "type": "string",
             "description": "Highlight color of the tag.",
@@ -3332,6 +3336,10 @@
           "name": {
             "type": "string",
             "description": "Name of the tag"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the tag"
           },
           "highlight": {
             "type": "string",

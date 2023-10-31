@@ -975,7 +975,7 @@
           },
           "send_as": {
             "type": "string",
-            "description": "Sending address of your channel"
+            "description": "Sending address of your channel. Required for SMTP channels."
           }
         }
       },

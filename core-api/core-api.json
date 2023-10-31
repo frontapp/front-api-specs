@@ -188,6 +188,7 @@
             "enum": [
               "running",
               "done",
+              "too_big",
               "failed"
             ],
             "description": "Status of the analytics"

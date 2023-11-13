@@ -2077,6 +2077,10 @@
           "external_url": {
             "type": "string",
             "description": "Underlying identifying external URL of the link"
+          },
+          "custom_fields": {
+            "type": "object",
+            "description": "Custom field attributes for this link"
           }
         }
       },
@@ -6902,6 +6906,21 @@
         "responses": {
           "201": {
             "$ref": "#/components/responses/link"
+          }
+        }
+      }
+    },
+    "/links/custom_fields": {
+      "get": {
+        "summary": "List Link's custom fields",
+        "description": "Lists the custom fields that can be attached to a Link.",
+        "operationId": "list-link-custom-fields",
+        "tags": [
+          "Custom Fields"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfCustomFields"
           }
         }
       }

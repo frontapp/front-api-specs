@@ -37,9 +37,9 @@
           },
           "domains": {
             "type": "array",
+            "description": "List of domains associated with the Account",
             "items": {
-              "type": "string",
-              "description": "List of domains associated to be associated the Account"
+              "type": "string"
             }
           },
           "external_id": {
@@ -73,14 +73,16 @@
             "properties": {
               "self": {
                 "type": "string",
-                "description": "Link to resource"
+                "description": "Link to resource",
+                "example": "https://yourCompany.api.frontapp.com/accounts/acc_76"
               },
               "related": {
                 "type": "object",
                 "properties": {
                   "contacts": {
                     "type": "string",
-                    "description": "Link to contacts associated to the account"
+                    "description": "Link to contacts associated to the account",
+                    "example": "https://yourCompany.api.frontapp.com/accounts/acc_76/contacts"
                   }
                 }
               }
@@ -88,42 +90,57 @@
           },
           "id": {
             "type": "string",
-            "description": "Unique identifier of the account"
+            "description": "Unique identifier of the account",
+            "example": "acc_76"
           },
           "name": {
             "type": "string",
-            "description": "Account name"
+            "description": "Account name",
+            "example": "Dunder Mifflin, Inc."
           },
           "logo_url": {
             "type": "string",
-            "description": "URL of the Account's logo"
+            "description": "URL of the Account's logo",
+            "example": "https://yourCompany.api.frontapp.com/accounts/acc_aq/logo-1654309308278"
           },
           "description": {
             "type": "string",
-            "description": "Account Description"
+            "description": "Account Description",
+            "example": "Limitless Paper in a Paperless World"
           },
           "domains": {
             "type": "array",
+            "description": "List of domains associated to the Account",
             "items": {
               "type": "string",
-              "description": "List of domains associated to the Account"
+              "example": [
+                "dundermifflininc.com",
+                "limitlesspaper.com"
+              ]
             }
           },
           "external_id": {
             "type": "string",
-            "description": "ID of the Account in an External system, such as your backoffice system or CRM"
+            "description": "ID of the Account in an External system, such as your backoffice system or CRM",
+            "example": 8739674733
           },
           "custom_fields": {
             "type": "object",
-            "description": "Custom Attributes for this account"
+            "description": "Custom Attributes for this account",
+            "example": {
+              "employees": 36,
+              "headquarters": "New York City"
+            }
           },
           "created_at": {
             "type": "number",
-            "description": "Timestamp when the account was created"
+            "description": "Timestamp when the account was created",
+            "example": 1622672452.363
           },
           "updated_at": {
             "type": "number",
-            "description": "Timestamp when the account was updated"
+            "description": "Timestamp when the account was updated",
+            "example": 1654309308.278
           }
         }
       },
@@ -640,18 +657,21 @@
             "properties": {
               "self": {
                 "type": "string",
-                "description": "Link to resource"
+                "description": "Link to resource",
+                "example": "https://yourCompany.api.frontapp.com/contact_groups/grp_3j342"
               },
               "related": {
                 "type": "object",
                 "properties": {
                   "contacts": {
                     "type": "string",
-                    "description": "Link to group contacts"
+                    "description": "Link to group contacts",
+                    "example": "https://yourCompany.api.frontapp.com/contact_groups/grp_3j342/contacts"
                   },
                   "owner": {
                     "type": "string",
-                    "description": "Link to group owner"
+                    "description": "Link to group owner",
+                    "example": "https://yourCompany.api.frontapp.com/teammates/tea_e35u"
                   }
                 }
               }
@@ -659,15 +679,18 @@
           },
           "id": {
             "type": "string",
-            "description": "Unique identifier of the group"
+            "description": "Unique identifier of the group",
+            "example": "grp_3j342"
           },
           "name": {
             "type": "string",
-            "description": "Name of the group"
+            "description": "Name of the group",
+            "example": "Party Planning Committee"
           },
           "is_private": {
             "type": "boolean",
-            "description": "Whether or not the contact is individual"
+            "description": "Whether or not the contact is individual",
+            "example": false
           }
         }
       },
@@ -680,7 +703,8 @@
         "properties": {
           "handle": {
             "type": "string",
-            "description": "Handle used to reach the contact."
+            "description": "Handle used to reach the contact.",
+            "example": "dwight@limitlesspaper.com"
           },
           "source": {
             "type": "string",
@@ -693,7 +717,8 @@
               "front_chat",
               "custom"
             ],
-            "description": "Source of the handle. Can be `email`, `phone`, `twitter`, `facebook`, `intercom`, `front_chat`, or `custom`."
+            "description": "Source of the handle. Can be `email`, `phone`, `twitter`, `facebook`, `intercom`, `front_chat`, or `custom`.",
+            "example": "email"
           }
         }
       },
@@ -735,22 +760,26 @@
             "properties": {
               "self": {
                 "type": "string",
-                "description": "Link to resource"
+                "description": "Link to resource",
+                "example": "https://yourCompany.api.frontapp.com/contacts/crd_3cgz4ge\""
               },
               "related": {
                 "type": "object",
                 "properties": {
                   "notes": {
                     "type": "string",
-                    "description": "Link to contact notes"
+                    "description": "Link to contact notes",
+                    "example": "https://yourCompany.api.frontapp.com/contacts/crd_3cgz4ge/notes"
                   },
                   "conversations": {
                     "type": "string",
-                    "description": "Link to contact conversations"
+                    "description": "Link to contact conversations",
+                    "example": "https://yourCompany.api.frontapp.com/contacts/crd_3cgz4ge/conversations"
                   },
                   "owner": {
                     "type": "string",
-                    "description": "Link to contact owner"
+                    "description": "Link to contact owner",
+                    "example": null
                   }
                 }
               }
@@ -758,29 +787,38 @@
           },
           "id": {
             "type": "string",
-            "description": "Unique identifier of the contact"
+            "description": "Unique identifier of the contact",
+            "example": "crd_3cgz4ge"
           },
           "name": {
             "type": "string",
-            "description": "Contact name"
+            "description": "Contact name",
+            "example": "Dwight Schrute"
           },
           "description": {
             "type": "string",
-            "description": "Contact description"
+            "description": "Contact description",
+            "example": "Assistant to the regional manager"
           },
           "avatar_url": {
             "type": "string",
-            "description": "URL of the contact's avatar"
+            "description": "URL of the contact's avatar",
+            "example": "https://yourCompany.api.frontapp.com/contacts/crd_3cgz4ge/avatar-1673436467707"
           },
           "is_spammer": {
             "type": "boolean",
-            "description": "Whether or not the contact is marked as a spammer"
+            "description": "Whether or not the contact is marked as a spammer",
+            "example": false
           },
           "links": {
             "type": "array",
             "description": "List of all the links of the contact",
             "items": {
-              "type": "string"
+              "type": "string",
+              "example": [
+                "https://shrutefarms.com",
+                "https://eatyourbeets.com"
+              ]
             }
           },
           "groups": {
@@ -799,11 +837,16 @@
           },
           "custom_fields": {
             "type": "object",
-            "description": "Custom field attributes for this contact."
+            "description": "Custom field attributes for this contact.",
+            "example": {
+              "nemesis": "Jim Halpert",
+              "prankable": true
+            }
           },
           "is_private": {
             "type": "boolean",
-            "description": "Whether or not the contact is individual"
+            "description": "Whether or not the contact is individual",
+            "example": true
           }
         }
       },
@@ -3441,7 +3484,8 @@
         "in": "query",
         "description": "Token to use to request the [next page](https://dev.frontapp.com/docs/pagination)",
         "schema": {
-          "type": "string"
+          "type": "string",
+          "example": "https://yourCompany.api.frontapp.com/endpoint?limit=25&page_token=92f32bcd7625333caf4e0f8fc26d920c812f"
         }
       },
       "limit": {
@@ -3450,7 +3494,8 @@
         "description": "Max number of results per [page](https://dev.frontapp.com/docs/pagination)",
         "schema": {
           "type": "integer",
-          "maximum": 100
+          "maximum": 100,
+          "example": 25
         }
       },
       "sortBy": {
@@ -3470,7 +3515,8 @@
           "enum": [
             "asc",
             "desc"
-          ]
+          ],
+          "example": "asc"
         }
       }
     },
@@ -4603,7 +4649,7 @@
     "/accounts/{account_id}/contacts": {
       "get": {
         "summary": "List account contacts",
-        "description": "Lists the contacts associated to an Account",
+        "description": "Lists the contacts associated with an Account",
         "tags": [
           "Accounts"
         ],

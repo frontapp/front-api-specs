@@ -473,18 +473,21 @@
             "properties": {
               "self": {
                 "type": "string",
-                "description": "Link to resource"
+                "description": "Link to resource",
+                "example": "https://yourCompany.api.frontapp.com/channels/cha_1gv4"
               },
               "related": {
                 "type": "object",
                 "properties": {
                   "inbox": {
                     "type": "string",
-                    "description": "Link to channel inbox"
+                    "description": "Link to channel inbox",
+                    "example": "https://yourCompany.api.frontapp.com/inboxes/inb_1ix6"
                   },
                   "owner": {
                     "type": "string",
-                    "description": "Link to channel owner"
+                    "description": "Link to channel owner",
+                    "example": "https://yourCompany.api.frontapp.com/teams/jen_k30"
                   }
                 }
               }
@@ -492,11 +495,18 @@
           },
           "id": {
             "type": "string",
-            "description": "Unique identifier for the channel"
+            "description": "Unique identifier for the channel",
+            "example": "cha_1gv4"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the channel",
+            "example": "Paper Sales Inbox"
           },
           "address": {
             "type": "string",
-            "description": "Address receiving the messages"
+            "description": "Address receiving the messages",
+            "example": "sales@dundermifflin.com"
           },
           "types": {
             "type": "string",
@@ -522,11 +532,13 @@
               "yalo_wha",
               "front_chat",
               "front_mail"
-            ]
+            ],
+            "example": "gmail"
           },
           "send_as": {
             "type": "string",
-            "description": "Address which appears as the sender for messages sent from Front"
+            "description": "Address which appears as the sender for messages sent from Front",
+            "example": "sales@dundermifflin.com"
           },
           "settings": {
             "type": "object",
@@ -542,23 +554,27 @@
                   15,
                   30,
                   60
-                ]
+                ],
+                "example": 15
               },
               "all_teammates_can_reply": {
                 "type": "boolean",
-                "description": "Whether teammates without inbox access can reply on this channel. Only present for shared channels; omitted for private channels."
+                "description": "Whether teammates without inbox access can reply on this channel. Only present for shared channels; omitted for private channels.",
+                "example": false
               }
             }
           },
           "is_private": {
             "type": "boolean",
             "default": false,
-            "description": "Whether or not the channel is individual"
+            "description": "Whether or not the channel is individual",
+            "example": false
           },
           "is_valid": {
             "type": "boolean",
             "default": false,
-            "description": "Whether or not the channel configuration is valid"
+            "description": "Whether or not the channel configuration is valid",
+            "example": true
           }
         }
       },
@@ -569,18 +585,21 @@
             "properties": {
               "self": {
                 "type": "string",
-                "description": "Link to resource"
+                "description": "Link to resource",
+                "example": "https://yourCompany.api.frontapp.com/comments/com_1ywg3f2"
               },
               "related": {
                 "type": "object",
                 "properties": {
                   "conversations": {
                     "type": "string",
-                    "description": "Link to comment's conversation"
+                    "description": "Link to comment's conversation",
+                    "example": "https://yourCompany.api.frontapp.com/conversations/cnv_y4xb93i"
                   },
                   "mentions": {
                     "type": "string",
-                    "description": "Link to comment mentions"
+                    "description": "Link to comment mentions",
+                    "example": "https://yourCompany.api.frontapp.com/comments/com_1ywg3f2/mentions"
                   }
                 }
               }
@@ -588,7 +607,8 @@
           },
           "id": {
             "type": "string",
-            "description": "Unique identifier of the comment"
+            "description": "Unique identifier of the comment",
+            "example": "com_1ywg3f2"
           },
           "author": {
             "description": "Teammate who wrote the comment",
@@ -596,11 +616,13 @@
           },
           "body": {
             "type": "string",
-            "description": "Content of the comment"
+            "description": "Content of the comment",
+            "example": "Sometimes I'll start a sentence and I don't even know where it's going. I just hope I find it along the way."
           },
           "posted_at": {
             "type": "number",
-            "description": "Date at which the comment was posted"
+            "description": "Date at which the comment was posted",
+            "example": 1698943401.378
           },
           "attachments": {
             "type": "array",
@@ -1029,7 +1051,7 @@
         "properties": {
           "author_id": {
             "type": "string",
-            "description": "ID of the teammate creating the comment. If omitted, will post as the API Token or OAuth client of the requester."
+            "description": "ID of the teammate creating the comment. Alternatively, you can supply the author as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1). If omitted, will post as the API Token or OAuth client of the requester."
           },
           "body": {
             "type": "string",
@@ -1160,27 +1182,27 @@
         "properties": {
           "author_id": {
             "type": "string",
-            "description": "ID of the teammate on behalf of whom the draft will be created"
+            "description": "ID of the teammate on behalf of whom the draft will be created. Alternatively, you can supply the author ID as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1)."
           },
           "to": {
             "type": "array",
+            "description": "List of recipient handles who will receive the message once the draft is sent",
             "items": {
-              "type": "string",
-              "description": "List of recipient handles who will receive the message once the draft is sent"
+              "type": "string"
             }
           },
           "cc": {
             "type": "array",
+            "description": "List of recipient handles who will receive a copy of the message once the draft is sent",
             "items": {
-              "type": "string",
-              "description": "List of recipient handles who will receive a copy of the message once the draft is sent"
+              "type": "string"
             }
           },
           "bcc": {
             "type": "array",
+            "description": "List of the recipient handles who will receive a blind copy of the message once the draft is sent",
             "items": {
-              "type": "string",
-              "description": "List of the recipient handles who will receive a blind copy of the message once the draft is sent"
+              "type": "string"
             }
           },
           "subject": {
@@ -1559,21 +1581,25 @@
             "properties": {
               "self": {
                 "type": "string",
-                "description": "Link to resource"
+                "description": "Link to resource",
+                "example": "https://yourCompany.api.frontapp.com/custom_fields/fld_co0e"
               }
             }
           },
           "id": {
             "type": "string",
-            "description": "Unique identifier of the custom field"
+            "description": "Unique identifier of the custom field",
+            "example": "fld_co0e"
           },
           "name": {
             "type": "string",
-            "description": "Name of the custom field"
+            "description": "Name of the custom field",
+            "example": "Customer plan"
           },
           "description": {
             "type": "string",
-            "description": "Description of the custom field"
+            "description": "Description of the custom field",
+            "example": "The billing plan of the customer"
           },
           "type": {
             "type": "string",
@@ -1587,7 +1613,8 @@
               "teammate_list",
               "inbox",
               "enum"
-            ]
+            ],
+            "example": "string"
           },
           "values": {
             "type": "array",
@@ -1597,11 +1624,13 @@
               "properties": {
                 "value": {
                   "type": "string",
-                  "description": "Value of the custom field"
+                  "description": "Value of the custom field",
+                  "example": "Enterprise"
                 },
                 "label": {
                   "type": "string",
-                  "description": "Human readable label for the value"
+                  "description": "Human readable label for the value",
+                  "example": "Customer plan"
                 }
               }
             }
@@ -1923,23 +1952,23 @@
           },
           "to": {
             "type": "array",
+            "description": "List of the recipient handles who will receive this message",
             "items": {
-              "type": "string",
-              "description": "List of the recipient handles who will receive this message"
+              "type": "string"
             }
           },
           "cc": {
             "type": "array",
+            "description": "List of the recipient handles who will receive a copy of this message",
             "items": {
-              "type": "string",
-              "description": "List of the recipient handles who will receive a copy of this message"
+              "type": "string"
             }
           },
           "bcc": {
             "type": "array",
+            "description": "List of the recipient handles who will receive a blind copy of this message",
             "items": {
-              "type": "string",
-              "description": "List of the recipient handles who will receive a blind copy of this message"
+              "type": "string"
             }
           },
           "subject": {
@@ -2152,22 +2181,26 @@
             "properties": {
               "self": {
                 "type": "string",
-                "description": "Link to resource"
+                "description": "Link to resource",
+                "example": "https://yourCompany.api.frontapp.com/messages/msg_1q15qmtq"
               },
               "related": {
                 "type": "object",
                 "properties": {
                   "conversation": {
                     "type": "string",
-                    "description": "Link to message converation"
+                    "description": "Link to message conversation",
+                    "example": "https://yourCompany.api.frontapp.com/conversations/cnv_yo1kg5q"
                   },
                   "message_replied_to": {
                     "type": "string",
-                    "description": "Link to message this message replied to"
+                    "description": "Link to message this message replied to",
+                    "example": "https://yourCompany.api.frontapp.com/messages/msg_2y67qldq"
                   },
                   "message_seen": {
                     "type": "string",
-                    "description": "Link to message seen informatiion"
+                    "description": "Link to message seen information",
+                    "example": "https://yourCompany.api.frontapp.com/messages/msg_1q15qmtq/seen"
                   }
                 }
               }
@@ -2175,7 +2208,8 @@
           },
           "id": {
             "type": "string",
-            "description": "Unique identifier of the message"
+            "description": "Unique identifier of the message",
+            "example": "msg_1q15qmtq"
           },
           "type": {
             "type": "string",
@@ -2195,11 +2229,13 @@
               "whatsapp",
               "yalo_wha",
               "front_chat"
-            ]
+            ],
+            "example": "email"
           },
           "is_inbound": {
             "type": "boolean",
-            "description": "Whether or not the message has been received or sent"
+            "description": "Whether or not the message has been received or sent",
+            "example": false
           },
           "draft_mode": {
             "type": "string",
@@ -2208,27 +2244,33 @@
             "enum": [
               "shared",
               "private"
-            ]
+            ],
+            "example": "shared"
           },
           "error_type": {
             "type": "string",
-            "description": "Type of the error when the draft failed to be sent"
+            "description": "Type of the error when the draft failed to be sent",
+            "example": null
           },
           "version": {
             "type": "string",
-            "description": "The current version of the message in Front"
+            "description": "The current version of the message in Front",
+            "example": null
           },
           "created_at": {
             "type": "number",
-            "description": "Date at which the message as been sent or received"
+            "description": "Date at which the message as been sent or received",
+            "example": 1701292639
           },
           "subject": {
             "type": "string",
-            "description": "Subject of the message"
+            "description": "Subject of the message",
+            "example": "Jim's pranks are getting out of hand"
           },
           "blurb": {
             "type": "string",
-            "description": "Preview of the message body"
+            "description": "Preview of the message body",
+            "example": "It's high time we discuss the pranking culture in the office"
           },
           "author": {
             "$ref": "#/components/schemas/TeammateResponse",
@@ -2242,11 +2284,13 @@
           },
           "body": {
             "type": "string",
-            "description": "Body of the message"
+            "description": "Body of the message",
+            "example": "<p>Hi there,</p><p>I wanted to let you know that I'm suggesting an update to <a href='https://dundermifflin.com/privacy/pranks'>Dunder Mifflin's Pranking Policy</a> to provide non-humorous employees greater control over their well-being in the office.</p>"
           },
           "text": {
             "type": "string",
-            "description": "Text version of the body for email messages"
+            "description": "Text version of the body for email messages",
+            "example": "Hi there,\\n\\nI wanted to let you know that I'm suggesting an update to Dunder Mifflin's Pranking Policy (https://dundermifflin.com/privacy/pranks) to provide non-humorous employees greater control over their well-being in the office."
           },
           "attachments": {
             "type": "array",
@@ -2265,39 +2309,48 @@
             "properties": {
               "intercom_url": {
                 "type": "string",
-                "description": "For `intercom` messages only. URL of the Intercom conversation the message is comming from."
+                "description": "For `intercom` messages only. URL of the Intercom conversation the message is coming from.",
+                "example": "http://intercom.com"
               },
               "duration": {
                 "type": "integer",
-                "description": "For `truly-call` messages only. Length of the call in seconds."
+                "description": "For `truly-call` messages only. Length of the call in seconds.",
+                "example": 189
               },
               "have_been_answered": {
                 "type": "boolean",
-                "description": "For `truly-call` messages only. Whether or not the call have been answered."
+                "description": "For `truly-call` messages only. Whether or not the call have been answered.",
+                "example": false
               },
               "external_id": {
                 "type": "string",
-                "description": "For `tweet` or 'custom' (partner channel token authenticated) messages only. Unique message identifier in the underlying provider (Twitter or Partner). For custom messages, only present for partner channel token authenticated requests."
+                "description": "For `tweet` or 'custom' (partner channel token authenticated) messages only. Unique message identifier in the underlying provider (Twitter or Partner). For custom messages, only present for partner channel token authenticated requests.",
+                "example": "dkd84992kduo903"
               },
               "twitter_url": {
                 "type": "string",
-                "description": "For `tweet` messages only. URL of the tweet."
+                "description": "For `tweet` messages only. URL of the tweet.",
+                "example": "https://twitter.com"
               },
               "is_retweet": {
                 "type": "boolean",
-                "description": "For `tweet` messages only. Whether or not the tweet is a retweet."
+                "description": "For `tweet` messages only. Whether or not the tweet is a retweet.",
+                "example": true
               },
               "have_been_retweeted": {
                 "type": "boolean",
-                "description": "For `tweet` messages only. Whether or not the tweet have been retweeted."
+                "description": "For `tweet` messages only. Whether or not the tweet have been retweeted.",
+                "example": true
               },
               "have_been_favorited": {
                 "type": "boolean",
-                "description": "For `tweet` messages only. Whether or not the tweet have been favorited."
+                "description": "For `tweet` messages only. Whether or not the tweet have been favorited.",
+                "example": false
               },
               "thread_ref": {
                 "type": "string",
-                "description": "For `custom` messages only. Custom reference which is used to thread messages."
+                "description": "For `custom` messages only. Custom reference which is used to thread messages.",
+                "example": "t0930k9000-394"
               },
               "headers": {
                 "type": "object",
@@ -2305,7 +2358,8 @@
               },
               "chat_visitor_url": {
                 "type": "string",
-                "description": "For `front_chat` messages only. Source URL from the chat widget when sending a message."
+                "description": "For `front_chat` messages only. Source URL from the chat widget when sending a message.",
+                "example": "https://yourCompany.com/products"
               }
             }
           }
@@ -2414,23 +2468,23 @@
         "properties": {
           "to": {
             "type": "array",
+            "description": "List of the recipient handles who will receive this message",
             "items": {
-              "type": "string",
-              "description": "List of the recipient handles who will receive this message"
+              "type": "string"
             }
           },
           "cc": {
             "type": "array",
+            "description": "List of the recipient handles who will receive a copy of this message",
             "items": {
-              "type": "string",
-              "description": "List of the recipient handles who will receive a copy of this message"
+              "type": "string"
             }
           },
           "bcc": {
             "type": "array",
+            "description": "List of the recipient handles who will receive a blind copy of this message",
             "items": {
-              "type": "string",
-              "description": "List of the recipient handles who will receive a blind copy of this message"
+              "type": "string"
             }
           },
           "sender_name": {
@@ -2458,9 +2512,9 @@
             "properties": {
               "tag_ids": {
                 "type": "array",
+                "description": "List of tag IDs to add to the conversation",
                 "items": {
-                  "type": "string",
-                  "description": "List of tag IDs to add to the conversation"
+                  "type": "string"
                 }
               },
               "archive": {
@@ -2495,23 +2549,23 @@
         "properties": {
           "to": {
             "type": "array",
+            "description": "List of the recipient handles who will receive this message",
             "items": {
-              "type": "string",
-              "description": "List of the recipient handles who will receive this message"
+              "type": "string"
             }
           },
           "cc": {
             "type": "array",
+            "description": "List of the recipient handles who will receive a copy of this message",
             "items": {
-              "type": "string",
-              "description": "List of the recipient handles who will receive a copy of this message"
+              "type": "string"
             }
           },
           "bcc": {
             "type": "array",
+            "description": "List of the recipient handles who will receive a copy of this message",
             "items": {
-              "type": "string",
-              "description": "List of the recipient handles who will receive a blind copy of this message"
+              "type": "string"
             }
           },
           "sender_name": {
@@ -2547,9 +2601,9 @@
             "properties": {
               "tag_ids": {
                 "type": "array",
+                "description": "List of tag IDs to add to the conversation",
                 "items": {
-                  "type": "string",
-                  "description": "List of tag IDs to add to the conversation"
+                  "type": "string"
                 }
               },
               "archive": {
@@ -2673,7 +2727,7 @@
             "properties": {
               "channel_id": {
                 "type": "string",
-                "description": "ID of the channel from which the draft will be sent"
+                "description": "ID of the channel from which the draft will be sent. Alternatively, you can supply the channel address as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1)."
               }
             }
           }
@@ -2715,14 +2769,16 @@
             "properties": {
               "self": {
                 "type": "string",
-                "description": "Link to resource"
+                "description": "Link to resource",
+                "example": "https://yourCompany.api.frontapp.com/rules/rul_58xhq"
               },
               "related": {
                 "type": "object",
                 "properties": {
                   "owner": {
                     "type": "string",
-                    "description": "Link to rule owner"
+                    "description": "Link to rule owner",
+                    "example": null
                   }
                 }
               }
@@ -2730,7 +2786,8 @@
           },
           "id": {
             "type": "string",
-            "description": "Unique identifier of the rule"
+            "description": "Unique identifier of the rule",
+            "example": "rul_58xhq"
           },
           "name": {
             "type": "string",
@@ -2740,12 +2797,19 @@
             "type": "array",
             "description": "List of the rule's actions description",
             "items": {
-              "type": "string"
+              "type": "string",
+              "example": [
+                "Assign to Pam",
+                "Unassign from Michael",
+                "Tag with Scranton is the Best Branch",
+                "Tag with Michael is the Best Boss"
+              ]
             }
           },
           "is_private": {
             "type": "boolean",
-            "description": "Whether or not the rule is individual"
+            "description": "Whether or not the rule is individual",
+            "example": false
           }
         }
       },
@@ -2756,14 +2820,16 @@
             "properties": {
               "self": {
                 "type": "string",
-                "description": "Link to self"
+                "description": "Link to self",
+                "example": "https://yourCompany.api.frontapp.com/messages/msg_1p4lvjym/seen"
               },
               "related": {
                 "type": "object",
                 "properties": {
                   "message": {
                     "type": "string",
-                    "description": "Link to message associated with the seen record"
+                    "description": "Link to message associated with the seen record",
+                    "example": "https://yourCompany.api.frontapp.com/messages/msg_1p4lvjym"
                   }
                 }
               }
@@ -2771,7 +2837,8 @@
           },
           "first_seen_at": {
             "type": "string",
-            "description": "Timestamp when message was seen"
+            "description": "Timestamp when message was seen",
+            "example": 1701298738269
           },
           "seen_by": {
             "$ref": "#/components/schemas/ContactHandle"
@@ -3095,18 +3162,21 @@
             "properties": {
               "self": {
                 "type": "string",
-                "description": "Link to resource"
+                "description": "Link to resource",
+                "example": "https://yourCompany.api.frontapp.com/teammates/tea_6r55a"
               },
               "related": {
                 "type": "object",
                 "properties": {
                   "inboxes": {
                     "type": "string",
-                    "description": "Link to teammate's inboxes"
+                    "description": "Link to teammate's inboxes",
+                    "example": "https://yourCompany.api.frontapp.com/teammates/tea_6r55a/inboxes"
                   },
                   "conversations": {
                     "type": "string",
-                    "description": "Link to teammate's conversations"
+                    "description": "Link to teammate's conversations",
+                    "example": "https://yourCompany.api.frontapp.com/teammates/tea_6r55a/conversations"
                   }
                 }
               }
@@ -3114,39 +3184,51 @@
           },
           "id": {
             "type": "string",
-            "description": "Unique identifier of the teammate"
+            "description": "Unique identifier of the teammate",
+            "example": "tea_6r55a"
           },
           "email": {
             "type": "string",
-            "description": "Email address of the teammate"
+            "description": "Email address of the teammate",
+            "example": "michael.scott@dundermifflin.com"
           },
           "username": {
             "type": "string",
-            "description": "Username of the teammate (used for \"@\" mentions)"
+            "description": "Username of the teammate (used for \"@\" mentions)",
+            "example": "PrisonMike"
           },
           "first_name": {
             "type": "string",
-            "description": "First name of the teammate"
+            "description": "First name of the teammate",
+            "example": "Michael"
           },
           "last_name": {
             "type": "string",
-            "description": "Last name of the teammate"
+            "description": "Last name of the teammate",
+            "example": "Scott"
           },
           "is_admin": {
             "type": "boolean",
-            "description": "Whether or not the teammate is an admin in your company"
+            "description": "Whether or not the teammate is an admin in your company",
+            "example": true
           },
           "is_available": {
             "type": "boolean",
-            "description": "Whether or not the teammate is available"
+            "description": "Whether or not the teammate is available",
+            "example": false
           },
           "is_blocked": {
             "type": "boolean",
-            "description": "Whether or not the teammate account has been blocked"
+            "description": "Whether or not the teammate account has been blocked",
+            "example": false
           },
           "custom_fields": {
             "type": "object",
-            "description": "Custom field attributes for this teammate"
+            "description": "Custom field attributes for this teammate",
+            "example": {
+              "nemesis": "Toby Flenderson",
+              "prankable": true
+            }
           }
         }
       },
@@ -3154,7 +3236,8 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Name of the channel"
+            "description": "Name of the channel",
+            "example": "Your channel name"
           },
           "inbox_id": {
             "type": "string",
@@ -4446,11 +4529,14 @@
               "properties": {
                 "status": {
                   "type": "string",
-                  "default": "accepted"
+                  "default": "accepted",
+                  "description": "The status of the incoming message. Should return 'accepted' if successful.",
+                  "example": "accepted"
                 },
                 "message_uid": {
                   "type": "string",
-                  "description": "Message unique identifier. You can use the message UID as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1) for the message ID."
+                  "description": "Message unique identifier. You can use the message UID as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1) for the message ID.",
+                  "example": "1eab543f84a0785f7b6b8967cck18f4d"
                 }
               }
             }
@@ -5054,7 +5140,7 @@
     "/channels/{channel_id}/validate": {
       "post": {
         "summary": "Validate channel",
-        "description": "Asynchronously validate a channel",
+        "description": "Asynchronously validate an SMTP channel (this endpoint is irrelevant to other channel types). When you create an SMTP channel via the API, [create a channel](https://dev.frontapp.com/reference/post_inboxes-inbox-id-channels) with type smtp and the send_as set to the needed email address. You then [configure the email provider](https://help.front.com/en/articles/2081), after which you use this endpoint to asynchronously validate the SMTP settings.",
         "tags": [
           "Channels"
         ],

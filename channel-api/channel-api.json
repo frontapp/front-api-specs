@@ -132,9 +132,9 @@
           },
           "to": {
             "type": "array",
+            "description": "Data of the message recipient",
             "items": {
               "type": "object",
-              "description": "Data of the message recipient",
               "required": [
                 "handle"
               ],

@@ -418,7 +418,9 @@
       "Attachment": {
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "The unique identifier of the attachment.",
+            "example": "fil_3q8a7mby"
           },
           "filename": {
             "type": "string",
@@ -426,15 +428,18 @@
           },
           "url": {
             "type": "string",
-            "description": "URL to download the attached file"
+            "description": "URL to download the attached file",
+            "example": "https://sean-test-3-30.api.frontapp.com/download/fil_3q8a7mby"
           },
           "content_type": {
             "type": "string",
-            "description": "Content type of the attached file"
+            "description": "Content type of the attached file in [MIME format](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). Note that some attachments types may not be supported.",
+            "example": "image/png"
           },
           "size": {
             "type": "integer",
-            "description": "Size (in byte) of the attached file"
+            "description": "Size (in byte) of the attached file",
+            "example": 4405
           },
           "metadata": {
             "description": "Attachment metadata",
@@ -442,11 +447,13 @@
             "properties": {
               "is_inline": {
                 "type": "boolean",
-                "description": "Whether or not the attachment is part of the message body"
+                "description": "Whether or not the attachment is part of the message body",
+                "example": true
               },
               "cid": {
                 "type": "string",
-                "description": "Unique identifier used to link an attachment to where it is used in the message body"
+                "description": "Unique identifier used to link an attachment to where it is used in the message body",
+                "example": "526b45586d0e6b1c484afab63d1ef0be"
               }
             }
           }
@@ -763,15 +770,18 @@
         "properties": {
           "author": {
             "$ref": "#/components/schemas/TeammateResponse",
-            "description": "Teammate who wrote the note"
+            "description": "Teammate who wrote the note",
+            "example": "https://yourCompany.api.frontapp.com/teammates/tea_6r55a"
           },
           "body": {
             "type": "string",
-            "description": "Content of the note"
+            "description": "Content of the note",
+            "example": "Mrs. Allen is our most important client … because every client is our most important client."
           },
           "created_at": {
             "type": "number",
-            "description": "Date at which the note have been created"
+            "description": "Date at which the note have been created",
+            "example": 1701806790.536
           }
         }
       },
@@ -879,34 +889,41 @@
             "properties": {
               "self": {
                 "type": "string",
-                "description": "Link to resource"
+                "description": "Link to resource",
+                "example": "https://yourCompany.api.frontapp.com/conversations/cnv_yo1kg5q"
               },
               "related": {
                 "type": "object",
                 "properties": {
                   "events": {
                     "type": "string",
-                    "description": "Link to conversation events"
+                    "description": "Link to conversation events",
+                    "example": "https://yourCompany.api.frontapp.com/conversations/cnv_yo1kg5q/events"
                   },
                   "followers": {
                     "type": "string",
-                    "description": "Link to conversation followers"
+                    "description": "Link to conversation followers",
+                    "example": "https://yourCompany.api.frontapp.com/conversations/cnv_yo1kg5q/followers"
                   },
                   "messages": {
                     "type": "string",
-                    "description": "Link to conversation messages"
+                    "description": "Link to conversation messages",
+                    "example": "https://yourCompany.api.frontapp.com/conversations/cnv_yo1kg5q/messages"
                   },
                   "comments": {
                     "type": "string",
-                    "description": "Link to conversation comment"
+                    "description": "Link to conversation comments",
+                    "example": "https://yourCompany.api.frontapp.com/conversations/cnv_yo1kg5q/comments"
                   },
                   "inboxes": {
                     "type": "string",
-                    "description": "Link to conversation inboxes"
+                    "description": "Link to conversation inboxes",
+                    "example": "https://yourCompany.api.frontapp.com/conversations/cnv_yo1kg5q/inboxes"
                   },
                   "last_message": {
                     "type": "string",
-                    "description": "Link to last message of the conversation"
+                    "description": "Link to last message of the conversation",
+                    "example": "https://yourCompany.api.frontapp.com/messages/msg_1q15qmtq?referer=conversation"
                   }
                 }
               }
@@ -914,11 +931,13 @@
           },
           "id": {
             "type": "string",
-            "description": "Unique identifier of the message"
+            "description": "Unique identifier of the conversation",
+            "example": "cnv_yo1kg5q"
           },
           "subject": {
             "type": "string",
-            "description": "Subject of the message for email message"
+            "description": "Subject of the message for email message",
+            "example": "How to prank Dwight Schrute"
           },
           "status": {
             "type": "string",
@@ -928,7 +947,8 @@
               "unassigned",
               "deleted",
               "assigned"
-            ]
+            ],
+            "example": "assigned"
           },
           "assignee": {
             "$ref": "#/components/schemas/TeammateResponse",
@@ -954,15 +974,20 @@
           },
           "custom_fields": {
             "type": "object",
-            "description": "Custom field attributes for this conversation"
+            "description": "Custom field attributes for this conversation",
+            "example": {
+              "last_assignee": "Jim Halpert"
+            }
           },
           "created_at": {
             "type": "number",
-            "description": "Timestamp at which the conversation have been created."
+            "description": "Timestamp at which the conversation have been created.",
+            "example": 1701292649.333
           },
           "is_private": {
             "type": "boolean",
-            "description": "Whether or not the conversation is private"
+            "description": "Whether or not the conversation is private",
+            "example": true
           },
           "scheduled_reminders": {
             "type": "array",
@@ -2130,29 +2155,37 @@
             "properties": {
               "self": {
                 "type": "string",
-                "description": "Link to resource"
+                "description": "Link to resource",
+                "example": "https://yourCompany.api.frontapp.com/links/top_b2wpa"
               }
             }
           },
           "id": {
             "type": "string",
-            "description": "Unique identifier of the link"
+            "description": "Unique identifier of the link",
+            "example": "top_b2wpa"
           },
           "name": {
             "type": "string",
-            "description": "Display name of the link"
+            "description": "Display name of the link",
+            "example": "JIRA-SCRAN-4567"
           },
           "type": {
             "type": "string",
-            "description": "Type of the link. Typically associated with the underlying link provider (if known)"
+            "description": "Type of the link. Typically associated with the underlying link provider (if known)",
+            "example": "app_2f76b9ac738de158"
           },
           "external_url": {
             "type": "string",
-            "description": "Underlying identifying external URL of the link"
+            "description": "Underlying identifying external URL of the link",
+            "example": "https://dundermifflin.atlassian.net/browse/PB-SCRAN-4567"
           },
           "custom_fields": {
             "type": "object",
-            "description": "Custom field attributes for this link"
+            "description": "Custom field attributes for this link",
+            "example": {
+              "related_tms_entry": "SCR-848930-8902DK"
+            }
           }
         }
       },
@@ -2255,7 +2288,7 @@
           "version": {
             "type": "string",
             "description": "The current version of the message in Front",
-            "example": null
+            "example": "551ba368f3e7803cce51503ee3e58ef0-26028-1701804863304-945c"
           },
           "created_at": {
             "type": "number",
@@ -2641,7 +2674,8 @@
                 "properties": {
                   "contact": {
                     "type": "string",
-                    "description": "Link to recipient contact"
+                    "description": "Link to recipient contact",
+                    "example": "https://yourCompany.api.frontapp.com/contacts/crd_2njtoem"
                   }
                 }
               }
@@ -2649,11 +2683,13 @@
           },
           "name": {
             "type": "string",
-            "description": "Name of the recipient."
+            "description": "Name of the recipient.",
+            "example": "Phyllis Lapin-Vance"
           },
           "handle": {
             "type": "string",
-            "description": "Handle of the contact. Can be any string used to uniquely identify the contact"
+            "description": "Handle of the contact. Can be any string used to uniquely identify the contact",
+            "example": "purpleboss@limitlesspaper.com"
           },
           "role": {
             "type": "string",
@@ -2663,7 +2699,8 @@
               "to",
               "cc",
               "bcc"
-            ]
+            ],
+            "example": "cc"
           }
         }
       },
@@ -2677,7 +2714,8 @@
                 "properties": {
                   "owner": {
                     "type": "string",
-                    "description": "Link to conversation owner"
+                    "description": "Link to conversation owner",
+                    "example": "https://yourCompany.api.frontapp.com/teammates/tea_6r55a"
                   }
                 }
               }
@@ -2685,15 +2723,18 @@
           },
           "created_at": {
             "type": "number",
-            "description": "Timestamp at which the conversation reminder has been created"
+            "description": "Timestamp at which the conversation reminder has been created",
+            "example": 1701806790.536
           },
           "scheduled_at": {
             "type": "number",
-            "description": "Timestamp that the conversation reminder has been scheduled for"
+            "description": "Timestamp that the conversation reminder has been scheduled for",
+            "example": 1701874800
           },
           "updated_at": {
             "type": "number",
-            "description": "Timestamp at which the conversation reminder has been updated"
+            "description": "Timestamp at which the conversation reminder has been updated",
+            "example": 1701806790.536
           }
         }
       },
@@ -2791,7 +2832,8 @@
           },
           "name": {
             "type": "string",
-            "description": "Name of the rule"
+            "description": "Name of the rule",
+            "example": "Scranton new account workflow"
           },
           "actions": {
             "type": "array",
@@ -2953,14 +2995,16 @@
             "properties": {
               "self": {
                 "type": "string",
-                "description": "Link to resource"
+                "description": "Link to resource",
+                "example": "https://yourCompany.api.frontapp.com/signatures/sig_6rrv2"
               },
               "related": {
                 "type": "object",
                 "properties": {
                   "owner": {
                     "type": "string",
-                    "description": "Link to signature's owner (either a team or teammate)"
+                    "description": "Link to signature's owner (either a team or teammate)",
+                    "example": "https://yourCompany.api.frontapp.com/teams/tim_k30"
                   }
                 }
               }
@@ -2969,19 +3013,24 @@
           "id": {
             "type": "string",
             "description": "Unique identifier of the signature",
-            "example": "sig_123"
+            "example": "sig_6rrv2"
           },
           "name": {
             "type": "string",
-            "description": "Name of the signature"
+            "description": "Name of the signature",
+            "example": "Finer Things Club signature"
           },
           "body": {
             "type": "string",
-            "description": "Body of the signature"
+            "description": "Body of the signature",
+            "example": "<div>—<br />{{user.name}}<br />No paper, no plastic, and no work talk allowed<br /></div>"
           },
           "sender_info": {
             "type": "string",
-            "description": "Sender info of the signature"
+            "description": "Sender info of the signature",
+            "example": {
+              "[object Object]": null
+            }
           },
           "is_visible_for_all_teammate_channels": {
             "type": "boolean",
@@ -2993,11 +3042,17 @@
             "description": "Whether the signature is the default signature for the team or teammate.",
             "example": false
           },
+          "is_private": {
+            "type": "boolean",
+            "description": "Whether the signature is private to the teammate.",
+            "example": true
+          },
           "channel_ids": {
             "type": "array",
             "items": {
               "type": "string",
-              "description": "List of channels the signature is available in. If belonging to a teammate, represents all channels this can be used in. If belonging to a team, represents all team channels this can be used in. If null, there are no restrictions."
+              "description": "List of channels the signature is available in. If belonging to a teammate, represents all channels this can be used in. If belonging to a team, represents all team channels this can be used in. If null, there are no restrictions.",
+              "example": null
             }
           }
         }
@@ -3025,22 +3080,31 @@
             "properties": {
               "self": {
                 "type": "string",
-                "description": "Link to resource"
+                "description": "Link to resource",
+                "example": "https://yourCompany.api.frontapp.com/tags/tag_2oxhvy"
               },
               "related": {
                 "type": "object",
                 "properties": {
                   "conversations": {
                     "type": "string",
-                    "description": "Link to tag conversations"
+                    "description": "Link to tag conversations",
+                    "example": "https://yourCompany.api.frontapp.com/tags/tag_2oxhvy/conversations"
                   },
                   "owner": {
                     "type": "string",
-                    "description": "Link to tag owner"
+                    "description": "Link to tag owner",
+                    "example": "https://yourCompany.api.frontapp.com/teammates/tea_6jydq"
+                  },
+                  "parent_tag": {
+                    "type": "string",
+                    "description": "Link to parent tag",
+                    "example": "https://yourCompany.api.frontapp.com/tags/tag_3h07ym"
                   },
                   "children": {
                     "type": "string",
-                    "description": "Link to tag children"
+                    "description": "Link to tag children",
+                    "example": "https://yourCompany.api.frontapp.com/tags/tag_2oxhvy/children"
                   }
                 }
               }
@@ -3048,15 +3112,18 @@
           },
           "id": {
             "type": "string",
-            "description": "Unique identifier of the tag"
+            "description": "Unique identifier of the tag",
+            "example": "tag_2oxhvy"
           },
           "name": {
             "type": "string",
-            "description": "Name of the tag"
+            "description": "Name of the tag",
+            "example": "Warehouse task"
           },
           "description": {
             "type": "string",
-            "description": "Description of the tag"
+            "description": "Description of the tag",
+            "example": "Sitting on your biscuit, never having to risk it"
           },
           "highlight": {
             "type": "string",
@@ -3071,23 +3138,28 @@
               "light-blue",
               "blue",
               "purple"
-            ]
+            ],
+            "example": null
           },
           "is_private": {
             "type": "boolean",
-            "description": "Whether or not the tag is individual"
+            "description": "Whether or not the tag is individual",
+            "example": false
           },
           "is_visible_in_conversation_lists": {
             "type": "boolean",
-            "description": "Whether the tag is visible in conversation lists."
+            "description": "Whether the tag is visible in conversation lists.",
+            "example": true
           },
           "created_at": {
             "type": "number",
-            "description": "Timestamp of tag create creation"
+            "description": "Timestamp of tag create creation",
+            "example": 1682538996.583
           },
           "updated_at": {
             "type": "number",
-            "description": "Timestamp of the last tag update"
+            "description": "Timestamp of the last tag update",
+            "example": 1699575875.186
           }
         }
       },
@@ -3323,7 +3395,7 @@
         "properties": {
           "teammate_id": {
             "type": "string",
-            "description": "ID of the teammate to create a reminder for. For a private conversation, specify the id of the teammate that owns the conversation. For a shared conversation, use the id of any teammate that has access to the conversation's shared inbox."
+            "description": "ID of the teammate to create a reminder for. For a private conversation, specify the id of the teammate that owns the conversation. For a shared conversation, use the id of any teammate that has access to the conversation's shared inbox. Alternatively, you can supply an email as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1)."
           },
           "scheduled_at": {
             "type": "number",

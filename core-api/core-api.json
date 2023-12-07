@@ -1276,10 +1276,12 @@
         ],
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "The name of the inbox"
           },
           "teammate_ids": {
             "type": "array",
+            "description": "An array of teammate IDs that should have access to the inbox. Alternatively, you can supply teammate emails as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "items": {
               "$ref": "#/components/schemas/ResourceID"
             }
@@ -1328,9 +1330,9 @@
           },
           "inbox_ids": {
             "type": "array",
+            "description": "The specific inboxes this template is available in. If unspecified or null, then it will be available in all inboxes. Array should be non-empty.",
             "items": {
-              "type": "string",
-              "description": "The specific inboxes this template is available in. If unspecified or null, then it will be available in all inboxes. Array should be non-empty."
+              "type": "string"
             },
             "example": null
           }
@@ -1426,9 +1428,9 @@
           },
           "channel_ids": {
             "type": "array",
+            "description": "The specific channels this signature is available in. If omitted or null, the signature will be available in all channels the teammate has access to. Alternatively, you can specify channels using a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "items": {
-              "type": "string",
-              "description": "The specific channels this signature if available in. If omitted or null, is available in all channels the teammate has access to."
+              "type": "string"
             }
           }
         }
@@ -1463,9 +1465,9 @@
           },
           "inbox_ids": {
             "type": "array",
+            "description": "The specific inboxes this template is available in. If unspecified or null, then it will be available in all inboxes. Array should be non-empty.",
             "items": {
-              "type": "string",
-              "description": "The specific inboxes this template is available in. If unspecified or null, then it will be available in all inboxes. Array should be non-empty."
+              "type": "string"
             },
             "example": null
           },
@@ -1510,9 +1512,9 @@
           },
           "channel_ids": {
             "type": "array",
+            "description": "The specific channels this signature is available in. If omitted or null, the signature will be available in all channels the team has access to. Alternatively, you can specify channels using a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "items": {
-              "type": "string",
-              "description": "The specific shared channels this signature if available in. If omitted or null, is available in all shared channels available to this team."
+              "type": "string"
             }
           }
         }
@@ -1556,6 +1558,7 @@
           },
           "teammate_ids": {
             "type": "array",
+            "description": "List of all the teammate ids who will be part of this shift. Alternatively, you can supply emails as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "items": {
               "$ref": "#/components/schemas/ResourceID"
             }
@@ -1930,17 +1933,20 @@
             "properties": {
               "self": {
                 "type": "string",
-                "description": "Link to resource"
+                "description": "Link to resource",
+                "example": "https://yourCompany.api.frontapp.com/me"
               }
             }
           },
           "id": {
             "type": "integer",
-            "description": "Unique ID of company"
+            "description": "Unique ID of company",
+            "example": "cmp_k30"
           },
           "name": {
             "type": "string",
-            "description": "Name of company"
+            "description": "Name of company",
+            "example": "Dunder Mifflin Paper Company, Inc."
           }
         }
       },
@@ -2103,26 +2109,31 @@
             "properties": {
               "self": {
                 "type": "string",
-                "description": "Link to resource"
+                "description": "Link to resource",
+                "example": "https://yourCompany.api.frontapp.com/inboxes/inb_1ix6"
               },
               "related": {
                 "type": "object",
                 "properties": {
                   "teammates": {
                     "type": "string",
-                    "description": "Link to inbox teammates"
+                    "description": "Link to inbox teammates",
+                    "example": "https://yourCompany.api.frontapp.com/inboxes/inb_1ix6/teammates"
                   },
                   "conversations": {
                     "type": "string",
-                    "description": "Link to inbox conversations"
+                    "description": "Link to inbox conversations",
+                    "example": "https://yourCompany.api.frontapp.com/inboxes/inb_1ix6/conversations"
                   },
                   "channels": {
                     "type": "string",
-                    "description": "Link to inbox channels"
+                    "description": "Link to inbox channels",
+                    "example": "https://yourCompany.api.frontapp.com/inboxes/inb_1ix6/channels"
                   },
                   "owner": {
                     "type": "string",
-                    "description": "Link to inbox owner"
+                    "description": "Link to inbox owner",
+                    "example": "https://yourCompany.api.frontapp.com/teams/tim_k30"
                   }
                 }
               }
@@ -2130,19 +2141,26 @@
           },
           "id": {
             "type": "string",
-            "description": "Unique identifier for the inbox"
+            "description": "Unique identifier for the inbox",
+            "example": "inb_1ix6"
           },
           "name": {
             "type": "string",
-            "description": "Name of the inbox"
+            "description": "Name of the inbox",
+            "example": "The Dundies"
           },
           "is_private": {
             "type": "boolean",
-            "description": "Whether or not the inbox is individual"
+            "description": "Whether or not the inbox is individual",
+            "example": false
           },
           "custom_fields": {
             "type": "object",
-            "description": "Custom field attributes for this inbox"
+            "description": "Custom field attributes for this inbox",
+            "example": {
+              "manager": "Michael Scott",
+              "triager": "Pam Beesly"
+            }
           }
         }
       },
@@ -2405,14 +2423,31 @@
             "properties": {
               "self": {
                 "type": "string",
-                "description": "Link to resource"
+                "description": "Link to resource",
+                "example": "https://yourCompany.api.frontapp.com/message_template_folders/rsf_g2"
               },
               "related": {
                 "type": "object",
                 "properties": {
                   "owner": {
                     "type": "string",
-                    "description": "Link to resource's owner"
+                    "description": "Link to resource's owner",
+                    "example": "https://yourCompany.api.frontapp.com/teams/tim_s47"
+                  },
+                  "parent_folder": {
+                    "type": "string",
+                    "description": "Link to parent folder. Null if the current folder does not have a parent.",
+                    "example": "https://yourCompany.api.frontapp.com/message_template_folders/rsf_g1"
+                  },
+                  "child_folders": {
+                    "type": "string",
+                    "description": "Link to child folders. Null if the current folder does not have children.",
+                    "example": "https://yourCompany.api.frontapp.com/message_template_folders/rsf_g2/message_template_folders"
+                  },
+                  "child_answers": {
+                    "type": "string",
+                    "description": "Link to message templates contained within this folder or children folders. Null if the current folder does not have any message templates.",
+                    "example": "https://yourCompany.api.frontapp.com/message_template_folders/rsf_g2/message_templates"
                   }
                 }
               }
@@ -2421,12 +2456,22 @@
           "id": {
             "type": "string",
             "description": "Unique identifier of the message template folder",
-            "example": "rsf_123"
+            "example": "rsf_g2"
           },
           "name": {
             "type": "string",
             "description": "Name of the message template folder",
-            "example": "PTO templates"
+            "example": "Complaints to Toby (or about Toby)"
+          },
+          "created_at": {
+            "type": "number",
+            "description": "Timestamp at which the message template folder was created.",
+            "example": 1680300342.904
+          },
+          "updated_at": {
+            "type": "number",
+            "description": "Timestamp at which the message template folder was updated.",
+            "example": 1688668654.501
           }
         }
       },
@@ -2437,14 +2482,21 @@
             "properties": {
               "self": {
                 "type": "string",
-                "description": "Link to resource"
+                "description": "Link to resource",
+                "example": "https://yourCompany.api.frontapp.com/responses/rsp_16yc"
               },
               "related": {
                 "type": "object",
                 "properties": {
                   "owner": {
                     "type": "string",
-                    "description": "Link to resource's owner"
+                    "description": "Link to resource's owner",
+                    "example": "https://yourCompany.api.frontapp.com/teams/tim_s47"
+                  },
+                  "parent_folder": {
+                    "type": "string",
+                    "description": "Link to the parent folder that contains the message template",
+                    "example": "https://yourCompany.api.frontapp.com/message_template_folders/rsf_g2"
                   }
                 }
               }
@@ -2452,31 +2504,30 @@
           },
           "id": {
             "type": "string",
-            "description": "Unique identifier of the response",
-            "example": "rsp_123"
+            "description": "Unique identifier of the message template",
+            "example": "rsp_16yc"
           },
           "name": {
             "type": "string",
-            "description": "Name of the response",
-            "example": "Out of Office"
+            "description": "Name of the message template",
+            "example": "Pam wedding planning complaint"
           },
           "subject": {
             "type": "string",
-            "description": "Subject of the response",
-            "example": "Out of Office"
+            "description": "Subject of the message template",
+            "example": "Work time being used for wedding planning"
           },
           "body": {
             "type": "string",
-            "description": "Body of the response",
-            "example": "Sorry, I'm OOO until October 25th."
+            "description": "Body of the message template",
+            "example": "Pam is spending time planning her wedding at the office. This message WAS NOT sent by Angela."
           },
           "attachments": {
             "type": "array",
             "description": "List of files attached to the response",
             "items": {
               "$ref": "#/components/schemas/Attachment"
-            },
-            "example": []
+            }
           },
           "is_available_for_all_inboxes": {
             "type": "boolean",
@@ -2485,9 +2536,9 @@
           },
           "inbox_ids": {
             "type": "array",
+            "description": "List of inboxes the template is available in. Null if there are no restrictions.",
             "items": {
               "type": "string",
-              "description": "List of inboxes the template is available in, null if there are no restrictions.",
               "example": null
             }
           }
@@ -2940,18 +2991,21 @@
             "properties": {
               "self": {
                 "type": "string",
-                "description": "Link to resource"
+                "description": "Link to resource",
+                "example": "https://yourCompany.api.frontapp.com/shifts/shf_1bri"
               },
               "related": {
                 "type": "object",
                 "properties": {
                   "teammates": {
                     "type": "string",
-                    "description": "Link to shift teammates"
+                    "description": "Link to shift teammates",
+                    "example": "https://yourCompany.api.frontapp.com/shifts/shf_1bri/teammates"
                   },
                   "owner": {
                     "type": "string",
-                    "description": "Link to shift owner"
+                    "description": "Link to shift owner",
+                    "example": "https://yourCompany.api.frontapp.com/teams/tim_4kxji"
                   }
                 }
               }
@@ -2959,32 +3013,49 @@
           },
           "id": {
             "type": "string",
-            "description": "Unique identifier of the shift"
+            "description": "Unique identifier of the shift",
+            "example": "shf_1bri"
           },
           "name": {
             "type": "string",
-            "description": "Name of the shift"
+            "description": "Name of the shift",
+            "example": "Scranton Business Park shifts"
           },
           "color": {
             "type": "string",
             "enum": [
-              "black"
+              "black",
+              "grey",
+              "pink",
+              "purple",
+              "blue",
+              "teal",
+              "green",
+              "yellow",
+              "orange",
+              "red"
             ],
-            "description": "Color of the shift"
+            "description": "Color of the shift",
+            "example": "green"
           },
           "timezone": {
             "type": "string",
-            "description": "A timezone name as defined in the IANA tz database"
+            "description": "A timezone name as defined in the IANA tz database",
+            "example": "America/New_York"
           },
           "times": {
             "description": "The shift intervals per day of the week",
             "$ref": "#/components/schemas/ShiftIntervals"
           },
           "created_at": {
-            "type": "number"
+            "type": "number",
+            "description": "The timestamp when the shift was created.",
+            "example": 1606943265.298
           },
           "updated_at": {
-            "type": "number"
+            "type": "number",
+            "description": "The timestamp when the shift was updated.",
+            "example": 1701878404.43
           }
         }
       },
@@ -3184,17 +3255,20 @@
             "properties": {
               "self": {
                 "type": "string",
-                "description": "Link to resource"
+                "description": "Link to resource",
+                "example": "https://yourCompany.api.frontapp.com/teams/tim_aqsa"
               }
             }
           },
           "id": {
             "type": "string",
-            "description": "Unique identifier of the team"
+            "description": "Unique identifier of the team",
+            "example": "tim_aqsa"
           },
           "name": {
             "type": "string",
-            "description": "Name of the team"
+            "description": "Name of the team",
+            "example": "Stanley's crossword puzzle team"
           },
           "inboxes": {
             "type": "array",
@@ -3431,9 +3505,9 @@
           },
           "inbox_ids": {
             "type": "array",
+            "description": "The specific inboxes this template is available in. If null, then it will be available in all inboxes. Array should be non-empty. If unspecified, will retain previous value.",
             "items": {
-              "type": "string",
-              "description": "The specific inboxes this template is available in. If null, then it will be available in all inboxes. Array should be non-empty. If unspecified, will retain previous value."
+              "type": "string"
             }
           },
           "attachments": {
@@ -3493,7 +3567,7 @@
           },
           "teammate_ids": {
             "type": "array",
-            "description": "List of all the teammate ids who will be part of this shift.",
+            "description": "List of all the teammate ids who will be part of this shift. Alternatively, you can supply emails as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "items": {
               "$ref": "#/components/schemas/ResourceID"
             }
@@ -3527,9 +3601,9 @@
           },
           "channel_ids": {
             "type": "array",
+            "description": "The specific shared channels this signature if available in. If null, then it will be available in all channels. If unspecified, will retain previous value. Alternatively, you can specify channels using a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "items": {
-              "type": "string",
-              "description": "The specific shared channels this signature if available in. If null, then it will be available in all channels. If unspecified, will retain previous value."
+              "type": "string"
             }
           }
         }
@@ -6780,7 +6854,7 @@
       },
       "post": {
         "summary": "Create inbox",
-        "description": "Create an inbox in the default team.",
+        "description": "Create an inbox in the default team. The default team will be the oldest team created that still exists at the time of the request.",
         "tags": [
           "Inboxes"
         ],
@@ -7017,7 +7091,7 @@
           }
         ],
         "requestBody": {
-          "description": "Teammate IDs to add",
+          "description": "Teammate IDs to add. Alternatively, you can supply teammate emails as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
           "content": {
             "application/json": {
               "schema": {
@@ -7051,7 +7125,7 @@
           }
         ],
         "requestBody": {
-          "description": "Teammate IDs to remove",
+          "description": "Teammate IDs to remove. Alternatively, you can supply teammate emails as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
           "content": {
             "application/json": {
               "schema": {
@@ -9066,7 +9140,7 @@
             "in": "path",
             "name": "team_id",
             "required": true,
-            "description": "The tag ID",
+            "description": "The team ID",
             "schema": {
               "type": "string",
               "default": "tim_123"
@@ -9442,7 +9516,7 @@
           }
         ],
         "requestBody": {
-          "description": "Teammate IDs to add",
+          "description": "Teammate IDs to add. Alternatively, you can supply emails as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
           "content": {
             "application/json": {
               "schema": {
@@ -9459,7 +9533,7 @@
       },
       "delete": {
         "summary": "Remove teammates from team",
-        "description": "Remove one or more teammates from a team.",
+        "description": "Remove one or more teammates from a team. Alternatively, you can supply emails as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
         "tags": [
           "Teams"
         ],

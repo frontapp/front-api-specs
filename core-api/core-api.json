@@ -151,7 +151,7 @@
         "properties": {
           "contact_ids": {
             "type": "array",
-            "description": "List of IDs of the contacts to add in the requested group",
+            "description": "List of IDs of the contacts to add in the requested group. Alternatively, you can supply the contact source and handle as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "items": {
               "$ref": "#/components/schemas/ResourceID"
             }
@@ -424,12 +424,13 @@
           },
           "filename": {
             "type": "string",
-            "description": "Name of the attached file"
+            "description": "Name of the attached file",
+            "example": "Andy_Anger_Management_Certificate.png"
           },
           "url": {
             "type": "string",
             "description": "URL to download the attached file",
-            "example": "https://sean-test-3-30.api.frontapp.com/download/fil_3q8a7mby"
+            "example": "https://yourCompany.api.frontapp.com/download/fil_3q8a7mby"
           },
           "content_type": {
             "type": "string",
@@ -759,6 +760,7 @@
         "properties": {
           "contact_ids": {
             "type": "array",
+            "description": "The contact IDs to include. Alternatively, you can supply the contact source and handle as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "items": {
               "$ref": "#/components/schemas/ResourceID"
             }
@@ -1003,6 +1005,10 @@
               "external_conversation_ids": {
                 "type": "array",
                 "description": "List of external_ids for partner channel associated with the conversation. Only present for partner channel token authenticated requests.",
+                "example": [
+                  "JS3949",
+                  "JS9403"
+                ],
                 "items": {
                   "type": "string"
                 }
@@ -2796,7 +2802,7 @@
         "properties": {
           "contact_ids": {
             "type": "array",
-            "description": "List of IDs of the contacts to remove from the requested group",
+            "description": "List of IDs of the contacts to remove from the requested group. Alternatively, you can supply the contact source and handle as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "maxItems": 50,
             "items": {
               "$ref": "#/components/schemas/ResourceID"
@@ -3814,7 +3820,7 @@
                 "_results": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/MessageTemplateResponse"
+                    "$ref": "#/components/schemas/MessageTemplateFolderResponse"
                   }
                 }
               }
@@ -6307,7 +6313,7 @@
                 "type": "object",
                 "properties": {
                   "teammate_ids": {
-                    "description": "IDs of the teammate to add to the followers list.",
+                    "description": "IDs of the teammate to add to the followers list. Alternatively, you can supply the teammates as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
                     "type": "array",
                     "maxItems": 50,
                     "items": {
@@ -6353,7 +6359,7 @@
                 "type": "object",
                 "properties": {
                   "teammate_ids": {
-                    "description": "IDs of the teammate to remove from the followers list.",
+                    "description": "IDs of the teammate to remove from the followers list. Alternatively, you can supply the teammates as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
                     "type": "array",
                     "maxItems": 50,
                     "items": {
@@ -7868,7 +7874,7 @@
           }
         ],
         "requestBody": {
-          "description": "Teammate IDs to add",
+          "description": "Teammate IDs to add. Alternatively, you can supply emails as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
           "content": {
             "application/json": {
               "schema": {
@@ -7902,7 +7908,7 @@
           }
         ],
         "requestBody": {
-          "description": "Teammate IDs to remove",
+          "description": "Teammate IDs to remove. Alternatively, you can supply emails as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
           "content": {
             "application/json": {
               "schema": {

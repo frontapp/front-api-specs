@@ -4501,7 +4501,7 @@
                     "self": {
                       "type": "string",
                       "description": "Link to resource",
-                      "example": "https://yourCompany.api.frontapp.com/custom_fields\" },"
+                      "example": "https://yourCompany.api.frontapp.com/custom_fields"
                     }
                   }
                 },

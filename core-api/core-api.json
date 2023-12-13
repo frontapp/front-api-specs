@@ -2844,7 +2844,8 @@
                 "properties": {
                   "owner": {
                     "type": "string",
-                    "description": "Link to role owner"
+                    "description": "Link to role owner",
+                    "example": "tea_5xs26"
                   }
                 }
               }
@@ -2856,7 +2857,8 @@
           },
           "name": {
             "type": "string",
-            "description": "Name of the role"
+            "description": "Name of the role",
+            "example": "from"
           }
         }
       },
@@ -3736,7 +3738,7 @@
       "sortBy": {
         "name": "sort_by",
         "in": "query",
-        "description": "Field used to sort the records",
+        "description": "Field used to sort the records. Either 'created_at' or 'updated_at' for most endpoints.",
         "schema": {
           "type": "string"
         }
@@ -3768,7 +3770,8 @@
                   "properties": {
                     "next": {
                       "type": "string",
-                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)"
+                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
+                      "example": "https://yourCompany.api.frontapp.com/message_templates?page_token=9fa92a7f385fd7be43f7153055b30e6d"
                     }
                   }
                 },
@@ -3777,7 +3780,8 @@
                   "properties": {
                     "self": {
                       "type": "string",
-                      "description": "Link to resource"
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/message_templates"
                     }
                   }
                 },
@@ -3804,7 +3808,8 @@
                   "properties": {
                     "next": {
                       "type": "string",
-                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)"
+                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
+                      "example": "https://yourCompany.api.frontapp.com/message_template_folders?page_token=9fa92a7f385fd7be43f7153055b30e6d"
                     }
                   }
                 },
@@ -3813,7 +3818,8 @@
                   "properties": {
                     "self": {
                       "type": "string",
-                      "description": "Link to resource"
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/message_template_folders"
                     }
                   }
                 },
@@ -3840,7 +3846,8 @@
                   "properties": {
                     "next": {
                       "type": "string",
-                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)"
+                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
+                      "example": "https://yourCompany.api.frontapp.com/signatures?page_token=9fa92a7f385fd7be43f7153055b30e6d"
                     }
                   }
                 },
@@ -3849,7 +3856,8 @@
                   "properties": {
                     "self": {
                       "type": "string",
-                      "description": "Link to resource"
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/signatures"
                     }
                   }
                 },
@@ -3876,7 +3884,8 @@
                   "properties": {
                     "self": {
                       "type": "string",
-                      "description": "Link to resource"
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/inboxes"
                     }
                   }
                 },
@@ -3903,7 +3912,8 @@
                   "properties": {
                     "self": {
                       "type": "string",
-                      "description": "Link to resource"
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/conversations/cnv_y4xb93i/comments"
                     }
                   }
                 },
@@ -3930,7 +3940,8 @@
                   "properties": {
                     "self": {
                       "type": "string",
-                      "description": "Link to resource"
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/teams"
                     }
                   }
                 },
@@ -3957,7 +3968,8 @@
                   "properties": {
                     "self": {
                       "type": "string",
-                      "description": "Link to resource"
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/teammates"
                     }
                   }
                 },
@@ -3984,7 +3996,8 @@
                   "properties": {
                     "self": {
                       "type": "string",
-                      "description": "Link to resource"
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/shifts"
                     }
                   }
                 },
@@ -4011,7 +4024,8 @@
                   "properties": {
                     "next": {
                       "type": "string",
-                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)"
+                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
+                      "example": "https://yourCompany.api.frontapp.com/contacts?page_token=e0b5767cb0f1100743d46f67fcd765caac2ed"
                     }
                   }
                 },
@@ -4020,7 +4034,8 @@
                   "properties": {
                     "self": {
                       "type": "string",
-                      "description": "Link to resource"
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/contacts"
                     }
                   }
                 },
@@ -4047,7 +4062,8 @@
                   "properties": {
                     "next": {
                       "type": "string",
-                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)"
+                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
+                      "example": "https://yourCompany.api.frontapp.com/accounts?page_token=abae846b73ddd80f67fff73c491c41b8b0e74972f3a1079c3c8800416e06cf46"
                     }
                   }
                 },
@@ -4056,7 +4072,8 @@
                   "properties": {
                     "self": {
                       "type": "string",
-                      "description": "Link to resource"
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/accounts"
                     }
                   }
                 },
@@ -4083,7 +4100,8 @@
                   "properties": {
                     "self": {
                       "type": "string",
-                      "description": "Link to resource"
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/contact_groups"
                     }
                   }
                 },
@@ -4110,7 +4128,8 @@
                   "properties": {
                     "self": {
                       "type": "string",
-                      "description": "Link to resource"
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/contacts/crd_2okzojy/notes"
                     }
                   }
                 },
@@ -4137,7 +4156,8 @@
                   "properties": {
                     "next": {
                       "type": "string",
-                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)"
+                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
+                      "example": "https://yourCompany.api.frontapp.com/conversations/cnv_y4xb93i/messages?page_token=klsljs8023j09suidfjlsjiei00043lllwww998303dkef0g"
                     }
                   }
                 },
@@ -4146,7 +4166,8 @@
                   "properties": {
                     "self": {
                       "type": "string",
-                      "description": "Link to resource"
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/conversations/cnv_y4xb93i/messages"
                     }
                   }
                 },
@@ -4173,7 +4194,8 @@
                   "properties": {
                     "next": {
                       "type": "string",
-                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)"
+                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
+                      "example": "https://yourCompany.api.frontapp.com/messages/msg_1p4lvjym/seen?page_token=jk7893fgeet644abnn39"
                     }
                   }
                 },
@@ -4182,7 +4204,8 @@
                   "properties": {
                     "self": {
                       "type": "string",
-                      "description": "Link to resource"
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/messages/msg_1p4lvjym/seen"
                     }
                   }
                 },
@@ -4209,7 +4232,8 @@
                   "properties": {
                     "next": {
                       "type": "string",
-                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)"
+                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
+                      "example": "https://yourCompany.api.frontapp.com/conversations?page_token=ce787da6f075740cf187d926f5e9f612bc7875763a8dd37d5"
                     }
                   }
                 },
@@ -4218,7 +4242,8 @@
                   "properties": {
                     "self": {
                       "type": "string",
-                      "description": "Link to resource"
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/conversations"
                     }
                   }
                 },
@@ -4245,13 +4270,25 @@
                   "properties": {
                     "next": {
                       "type": "string",
-                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)"
+                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
+                      "example": "https://yourCompany.api.frontapp.com/conversations/search/:query:?page_token=d4d5f065c89f1284ea262fa6b19456239b0"
+                    }
+                  }
+                },
+                "_links": {
+                  "type": "object",
+                  "properties": {
+                    "self": {
+                      "type": "string",
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/conversations/search/:query:"
                     }
                   }
                 },
                 "_total": {
                   "type": "integer",
-                  "description": "Total number of matching conversations"
+                  "description": "Total number of matching conversations",
+                  "example": 212
                 },
                 "_results": {
                   "type": "array",
@@ -4276,7 +4313,8 @@
                   "properties": {
                     "next": {
                       "type": "string",
-                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)"
+                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
+                      "example": "https://yourCompany.api.frontapp.com/events?page_token=2d018a5809eb90d349bc08c52cb1f4987bef"
                     }
                   }
                 },
@@ -4285,7 +4323,8 @@
                   "properties": {
                     "self": {
                       "type": "string",
-                      "description": "Link to resource"
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/events"
                     }
                   }
                 },
@@ -4339,7 +4378,8 @@
                   "properties": {
                     "self": {
                       "type": "string",
-                      "description": "Link to resource"
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/rules"
                     }
                   }
                 },
@@ -4366,7 +4406,8 @@
                   "properties": {
                     "self": {
                       "type": "string",
-                      "description": "Link to resource"
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/tags"
                     }
                   }
                 },
@@ -4388,12 +4429,23 @@
             "schema": {
               "type": "object",
               "properties": {
+                "_pagination": {
+                  "type": "object",
+                  "properties": {
+                    "next": {
+                      "type": "string",
+                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
+                      "example": "https://yourCompany.api.frontapp.com/links?page_token=4fcb1f8ca11971c5da59c21ea686fd50"
+                    }
+                  }
+                },
                 "_links": {
                   "type": "object",
                   "properties": {
                     "self": {
                       "type": "string",
-                      "description": "Link to resource"
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/links"
                     }
                   }
                 },
@@ -4420,7 +4472,8 @@
                   "properties": {
                     "self": {
                       "type": "string",
-                      "description": "Link to resource"
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/channels"
                     }
                   }
                 },
@@ -4447,7 +4500,8 @@
                   "properties": {
                     "self": {
                       "type": "string",
-                      "description": "Link to resource"
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/custom_fields\" },"
                     }
                   }
                 },
@@ -4704,11 +4758,13 @@
               "properties": {
                 "status": {
                   "type": "string",
-                  "default": "accepted"
+                  "default": "accepted",
+                  "example": "accepted"
                 },
                 "message_template_folder_id": {
                   "type": "string",
-                  "description": "id of the message template to be deleted"
+                  "description": "id of the message template to be deleted",
+                  "example": "rsf_g2"
                 }
               }
             }
@@ -4724,7 +4780,8 @@
               "properties": {
                 "status": {
                   "type": "string",
-                  "default": "accepted"
+                  "default": "accepted",
+                  "example": "accepted"
                 }
               }
             }
@@ -7732,7 +7789,7 @@
       },
       "post": {
         "summary": "Mark message seen",
-        "description": "Mark an outbound message from Front as seen. Note, the message seen route should only be called in response to an actual end-user's message-seen action. In accordance with this behavior, the route is rate limited to 10 requests per hour.",
+        "description": "Mark an outbound message from Front as seen. Note, the message seen route should only be called in response to an actual end-user's message-seen action. In accordance with this behavior, the route is rate limited to 10 requests per hour. The request body should send an empty object.",
         "tags": [
           "Messages"
         ],

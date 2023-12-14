@@ -158,7 +158,148 @@
           }
         }
       },
-      "AnalyticsExportRequest2": {
+      "AnalyticsActivitiesColumns": {
+        "type": "string",
+        "enum": [
+          "Activity ID",
+          "Type",
+          "Source",
+          "Message ID",
+          "Conversation ID",
+          "Segment",
+          "Segment start",
+          "Segment end",
+          "Direction",
+          "Status",
+          "Status at activity time",
+          "Inbox",
+          "Inbox API ID",
+          "Inbox at activity time",
+          "Inbox API IDs at activity time",
+          "Previous inbox IDs",
+          "Message date",
+          "Autoreply",
+          "Reaction time",
+          "Total reply time",
+          "Handle time",
+          "Response time",
+          "Attributed to",
+          "Assignee",
+          "Author",
+          "Contact name",
+          "Contact handle",
+          "Account names",
+          "To",
+          "Cc",
+          "Bcc",
+          "Extract",
+          "Tags",
+          "Tag API IDs",
+          "Tags at activity time",
+          "Tag API IDs at activity time",
+          "Tag application duration",
+          "Activity API ID",
+          "Message API ID",
+          "Comment API ID",
+          "Conversation API ID",
+          "Message original ID",
+          "New Conversation",
+          "First response",
+          "Business hours",
+          "Subject",
+          "Account name",
+          "Survey rating",
+          "Survey comment",
+          "Segment closed",
+          "Segment contains messages",
+          "Last segment activity"
+        ]
+      },
+      "AnalyticsActivitiesExportsColumns": {
+        "required": [
+          "columns"
+        ],
+        "type": "object",
+        "properties": {
+          "columns": {
+            "type": "array",
+            "description": "List of the columns to include in the export.\n❗️Columns \"Resolution time\" and \"Final resolution\" are deprecated and will soon stop being supported.\n",
+            "items": {
+              "$ref": "#/components/schemas/AnalyticsActivitiesColumns"
+            },
+            "default": [
+              "Activity ID",
+              "Type",
+              "Source",
+              "Message ID",
+              "Conversation ID",
+              "Segment",
+              "Segment start",
+              "Segment end",
+              "Direction",
+              "Status",
+              "Status at activity time",
+              "Inbox",
+              "Inbox API ID",
+              "Inbox at activity time",
+              "Inbox API IDs at activity time",
+              "Previous inbox IDs",
+              "Message date",
+              "Autoreply",
+              "Reaction time",
+              "Total reply time",
+              "Handle time",
+              "Response time",
+              "Attributed to",
+              "Assignee",
+              "Author",
+              "Contact name",
+              "Contact handle",
+              "Account names",
+              "To",
+              "Cc",
+              "Bcc",
+              "Extract",
+              "Tags",
+              "Tag API IDs",
+              "Tags at activity time",
+              "Tag API IDs at activity time",
+              "Tag application duration",
+              "Activity API ID",
+              "Message API ID",
+              "Comment API ID",
+              "Conversation API ID",
+              "Message original ID",
+              "New Conversation",
+              "First response",
+              "Business hours",
+              "Subject",
+              "Account name",
+              "Survey rating",
+              "Survey comment",
+              "Segment closed",
+              "Segment contains messages",
+              "Last segment activity"
+            ]
+          }
+        }
+      },
+      "AnalyticsExportRequest": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "messages": "#/components/schemas/AnalyticsMessagesExportColumns",
+            "events": "#/components/schemas/AnalyticsActivitiesExportsColumns"
+          }
+        },
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/AnalyticsMessagesExportColumns"
+          },
+          {
+            "$ref": "#/components/schemas/AnalyticsActivitiesExportsColumns"
+          }
+        ],
         "properties": {
           "start": {
             "type": "number",
@@ -174,13 +315,6 @@
           },
           "filters": {
             "$ref": "#/components/schemas/AnalyticsFilters"
-          },
-          "type": {
-            "type": "string",
-            "enum": [
-              "events",
-              "messages"
-            ]
           }
         },
         "required": [
@@ -189,7 +323,7 @@
           "type"
         ]
       },
-      "AnalyticsExportResponse2": {
+      "AnalyticsExportResponse": {
         "properties": {
           "_links": {
             "type": "object",
@@ -256,6 +390,98 @@
           }
         ]
       },
+      "AnalyticsMessagesColumns": {
+        "type": "string",
+        "enum": [
+          "Message ID",
+          "Conversation ID",
+          "Segment",
+          "Direction",
+          "Status",
+          "Inbox",
+          "Inbox API ID",
+          "Message date",
+          "Autoreply",
+          "Reaction time",
+          "Total reply time",
+          "Handle time",
+          "Response time",
+          "Attributed to",
+          "Assignee",
+          "Author",
+          "Contact name",
+          "Contact handle",
+          "Account names",
+          "To",
+          "Cc",
+          "Bcc",
+          "Extract",
+          "Tags",
+          "Tag API IDs",
+          "Message API ID",
+          "Conversation API ID",
+          "New Conversation",
+          "First response",
+          "Business hours",
+          "Subject",
+          "Segment start",
+          "Segment end",
+          "Segment closed",
+          "Last segment activity"
+        ]
+      },
+      "AnalyticsMessagesExportColumns": {
+        "required": [
+          "columns"
+        ],
+        "type": "object",
+        "properties": {
+          "columns": {
+            "type": "array",
+            "description": "List of the columns to include in the export.\n❗️ Columns \"Resolution time\", \"Final resolution\" and \"Replies to resolve\" are deprecated and will soon stop being supported.\n",
+            "items": {
+              "$ref": "#/components/schemas/AnalyticsMessagesColumns"
+            },
+            "default": [
+              "Message ID",
+              "Conversation ID",
+              "Segment",
+              "Direction",
+              "Status",
+              "Inbox",
+              "Inbox API ID",
+              "Message date",
+              "Autoreply",
+              "Reaction time",
+              "Total reply time",
+              "Handle time",
+              "Response time",
+              "Attributed to",
+              "Assignee",
+              "Author",
+              "Contact name",
+              "Contact handle",
+              "Account names",
+              "To",
+              "Cc",
+              "Bcc",
+              "Extract",
+              "Tags",
+              "Tag API IDs",
+              "Message API ID",
+              "Conversation API ID",
+              "New Conversation",
+              "First response",
+              "Business hours",
+              "Subject",
+              "Segment start",
+              "Segment end",
+              "Segment closed",
+              "Last segment activity"
+            ]
+          }
+        }
+      },
       "AnalyticsMetricId": {
         "type": "string",
         "enum": [
@@ -281,7 +507,7 @@
           "num_workload_segments"
         ]
       },
-      "AnalyticsReportRequest2": {
+      "AnalyticsReportRequest": {
         "properties": {
           "start": {
             "type": "number",
@@ -312,7 +538,7 @@
           "metrics"
         ]
       },
-      "AnalyticsReportResponse2": {
+      "AnalyticsReportResponse": {
         "properties": {
           "_links": {
             "type": "object",
@@ -342,12 +568,12 @@
             "type": "array",
             "description": "The metrics computed for the report.",
             "items": {
-              "$ref": "#/components/schemas/AnalyticsScalar2"
+              "$ref": "#/components/schemas/AnalyticsScalar"
             }
           }
         }
       },
-      "AnalyticsScalar2": {
+      "AnalyticsScalar": {
         "properties": {
           "id": {
             "$ref": "#/components/schemas/AnalyticsMetricId"
@@ -3735,10 +3961,66 @@
           "example": 25
         }
       },
-      "sortBy": {
+      "sortByAccounts": {
         "name": "sort_by",
         "in": "query",
-        "description": "Field used to sort the records. Either 'created_at' or 'updated_at' for most endpoints.",
+        "description": "Field used to sort the accounts. Either 'created_at' or 'updated_at'.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "sortByActivities": {
+        "name": "sort_by",
+        "in": "query",
+        "description": "Field used to sort the events. Only supports 'created_at'.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "sortByCards": {
+        "name": "sort_by",
+        "in": "query",
+        "description": "Field used to sort the contacts. Either 'created_at' or 'updated_at'.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "sortByCannedAnswers": {
+        "name": "sort_by",
+        "in": "query",
+        "description": "Field used to sort the message templates. Either 'created_at', 'updated_at', or 'sort_order'.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "sortByCannedAnswerFolders": {
+        "name": "sort_by",
+        "in": "query",
+        "description": "Field used to sort the message template folders. Either 'created_at' or 'updated_at'.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "sortByConversations": {
+        "name": "sort_by",
+        "in": "query",
+        "description": "Field used to sort the conversations. Only supports 'date'.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "sortByLinks": {
+        "name": "sort_by",
+        "in": "query",
+        "description": "Field used to sort the links. Only supports 'id'.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "sortByTags": {
+        "name": "sort_by",
+        "in": "query",
+        "description": "Field used to sort the tags. Only supports 'id'.",
         "schema": {
           "type": "string"
         }
@@ -4806,7 +5088,7 @@
             "$ref": "#/components/parameters/pageToken"
           },
           {
-            "$ref": "#/components/parameters/sortBy"
+            "$ref": "#/components/parameters/sortByAccounts"
           },
           {
             "$ref": "#/components/parameters/sortOrder"
@@ -4964,6 +5246,12 @@
           },
           {
             "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/sortByCards"
+          },
+          {
+            "$ref": "#/components/parameters/sortOrder"
           }
         ],
         "responses": {
@@ -5042,7 +5330,7 @@
     "/analytics/exports": {
       "post": {
         "summary": "Create a new analytics export.",
-        "description": "Create a new analytics export of messages or activities over a specific time span.\nThe export will be executed asynchronously. The response will include a link that can be used to retrieve the\nexport status & result.\n",
+        "description": "Create a new analytics export of messages or events (activities) over a specific time span.\nThe export will be executed asynchronously. The response will include a link that can be used to retrieve the export status & result.\n",
         "operationId": "create-analytics-export",
         "tags": [
           "Analytics"
@@ -5051,7 +5339,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/AnalyticsExportRequest2"
+                "$ref": "#/components/schemas/AnalyticsExportRequest"
               }
             }
           }
@@ -5062,7 +5350,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AnalyticsExportResponse2"
+                  "$ref": "#/components/schemas/AnalyticsExportResponse"
                 }
               }
             }
@@ -5095,7 +5383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AnalyticsExportResponse2"
+                  "$ref": "#/components/schemas/AnalyticsExportResponse"
                 }
               }
             }
@@ -5115,7 +5403,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/AnalyticsReportRequest2"
+                "$ref": "#/components/schemas/AnalyticsReportRequest"
               }
             }
           }
@@ -5126,7 +5414,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AnalyticsReportResponse2"
+                  "$ref": "#/components/schemas/AnalyticsReportResponse"
                 }
               }
             }
@@ -5159,7 +5447,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AnalyticsReportResponse2"
+                  "$ref": "#/components/schemas/AnalyticsReportResponse"
                 }
               }
             }
@@ -5451,6 +5739,12 @@
           },
           {
             "$ref": "#/components/parameters/pageToken"
+          },
+          {
+            "$ref": "#/components/parameters/sortByTags"
+          },
+          {
+            "$ref": "#/components/parameters/sortOrder"
           }
         ],
         "responses": {
@@ -5659,7 +5953,7 @@
             "$ref": "#/components/parameters/pageToken"
           },
           {
-            "$ref": "#/components/parameters/sortBy"
+            "$ref": "#/components/parameters/sortByCards"
           },
           {
             "$ref": "#/components/parameters/sortOrder"
@@ -5993,6 +6287,12 @@
           },
           {
             "$ref": "#/components/parameters/pageToken"
+          },
+          {
+            "$ref": "#/components/parameters/sortByConversations"
+          },
+          {
+            "$ref": "#/components/parameters/sortOrder"
           }
         ],
         "responses": {
@@ -6867,6 +7167,12 @@
           },
           {
             "$ref": "#/components/parameters/pageToken"
+          },
+          {
+            "$ref": "#/components/parameters/sortByActivities"
+          },
+          {
+            "$ref": "#/components/parameters/sortOrder"
           }
         ],
         "responses": {
@@ -7220,6 +7526,12 @@
           },
           {
             "$ref": "#/components/parameters/pageToken"
+          },
+          {
+            "$ref": "#/components/parameters/sortByLinks"
+          },
+          {
+            "$ref": "#/components/parameters/sortOrder"
           }
         ],
         "responses": {
@@ -7353,6 +7665,12 @@
           },
           {
             "$ref": "#/components/parameters/pageToken"
+          },
+          {
+            "$ref": "#/components/parameters/sortByConversations"
+          },
+          {
+            "$ref": "#/components/parameters/sortOrder"
           }
         ],
         "responses": {
@@ -7382,6 +7700,14 @@
         "description": "List the message template folders.",
         "tags": [
           "Message Template Folders"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/sortByCannedAnswerFolders"
+          },
+          {
+            "$ref": "#/components/parameters/sortOrder"
+          }
         ],
         "responses": {
           "200": {
@@ -7622,6 +7948,14 @@
         "description": "List the message templates.",
         "tags": [
           "Message Templates"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/sortByCannedAnswers"
+          },
+          {
+            "$ref": "#/components/parameters/sortOrder"
+          }
         ],
         "responses": {
           "200": {
@@ -8151,6 +8485,12 @@
           },
           {
             "$ref": "#/components/parameters/pageToken"
+          },
+          {
+            "$ref": "#/components/parameters/sortByTags"
+          },
+          {
+            "$ref": "#/components/parameters/sortOrder"
           }
         ],
         "responses": {
@@ -8562,7 +8902,7 @@
             "$ref": "#/components/parameters/pageToken"
           },
           {
-            "$ref": "#/components/parameters/sortBy"
+            "$ref": "#/components/parameters/sortByCards"
           },
           {
             "$ref": "#/components/parameters/sortOrder"
@@ -8687,6 +9027,12 @@
               "type": "string",
               "default": "tea_123"
             }
+          },
+          {
+            "$ref": "#/components/parameters/sortByCannedAnswerFolders"
+          },
+          {
+            "$ref": "#/components/parameters/sortOrder"
           }
         ],
         "responses": {
@@ -8747,6 +9093,12 @@
               "type": "string",
               "default": "tea_123"
             }
+          },
+          {
+            "$ref": "#/components/parameters/sortByCannedAnswers"
+          },
+          {
+            "$ref": "#/components/parameters/sortOrder"
           }
         ],
         "responses": {
@@ -8925,6 +9277,12 @@
           },
           {
             "$ref": "#/components/parameters/pageToken"
+          },
+          {
+            "$ref": "#/components/parameters/sortByTags"
+          },
+          {
+            "$ref": "#/components/parameters/sortOrder"
           }
         ],
         "responses": {
@@ -9121,7 +9479,7 @@
             "$ref": "#/components/parameters/pageToken"
           },
           {
-            "$ref": "#/components/parameters/sortBy"
+            "$ref": "#/components/parameters/sortByCards"
           },
           {
             "$ref": "#/components/parameters/sortOrder"
@@ -9244,6 +9602,12 @@
               "type": "string",
               "default": "tim_55c8c149"
             }
+          },
+          {
+            "$ref": "#/components/parameters/sortByCannedAnswerFolders"
+          },
+          {
+            "$ref": "#/components/parameters/sortOrder"
           }
         ],
         "responses": {
@@ -9304,6 +9668,12 @@
               "type": "string",
               "default": "tim_55c8c149"
             }
+          },
+          {
+            "$ref": "#/components/parameters/sortByCannedAnswers"
+          },
+          {
+            "$ref": "#/components/parameters/sortOrder"
           }
         ],
         "responses": {
@@ -9516,6 +9886,12 @@
           },
           {
             "$ref": "#/components/parameters/pageToken"
+          },
+          {
+            "$ref": "#/components/parameters/sortByTags"
+          },
+          {
+            "$ref": "#/components/parameters/sortOrder"
           }
         ],
         "responses": {

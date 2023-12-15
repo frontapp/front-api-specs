@@ -3964,7 +3964,7 @@
       "sortByAccounts": {
         "name": "sort_by",
         "in": "query",
-        "description": "Field used to sort the accounts. Either 'created_at' or 'updated_at'.",
+        "description": "Field used to sort the accounts. Either `created_at` or `updated_at`.",
         "schema": {
           "type": "string"
         }
@@ -3972,7 +3972,7 @@
       "sortByActivities": {
         "name": "sort_by",
         "in": "query",
-        "description": "Field used to sort the events. Only supports 'created_at'.",
+        "description": "Field used to sort the events. Only supports `created_at`.",
         "schema": {
           "type": "string"
         }
@@ -3980,7 +3980,7 @@
       "sortByCards": {
         "name": "sort_by",
         "in": "query",
-        "description": "Field used to sort the contacts. Either 'created_at' or 'updated_at'.",
+        "description": "Field used to sort the contacts. Either `created_at` or `updated_at`.",
         "schema": {
           "type": "string"
         }
@@ -3988,7 +3988,7 @@
       "sortByCannedAnswers": {
         "name": "sort_by",
         "in": "query",
-        "description": "Field used to sort the message templates. Either 'created_at', 'updated_at', or 'sort_order'.",
+        "description": "Field used to sort the message templates. Either `created_at`, `updated_at`, or `sort_order`.",
         "schema": {
           "type": "string"
         }
@@ -3996,7 +3996,7 @@
       "sortByCannedAnswerFolders": {
         "name": "sort_by",
         "in": "query",
-        "description": "Field used to sort the message template folders. Either 'created_at' or 'updated_at'.",
+        "description": "Field used to sort the message template folders. Either `created_at` or `updated_at`.",
         "schema": {
           "type": "string"
         }
@@ -4004,7 +4004,7 @@
       "sortByConversations": {
         "name": "sort_by",
         "in": "query",
-        "description": "Field used to sort the conversations. Only supports 'date'.",
+        "description": "Field used to sort the conversations. Only supports `date`.",
         "schema": {
           "type": "string"
         }
@@ -4012,7 +4012,7 @@
       "sortByLinks": {
         "name": "sort_by",
         "in": "query",
-        "description": "Field used to sort the links. Only supports 'id'.",
+        "description": "Field used to sort the links. Only supports `id`.",
         "schema": {
           "type": "string"
         }
@@ -4020,7 +4020,7 @@
       "sortByTags": {
         "name": "sort_by",
         "in": "query",
-        "description": "Field used to sort the tags. Only supports 'id'.",
+        "description": "Field used to sort the tags. Only supports `id`.",
         "schema": {
           "type": "string"
         }

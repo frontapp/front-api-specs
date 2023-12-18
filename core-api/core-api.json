@@ -2506,20 +2506,21 @@
             "type": "string",
             "description": "Type of the message",
             "enum": [
+              "call",
               "custom",
               "email",
+              "facebook",
+              "front_chat",
               "googleplay",
               "intercom",
               "internal",
-              "smooch",
               "phone-call",
-              "call",
               "sms",
+              "smooch",
               "tweet",
               "tweet_dm",
               "whatsapp",
-              "yalo_wha",
-              "front_chat"
+              "yalo_wha"
             ],
             "example": "email"
           },
@@ -6363,7 +6364,7 @@
             "description": "Search query string. See [Search](https://dev.frontapp.com/docs/search-1) topic for usage details.",
             "schema": {
               "type": "string",
-              "default": "inbox%3Ainb_123%20tag%3Atag_345"
+              "default": "inbox:inb_123 tag:tag_345"
             }
           },
           {

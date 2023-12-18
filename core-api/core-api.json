@@ -183,6 +183,9 @@
           "Total reply time",
           "Handle time",
           "Response time",
+          "Stage resolution time",
+          "Is last resolution",
+          "Replies to resolution",
           "Attributed to",
           "Assignee",
           "Author",
@@ -223,7 +226,7 @@
         "properties": {
           "columns": {
             "type": "array",
-            "description": "List of the columns to include in the export.\n❗️Columns \"Resolution time\" and \"Final resolution\" are deprecated and will soon stop being supported.\n",
+            "description": "List of the columns to include in the export.\n❗️Columns \"Resolution time\" and \"Final resolution\" are deprecated and not supported anymore through the \"columns\" field.\n",
             "items": {
               "$ref": "#/components/schemas/AnalyticsActivitiesColumns"
             },
@@ -250,6 +253,9 @@
               "Total reply time",
               "Handle time",
               "Response time",
+              "Stage resolution time",
+              "Is last resolution",
+              "Replies to resolution",
               "Attributed to",
               "Assignee",
               "Author",
@@ -406,6 +412,9 @@
           "Total reply time",
           "Handle time",
           "Response time",
+          "Stage resolution time",
+          "Is last resolution",
+          "Replies to resolution",
           "Attributed to",
           "Assignee",
           "Author",
@@ -438,7 +447,7 @@
         "properties": {
           "columns": {
             "type": "array",
-            "description": "List of the columns to include in the export.\n❗️ Columns \"Resolution time\", \"Final resolution\" and \"Replies to resolve\" are deprecated and will soon stop being supported.\n",
+            "description": "List of the columns to include in the export.\n❗️ Columns \"Resolution time\", \"Final resolution\" and \"Replies to resolve\" are deprecated and not supported anymore through the \"columns\" field.\n",
             "items": {
               "$ref": "#/components/schemas/AnalyticsMessagesColumns"
             },
@@ -456,6 +465,9 @@
               "Total reply time",
               "Handle time",
               "Response time",
+              "Stage resolution time",
+              "Is last resolution",
+              "Replies to resolution",
               "Attributed to",
               "Assignee",
               "Author",

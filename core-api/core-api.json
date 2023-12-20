@@ -5339,7 +5339,7 @@
     "/analytics/exports": {
       "post": {
         "summary": "Create a new analytics export.",
-        "description": "Create a new analytics export of messages or events (activities) over a specific time span.\nThe export will be executed asynchronously. The response will include a link that can be used to retrieve the export status & result.\n",
+        "description": "Create a new analytics export of messages or events (activities) over a specific time span.\nThe export will be executed asynchronously. The response will include a link that can be used to retrieve the export status & result. Refer to the [Analytics](https://dev.frontapp.com/reference/analytics) topic for details about specific metrics.\n",
         "operationId": "create-analytics-export",
         "tags": [
           "Analytics"
@@ -5370,6 +5370,7 @@
     "/analytics/exports/{export_id}": {
       "get": {
         "summary": "Fetch an analytics export.",
+        "description": "Fetch an analytics exports. Refer to the [Analytics](https://dev.frontapp.com/reference/analytics) topic for details about specific metrics.",
         "operationId": "get-analytics-export",
         "tags": [
           "Analytics"
@@ -5403,7 +5404,7 @@
     "/analytics/reports": {
       "post": {
         "summary": "Create a new analytics report.",
-        "description": "Create a new analytics report for a set of metrics over a specific time span.\nThe report will be executed asynchronously. The response will include a link that can be used to retrieve the\nreport status & result.\n",
+        "description": "Create a new analytics report for a set of metrics over a specific time span. Different filters (e.g. Inbox v Tag v Teammates) will be joined with AND logic, but the IDs within a filter will be joined with OR logic (e.g. Inbox A or Inbox B, Tag A or Tag B).\nThe report will be executed asynchronously. The response will include a link that can be used to retrieve the\nreport status & result. Refer to the [Analytics](https://dev.frontapp.com/reference/analytics) topic for details about specific metrics.\n",
         "operationId": "create-analytics-report",
         "tags": [
           "Analytics"
@@ -5434,6 +5435,7 @@
     "/analytics/reports/{report_uid}": {
       "get": {
         "summary": "Fetch an analytics report.",
+        "description": "Fetch an analytics report. Refer to the [Analytics](https://dev.frontapp.com/reference/analytics) topic for details about specific metrics.",
         "operationId": "get-analytics-report",
         "tags": [
           "Analytics"
@@ -5800,7 +5802,7 @@
       },
       "post": {
         "summary": "Create group",
-        "description": "Create a new contact group in the default team.",
+        "description": "Create a new contact group in the default team (workspace).",
         "tags": [
           "Contact Groups"
         ],
@@ -7232,7 +7234,7 @@
       },
       "post": {
         "summary": "Create inbox",
-        "description": "Create an inbox in the default team. The default team will be the oldest team created that still exists at the time of the request.",
+        "description": "Create an inbox in the default team (workspace). The default team will be the oldest team created that still exists at the time of the request.",
         "tags": [
           "Inboxes"
         ],
@@ -8510,7 +8512,7 @@
       },
       "post": {
         "summary": "Create tag",
-        "description": "Create a tag in the oldest team. This is a legacy endpoint. Use the Create company tag, Create team tag, or Create teammate tag endpoints instead.",
+        "description": "Create a tag in the oldest team (workspace). This is a legacy endpoint. Use the Create company tag, Create team tag, or Create teammate tag endpoints instead.",
         "tags": [
           "Tags"
         ],
@@ -9338,7 +9340,7 @@
     "/teams": {
       "get": {
         "summary": "List teams",
-        "description": "List the teams in the company.",
+        "description": "List the teams (workspaces) in the company.",
         "tags": [
           "Teams"
         ],
@@ -9352,7 +9354,7 @@
     "/teams/{team_id}": {
       "get": {
         "summary": "Get team",
-        "description": "Fetch a team.",
+        "description": "Fetch a team (workspace).",
         "tags": [
           "Teams"
         ],
@@ -9378,7 +9380,7 @@
     "/teams/{team_id}/channels": {
       "get": {
         "summary": "List team channels",
-        "description": "List the channels of a team.",
+        "description": "List the channels of a team (workspace).",
         "tags": [
           "Channels"
         ],
@@ -9404,7 +9406,7 @@
     "/teams/{team_id}/contact_groups": {
       "get": {
         "summary": "List team groups",
-        "description": "List contact groups belonging to the requested team.",
+        "description": "List contact groups belonging to the requested team (workspace).",
         "tags": [
           "Contact Groups"
         ],
@@ -9428,7 +9430,7 @@
       },
       "post": {
         "summary": "Create team group",
-        "description": "Create a new contact group for the requested team.",
+        "description": "Create a new contact group for the requested team (workspace).",
         "tags": [
           "Contact Groups"
         ],
@@ -9463,7 +9465,7 @@
     "/teams/{team_id}/contacts": {
       "get": {
         "summary": "List team contacts",
-        "description": "List the contacts of a team.",
+        "description": "List the contacts of a team (workspace).",
         "tags": [
           "Contacts"
         ],
@@ -9502,7 +9504,7 @@
       },
       "post": {
         "summary": "Create team contact",
-        "description": "Create a contact for a team.",
+        "description": "Create a contact for a team (workspace).",
         "tags": [
           "Contacts"
         ],
@@ -9537,7 +9539,7 @@
     "/teams/{team_id}/inboxes": {
       "get": {
         "summary": "List team inboxes",
-        "description": "List the inboxes belonging to a team.",
+        "description": "List the inboxes belonging to a team (workspace).",
         "tags": [
           "Inboxes"
         ],
@@ -9561,7 +9563,7 @@
       },
       "post": {
         "summary": "Create team inbox",
-        "description": "Create an inbox for a team.",
+        "description": "Create an inbox for a team (workspace).",
         "tags": [
           "Inboxes"
         ],
@@ -9597,7 +9599,7 @@
     "/teams/{team_id}/message_template_folders": {
       "get": {
         "summary": "List team folders",
-        "description": "List the message template folders belonging to the requested team.",
+        "description": "List the message template folders belonging to the requested team (workspace).",
         "tags": [
           "Message Template Folders"
         ],
@@ -9627,7 +9629,7 @@
       },
       "post": {
         "summary": "Create team folder",
-        "description": "Create a new message template folder belonging to the requested team.",
+        "description": "Create a new message template folder belonging to the requested team (workspace).",
         "tags": [
           "Message Template Folders"
         ],
@@ -9663,7 +9665,7 @@
     "/teams/{team_id}/message_templates": {
       "get": {
         "summary": "List team message templates",
-        "description": "List the message templates belonging to the requested team.",
+        "description": "List the message templates belonging to the requested team (workspace).",
         "tags": [
           "Message Templates"
         ],
@@ -9693,7 +9695,7 @@
       },
       "post": {
         "summary": "Create team message template",
-        "description": "Create a new message template for the given team",
+        "description": "Create a new message template for the given team (workspace).",
         "tags": [
           "Message Templates"
         ],
@@ -9729,7 +9731,7 @@
     "/teams/{team_id}/rules": {
       "get": {
         "summary": "List team rules",
-        "description": "List the rules of a team.",
+        "description": "List the rules of a team (workspace).",
         "tags": [
           "Rules"
         ],
@@ -9755,7 +9757,7 @@
     "/teams/{team_id}/shifts": {
       "get": {
         "summary": "List team Shifts",
-        "description": "List the shifts for a team.",
+        "description": "List the shifts for a team (workspace).",
         "tags": [
           "Shifts"
         ],
@@ -9779,7 +9781,7 @@
       },
       "post": {
         "summary": "Create team shift",
-        "description": "Create a shift for a team.",
+        "description": "Create a shift for a team (workspace).",
         "tags": [
           "Shifts"
         ],
@@ -9815,7 +9817,7 @@
     "/teams/{team_id}/signatures": {
       "get": {
         "summary": "List team signatures",
-        "description": "List the signatures belonging to the given team.",
+        "description": "List the signatures belonging to the given team (workspace).",
         "tags": [
           "Signatures"
         ],
@@ -9839,7 +9841,7 @@
       },
       "post": {
         "summary": "Create team signature",
-        "description": "Create a new signature for the given team",
+        "description": "Create a new signature for the given team (workspace).",
         "tags": [
           "Signatures"
         ],
@@ -9875,7 +9877,7 @@
     "/teams/{team_id}/tags": {
       "get": {
         "summary": "List team tags",
-        "description": "List the tags for a team.",
+        "description": "List the tags for a team (workspace).",
         "tags": [
           "Tags"
         ],
@@ -9911,7 +9913,7 @@
       },
       "post": {
         "summary": "Create team tag",
-        "description": "Create a tag for a team.",
+        "description": "Create a tag for a team (workspace).",
         "tags": [
           "Tags"
         ],
@@ -9947,7 +9949,7 @@
     "/teams/{team_id}/teammates": {
       "post": {
         "summary": "Add teammates to team",
-        "description": "Add one or more teammates to a team.",
+        "description": "Add one or more teammates to a team (workspace).",
         "tags": [
           "Teams"
         ],
@@ -9981,7 +9983,7 @@
       },
       "delete": {
         "summary": "Remove teammates from team",
-        "description": "Remove one or more teammates from a team. Alternatively, you can supply emails as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
+        "description": "Remove one or more teammates from a team (workspace). Alternatively, you can supply emails as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
         "tags": [
           "Teams"
         ],

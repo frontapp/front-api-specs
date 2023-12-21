@@ -219,7 +219,10 @@
       },
       "AnalyticsActivitiesExportsColumns": {
         "required": [
-          "columns"
+          "columns",
+          "start",
+          "end",
+          "type"
         ],
         "type": "object",
         "properties": {
@@ -305,6 +308,14 @@
           }
         ],
         "properties": {
+          "type": {
+            "type": "string",
+            "description": "The type of export to create. The type you specify determines which columns are available for the export.",
+            "enum": [
+              "messages",
+              "events"
+            ]
+          },
           "start": {
             "type": "number",
             "description": "Start time of the data to include in the export (seconds since 1970-01-01T00:00:00+00). Will be rounded down to the start of the day."
@@ -320,12 +331,7 @@
           "filters": {
             "$ref": "#/components/schemas/AnalyticsFilters"
           }
-        },
-        "required": [
-          "start",
-          "end",
-          "type"
-        ]
+        }
       },
       "AnalyticsExportResponse": {
         "properties": {
@@ -447,7 +453,10 @@
       },
       "AnalyticsMessagesExportColumns": {
         "required": [
-          "columns"
+          "columns",
+          "start",
+          "end",
+          "type"
         ],
         "type": "object",
         "properties": {

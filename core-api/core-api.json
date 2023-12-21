@@ -334,7 +334,8 @@
             "properties": {
               "self": {
                 "type": "string",
-                "description": "Link to analytics export"
+                "description": "Link to analytics export",
+                "example": "https://yourCompany.api.frontapp.com/analytics/exports/exp_o9y1a"
               }
             }
           },
@@ -346,25 +347,35 @@
               "too_big",
               "failed"
             ],
-            "description": "Status of the analytics"
+            "description": "Status of the analytics",
+            "example": "running"
           },
           "progress": {
             "type": "integer",
             "minimum": 0,
             "maximum": 100,
-            "description": "Number ranging from 0 to 100 corresponding to the percentage of the analytics processed."
+            "description": "Number ranging from 0 to 100 corresponding to the percentage of the analytics processed.",
+            "example": 20
           },
           "url": {
             "type": "string",
-            "description": "The URL from which the export data can be downloaded."
+            "description": "The URL from which the export data can be downloaded. Only displays after you make a GET request to the link included in the POST response.",
+            "example": "https://api.frontapp.com/analytics/exports/exp_o9y1a/download"
+          },
+          "filename": {
+            "type": "string",
+            "description": "The filename of the export with extension included. Only displays after you make a GET request to the link included in the POST response.",
+            "example": "export-messages-yourCompany-2023-07-19-212d-e55df0.csv"
           },
           "size": {
             "type": "number",
-            "description": "Size (in bytes) of the export data."
+            "description": "Size (in bytes) of the export data. Only displays after you make a GET request to the link included in the POST response.",
+            "example": 26639
           },
           "created_at": {
             "type": "number",
-            "description": "Timestamp (in seconds) at which the export was requested."
+            "description": "Timestamp (in seconds) at which the export was requested.",
+            "example": 1703103649.159
           },
           "filters": {
             "$ref": "#/components/schemas/AnalyticsFilters"
@@ -549,7 +560,8 @@
             "properties": {
               "self": {
                 "type": "string",
-                "description": "Link to analytics job."
+                "description": "Link to analytics job.",
+                "example": "https://yourCompany.api.frontapp.com/analytics/reports/b45efa66237cc453252d9019449c7a64f5cfdb491b6c2c1d6df33c1050d60e33"
               }
             }
           },
@@ -560,13 +572,15 @@
               "done",
               "failed"
             ],
-            "description": "Status of the report."
+            "description": "Status of the report.",
+            "example": "done"
           },
           "progress": {
             "type": "integer",
             "minimum": 0,
             "maximum": 100,
-            "description": "Number ranging from 0 to 100 corresponding to the percentage of the analytics processed."
+            "description": "Number ranging from 0 to 100 corresponding to the percentage of the analytics processed.",
+            "example": 100
           },
           "metrics": {
             "type": "array",
@@ -592,6 +606,7 @@
       },
       "AnalyticsScalarType": {
         "type": "string",
+        "example": "number",
         "enum": [
           "number",
           "percentage",
@@ -2039,13 +2054,15 @@
             "properties": {
               "self": {
                 "type": "string",
-                "description": "Link to resource"
+                "description": "Link to resource",
+                "example": "https://yourCompany.api.frontapp.com/events/evt_4ckcra8e"
               }
             }
           },
           "id": {
-            "type": "integer",
-            "description": "Unique identifier of the event"
+            "type": "string",
+            "description": "Unique identifier of the event",
+            "example": "evt_4ckcra8e"
           },
           "type": {
             "type": "string",
@@ -2057,19 +2074,29 @@
               "reopen",
               "trash",
               "restore",
+              "reminder",
               "comment",
+              "mention",
               "inbound",
               "outbound",
+              "outbound_reply",
               "move",
               "forward",
               "tag",
               "untag",
-              "sending_error"
-            ]
+              "sending_error",
+              "message_bounce_error",
+              "conv_join",
+              "topic_added",
+              "topic_removed",
+              "custom_attribute_updated"
+            ],
+            "example": "inbound"
           },
           "emitted_at": {
-            "type": "string",
-            "description": "Date at which the event has been emitted"
+            "type": "number",
+            "description": "Date at which the event has been emitted",
+            "example": 1703102616
           },
           "source": {
             "type": "object",
@@ -2082,12 +2109,17 @@
                   "type": {
                     "description": "Type of resource",
                     "enum": [
-                      "teamate",
-                      "inbox",
-                      "tag",
-                      "comment",
-                      "message"
-                    ]
+                      "api",
+                      "oauth_client",
+                      "rule",
+                      "teammate",
+                      "imap",
+                      "gmail",
+                      "reminder",
+                      "inboxes",
+                      "recipient"
+                    ],
+                    "example": "inboxes"
                   }
                 }
               },
@@ -2121,38 +2153,41 @@
                   "type": {
                     "description": "Type of resource",
                     "enum": [
-                      "teamate",
-                      "inbox",
-                      "tag",
-                      "comment",
+                      "teammate",
+                      "inboxes",
                       "message",
-                      "link"
-                    ]
-                  },
-                  "data": {
-                    "description": "The resource which received the event",
-                    "oneOf": [
-                      {
-                        "$ref": "#/components/schemas/TeammateResponse"
-                      },
-                      {
-                        "$ref": "#/components/schemas/InboxResponse"
-                      },
-                      {
-                        "$ref": "#/components/schemas/TagResponse"
-                      },
-                      {
-                        "$ref": "#/components/schemas/CommentResponse"
-                      },
-                      {
-                        "$ref": "#/components/schemas/MessageResponse"
-                      },
-                      {
-                        "$ref": "#/components/schemas/LinkResponse"
-                      }
-                    ]
+                      "comment",
+                      "tag",
+                      "deleted_conversation_ids",
+                      "link",
+                      "custom_field"
+                    ],
+                    "example": "inboxes"
                   }
                 }
+              },
+              "data": {
+                "description": "The resource which received the event",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/TeammateResponse"
+                  },
+                  {
+                    "$ref": "#/components/schemas/InboxResponse"
+                  },
+                  {
+                    "$ref": "#/components/schemas/TagResponse"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CommentResponse"
+                  },
+                  {
+                    "$ref": "#/components/schemas/MessageResponse"
+                  },
+                  {
+                    "$ref": "#/components/schemas/LinkResponse"
+                  }
+                ]
               }
             }
           },

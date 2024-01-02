@@ -2095,10 +2095,10 @@
               "untag",
               "sending_error",
               "message_bounce_error",
-              "conv_join",
-              "topic_added",
-              "topic_removed",
-              "custom_attribute_updated"
+              "conversations_merged",
+              "link_added",
+              "link_removed",
+              "custom_field_updated"
             ],
             "example": "inbound"
           },

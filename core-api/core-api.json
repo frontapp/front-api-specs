@@ -5607,7 +5607,7 @@
     "/channels/{channel_id}/drafts": {
       "post": {
         "summary": "Create draft",
-        "description": "Create a draft message which is the first message of a new conversation.",
+        "description": "Create a draft message which is the first message of a new [conversation](https://dev.frontapp.com/reference/conversations).",
         "tags": [
           "Drafts"
         ],
@@ -5676,8 +5676,8 @@
     },
     "/channels/{channel_id}/messages": {
       "post": {
-        "summary": "Create conversation",
-        "description": "Send a new message from a channel.",
+        "summary": "Create message",
+        "description": "Send a new message from a channel. This is one of the ways to create a new [conversation](https://dev.frontapp.com/reference/conversations#creating-a-new-conversation). The new conversation will support both messages and comments (discussions).",
         "tags": [
           "Messages"
         ],
@@ -6377,8 +6377,8 @@
         }
       },
       "post": {
-        "summary": "Create conversation",
-        "description": "Create a conversation.\n> ⚠️ Currently, only discussions can be created with this endpoint.\n",
+        "summary": "Create discussion conversation",
+        "description": "Create a new [conversation](https://dev.frontapp.com/reference/conversations#creating-a-new-conversation) that only supports comments (known as discussions in Front). If you want to create a conversation that supports messages, use the [Create message](https://dev.frontapp.com/reference/post_channels-channel-id-messages) endpoint. If you want to add a comment to an existing conversation, use the [Add comment](https://dev.frontapp.com/reference/post_conversations-conversation-id-comments) endpoint.",
         "operationId": "create-conversation",
         "tags": [
           "Conversations"
@@ -6571,8 +6571,8 @@
         }
       },
       "post": {
-        "summary": "Create comment",
-        "description": "Add a comment to a conversation.",
+        "summary": "Add comment",
+        "description": "Add a comment to a [conversation](https://dev.frontapp.com/reference/conversations). If you want to create a new comment-only conversation, use the [Create discussion conversation](https://dev.frontapp.com/reference/create-conversation) endpoint.",
         "tags": [
           "Comments"
         ],
@@ -6970,7 +6970,7 @@
         }
       },
       "post": {
-        "summary": "Reply to conversation",
+        "summary": "Create message reply",
         "description": "Reply to a conversation by sending a message and appending it to the conversation.",
         "tags": [
           "Messages"

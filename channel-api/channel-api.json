@@ -213,6 +213,7 @@
     "/channels/{channel_id}": {
       "patch": {
         "summary": "Update Channel",
+        "operationId": "update-channel",
         "description": "Update a channel.",
         "tags": [
           "Channels"
@@ -249,6 +250,7 @@
     "/channels/{channel_id}/inbound_messages": {
       "post": {
         "summary": "Sync inbound message",
+        "operationId": "sync-inbound-message",
         "description": "Import a message that was received by the channel.",
         "tags": [
           "Messages"
@@ -284,6 +286,7 @@
     "/channels/{channel_id}/outbound_messages": {
       "post": {
         "summary": "Sync outbound message",
+        "operationId": "sync-outbound-message",
         "description": "Import a message that was sent from the channel.",
         "tags": [
           "Messages"

@@ -5149,6 +5149,7 @@
     "/accounts": {
       "get": {
         "summary": "List Accounts",
+        "operationId": "list-accounts",
         "description": "List the accounts of the company.",
         "tags": [
           "Accounts"
@@ -5175,6 +5176,7 @@
       },
       "post": {
         "summary": "Create account",
+        "operationId": "create-account",
         "description": "Create a new account.",
         "tags": [
           "Accounts"
@@ -5201,8 +5203,8 @@
     "/accounts/custom_fields": {
       "get": {
         "summary": "List Account's custom fields",
-        "description": "Lists the custom fields that can be attached to an Account.",
         "operationId": "list-account-custom-fields",
+        "description": "Lists the custom fields that can be attached to an Account.",
         "tags": [
           "Custom Fields"
         ],
@@ -5216,6 +5218,7 @@
     "/accounts/{account_id}": {
       "get": {
         "summary": "Fetch an account",
+        "operationId": "fetch-an-account",
         "description": "Fetches an account",
         "tags": [
           "Accounts"
@@ -5240,6 +5243,7 @@
       },
       "patch": {
         "summary": "Update account",
+        "operationId": "update-account",
         "description": "Updates an account.",
         "tags": [
           "Accounts"
@@ -5273,6 +5277,7 @@
       },
       "delete": {
         "summary": "Delete an account",
+        "operationId": "delete-an-account",
         "description": "Deletes an account",
         "tags": [
           "Accounts"
@@ -5299,6 +5304,7 @@
     "/accounts/{account_id}/contacts": {
       "get": {
         "summary": "List account contacts",
+        "operationId": "list-account-contacts",
         "description": "Lists the contacts associated with an Account",
         "tags": [
           "Accounts"
@@ -5335,6 +5341,7 @@
       },
       "post": {
         "summary": "Add contact to Account",
+        "operationId": "add-contact-to-account",
         "description": "Adds a list of contacts to an Account",
         "tags": [
           "Accounts"
@@ -5368,6 +5375,7 @@
       },
       "delete": {
         "summary": "Remove contact from Account",
+        "operationId": "remove-contact-from-account",
         "description": "Removes a list of contacts from an Account",
         "tags": [
           "Accounts"
@@ -5403,8 +5411,8 @@
     "/analytics/exports": {
       "post": {
         "summary": "Create a new analytics export.",
-        "description": "Create a new analytics export of messages or events (activities) over a specific time span.\nThe export will be executed asynchronously. The response will include a link that can be used to retrieve the export status & result. Refer to the [Analytics](https://dev.frontapp.com/reference/analytics) topic for details about specific metrics.\n",
         "operationId": "create-analytics-export",
+        "description": "Create a new analytics export of messages or events (activities) over a specific time span.\nThe export will be executed asynchronously. The response will include a link that can be used to retrieve the export status & result. Refer to the [Analytics](https://dev.frontapp.com/reference/analytics) topic for details about specific metrics.\n",
         "tags": [
           "Analytics"
         ],
@@ -5434,8 +5442,8 @@
     "/analytics/exports/{export_id}": {
       "get": {
         "summary": "Fetch an analytics export.",
-        "description": "Fetch an analytics exports. Refer to the [Analytics](https://dev.frontapp.com/reference/analytics) topic for details about specific metrics.",
         "operationId": "get-analytics-export",
+        "description": "Fetch an analytics exports. Refer to the [Analytics](https://dev.frontapp.com/reference/analytics) topic for details about specific metrics.",
         "tags": [
           "Analytics"
         ],
@@ -5468,8 +5476,8 @@
     "/analytics/reports": {
       "post": {
         "summary": "Create a new analytics report.",
-        "description": "Create a new analytics report for a set of metrics over a specific time span. Different filters (e.g. Inbox v Tag v Teammates) will be joined with AND logic, but the IDs within a filter will be joined with OR logic (e.g. Inbox A or Inbox B, Tag A or Tag B).\nThe report will be executed asynchronously. The response will include a link that can be used to retrieve the\nreport status & result. Refer to the [Analytics](https://dev.frontapp.com/reference/analytics) topic for details about specific metrics.\n",
         "operationId": "create-analytics-report",
+        "description": "Create a new analytics report for a set of metrics over a specific time span. Different filters (e.g. Inbox v Tag v Teammates) will be joined with AND logic, but the IDs within a filter will be joined with OR logic (e.g. Inbox A or Inbox B, Tag A or Tag B).\nThe report will be executed asynchronously. The response will include a link that can be used to retrieve the\nreport status & result. Refer to the [Analytics](https://dev.frontapp.com/reference/analytics) topic for details about specific metrics.\n",
         "tags": [
           "Analytics"
         ],
@@ -5499,8 +5507,8 @@
     "/analytics/reports/{report_uid}": {
       "get": {
         "summary": "Fetch an analytics report.",
-        "description": "Fetch an analytics report. Refer to the [Analytics](https://dev.frontapp.com/reference/analytics) topic for details about specific metrics.",
         "operationId": "get-analytics-report",
+        "description": "Fetch an analytics report. Refer to the [Analytics](https://dev.frontapp.com/reference/analytics) topic for details about specific metrics.",
         "tags": [
           "Analytics"
         ],
@@ -5533,6 +5541,7 @@
     "/channels": {
       "get": {
         "summary": "List channels",
+        "operationId": "list-channels",
         "description": "List the channels of the company.",
         "tags": [
           "Channels"
@@ -5547,6 +5556,7 @@
     "/channels/{channel_id}": {
       "get": {
         "summary": "Get channel",
+        "operationId": "get-channel",
         "description": "Fetch a channel.",
         "tags": [
           "Channels"
@@ -5571,6 +5581,7 @@
       },
       "patch": {
         "summary": "Update Channel",
+        "operationId": "update-channel",
         "description": "Update a channel.",
         "tags": [
           "Channels"
@@ -5607,6 +5618,7 @@
     "/channels/{channel_id}/drafts": {
       "post": {
         "summary": "Create draft",
+        "operationId": "create-draft",
         "description": "Create a draft message which is the first message of a new [conversation](https://dev.frontapp.com/reference/conversations).",
         "tags": [
           "Drafts"
@@ -5642,6 +5654,7 @@
     "/channels/{channel_id}/incoming_messages": {
       "post": {
         "summary": "Receive custom messages",
+        "operationId": "receive-custom-messages",
         "description": "Receive a custom message in Front. This endpoint is available for custom channels **ONLY**.",
         "tags": [
           "Messages"
@@ -5677,6 +5690,7 @@
     "/channels/{channel_id}/messages": {
       "post": {
         "summary": "Create message",
+        "operationId": "create-message",
         "description": "Send a new message from a channel. This is one of the ways to create a new [conversation](https://dev.frontapp.com/reference/conversations#creating-a-new-conversation). The new conversation will support both messages and comments (discussions).",
         "tags": [
           "Messages"
@@ -5712,6 +5726,7 @@
     "/channels/{channel_id}/validate": {
       "post": {
         "summary": "Validate channel",
+        "operationId": "validate-channel",
         "description": "Asynchronously validate an SMTP channel (this endpoint is irrelevant to other channel types). When you create an SMTP channel via the API, [create a channel](https://dev.frontapp.com/reference/post_inboxes-inbox-id-channels) with type smtp and the send_as set to the needed email address. You then [configure the email provider](https://help.front.com/en/articles/2081), after which you use this endpoint to asynchronously validate the SMTP settings.",
         "tags": [
           "Channels"
@@ -5738,6 +5753,7 @@
     "/comments/{comment_id}": {
       "get": {
         "summary": "Get comment",
+        "operationId": "get-comment",
         "description": "Fetches a comment.",
         "tags": [
           "Comments"
@@ -5764,6 +5780,7 @@
     "/comments/{comment_id}/mentions": {
       "get": {
         "summary": "List comment mentions",
+        "operationId": "list-comment-mentions",
         "description": "List the teammates mentioned in a comment.",
         "tags": [
           "Comments"
@@ -5790,6 +5807,7 @@
     "/company/rules": {
       "get": {
         "summary": "List all company rules",
+        "operationId": "list-all-company-rules",
         "description": "List the company rules.",
         "tags": [
           "Rules"
@@ -5804,6 +5822,7 @@
     "/company/tags": {
       "get": {
         "summary": "List company tags",
+        "operationId": "list-company-tags",
         "description": "List the company tags.",
         "tags": [
           "Tags"
@@ -5830,6 +5849,7 @@
       },
       "post": {
         "summary": "Create company tag",
+        "operationId": "create-company-tag",
         "description": "Create a company tag.",
         "tags": [
           "Tags"
@@ -5854,6 +5874,7 @@
     "/contact_groups": {
       "get": {
         "summary": "List groups",
+        "operationId": "list-groups",
         "description": "List the contact groups.",
         "tags": [
           "Contact Groups"
@@ -5866,6 +5887,7 @@
       },
       "post": {
         "summary": "Create group",
+        "operationId": "create-group",
         "description": "Create a new contact group in the default team (workspace).",
         "tags": [
           "Contact Groups"
@@ -5889,6 +5911,7 @@
     "/contact_groups/{contact_group_id}": {
       "delete": {
         "summary": "Delete group",
+        "operationId": "delete-group",
         "description": "Delete a contact group.",
         "tags": [
           "Contact Groups"
@@ -5915,6 +5938,7 @@
     "/contact_groups/{contact_group_id}/contacts": {
       "get": {
         "summary": "List contacts in group",
+        "operationId": "list-contacts-in-group",
         "description": "List the contacts belonging to the requested group.",
         "tags": [
           "Contact Groups"
@@ -5945,6 +5969,7 @@
       },
       "post": {
         "summary": "Add contacts to group",
+        "operationId": "add-contacts-to-group",
         "description": "Add contacts to the requested group.",
         "tags": [
           "Contact Groups"
@@ -5978,6 +6003,7 @@
       },
       "delete": {
         "summary": "Remove contacts from group",
+        "operationId": "remove-contacts-from-group",
         "description": "Remove contacts from the requested group.",
         "tags": [
           "Contact Groups"
@@ -6013,6 +6039,7 @@
     "/contacts": {
       "get": {
         "summary": "List contacts",
+        "operationId": "list-contacts",
         "description": "List the contacts of the company.",
         "tags": [
           "Contacts"
@@ -6042,6 +6069,7 @@
       },
       "post": {
         "summary": "Create contact",
+        "operationId": "create-contact",
         "description": "Create a new contact.",
         "tags": [
           "Contacts"
@@ -6065,8 +6093,8 @@
     "/contacts/custom_fields": {
       "get": {
         "summary": "List Contact's custom fields",
-        "description": "Lists the custom fields that can be attached to a Contact.",
         "operationId": "list-contact-custom-fields",
+        "description": "Lists the custom fields that can be attached to a Contact.",
         "tags": [
           "Custom Fields"
         ],
@@ -6080,6 +6108,7 @@
     "/contacts/merge": {
       "post": {
         "summary": "Merge contacts",
+        "operationId": "merge-contacts",
         "description": "Merges the contacts specified into a single contact, deleting the merged-in contacts.\nIf a target contact ID is supplied, the other contacts will be merged into that one.\nOtherwise, some contact in the contact ID list will be treated as the target contact.\nMerge conflicts will be resolved in the following ways:\n  * name will prioritize manually-updated and non-private contact names\n  * descriptions will be concatenated and separated by newlines in order from\n    oldest to newest with the (optional) target contact's description first\n  * all handles, groups, links, and notes will be preserved\n  * other conflicts will use the most recently updated contact's value\n",
         "tags": [
           "Contacts"
@@ -6103,6 +6132,7 @@
     "/contacts/{contact_id}": {
       "get": {
         "summary": "Get contact",
+        "operationId": "get-contact",
         "description": "Fetch a contact.",
         "tags": [
           "Contacts"
@@ -6127,6 +6157,7 @@
       },
       "patch": {
         "summary": "Update a contact",
+        "operationId": "update-a-contact",
         "description": "Updates a contact.",
         "tags": [
           "Contacts"
@@ -6160,6 +6191,7 @@
       },
       "delete": {
         "summary": "Delete a contact",
+        "operationId": "delete-a-contact",
         "description": "Delete a contact.",
         "tags": [
           "Contacts"
@@ -6186,6 +6218,7 @@
     "/contacts/{contact_id}/conversations": {
       "get": {
         "summary": "List contact conversations",
+        "operationId": "list-contact-conversations",
         "description": "List the conversations for a contact in reverse chronological order (newest first). For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n",
         "tags": [
           "Contacts"
@@ -6221,6 +6254,7 @@
     "/contacts/{contact_id}/handles": {
       "post": {
         "summary": "Add contact handle",
+        "operationId": "add-contact-handle",
         "description": "Adds a new handle to a contact.",
         "tags": [
           "Contact Handles"
@@ -6254,6 +6288,7 @@
       },
       "delete": {
         "summary": "Delete contact handle",
+        "operationId": "delete-contact-handle",
         "description": "Remove a handle from a contact.",
         "tags": [
           "Contact Handles"
@@ -6289,6 +6324,7 @@
     "/contacts/{contact_id}/notes": {
       "get": {
         "summary": "List notes",
+        "operationId": "list-notes",
         "description": "List the notes added to a contact.",
         "tags": [
           "Contact Notes"
@@ -6313,6 +6349,7 @@
       },
       "post": {
         "summary": "Add note",
+        "operationId": "add-note",
         "description": "Create a new note on a contact.",
         "tags": [
           "Contact Notes"
@@ -6348,8 +6385,8 @@
     "/conversations": {
       "get": {
         "summary": "List conversations",
-        "description": "List the conversations in the company in reverse chronological order (most recently updated first). The order will respect your company's [bump settings](https://help.front.com/t/y729th/customize-when-conversations-bump-up), which determine when conversations bump to the top. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n",
         "operationId": "list-conversations",
+        "description": "List the conversations in the company in reverse chronological order (most recently updated first). The order will respect your company's [bump settings](https://help.front.com/t/y729th/customize-when-conversations-bump-up), which determine when conversations bump to the top. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n",
         "tags": [
           "Conversations"
         ],
@@ -6378,8 +6415,8 @@
       },
       "post": {
         "summary": "Create discussion conversation",
-        "description": "Create a new [conversation](https://dev.frontapp.com/reference/conversations#creating-a-new-conversation) that only supports comments (known as discussions in Front). If you want to create a conversation that supports messages, use the [Create message](https://dev.frontapp.com/reference/post_channels-channel-id-messages) endpoint. If you want to add a comment to an existing conversation, use the [Add comment](https://dev.frontapp.com/reference/post_conversations-conversation-id-comments) endpoint.",
         "operationId": "create-conversation",
+        "description": "Create a new [conversation](https://dev.frontapp.com/reference/conversations#creating-a-new-conversation) that only supports comments (known as discussions in Front). If you want to create a conversation that supports messages, use the [Create message](https://dev.frontapp.com/reference/post_channels-channel-id-messages) endpoint. If you want to add a comment to an existing conversation, use the [Add comment](https://dev.frontapp.com/reference/post_conversations-conversation-id-comments) endpoint.",
         "tags": [
           "Conversations"
         ],
@@ -6402,8 +6439,8 @@
     "/conversations/custom_fields": {
       "get": {
         "summary": "List Conversation's custom fields",
-        "description": "Lists the custom fields that can be attached to a Conversation.",
         "operationId": "list-conversation-custom-fields",
+        "description": "Lists the custom fields that can be attached to a Conversation.",
         "tags": [
           "Custom Fields"
         ],
@@ -6417,8 +6454,8 @@
     "/conversations/search/{query}": {
       "get": {
         "summary": "Search conversations",
-        "description": "Search for conversations. Response will include a count of total matches and an array of conversations in descending order by last activity.\nSee the [search syntax documentation](https://dev.frontapp.com/docs/search-1) for usage examples.\n**Note:** This endpoint is subject to [proportional rate limiting](https://dev.frontapp.com/docs/rate-limiting#additional-proportional-limiting) at 40% of your company's rate limit.\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n",
         "operationId": "search-conversations",
+        "description": "Search for conversations. Response will include a count of total matches and an array of conversations in descending order by last activity.\nSee the [search syntax documentation](https://dev.frontapp.com/docs/search-1) for usage examples.\n**Note:** This endpoint is subject to [proportional rate limiting](https://dev.frontapp.com/docs/rate-limiting#additional-proportional-limiting) at 40% of your company's rate limit.\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n",
         "tags": [
           "Conversations"
         ],
@@ -6450,8 +6487,8 @@
     "/conversations/{conversation_id}": {
       "get": {
         "summary": "Get conversation",
-        "description": "Fetch a conversation.\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the main body. Please use the\n> `_links.related.last_message` field instead.\n",
         "operationId": "get-conversation-by-id",
+        "description": "Fetch a conversation.\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the main body. Please use the\n> `_links.related.last_message` field instead.\n",
         "tags": [
           "Conversations"
         ],
@@ -6475,6 +6512,7 @@
       },
       "patch": {
         "summary": "Update conversation",
+        "operationId": "update-conversation",
         "description": "Update a conversation.",
         "tags": [
           "Conversations"
@@ -6513,6 +6551,7 @@
     "/conversations/{conversation_id}/assignee": {
       "put": {
         "summary": "Update conversation assignee",
+        "operationId": "update-conversation-assignee",
         "description": "Assign or unassign a conversation.",
         "tags": [
           "Conversations"
@@ -6548,6 +6587,7 @@
     "/conversations/{conversation_id}/comments": {
       "get": {
         "summary": "List conversation comments",
+        "operationId": "list-conversation-comments",
         "description": "List the comments in a conversation in reverse chronological order (newest first).",
         "tags": [
           "Comments"
@@ -6572,6 +6612,7 @@
       },
       "post": {
         "summary": "Add comment",
+        "operationId": "add-comment",
         "description": "Add a comment to a [conversation](https://dev.frontapp.com/reference/conversations). If you want to create a new comment-only conversation, use the [Create discussion conversation](https://dev.frontapp.com/reference/create-conversation) endpoint.",
         "tags": [
           "Comments"
@@ -6607,6 +6648,7 @@
     "/conversations/{conversation_id}/drafts": {
       "get": {
         "summary": "List conversation drafts",
+        "operationId": "list-conversation-drafts",
         "description": "List the drafts in a conversation.",
         "tags": [
           "Drafts"
@@ -6631,6 +6673,7 @@
       },
       "post": {
         "summary": "Create draft reply",
+        "operationId": "create-draft-reply",
         "description": "Create a new draft as a reply to the last message in the conversation.",
         "tags": [
           "Drafts"
@@ -6666,6 +6709,7 @@
     "/conversations/{conversation_id}/events": {
       "get": {
         "summary": "List conversation events",
+        "operationId": "list-conversation-events",
         "description": "List the events that occured for a conversation in reverse chronological order (newest first). The order will respect your company's [bump settings](https://help.front.com/t/y729th/customize-when-conversations-bump-up), which determine when conversations bump to the top.",
         "tags": [
           "Conversations"
@@ -6698,6 +6742,7 @@
     "/conversations/{conversation_id}/followers": {
       "get": {
         "summary": "List conversation followers",
+        "operationId": "list-conversation-followers",
         "description": "List the teammates following a conversation.",
         "tags": [
           "Conversations"
@@ -6722,6 +6767,7 @@
       },
       "post": {
         "summary": "Add conversation followers",
+        "operationId": "add-conversation-followers",
         "description": "Adds teammates to the list of followers of a conversation.",
         "tags": [
           "Conversations"
@@ -6768,6 +6814,7 @@
       },
       "delete": {
         "summary": "Delete conversation followers",
+        "operationId": "delete-conversation-followers",
         "description": "Removes teammates from the list of followers of a conversation.",
         "tags": [
           "Conversations"
@@ -6816,6 +6863,7 @@
     "/conversations/{conversation_id}/inboxes": {
       "get": {
         "summary": "List conversation inboxes",
+        "operationId": "list-conversation-inboxes",
         "description": "List the inboxes in which a conversation is listed.",
         "tags": [
           "Conversations"
@@ -6842,6 +6890,7 @@
     "/conversations/{conversation_id}/links": {
       "post": {
         "summary": "Add conversation link",
+        "operationId": "add-conversation-link",
         "description": "Adds one or more links to a conversation",
         "tags": [
           "Conversations"
@@ -6893,6 +6942,7 @@
       },
       "delete": {
         "summary": "Remove conversation links",
+        "operationId": "remove-conversation-links",
         "description": "Removes one or more links to a conversation",
         "tags": [
           "Conversations"
@@ -6941,6 +6991,7 @@
     "/conversations/{conversation_id}/messages": {
       "get": {
         "summary": "List conversation messages",
+        "operationId": "list-conversation-messages",
         "description": "List the messages in a conversation in reverse chronological order (newest first).",
         "tags": [
           "Conversations"
@@ -6971,6 +7022,7 @@
       },
       "post": {
         "summary": "Create message reply",
+        "operationId": "create-message-reply",
         "description": "Reply to a conversation by sending a message and appending it to the conversation.",
         "tags": [
           "Messages"
@@ -7006,6 +7058,7 @@
     "/conversations/{conversation_id}/reminders": {
       "patch": {
         "summary": "Update conversation reminders",
+        "operationId": "update-conversation-reminders",
         "description": "Snooze or unsnooze a conversation for the provided user.\nFor private conversations, reminders can only be created and edited through the API for teammates that own the conversation.\nFor shared conversations, reminders created and edited through the API are shared for all teammates within the shared inbox(es) that the conversation belongs to.\n",
         "tags": [
           "Conversations"
@@ -7041,6 +7094,7 @@
     "/conversations/{conversation_id}/tags": {
       "post": {
         "summary": "Add conversation tag",
+        "operationId": "add-conversation-tag",
         "description": "Adds one or more tags to a conversation",
         "tags": [
           "Conversations"
@@ -7075,6 +7129,7 @@
       },
       "delete": {
         "summary": "Remove conversation tag",
+        "operationId": "remove-conversation-tag",
         "description": "Removes one or more tags to a conversation",
         "tags": [
           "Conversations"
@@ -7112,8 +7167,8 @@
       "get": {
         "deprecated": true,
         "summary": "List Contact's custom fields",
-        "description": "Lists the custom fields that can be attached to a Contact.\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the fully compatible `GET /contacts/custom_fields` endpoint instead.\n",
         "operationId": "list-custom-fields",
+        "description": "Lists the custom fields that can be attached to a Contact.\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the fully compatible `GET /contacts/custom_fields` endpoint instead.\n",
         "tags": [
           "Custom Fields"
         ],
@@ -7127,6 +7182,7 @@
     "/download/{attachment_link_id}": {
       "get": {
         "summary": "Download attachment",
+        "operationId": "download-attachment",
         "description": "Download an attachment file.",
         "tags": [
           "Attachments"
@@ -7153,6 +7209,7 @@
     "/drafts/{draft_id}": {
       "delete": {
         "summary": "Delete draft",
+        "operationId": "delete-draft",
         "description": "Delete a draft message.",
         "tags": [
           "Drafts"
@@ -7188,6 +7245,7 @@
     "/drafts/{message_id}/": {
       "patch": {
         "summary": "Edit draft",
+        "operationId": "edit-draft",
         "description": "Edit a draft message.",
         "tags": [
           "Drafts"
@@ -7223,6 +7281,7 @@
     "/events": {
       "get": {
         "summary": "List events",
+        "operationId": "list-events",
         "description": "Lists all the detailed events which occured in the inboxes of the company ordered in reverse chronological order (newest first).\nRefer to the [Events](https://dev.frontapp.com/reference/events) topic for more information, including sorting and filtering.\n> ⚠️ Deprecated field may be included\n>\n> This route return the deprecated `last_message` conversation field for conversations\n> associated with individual events. Please use the conversation's\n> `_links.related.last_message` field instead.\n",
         "tags": [
           "Events"
@@ -7260,6 +7319,7 @@
     "/events/{event_id}": {
       "get": {
         "summary": "Get event",
+        "operationId": "get-event",
         "description": "Fetch an event.\nRefer to the [Events](https://dev.frontapp.com/reference/events) topic for more information, including sorting and filtering.\n> ⚠️ Deprecated field may be included\n>\n> This route return the deprecated `last_message` conversation field for conversations\n> associated with individual events. Please use the conversation's\n> `_links.related.last_message` field instead.\n",
         "tags": [
           "Events"
@@ -7286,6 +7346,7 @@
     "/inboxes": {
       "get": {
         "summary": "List inboxes",
+        "operationId": "list-inboxes",
         "description": "List the inboxes of the company.",
         "tags": [
           "Inboxes"
@@ -7298,6 +7359,7 @@
       },
       "post": {
         "summary": "Create inbox",
+        "operationId": "create-inbox",
         "description": "Create an inbox in the default team (workspace). The default team will be the oldest team created that still exists at the time of the request.",
         "tags": [
           "Inboxes"
@@ -7322,8 +7384,8 @@
     "/inboxes/custom_fields": {
       "get": {
         "summary": "List Inbox's custom fields",
-        "description": "Lists the custom fields that can be attached to an Inbox.",
         "operationId": "list-inbox-custom-fields",
+        "description": "Lists the custom fields that can be attached to an Inbox.",
         "tags": [
           "Custom Fields"
         ],
@@ -7337,6 +7399,7 @@
     "/inboxes/{inbox_id}": {
       "get": {
         "summary": "Get inbox",
+        "operationId": "get-inbox",
         "description": "Fetch an inbox.",
         "tags": [
           "Inboxes"
@@ -7363,6 +7426,7 @@
     "/inboxes/{inbox_id}/channels": {
       "get": {
         "summary": "List inbox channels",
+        "operationId": "list-inbox-channels",
         "description": "List the channels in an inbox.",
         "tags": [
           "Inboxes"
@@ -7387,6 +7451,7 @@
       },
       "post": {
         "summary": "Create a channel",
+        "operationId": "create-a-channel",
         "description": "Create a channel in an inbox.",
         "tags": [
           "Channels"
@@ -7423,6 +7488,7 @@
     "/inboxes/{inbox_id}/conversations": {
       "get": {
         "summary": "List inbox conversations",
+        "operationId": "list-inbox-conversations",
         "description": "List the conversations in an inbox. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n",
         "tags": [
           "Inboxes"
@@ -7458,8 +7524,8 @@
     "/inboxes/{inbox_id}/imported_messages": {
       "post": {
         "summary": "Import message",
-        "description": "Import a new message in an inbox.",
         "operationId": "import-inbox-message",
+        "description": "Import a new message in an inbox.",
         "tags": [
           "Messages"
         ],
@@ -7494,6 +7560,7 @@
     "/inboxes/{inbox_id}/teammates": {
       "get": {
         "summary": "List inbox access",
+        "operationId": "list-inbox-access",
         "description": "List the teammates with access to an inbox.",
         "tags": [
           "Inboxes"
@@ -7518,6 +7585,7 @@
       },
       "post": {
         "summary": "Add inbox access",
+        "operationId": "add-inbox-access",
         "description": "Give access to one or more teammates to an inbox.",
         "tags": [
           "Inboxes"
@@ -7552,6 +7620,7 @@
       },
       "delete": {
         "summary": "Removes inbox access",
+        "operationId": "removes-inbox-access",
         "description": "Remove access of one or more teammates from an inbox.",
         "tags": [
           "Inboxes"
@@ -7588,6 +7657,7 @@
     "/links": {
       "get": {
         "summary": "List links",
+        "operationId": "list-links",
         "description": "List the links of the company paginated by id. Allows filtering by link type via the q.types param.",
         "tags": [
           "Links"
@@ -7617,6 +7687,7 @@
       },
       "post": {
         "summary": "Create link",
+        "operationId": "create-link",
         "description": "Create a link. If the link is resolved to an installed links integration, any name retrieved from the integration will override the provided name.",
         "tags": [
           "Links"
@@ -7641,8 +7712,8 @@
     "/links/custom_fields": {
       "get": {
         "summary": "List Link's custom fields",
-        "description": "Lists the custom fields that can be attached to a Link.",
         "operationId": "list-link-custom-fields",
+        "description": "Lists the custom fields that can be attached to a Link.",
         "tags": [
           "Custom Fields"
         ],
@@ -7656,6 +7727,7 @@
     "/links/{link_id}": {
       "get": {
         "summary": "Get link",
+        "operationId": "get-link",
         "description": "Fetch a link.",
         "tags": [
           "Links"
@@ -7680,6 +7752,7 @@
       },
       "patch": {
         "summary": "Update a link",
+        "operationId": "update-a-link",
         "description": "Update a link.",
         "tags": [
           "Links"
@@ -7716,8 +7789,8 @@
     "/links/{link_id}/conversations": {
       "get": {
         "summary": "List link conversations",
-        "description": "List the conversations linked to a specific link. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n",
         "operationId": "list-link-conversations",
+        "description": "List the conversations linked to a specific link. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n",
         "tags": [
           "Links"
         ],
@@ -7761,6 +7834,7 @@
           "Token Identity"
         ],
         "summary": "API Token details",
+        "operationId": "api-token-details",
         "description": "Fetch the details of the API token.",
         "responses": {
           "200": {
@@ -7772,6 +7846,7 @@
     "/message_template_folders": {
       "get": {
         "summary": "List folders",
+        "operationId": "list-folders",
         "description": "List the message template folders.",
         "tags": [
           "Message Template Folders"
@@ -7792,6 +7867,7 @@
       },
       "post": {
         "summary": "Create folder",
+        "operationId": "create-folder",
         "description": "Create a new message template folder.",
         "tags": [
           "Message Template Folders"
@@ -7816,6 +7892,7 @@
     "/message_template_folders/{message_template_folder_id}": {
       "get": {
         "summary": "Get folder",
+        "operationId": "get-folder",
         "description": "Fetch a message template folder.",
         "tags": [
           "Message Template Folders"
@@ -7840,6 +7917,7 @@
       },
       "patch": {
         "summary": "Update folder",
+        "operationId": "update-folder",
         "description": "Update message template folder",
         "tags": [
           "Message Template Folders"
@@ -7874,6 +7952,7 @@
       },
       "delete": {
         "summary": "Delete folder",
+        "operationId": "delete-folder",
         "description": "Delete a message template folder and child folders/templates",
         "tags": [
           "Message Template Folders"
@@ -7900,6 +7979,7 @@
     "/message_template_folders/{message_template_folder_id}/message_template_folders": {
       "get": {
         "summary": "Get child folders",
+        "operationId": "get-child-folders",
         "description": "Fetch the child message templates folders of a message template folder.",
         "tags": [
           "Message Template Folders"
@@ -7924,6 +8004,7 @@
       },
       "post": {
         "summary": "Create child folder",
+        "operationId": "create-child-folder",
         "description": "Create a new message template folder as a child of the given folder",
         "tags": [
           "Message Template Folders"
@@ -7960,6 +8041,7 @@
     "/message_template_folders/{message_template_folder_id}/message_templates": {
       "get": {
         "summary": "Get child templates",
+        "operationId": "get-child-templates",
         "description": "Fetch the child message templates of a message template folder.",
         "tags": [
           "Message Templates"
@@ -7984,6 +8066,7 @@
       },
       "post": {
         "summary": "Create child template",
+        "operationId": "create-child-template",
         "description": "Create a new message template as a child of the given folder",
         "tags": [
           "Message Templates"
@@ -8020,6 +8103,7 @@
     "/message_templates": {
       "get": {
         "summary": "List message templates",
+        "operationId": "list-message-templates",
         "description": "List the message templates.",
         "tags": [
           "Message Templates"
@@ -8040,6 +8124,7 @@
       },
       "post": {
         "summary": "Create message template",
+        "operationId": "create-message-template",
         "description": "Create a new message template.",
         "tags": [
           "Message Templates"
@@ -8064,6 +8149,7 @@
     "/message_templates/{message_template_id}": {
       "get": {
         "summary": "Get message template",
+        "operationId": "get-message-template",
         "description": "Fetch a message template.",
         "tags": [
           "Message Templates"
@@ -8088,6 +8174,7 @@
       },
       "patch": {
         "summary": "Update message template",
+        "operationId": "update-message-template",
         "description": "Update message template",
         "tags": [
           "Message Templates"
@@ -8122,6 +8209,7 @@
       },
       "delete": {
         "summary": "Delete message template",
+        "operationId": "delete-message-template",
         "description": "Delete a message template",
         "tags": [
           "Message Templates"
@@ -8148,6 +8236,7 @@
     "/messages/{message_id}": {
       "get": {
         "summary": "Get message",
+        "operationId": "get-message",
         "description": "Fetch a message.\n\n> ℹ️ The HTTP Header `Accept` can be used to request the message in a different format.\n> By default, Front will return the documented JSON response. By requesting `message/rfc822`, the response will contain the message in the EML format (for email messages only).\n",
         "tags": [
           "Messages"
@@ -8174,6 +8263,7 @@
     "/messages/{message_id}/seen": {
       "get": {
         "summary": "Get message seen status",
+        "operationId": "get-message-seen-status",
         "description": "Get the seen receipts for the given message. If no seen-by information is available, there will be a single entry for the first time the message was seen by any recipient. If seen-by information is available, there will be an entry for each recipient who has seen the message.",
         "tags": [
           "Messages"
@@ -8198,6 +8288,7 @@
       },
       "post": {
         "summary": "Mark message seen",
+        "operationId": "mark-message-seen",
         "description": "Mark an outbound message from Front as seen. Note, the message seen route should only be called in response to an actual end-user's message-seen action. In accordance with this behavior, the route is rate limited to 10 requests per hour. The request body should send an empty object.",
         "tags": [
           "Messages"
@@ -8233,6 +8324,7 @@
     "/rules": {
       "get": {
         "summary": "List rules",
+        "operationId": "list-rules",
         "description": "List the rules of the company.",
         "tags": [
           "Rules"
@@ -8247,6 +8339,7 @@
     "/rules/{rule_id}": {
       "get": {
         "summary": "Get rule",
+        "operationId": "get-rule",
         "description": "Fetch a rule.",
         "tags": [
           "Rules"
@@ -8273,6 +8366,7 @@
     "/shift/{shift_id}": {
       "get": {
         "summary": "Get shift",
+        "operationId": "get-shift",
         "description": "Fetch a shift.",
         "tags": [
           "Shifts"
@@ -8299,6 +8393,7 @@
     "/shift/{shift_id}/teammates": {
       "get": {
         "summary": "List shift's teammates",
+        "operationId": "list-shifts-teammates",
         "description": "List the teammates assigned to a shift.",
         "tags": [
           "Shifts"
@@ -8323,6 +8418,7 @@
       },
       "post": {
         "summary": "Add teammates to shift",
+        "operationId": "add-teammates-to-shift",
         "description": "Add teammates to a shift. The selected teammates must be in the team that owns the shift.",
         "tags": [
           "Shifts"
@@ -8357,6 +8453,7 @@
       },
       "delete": {
         "summary": "Remove teammates from shift",
+        "operationId": "remove-teammates-from-shift",
         "description": "Remove teammates from a shift.",
         "tags": [
           "Shifts"
@@ -8393,8 +8490,8 @@
     "/shifts": {
       "get": {
         "summary": "List Shifts",
-        "description": "List the shifts.",
         "operationId": "list-shifts",
+        "description": "List the shifts.",
         "tags": [
           "Shifts"
         ],
@@ -8406,6 +8503,7 @@
       },
       "post": {
         "summary": "Create shift",
+        "operationId": "create-shift",
         "description": "Create a shift.",
         "tags": [
           "Shifts"
@@ -8430,6 +8528,7 @@
     "/shifts/{shift_id}": {
       "patch": {
         "summary": "Update shift",
+        "operationId": "update-shift",
         "description": "Update a shift.",
         "tags": [
           "Shifts"
@@ -8466,6 +8565,7 @@
     "/signatures/{signature_id}": {
       "get": {
         "summary": "Get signatures",
+        "operationId": "get-signatures",
         "description": "Get the given signature.",
         "tags": [
           "Signatures"
@@ -8490,6 +8590,7 @@
       },
       "patch": {
         "summary": "Update signature",
+        "operationId": "update-signature",
         "description": "Update signature",
         "tags": [
           "Signatures"
@@ -8524,6 +8625,7 @@
       },
       "delete": {
         "summary": "Delete signature",
+        "operationId": "delete-signature",
         "description": "Delete signature",
         "tags": [
           "Signatures"
@@ -8550,6 +8652,7 @@
     "/tags": {
       "get": {
         "summary": "List tags",
+        "operationId": "list-tags",
         "description": "List all the tags of the company that the API token has access to, whether they be company tags, team tags, or teammate tags.",
         "tags": [
           "Tags"
@@ -8576,6 +8679,7 @@
       },
       "post": {
         "summary": "Create tag",
+        "operationId": "create-tag",
         "description": "Create a tag in the oldest team (workspace). This is a legacy endpoint. Use the Create company tag, Create team tag, or Create teammate tag endpoints instead.",
         "tags": [
           "Tags"
@@ -8600,6 +8704,7 @@
     "/tags/{tag_id}": {
       "get": {
         "summary": "Get tag",
+        "operationId": "get-tag",
         "description": "Fetch a tag.",
         "tags": [
           "Tags"
@@ -8624,6 +8729,7 @@
       },
       "patch": {
         "summary": "Update a tag",
+        "operationId": "update-a-tag",
         "description": "Update a tag.",
         "tags": [
           "Tags"
@@ -8658,6 +8764,7 @@
       },
       "delete": {
         "summary": "Delete tag",
+        "operationId": "delete-tag",
         "description": "Delete a tag.",
         "tags": [
           "Tags"
@@ -8684,6 +8791,7 @@
     "/tags/{tag_id}/children": {
       "get": {
         "summary": "List tag children",
+        "operationId": "list-tag-children",
         "description": "List the children of a specific tag.",
         "tags": [
           "Tags"
@@ -8708,6 +8816,7 @@
       },
       "post": {
         "summary": "Create child tag",
+        "operationId": "create-child-tag",
         "description": "Creates a child tag.",
         "tags": [
           "Tags"
@@ -8744,6 +8853,7 @@
     "/tags/{tag_id}/conversations": {
       "get": {
         "summary": "List tagged conversations",
+        "operationId": "list-tagged-conversations",
         "description": "List the conversations tagged with a tag. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n",
         "tags": [
           "Tags"
@@ -8779,6 +8889,7 @@
     "/teammates": {
       "get": {
         "summary": "List teammates",
+        "operationId": "list-teammates",
         "description": "List the teammates in the company.",
         "tags": [
           "Teammates"
@@ -8793,8 +8904,8 @@
     "/teammates/custom_fields": {
       "get": {
         "summary": "List Teammate's custom fields",
-        "description": "Lists the custom fields that can be attached to a Teammate.",
         "operationId": "list-teammate-custom-fields",
+        "description": "Lists the custom fields that can be attached to a Teammate.",
         "tags": [
           "Custom Fields"
         ],
@@ -8808,6 +8919,7 @@
     "/teammates/{teammate_id}": {
       "get": {
         "summary": "Get teammate",
+        "operationId": "get-teammate",
         "description": "Fetch a teammate.",
         "tags": [
           "Teammates"
@@ -8832,6 +8944,7 @@
       },
       "patch": {
         "summary": "Update teammate",
+        "operationId": "update-teammate",
         "description": "Update a teammate.",
         "tags": [
           "Teammates"
@@ -8867,6 +8980,7 @@
     "/teammates/{teammate_id}/channels": {
       "get": {
         "summary": "List teammate channels",
+        "operationId": "list-teammate-channels",
         "description": "List the channels of a teammate.",
         "tags": [
           "Channels"
@@ -8893,6 +9007,7 @@
     "/teammates/{teammate_id}/contact_groups": {
       "get": {
         "summary": "List teammate groups",
+        "operationId": "list-teammate-groups",
         "description": "List the contact groups belonging to the requested teammate.",
         "tags": [
           "Contact Groups"
@@ -8917,6 +9032,7 @@
       },
       "post": {
         "summary": "Create teammate group",
+        "operationId": "create-teammate-group",
         "description": "Create a new contact group for the requested teammate.",
         "tags": [
           "Contact Groups"
@@ -8952,6 +9068,7 @@
     "/teammates/{teammate_id}/contacts": {
       "get": {
         "summary": "List teammate contacts",
+        "operationId": "list-teammate-contacts",
         "description": "List the contacts of a teammate.",
         "tags": [
           "Contacts"
@@ -8991,6 +9108,7 @@
       },
       "post": {
         "summary": "Create teammate contact",
+        "operationId": "create-teammate-contact",
         "description": "Create a contact for a teammate.",
         "tags": [
           "Contacts"
@@ -9026,6 +9144,7 @@
     "/teammates/{teammate_id}/conversations": {
       "get": {
         "summary": "List assigned conversations",
+        "operationId": "list-assigned-conversations",
         "description": "List the conversations assigned to a teammate in reverse chronological order (most recently updated first). For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n",
         "tags": [
           "Teammates"
@@ -9062,6 +9181,7 @@
       "get": {
         "deprecated": true,
         "summary": "List teammate inboxes",
+        "operationId": "list-teammate-inboxes",
         "description": "Returns list of inboxes the teammate has access to.",
         "tags": [
           "Teammates"
@@ -9088,6 +9208,7 @@
     "/teammates/{teammate_id}/message_template_folders": {
       "get": {
         "summary": "List teammate folders",
+        "operationId": "list-teammate-folders",
         "description": "List the message template folders belonging to the requested teammate.",
         "tags": [
           "Message Template Folders"
@@ -9118,6 +9239,7 @@
       },
       "post": {
         "summary": "Create teammate folder",
+        "operationId": "create-teammate-folder",
         "description": "Create a new message template folder belonging to the requested teammate.",
         "tags": [
           "Message Template Folders"
@@ -9154,6 +9276,7 @@
     "/teammates/{teammate_id}/message_templates": {
       "get": {
         "summary": "List teammate message templates",
+        "operationId": "list-teammate-message-templates",
         "description": "List the message templates belonging to the requested teammate.",
         "tags": [
           "Message Templates"
@@ -9184,6 +9307,7 @@
       },
       "post": {
         "summary": "Create teammate message template",
+        "operationId": "create-teammate-message-template",
         "description": "Create a new message template for the given teammate",
         "tags": [
           "Message Templates"
@@ -9220,6 +9344,7 @@
     "/teammates/{teammate_id}/rules": {
       "get": {
         "summary": "List teammate rules",
+        "operationId": "list-teammate-rules",
         "description": "List the rules of a teammate.",
         "tags": [
           "Rules"
@@ -9246,6 +9371,7 @@
     "/teammates/{teammate_id}/shifts": {
       "get": {
         "summary": "List Teammate Shifts",
+        "operationId": "list-teammate-shifts",
         "description": "Lists all the shifts for the teammate.",
         "tags": [
           "Shifts"
@@ -9272,6 +9398,7 @@
     "/teammates/{teammate_id}/signatures": {
       "get": {
         "summary": "List teammate signatures",
+        "operationId": "list-teammate-signatures",
         "description": "List the signatures belonging to the given teammate.",
         "tags": [
           "Signatures"
@@ -9296,6 +9423,7 @@
       },
       "post": {
         "summary": "Create teammate signature",
+        "operationId": "create-teammate-signature",
         "description": "Create a new signature for the given teammate",
         "tags": [
           "Signatures"
@@ -9332,6 +9460,7 @@
     "/teammates/{teammate_id}/tags": {
       "get": {
         "summary": "List teammate tags",
+        "operationId": "list-teammate-tags",
         "description": "List the tags for a teammate.",
         "tags": [
           "Tags"
@@ -9368,6 +9497,7 @@
       },
       "post": {
         "summary": "Create teammate tag",
+        "operationId": "create-teammate-tag",
         "description": "Create a tag for a teammate.",
         "tags": [
           "Tags"
@@ -9404,6 +9534,7 @@
     "/teams": {
       "get": {
         "summary": "List teams",
+        "operationId": "list-teams",
         "description": "List the teams (workspaces) in the company.",
         "tags": [
           "Teams"
@@ -9418,6 +9549,7 @@
     "/teams/{team_id}": {
       "get": {
         "summary": "Get team",
+        "operationId": "get-team",
         "description": "Fetch a team (workspace).",
         "tags": [
           "Teams"
@@ -9444,6 +9576,7 @@
     "/teams/{team_id}/channels": {
       "get": {
         "summary": "List team channels",
+        "operationId": "list-team-channels",
         "description": "List the channels of a team (workspace).",
         "tags": [
           "Channels"
@@ -9470,6 +9603,7 @@
     "/teams/{team_id}/contact_groups": {
       "get": {
         "summary": "List team groups",
+        "operationId": "list-team-groups",
         "description": "List contact groups belonging to the requested team (workspace).",
         "tags": [
           "Contact Groups"
@@ -9494,6 +9628,7 @@
       },
       "post": {
         "summary": "Create team group",
+        "operationId": "create-team-group",
         "description": "Create a new contact group for the requested team (workspace).",
         "tags": [
           "Contact Groups"
@@ -9529,6 +9664,7 @@
     "/teams/{team_id}/contacts": {
       "get": {
         "summary": "List team contacts",
+        "operationId": "list-team-contacts",
         "description": "List the contacts of a team (workspace).",
         "tags": [
           "Contacts"
@@ -9568,6 +9704,7 @@
       },
       "post": {
         "summary": "Create team contact",
+        "operationId": "create-team-contact",
         "description": "Create a contact for a team (workspace).",
         "tags": [
           "Contacts"
@@ -9603,6 +9740,7 @@
     "/teams/{team_id}/inboxes": {
       "get": {
         "summary": "List team inboxes",
+        "operationId": "list-team-inboxes",
         "description": "List the inboxes belonging to a team (workspace).",
         "tags": [
           "Inboxes"
@@ -9627,6 +9765,7 @@
       },
       "post": {
         "summary": "Create team inbox",
+        "operationId": "create-team-inbox",
         "description": "Create an inbox for a team (workspace).",
         "tags": [
           "Inboxes"
@@ -9663,6 +9802,7 @@
     "/teams/{team_id}/message_template_folders": {
       "get": {
         "summary": "List team folders",
+        "operationId": "list-team-folders",
         "description": "List the message template folders belonging to the requested team (workspace).",
         "tags": [
           "Message Template Folders"
@@ -9693,6 +9833,7 @@
       },
       "post": {
         "summary": "Create team folder",
+        "operationId": "create-team-folder",
         "description": "Create a new message template folder belonging to the requested team (workspace).",
         "tags": [
           "Message Template Folders"
@@ -9729,6 +9870,7 @@
     "/teams/{team_id}/message_templates": {
       "get": {
         "summary": "List team message templates",
+        "operationId": "list-team-message-templates",
         "description": "List the message templates belonging to the requested team (workspace).",
         "tags": [
           "Message Templates"
@@ -9759,6 +9901,7 @@
       },
       "post": {
         "summary": "Create team message template",
+        "operationId": "create-team-message-template",
         "description": "Create a new message template for the given team (workspace).",
         "tags": [
           "Message Templates"
@@ -9795,6 +9938,7 @@
     "/teams/{team_id}/rules": {
       "get": {
         "summary": "List team rules",
+        "operationId": "list-team-rules",
         "description": "List the rules of a team (workspace).",
         "tags": [
           "Rules"
@@ -9821,6 +9965,7 @@
     "/teams/{team_id}/shifts": {
       "get": {
         "summary": "List team Shifts",
+        "operationId": "list-team-shifts",
         "description": "List the shifts for a team (workspace).",
         "tags": [
           "Shifts"
@@ -9845,6 +9990,7 @@
       },
       "post": {
         "summary": "Create team shift",
+        "operationId": "create-team-shift",
         "description": "Create a shift for a team (workspace).",
         "tags": [
           "Shifts"
@@ -9881,6 +10027,7 @@
     "/teams/{team_id}/signatures": {
       "get": {
         "summary": "List team signatures",
+        "operationId": "list-team-signatures",
         "description": "List the signatures belonging to the given team (workspace).",
         "tags": [
           "Signatures"
@@ -9905,6 +10052,7 @@
       },
       "post": {
         "summary": "Create team signature",
+        "operationId": "create-team-signature",
         "description": "Create a new signature for the given team (workspace).",
         "tags": [
           "Signatures"
@@ -9941,6 +10089,7 @@
     "/teams/{team_id}/tags": {
       "get": {
         "summary": "List team tags",
+        "operationId": "list-team-tags",
         "description": "List the tags for a team (workspace).",
         "tags": [
           "Tags"
@@ -9977,6 +10126,7 @@
       },
       "post": {
         "summary": "Create team tag",
+        "operationId": "create-team-tag",
         "description": "Create a tag for a team (workspace).",
         "tags": [
           "Tags"
@@ -10013,6 +10163,7 @@
     "/teams/{team_id}/teammates": {
       "post": {
         "summary": "Add teammates to team",
+        "operationId": "add-teammates-to-team",
         "description": "Add one or more teammates to a team (workspace).",
         "tags": [
           "Teams"
@@ -10047,6 +10198,7 @@
       },
       "delete": {
         "summary": "Remove teammates from team",
+        "operationId": "remove-teammates-from-team",
         "description": "Remove one or more teammates from a team (workspace). Alternatively, you can supply emails as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
         "tags": [
           "Teams"

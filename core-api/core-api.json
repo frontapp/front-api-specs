@@ -552,7 +552,12 @@
           "num_open_segments_start",
           "num_closed_segments",
           "num_open_segments_end",
-          "num_workload_segments"
+          "num_workload_segments",
+          "avg_replies_to_resolution",
+          "avg_resolution_time",
+          "num_resolved_segments",
+          "num_unresolved_active_segments",
+          "pct_resolved_on_first_reply"
         ]
       },
       "AnalyticsReportRequest": {

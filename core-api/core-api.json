@@ -1580,9 +1580,6 @@
       "CreateLink": {
         "type": "object",
         "description": "A link is used to connect a Front conversation to an external resource.",
-        "required": [
-          "external_url"
-        ],
         "properties": {
           "name": {
             "type": "string",
@@ -1591,6 +1588,11 @@
           "external_url": {
             "type": "string",
             "description": "Underlying identifying url of the link"
+          },
+          "pattern": {
+            "type": "string",
+            "description": "A string that dynamic object configurations will match on to create or update a dynamic object.",
+            "example": "ORDERID-123"
           }
         }
       },
@@ -7693,7 +7695,7 @@
       "post": {
         "summary": "Create link",
         "operationId": "create-link",
-        "description": "Create a link. If the link is resolved to an installed links integration, any name retrieved from the integration will override the provided name.",
+        "description": "Create a link. If the link is resolved to an installed links integration, any name retrieved from the integration will override the provided name. You must supply either `pattern` or `external_url` in the request, but not both. If `pattern` is provided, the API call creates or updates the dynamic object which is matched by that pattern.",
         "tags": [
           "Links"
         ],

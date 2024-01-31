@@ -2475,6 +2475,173 @@
           }
         }
       },
+      "KnowledgeBaseCategoryCreate": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "parent_category_id": {
+            "type": "string",
+            "description": "ID of the parent category"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the Knowledge Base Category"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the Knowledge Base Category"
+          }
+        }
+      },
+      "KnowledgeBaseCategoryPatch": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the Knowledge Base Category"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the Knowledge Base Category"
+          }
+        }
+      },
+      "KnowledgeBaseCategoryResponse": {
+        "properties": {
+          "_links": {
+            "type": "object",
+            "properties": {
+              "self": {
+                "type": "string",
+                "description": "Link to resource",
+                "example": "https://yourCompany.api.frontapp.com/knowledge_base_categories/kbc_12"
+              },
+              "related": {
+                "type": "object",
+                "properties": {
+                  "knowledge_base": {
+                    "type": "string",
+                    "description": "Link to the category's knowledge base",
+                    "example": "https://yourCompany.api.frontapp.com/knowledge_bases/knb_12"
+                  },
+                  "parent_category": {
+                    "type": "string",
+                    "description": "Link to the category's parent",
+                    "example": "https://yourCompany.api.frontapp.com/knowledge_base_catgories/kbc_10"
+                  },
+                  "articles": {
+                    "type": "string",
+                    "description": "Link to articles in this category",
+                    "example": "https://yourCompany.api.frontapp.com/knowledge_base_categories/kbc_12/articles"
+                  }
+                }
+              }
+            }
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of the knowledge base category",
+            "example": "kbc_12"
+          },
+          "name": {
+            "type": "string",
+            "description": "Category name",
+            "example": "Getting started"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the category",
+            "example": "How to get started in Front"
+          },
+          "is_hidden": {
+            "type": "boolean",
+            "description": "Is the category hidden",
+            "example": false
+          },
+          "locale": {
+            "type": "string",
+            "enum": [
+              "fr",
+              "en"
+            ],
+            "description": "Locale of this category",
+            "example": "en"
+          },
+          "created_at": {
+            "type": "number",
+            "description": "Timestamp when the category was created",
+            "example": 1622672452.363
+          },
+          "updated_at": {
+            "type": "number",
+            "description": "Timestamp when the category was updated",
+            "example": 1654309308.278
+          }
+        }
+      },
+      "KnowledgeBaseCategorySlimResponse": {
+        "properties": {
+          "_links": {
+            "type": "object",
+            "properties": {
+              "self": {
+                "type": "string",
+                "description": "Link to resource",
+                "example": "https://yourCompany.api.frontapp.com/knowledge_base_categories/kbc_12"
+              },
+              "related": {
+                "type": "object",
+                "properties": {
+                  "knowledge_base": {
+                    "type": "string",
+                    "description": "Link to the category's knowledge base",
+                    "example": "https://yourCompany.api.frontapp.com/knowledge_bases/knb_12"
+                  },
+                  "parent_category": {
+                    "type": "string",
+                    "description": "Link to the category's parent",
+                    "example": "https://yourCompany.api.frontapp.com/knowledge_base_catgories/kbc_10"
+                  },
+                  "articles": {
+                    "type": "string",
+                    "description": "Link to articles in this category",
+                    "example": "https://yourCompany.api.frontapp.com/knowledge_base_categories/kbc_12/articles"
+                  }
+                }
+              }
+            }
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of the knowledge base category",
+            "example": "kbc_12"
+          },
+          "is_hidden": {
+            "type": "boolean",
+            "description": "Is the category hidden",
+            "example": false
+          },
+          "locales": {
+            "type": "array",
+            "description": "List of the locales the category supports",
+            "items": {
+              "type": "string"
+            }
+          },
+          "created_at": {
+            "type": "number",
+            "description": "Timestamp when the category was created",
+            "example": 1622672452.363
+          },
+          "updated_at": {
+            "type": "number",
+            "description": "Timestamp when the category was updated",
+            "example": 1654309308.278
+          }
+        }
+      },
       "KnowledgeBaseCreate": {
         "type": "object",
         "required": [
@@ -5073,6 +5240,34 @@
           }
         }
       },
+      "listOfKnowledgeBaseCategories": {
+        "description": "Array of knowledge base categories",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "_links": {
+                  "type": "object",
+                  "properties": {
+                    "self": {
+                      "type": "string",
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/knowledge_bases/knb_1/categories"
+                    }
+                  }
+                },
+                "_results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/KnowledgeBaseCategorySlimResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "account": {
         "description": "An Account",
         "content": {
@@ -5299,6 +5494,26 @@
           "application/json": {
             "schema": {
               "$ref": "#/components/schemas/KnowledgeBaseSlimResponse"
+            }
+          }
+        }
+      },
+      "knowledgeBaseCategory": {
+        "description": "A knowledge base category with content",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/KnowledgeBaseCategoryResponse"
+            }
+          }
+        }
+      },
+      "knowledgeBaseCategorySlim": {
+        "description": "A knowledge base category",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/KnowledgeBaseCategorySlimResponse"
             }
           }
         }

@@ -936,7 +936,7 @@
           },
           "avatar": {
             "type": "string",
-            "description": "Binary data of avatar. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb) or read more about [Attachments](https://dev.frontapp.com/docs/attachments-1).",
+            "description": "Binary data of avatar. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb) or read more about [Attachments](https://dev.frontapp.com/docs/attachments-1).  Max 25 MB.",
             "format": "binary"
           },
           "is_spammer": {
@@ -1372,7 +1372,7 @@
             "description": "Content of the comment. Can include markdown formatting."
           },
           "attachments": {
-            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb) or read more about [Attachments](https://dev.frontapp.com/docs/attachments-1).",
+            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb) or read more about [Attachments](https://dev.frontapp.com/docs/attachments-1).  Max 25 MB.",
             "type": "array",
             "items": {
               "type": "string",
@@ -1532,7 +1532,7 @@
             "description": "Body for the quote that the message is referencing. Only available on email channels."
           },
           "attachments": {
-            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb) or read more about [Attachments](https://dev.frontapp.com/docs/attachments-1).",
+            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb) or read more about [Attachments](https://dev.frontapp.com/docs/attachments-1). Max 25 MB.",
             "type": "array",
             "items": {
               "type": "string",
@@ -1591,8 +1591,8 @@
           },
           "pattern": {
             "type": "string",
-            "description": "A string that dynamic object configurations will match on to create or update a dynamic object.",
-            "example": "ORDERID-123"
+            "description": "The string that dynamic object configurations will match on to update a specific dynamic object. For example, if you've configured a dynamic object to match on ORDER-{Digits}, and you want to specifically update the dynamic objects for ORDER-777 to retrieve the latest information from external systems, send \"ORDER-777\". Repeat for other specific identifiers, such as \"ORDER-435\".",
+            "example": "ORDER-123"
           }
         }
       },
@@ -1763,7 +1763,7 @@
             "example": null
           },
           "attachments": {
-            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://dev.frontapp.com/docs/attachments-1).",
+            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://dev.frontapp.com/docs/attachments-1).  Max 25 MB.",
             "type": "array",
             "items": {
               "type": "string",
@@ -2021,7 +2021,7 @@
             }
           },
           "attachments": {
-            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb) or read more about [Attachments](https://dev.frontapp.com/docs/attachments-1).",
+            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb) or read more about [Attachments](https://dev.frontapp.com/docs/attachments-1).  Max 25 MB.",
             "type": "array",
             "items": {
               "type": "string",
@@ -2390,7 +2390,7 @@
             }
           },
           "attachments": {
-            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb) or read more about [Attachments](https://dev.frontapp.com/docs/attachments-1).",
+            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb) or read more about [Attachments](https://dev.frontapp.com/docs/attachments-1).  Max 25 MB.",
             "type": "array",
             "items": {
               "type": "string",
@@ -3255,7 +3255,7 @@
             }
           },
           "attachments": {
-            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb) or read more about [Attachments](https://dev.frontapp.com/docs/attachments-1).",
+            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb) or read more about [Attachments](https://dev.frontapp.com/docs/attachments-1). Max 25 MB.",
             "type": "array",
             "items": {
               "type": "string",
@@ -3344,7 +3344,7 @@
             }
           },
           "attachments": {
-            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb) or read more about [Attachments](https://dev.frontapp.com/docs/attachments-1).",
+            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb) or read more about [Attachments](https://dev.frontapp.com/docs/attachments-1).  Max 25 MB.",
             "type": "array",
             "items": {
               "type": "string",
@@ -4159,7 +4159,7 @@
             }
           },
           "attachments": {
-            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://dev.frontapp.com/docs/attachments-1). Specify an empty array to delete all attachments from a message template. If unspecified, it will retain previous value.",
+            "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://dev.frontapp.com/docs/attachments-1). Max 25 MB. Specify an empty array to delete all attachments from a message template. If unspecified, it will retain previous value.",
             "type": "array",
             "items": {
               "type": "string",
@@ -8125,7 +8125,7 @@
       "post": {
         "summary": "Create link",
         "operationId": "create-link",
-        "description": "Create a link. If the link is resolved to an installed links integration, any name retrieved from the integration will override the provided name. You must supply either `pattern` or `external_url` in the request, but not both. If `pattern` is provided, the API call creates or updates the dynamic object which is matched by that pattern.",
+        "description": "Create a link. You must supply either `pattern` or `external_url` in the request, but not both (`pattern` is for dynamic objects while `external_url` is for standard links). If `pattern` is provided, the API call updates the dynamic objects matching the exact pattern. If the link is resolved to an installed links integration, any name retrieved from the integration will override the provided name in the request.",
         "tags": [
           "Links"
         ],

@@ -2475,6 +2475,199 @@
           }
         }
       },
+      "KnowledgeBaseArticleCreate": {
+        "type": "object",
+        "properties": {
+          "category_id": {
+            "type": "string",
+            "description": "ID of the category this article belongs to"
+          },
+          "author_id": {
+            "type": "string",
+            "description": "Teammate ID of the article author"
+          },
+          "subject": {
+            "type": "string",
+            "description": "Subject of the article"
+          },
+          "content": {
+            "type": "string",
+            "description": "HTML content of the article"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "draft",
+              "published"
+            ],
+            "default": "draft",
+            "description": "Article status"
+          }
+        }
+      },
+      "KnowledgeBaseArticlePatch": {
+        "type": "object",
+        "properties": {
+          "author_id": {
+            "type": "string",
+            "description": "Teammate ID of the article author"
+          },
+          "subject": {
+            "type": "string",
+            "description": "Subject of the article"
+          },
+          "content": {
+            "type": "string",
+            "description": "HTML content of the article"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "draft",
+              "published"
+            ],
+            "description": "Article status",
+            "default": "draft"
+          }
+        }
+      },
+      "KnowledgeBaseArticleResponse": {
+        "properties": {
+          "_links": {
+            "type": "object",
+            "properties": {
+              "self": {
+                "type": "string",
+                "description": "Link to resource",
+                "example": "https://yourCompany.api.frontapp.com/knowledge_base_articles/kba_12"
+              },
+              "related": {
+                "type": "object",
+                "properties": {
+                  "knowledge_base": {
+                    "type": "string",
+                    "description": "Link to the article's knowledge base",
+                    "example": "https://yourCompany.api.frontapp.com/knowledge_bases/knb_12"
+                  },
+                  "category": {
+                    "type": "string",
+                    "description": "Link to the article's category",
+                    "example": "https://yourCompany.api.frontapp.com/knowledge_base_category/kbc_12"
+                  },
+                  "last_editor": {
+                    "type": "string",
+                    "description": "Link to the article's last editor",
+                    "example": "https://yourCompany.api.frontapp.com/teammates/tea_6r55a"
+                  }
+                }
+              }
+            }
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of the knowledge base article",
+            "example": "kba_12"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the article"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of the article"
+          },
+          "keywords": {
+            "type": "array",
+            "description": "Article keywords"
+          },
+          "content": {
+            "type": "string",
+            "description": "Article HTML content"
+          },
+          "locale": {
+            "type": "string",
+            "description": "Locale of the article"
+          },
+          "attachments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Attachment"
+            },
+            "description": "List of files attached to the article"
+          },
+          "last_edited_at": {
+            "type": "number",
+            "description": "Timestamp when the article was last edited",
+            "example": 1622672452.363
+          },
+          "created_at": {
+            "type": "number",
+            "description": "Timestamp when the article was created",
+            "example": 1622672452.363
+          },
+          "updated_at": {
+            "type": "number",
+            "description": "Timestamp when the article was updated",
+            "example": 1654309308.278
+          }
+        }
+      },
+      "KnowledgeBaseArticleSlimResponse": {
+        "properties": {
+          "_links": {
+            "type": "object",
+            "properties": {
+              "self": {
+                "type": "string",
+                "description": "Link to resource",
+                "example": "https://yourCompany.api.frontapp.com/knowledge_base_articles/kba_12"
+              },
+              "related": {
+                "type": "object",
+                "properties": {
+                  "knowledge_base": {
+                    "type": "string",
+                    "description": "Link to the article's knowledge base",
+                    "example": "https://yourCompany.api.frontapp.com/knowledge_bases/knb_12"
+                  },
+                  "category": {
+                    "type": "string",
+                    "description": "Link to the article's category",
+                    "example": "https://yourCompany.api.frontapp.com/knowledge_base_category/kbc_12"
+                  },
+                  "content": {
+                    "type": "string",
+                    "description": "Link to the article's content",
+                    "example": "https://yourCompany.api.frontapp.com/knowledge_base_articles/kba_12/content"
+                  }
+                }
+              }
+            }
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of the knowledge base article",
+            "example": "kba_12"
+          },
+          "locales": {
+            "type": "array",
+            "description": "List of the locales the article supports",
+            "items": {
+              "type": "string"
+            }
+          },
+          "created_at": {
+            "type": "number",
+            "description": "Timestamp when the article was created",
+            "example": 1622672452.363
+          },
+          "updated_at": {
+            "type": "number",
+            "description": "Timestamp when the article was updated",
+            "example": 1654309308.278
+          }
+        }
+      },
       "KnowledgeBaseCategoryCreate": {
         "type": "object",
         "required": [
@@ -5268,6 +5461,34 @@
           }
         }
       },
+      "listOfKnowledgeBaseArticles": {
+        "description": "Array of knowledge base articles",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "_links": {
+                  "type": "object",
+                  "properties": {
+                    "self": {
+                      "type": "string",
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/knowledge_bases/knb_1/articles"
+                    }
+                  }
+                },
+                "_results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/KnowledgeBaseArticleSlimResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "account": {
         "description": "An Account",
         "content": {
@@ -5514,6 +5735,26 @@
           "application/json": {
             "schema": {
               "$ref": "#/components/schemas/KnowledgeBaseCategorySlimResponse"
+            }
+          }
+        }
+      },
+      "knowledgeBaseArticle": {
+        "description": "A knowledge base article with content",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/KnowledgeBaseArticleResponse"
+            }
+          }
+        }
+      },
+      "knowledgeBaseArticleSlim": {
+        "description": "A knowledge base article",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/KnowledgeBaseArticleSlimResponse"
             }
           }
         }

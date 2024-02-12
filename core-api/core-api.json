@@ -6897,7 +6897,7 @@
       "get": {
         "summary": "List contact conversations",
         "operationId": "list-contact-conversations",
-        "description": "List the conversations for a contact in reverse chronological order (newest first). For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n",
+        "description": "List the conversations for a contact in reverse chronological order (newest first). For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n",
         "tags": [
           "Contacts"
         ],
@@ -7064,7 +7064,7 @@
       "get": {
         "summary": "List conversations",
         "operationId": "list-conversations",
-        "description": "List the conversations in the company in reverse chronological order (most recently updated first). The order will respect your company's [bump settings](https://help.front.com/t/y729th/customize-when-conversations-bump-up), which determine when conversations bump to the top. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n",
+        "description": "List the conversations in the company in reverse chronological order (most recently updated first). The order will respect your company's [bump settings](https://help.front.com/t/y729th/customize-when-conversations-bump-up), which determine when conversations bump to the top. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n",
         "tags": [
           "Conversations"
         ],
@@ -7133,7 +7133,7 @@
       "get": {
         "summary": "Search conversations",
         "operationId": "search-conversations",
-        "description": "Search for conversations. Response will include a count of total matches and an array of conversations in descending order by last activity.\nSee the [search syntax documentation](https://dev.frontapp.com/docs/search-1) for usage examples.\n**Note:** This endpoint is subject to [proportional rate limiting](https://dev.frontapp.com/docs/rate-limiting#additional-proportional-limiting) at 40% of your company's rate limit.\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n",
+        "description": "Search for conversations. Response will include a count of total matches and an array of conversations in descending order by last activity.\nSee the [search syntax documentation](https://dev.frontapp.com/docs/search-1) for usage examples.\n**Note:** This endpoint is subject to [proportional rate limiting](https://dev.frontapp.com/docs/rate-limiting#additional-proportional-limiting) at 40% of your company's rate limit.\n",
         "tags": [
           "Conversations"
         ],
@@ -7166,7 +7166,7 @@
       "get": {
         "summary": "Get conversation",
         "operationId": "get-conversation-by-id",
-        "description": "Fetch a conversation.\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the main body. Please use the\n> `_links.related.last_message` field instead.\n",
+        "description": "Fetch a conversation.\n",
         "tags": [
           "Conversations"
         ],
@@ -7960,7 +7960,7 @@
       "get": {
         "summary": "List events",
         "operationId": "list-events",
-        "description": "Lists all the detailed events which occured in the inboxes of the company ordered in reverse chronological order (newest first).\nRefer to the [Events](https://dev.frontapp.com/reference/events) topic for more information, including sorting and filtering.\n> ⚠️ Deprecated field may be included\n>\n> This route return the deprecated `last_message` conversation field for conversations\n> associated with individual events. Please use the conversation's\n> `_links.related.last_message` field instead.\n",
+        "description": "Lists all the detailed events which occured in the inboxes of the company ordered in reverse chronological order (newest first).\nRefer to the [Events](https://dev.frontapp.com/reference/events) topic for more information, including sorting and filtering.\n",
         "tags": [
           "Events"
         ],
@@ -7998,7 +7998,7 @@
       "get": {
         "summary": "Get event",
         "operationId": "get-event",
-        "description": "Fetch an event.\nRefer to the [Events](https://dev.frontapp.com/reference/events) topic for more information, including sorting and filtering.\n> ⚠️ Deprecated field may be included\n>\n> This route return the deprecated `last_message` conversation field for conversations\n> associated with individual events. Please use the conversation's\n> `_links.related.last_message` field instead.\n",
+        "description": "Fetch an event.\nRefer to the [Events](https://dev.frontapp.com/reference/events) topic for more information, including sorting and filtering.\n",
         "tags": [
           "Events"
         ],
@@ -8167,7 +8167,7 @@
       "get": {
         "summary": "List inbox conversations",
         "operationId": "list-inbox-conversations",
-        "description": "List the conversations in an inbox. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n",
+        "description": "List the conversations in an inbox. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n",
         "tags": [
           "Inboxes"
         ],
@@ -8468,7 +8468,7 @@
       "get": {
         "summary": "List link conversations",
         "operationId": "list-link-conversations",
-        "description": "List the conversations linked to a specific link. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n",
+        "description": "List the conversations linked to a specific link. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n",
         "tags": [
           "Links"
         ],
@@ -9532,7 +9532,7 @@
       "get": {
         "summary": "List tagged conversations",
         "operationId": "list-tagged-conversations",
-        "description": "List the conversations tagged with a tag. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n",
+        "description": "List the conversations tagged with a tag. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n",
         "tags": [
           "Tags"
         ],
@@ -9823,7 +9823,7 @@
       "get": {
         "summary": "List assigned conversations",
         "operationId": "list-assigned-conversations",
-        "description": "List the conversations assigned to a teammate in reverse chronological order (most recently updated first). For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n> ⚠️ Deprecated field included\n>\n> This endpoint returns a deprecated `last_message` field in the top-level conversation bodies listed. Please use the\n> `_links.related.last_message` field instead.\n",
+        "description": "List the conversations assigned to a teammate in reverse chronological order (most recently updated first). For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n",
         "tags": [
           "Teammates"
         ],

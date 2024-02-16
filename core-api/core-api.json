@@ -4089,6 +4089,30 @@
           }
         }
       },
+      "TeamPreviewResponse": {
+        "properties": {
+          "_links": {
+            "type": "object",
+            "properties": {
+              "self": {
+                "type": "string",
+                "description": "Link to resource",
+                "example": "https://yourCompany.api.frontapp.com/teams/tim_aqsa"
+              }
+            }
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of the team",
+            "example": "tim_aqsa"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the team",
+            "example": "Stanley's crossword puzzle team"
+          }
+        }
+      },
       "TeamResponse": {
         "properties": {
           "_links": {
@@ -4837,7 +4861,7 @@
                 "_results": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/TeamResponse"
+                    "$ref": "#/components/schemas/TeamPreviewResponse"
                   }
                 }
               }

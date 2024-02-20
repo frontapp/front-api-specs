@@ -86,7 +86,7 @@
           },
           "custom_fields": {
             "type": "object",
-            "description": "Custom field attributes for this account. Do not include the custom_fields object if you do not wish to update the attributes. Including the custom_fields object with empty values will automatically remove the unspecified fields from the account."
+            "description": "Custom field attributes for this account. If you want to keep all custom fields the same when updating this resource, do not include any custom fields in the update. If you want to update custom fields, make sure to include all custom fields, not just the fields you want to add or update. If you send only the custom fields you want to update, the other custom fields will be erased. You can retrieve the existing custom fields before making the update to note the current fields."
           }
         }
       },
@@ -959,7 +959,7 @@
           },
           "custom_fields": {
             "type": "object",
-            "description": "Custom field attributes for this contact. Do not include the custom_fields object if you do not wish to update the attributes. Including the custom_fields object with empty values will automatically remove the unspecified fields from the contact."
+            "description": "Custom field attributes for this contact. If you want to keep all custom fields the same when updating this resource, do not include any custom fields in the update. If you want to update custom fields, make sure to include all custom fields, not just the fields you want to add or update. If you send only the custom fields you want to update, the other custom fields will be erased. You can retrieve the existing custom fields before making the update to note the current fields."
           }
         }
       },
@@ -4311,7 +4311,7 @@
           },
           "custom_fields": {
             "type": "object",
-            "description": "Custom field attributes for this conversation. Do not include the custom_fields object if you do not wish to update the attributes. Including the custom_fields object with empty values will automatically remove the unspecified fields from the conversation."
+            "description": "Custom field attributes for this conversation. If you want to keep all custom fields the same when updating this resource, do not include any custom fields in the update. If you want to update custom fields, make sure to include all custom fields, not just the fields you want to add or update. If you send only the custom fields you want to update, the other custom fields will be erased. You can retrieve the existing custom fields before making the update to note the current fields."
           }
         }
       },
@@ -4528,7 +4528,7 @@
           },
           "custom_fields": {
             "type": "object",
-            "description": "Custom field attributes for this teammate. Do not include the custom_fields object if you do not wish to update the attributes. Including the custom_fields object with empty values will automatically remove the unspecified fields from the teammate."
+            "description": "Custom field attributes for this teammate. If you want to keep all custom fields the same when updating this resource, do not include any custom fields in the update. If you want to update custom fields, make sure to include all custom fields, not just the fields you want to add or update. If you send only the custom fields you want to update, the other custom fields will be erased. You can retrieve the existing custom fields before making the update to note the current fields."
           }
         }
       }

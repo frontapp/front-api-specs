@@ -4643,7 +4643,7 @@
       "sortByConversationMessages": {
         "name": "sort_by",
         "in": "query",
-        "description": "Field used to sort the conversations. Only supports `created_at`.",
+        "description": "Field used to sort the messages. Only supports `created_at`.",
         "schema": {
           "type": "string"
         }

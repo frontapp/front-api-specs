@@ -4640,6 +4640,14 @@
           "type": "string"
         }
       },
+      "sortByConversationMessages": {
+        "name": "sort_by",
+        "in": "query",
+        "description": "Field used to sort the conversations. Only supports `created_at`.",
+        "schema": {
+          "type": "string"
+        }
+      },
       "sortByLinks": {
         "name": "sort_by",
         "in": "query",
@@ -7714,6 +7722,12 @@
           },
           {
             "$ref": "#/components/parameters/pageToken"
+          },
+          {
+            "$ref": "#/components/parameters/sortByConversationMessages"
+          },
+          {
+            "$ref": "#/components/parameters/sortOrder"
           }
         ],
         "responses": {

@@ -1269,6 +1269,11 @@
             "description": "Timestamp at which the conversation have been created.",
             "example": 1701292649.333
           },
+          "waiting_since": {
+            "type": "number",
+            "description": "Timestamp of the oldest unreplied message.",
+            "example": 1701292649.333
+          },
           "is_private": {
             "type": "boolean",
             "description": "Whether or not the conversation is private",

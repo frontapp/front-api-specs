@@ -8375,6 +8375,883 @@
         }
       }
     },
+    "/knowledge_base_articles/{article_id}": {
+      "get": {
+        "summary": "Fetch a Knowledge Base Article",
+        "description": "Fetches a knowledge base article",
+        "tags": [
+          "Knowledge Bases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "article_id",
+            "required": true,
+            "description": "The ID of the article to fetch",
+            "schema": {
+              "type": "string",
+              "default": "kba_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/knowledgeBaseArticleSlim"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an article",
+        "description": "Deletes an article and all its content and translations",
+        "tags": [
+          "Knowledge Bases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "article_id",
+            "required": true,
+            "description": "The ID of the article to delete",
+            "schema": {
+              "type": "string",
+              "default": "kba_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/knowledgeBaseArticleSlim"
+          }
+        }
+      }
+    },
+    "/knowledge_base_articles/{article_id}/content": {
+      "get": {
+        "summary": "Fetch Knowledge Base Article with content in default locale",
+        "description": "Fetches a knowledge base article with content in the default locale",
+        "tags": [
+          "Knowledge Bases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "article_id",
+            "required": true,
+            "description": "The ID of the article to fetch",
+            "schema": {
+              "type": "string",
+              "default": "kba_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/knowledgeBaseArticle"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update article content in default locale",
+        "description": "Updates an article's content in the default locale",
+        "tags": [
+          "Knowledge Bases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "article_id",
+            "required": true,
+            "description": "The ID of the article to update",
+            "schema": {
+              "type": "string",
+              "default": "kba_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "author_id",
+                  "content"
+                ],
+                "$ref": "#/components/schemas/KnowledgeBaseArticlePatch"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/knowledgeBaseArticle"
+          }
+        }
+      }
+    },
+    "/knowledge_base_articles/{article_id}/download/{attachment_id}": {
+      "get": {
+        "summary": "Download attachment from an article",
+        "description": "Downloads the attachment from an article in a locale",
+        "tags": [
+          "Knowledge Bases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "article_id",
+            "required": true,
+            "description": "The ID of the article",
+            "schema": {
+              "type": "string",
+              "default": "kba_123"
+            }
+          },
+          {
+            "in": "path",
+            "name": "attachment_id",
+            "required": true,
+            "description": "The ID of the file to download",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/attachment"
+          }
+        }
+      }
+    },
+    "/knowledge_base_articles/{article_id}/locales/{locale}/content": {
+      "get": {
+        "summary": "Fetch Knowledge Base Article with content in locale",
+        "description": "Fetches a knowledge base article with content for a given locale",
+        "tags": [
+          "Knowledge Bases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "article_id",
+            "required": true,
+            "description": "The ID of the article to fetch",
+            "schema": {
+              "type": "string",
+              "default": "kba_123"
+            }
+          },
+          {
+            "in": "path",
+            "name": "locale",
+            "required": true,
+            "description": "The locale of the content to fetch",
+            "schema": {
+              "type": "string",
+              "default": "en"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/knowledgeBaseArticle"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update article content in locale",
+        "description": "Updates an article's content for a given locale",
+        "tags": [
+          "Knowledge Bases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "article_id",
+            "required": true,
+            "description": "The ID of the article to update",
+            "schema": {
+              "type": "string",
+              "default": "kba_123"
+            }
+          },
+          {
+            "in": "path",
+            "name": "locale",
+            "required": true,
+            "description": "The locale of the updated content",
+            "schema": {
+              "type": "string",
+              "default": "en"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "author_id",
+                  "content"
+                ],
+                "$ref": "#/components/schemas/KnowledgeBaseArticlePatch"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/knowledgeBaseArticle"
+          }
+        }
+      }
+    },
+    "/knowledge_base_categories/{category_id}": {
+      "get": {
+        "summary": "Fetch a Knowledge Base Category",
+        "description": "Fetches a knowledge base category",
+        "tags": [
+          "Knowledge Bases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "category_id",
+            "required": true,
+            "description": "The ID of the category to fetch",
+            "schema": {
+              "type": "string",
+              "default": "kbc_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/knowledgeBaseCategorySlim"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a knowledge base category",
+        "description": "Deletes a knowledge base category.\n\n> ⚠️ Warning\n>\n> When a category is deleted, all articles in the category are also deleted.\n",
+        "tags": [
+          "Knowledge Bases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "category_id",
+            "required": true,
+            "description": "The ID of the category to delete",
+            "schema": {
+              "type": "string",
+              "default": "kbc_123"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No content"
+          }
+        }
+      }
+    },
+    "/knowledge_base_categories/{category_id}/articles": {
+      "get": {
+        "summary": "List articles in a category",
+        "description": "List articles in a category",
+        "tags": [
+          "Knowledge Bases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "category_id",
+            "required": true,
+            "description": "The ID of the category",
+            "schema": {
+              "type": "string",
+              "default": "kbc_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfKnowledgeBaseArticles"
+          }
+        }
+      }
+    },
+    "/knowledge_base_categories/{category_id}/content": {
+      "get": {
+        "summary": "Fetch Knowledge Base Category content in default locale",
+        "description": "Fetches a knowledge base category with content in the default locale",
+        "tags": [
+          "Knowledge Bases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "category_id",
+            "required": true,
+            "description": "The ID of the category to fetch",
+            "schema": {
+              "type": "string",
+              "default": "kbc_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/knowledgeBaseCategory"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update knowledge base category in default locale",
+        "description": "Updates a knowledge base category in the default locale. Will republish the knowledge base if the knowledge base is currently published",
+        "tags": [
+          "Knowledge Bases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "category_id",
+            "required": true,
+            "description": "The ID of the category to update",
+            "schema": {
+              "type": "string",
+              "default": "kbc_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KnowledgeBaseCategoryPatch"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/knowledgeBaseCategory"
+          }
+        }
+      }
+    },
+    "/knowledge_base_categories/{category_id}/locales/{locale}/content": {
+      "get": {
+        "summary": "Fetch Knowledge Base Category with content in locale",
+        "description": "Fetches a knowledge base category with content for a given locale",
+        "tags": [
+          "Knowledge Bases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "category_id",
+            "required": true,
+            "description": "The ID of the category to fetch",
+            "schema": {
+              "type": "string",
+              "default": "kbc_123"
+            }
+          },
+          {
+            "in": "path",
+            "name": "locale",
+            "required": true,
+            "description": "The locale of the content to fetch",
+            "schema": {
+              "type": "string",
+              "default": "en"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/knowledgeBaseCategory"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update knowledge base category in locale",
+        "description": "Updates a knowledge base category for a given locale. Will republish the knowledge base if the knowledge base is currently published",
+        "tags": [
+          "Knowledge Bases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "category_id",
+            "required": true,
+            "description": "The ID of the category to update",
+            "schema": {
+              "type": "string",
+              "default": "kbc_123"
+            }
+          },
+          {
+            "in": "path",
+            "name": "locale",
+            "required": true,
+            "description": "The locale of the updated content",
+            "schema": {
+              "type": "string",
+              "default": "en"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KnowledgeBaseCategoryPatch"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/knowledgeBaseCategory"
+          }
+        }
+      }
+    },
+    "/knowledge_bases": {
+      "get": {
+        "summary": "List Knowledge Bases",
+        "description": "List the knowledge bases of the company.",
+        "tags": [
+          "Knowledge Bases"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfKnowledgeBases"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a Knowledge Base",
+        "description": "Create a knowledge base",
+        "tags": [
+          "Knowledge Bases"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "name"
+                ],
+                "$ref": "#/components/schemas/KnowledgeBaseCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/knowledgeBase"
+          }
+        }
+      }
+    },
+    "/knowledge_bases/{knowledge_base_id}": {
+      "get": {
+        "summary": "Fetch a knowledge base",
+        "description": "Fetches a knowledge base",
+        "tags": [
+          "Knowledge Bases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "knowledge_base_id",
+            "required": true,
+            "description": "The ID of the knowledge base to fetch",
+            "schema": {
+              "type": "string",
+              "default": "knb_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/knowledgeBaseSlim"
+          }
+        }
+      }
+    },
+    "/knowledge_bases/{knowledge_base_id}/articles": {
+      "get": {
+        "summary": "List articles in a knowledge base",
+        "description": "List articles in a knowledge base",
+        "tags": [
+          "Knowledge Bases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "knowledge_base_id",
+            "required": true,
+            "description": "The ID of the knowledge base",
+            "schema": {
+              "type": "string",
+              "default": "knb_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfKnowledgeBaseArticles"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create article in a knowledge base in default locale",
+        "description": "Create an article in a knowledge base in the default locale",
+        "tags": [
+          "Knowledge Bases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "knowledge_base_id",
+            "required": true,
+            "description": "The ID of the knowledge base to create the article in",
+            "schema": {
+              "type": "string",
+              "default": "knb_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "author_id",
+                  "subject",
+                  "content"
+                ],
+                "$ref": "#/components/schemas/KnowledgeBaseArticleCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/knowledgeBaseArticle"
+          }
+        }
+      }
+    },
+    "/knowledge_bases/{knowledge_base_id}/categories": {
+      "get": {
+        "summary": "List categories in a knowledge base",
+        "description": "List categories in a knowledge base",
+        "tags": [
+          "Knowledge Bases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "knowledge_base_id",
+            "required": true,
+            "description": "The ID of the knowledge base",
+            "schema": {
+              "type": "string",
+              "default": "knb_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfKnowledgeBaseCategories"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create Knowledge Base Category in default locale",
+        "description": "Create a Knowledge Base Category in the default locale",
+        "tags": [
+          "Knowledge Bases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "knowledge_base_id",
+            "required": true,
+            "description": "The ID of the knowledge base to create the category in",
+            "schema": {
+              "type": "string",
+              "default": "knb_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "name"
+                ],
+                "$ref": "#/components/schemas/KnowledgeBaseCategoryCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/knowledgeBaseCategory"
+          }
+        }
+      }
+    },
+    "/knowledge_bases/{knowledge_base_id}/content": {
+      "get": {
+        "summary": "Fetch a knowledge base with content",
+        "description": "Fetches a knowledge base with its content in the default locale",
+        "tags": [
+          "Knowledge Bases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "knowledge_base_id",
+            "required": true,
+            "description": "The ID of the knowledge base to fetch",
+            "schema": {
+              "type": "string",
+              "default": "knb_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/knowledgeBase"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update knowledge base",
+        "description": "Updates a knowledge base in the default locale. Will republish the knowledge base if the knowledge base is currently published.",
+        "tags": [
+          "Knowledge Bases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "knowledge_base_id",
+            "required": true,
+            "description": "The ID of the knowledge base to update",
+            "schema": {
+              "type": "string",
+              "default": "knb_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "name"
+                ],
+                "$ref": "#/components/schemas/KnowledgeBasePatch"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/knowledgeBase"
+          }
+        }
+      }
+    },
+    "/knowledge_bases/{knowledge_base_id}/locales/{locale}/articles": {
+      "post": {
+        "summary": "Create article in a knowledge base in locale",
+        "description": "Create an article for a given locale in a knowledge base",
+        "tags": [
+          "Knowledge Bases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "knowledge_base_id",
+            "required": true,
+            "description": "The ID of the knowledge base to create the article in",
+            "schema": {
+              "type": "string",
+              "default": "knb_123"
+            }
+          },
+          {
+            "in": "path",
+            "name": "locale",
+            "required": true,
+            "description": "The locale of the article's content",
+            "schema": {
+              "type": "string",
+              "default": "en"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "author_id",
+                  "subject",
+                  "content"
+                ],
+                "$ref": "#/components/schemas/KnowledgeBaseArticleCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/knowledgeBaseArticle"
+          }
+        }
+      }
+    },
+    "/knowledge_bases/{knowledge_base_id}/locales/{locale}/categories": {
+      "post": {
+        "summary": "Create Knowledge Base Category in locale",
+        "description": "Create a Knowledge Base Category for a given locale",
+        "tags": [
+          "Knowledge Bases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "knowledge_base_id",
+            "required": true,
+            "description": "The ID of the knowledge base to create the category in",
+            "schema": {
+              "type": "string",
+              "default": "knb_123"
+            }
+          },
+          {
+            "in": "path",
+            "name": "locale",
+            "required": true,
+            "description": "The locale of the category's content",
+            "schema": {
+              "type": "string",
+              "default": "en"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "name"
+                ],
+                "$ref": "#/components/schemas/KnowledgeBaseCategoryCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/knowledgeBaseCategory"
+          }
+        }
+      }
+    },
+    "/knowledge_bases/{knowledge_base_id}/locales/{locale}/content": {
+      "get": {
+        "summary": "Fetch a knowledge base with content in locale",
+        "description": "Fetches a knowledge base with its content for a given locale",
+        "tags": [
+          "Knowledge Bases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "knowledge_base_id",
+            "required": true,
+            "description": "The ID of the knowledge base to fetch",
+            "schema": {
+              "type": "string",
+              "default": "knb_123"
+            }
+          },
+          {
+            "in": "path",
+            "name": "locale",
+            "required": true,
+            "description": "The locale of the content to fetch",
+            "schema": {
+              "type": "string",
+              "default": "en"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/knowledgeBase"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update knowledge base in locale",
+        "description": "Updates a knowledge base for a given locale. Will republish the knowledge base if the knowledge base is currently published.",
+        "tags": [
+          "Knowledge Bases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "knowledge_base_id",
+            "required": true,
+            "description": "The ID of the knowledge base to update",
+            "schema": {
+              "type": "string",
+              "default": "knb_123"
+            }
+          },
+          {
+            "in": "path",
+            "name": "locale",
+            "required": true,
+            "description": "The locale of the updated content",
+            "schema": {
+              "type": "string",
+              "default": "en"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "name"
+                ],
+                "$ref": "#/components/schemas/KnowledgeBasePatch"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/knowledgeBase"
+          }
+        }
+      }
+    },
     "/links": {
       "get": {
         "summary": "List links",

@@ -2579,19 +2579,26 @@
           },
           "status": {
             "type": "string",
-            "description": "Status of the article"
+            "description": "Status of the article",
+            "example": "published"
           },
           "keywords": {
             "type": "array",
-            "description": "Article keywords"
+            "description": "Article keywords",
+            "example": [
+              "billing",
+              "returns"
+            ]
           },
           "content": {
             "type": "string",
-            "description": "Article HTML content"
+            "description": "Article HTML content",
+            "example": "<h1>How to process a return</h1><p>To process a return...</p>"
           },
           "locale": {
             "type": "string",
-            "description": "Locale of the article"
+            "description": "Locale of the article",
+            "example": "en"
           },
           "attachments": {
             "type": "array",
@@ -2658,7 +2665,11 @@
             "type": "array",
             "description": "List of the locales the article supports",
             "items": {
-              "type": "string"
+              "type": "string",
+              "example": [
+                "en",
+                "es"
+              ]
             }
           },
           "created_at": {
@@ -2685,11 +2696,11 @@
           },
           "name": {
             "type": "string",
-            "description": "Name of the Knowledge Base Category"
+            "description": "Name of the knowledge base category"
           },
           "description": {
             "type": "string",
-            "description": "Description of the Knowledge Base Category"
+            "description": "Description of the knowledge base category"
           }
         }
       },
@@ -2698,11 +2709,11 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Name of the Knowledge Base Category"
+            "description": "Name of the knowledge base category"
           },
           "description": {
             "type": "string",
-            "description": "Description of the Knowledge Base Category"
+            "description": "Description of the knowledge base category"
           }
         }
       },
@@ -2825,7 +2836,11 @@
             "type": "array",
             "description": "List of the locales the category supports",
             "items": {
-              "type": "string"
+              "type": "string",
+              "example": [
+                "en",
+                "es"
+              ]
             }
           },
           "created_at": {
@@ -2848,7 +2863,7 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Name of the Knowledge Base"
+            "description": "Name of the knowledge base"
           },
           "type": {
             "type": "string",
@@ -2856,7 +2871,7 @@
               "internal",
               "external"
             ],
-            "description": "Determines if the knowledge base is public",
+            "description": "Determines if the knowledge base is publicly available or private only to your company",
             "default": "external",
             "example": "internal"
           }
@@ -2867,7 +2882,7 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Name of the Knowledge Base"
+            "description": "Name of the knowledge base"
           }
         }
       },
@@ -2992,7 +3007,11 @@
             "type": "array",
             "description": "List of the KB's possible locales",
             "items": {
-              "type": "string"
+              "type": "string",
+              "example": [
+                "en",
+                "es"
+              ]
             }
           },
           "created_at": {
@@ -8377,8 +8396,8 @@
     },
     "/knowledge_base_articles/{article_id}": {
       "get": {
-        "summary": "Fetch a Knowledge Base Article",
-        "description": "Fetches a knowledge base article",
+        "summary": "Get a knowledge base article",
+        "description": "Fetches a knowledge base article.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
           "Knowledge Bases"
         ],
@@ -8402,7 +8421,7 @@
       },
       "delete": {
         "summary": "Delete an article",
-        "description": "Deletes an article and all its content and translations",
+        "description": "Deletes an article and all its content and translations.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
           "Knowledge Bases"
         ],
@@ -8427,8 +8446,8 @@
     },
     "/knowledge_base_articles/{article_id}/content": {
       "get": {
-        "summary": "Fetch Knowledge Base Article with content in default locale",
-        "description": "Fetches a knowledge base article with content in the default locale",
+        "summary": "Get knowledge base article with content in default locale",
+        "description": "Fetches a knowledge base article with content in the default locale.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
           "Knowledge Bases"
         ],
@@ -8451,8 +8470,8 @@
         }
       },
       "patch": {
-        "summary": "Update article content in default locale",
-        "description": "Updates an article's content in the default locale",
+        "summary": "Update article content in default locale.",
+        "description": "Updates an article's content in the default locale\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
           "Knowledge Bases"
         ],
@@ -8491,7 +8510,7 @@
     "/knowledge_base_articles/{article_id}/download/{attachment_id}": {
       "get": {
         "summary": "Download attachment from an article",
-        "description": "Downloads the attachment from an article in a locale",
+        "description": "Downloads the attachment from an article.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
           "Knowledge Bases"
         ],
@@ -8525,8 +8544,8 @@
     },
     "/knowledge_base_articles/{article_id}/locales/{locale}/content": {
       "get": {
-        "summary": "Fetch Knowledge Base Article with content in locale",
-        "description": "Fetches a knowledge base article with content for a given locale",
+        "summary": "Get knowledge base article with content in specified locale",
+        "description": "Fetches a knowledge base article with content for a given locale.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
           "Knowledge Bases"
         ],
@@ -8545,7 +8564,7 @@
             "in": "path",
             "name": "locale",
             "required": true,
-            "description": "The locale of the content to fetch",
+            "description": "The [locale](https://dev.frontapp.com/reference/knowledge-bases#locales) of the content to fetch",
             "schema": {
               "type": "string",
               "default": "en"
@@ -8559,8 +8578,8 @@
         }
       },
       "patch": {
-        "summary": "Update article content in locale",
-        "description": "Updates an article's content for a given locale",
+        "summary": "Update article content in specified locale",
+        "description": "Updates an article's content for a given locale.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
           "Knowledge Bases"
         ],
@@ -8579,7 +8598,7 @@
             "in": "path",
             "name": "locale",
             "required": true,
-            "description": "The locale of the updated content",
+            "description": "The [locale](https://dev.frontapp.com/reference/knowledge-bases#locales) of the updated content",
             "schema": {
               "type": "string",
               "default": "en"
@@ -8608,8 +8627,8 @@
     },
     "/knowledge_base_categories/{category_id}": {
       "get": {
-        "summary": "Fetch a Knowledge Base Category",
-        "description": "Fetches a knowledge base category",
+        "summary": "Get a knowledge base category",
+        "description": "Fetches a knowledge base category.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
           "Knowledge Bases"
         ],
@@ -8633,7 +8652,7 @@
       },
       "delete": {
         "summary": "Delete a knowledge base category",
-        "description": "Deletes a knowledge base category.\n\n> ⚠️ Warning\n>\n> When a category is deleted, all articles in the category are also deleted.\n",
+        "description": "Deletes a knowledge base category.\n\n> ⚠️ Warning\n>\n> When a category is deleted, all articles in the category are also deleted.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
           "Knowledge Bases"
         ],
@@ -8659,7 +8678,7 @@
     "/knowledge_base_categories/{category_id}/articles": {
       "get": {
         "summary": "List articles in a category",
-        "description": "List articles in a category",
+        "description": "List articles in a category.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
           "Knowledge Bases"
         ],
@@ -8684,8 +8703,8 @@
     },
     "/knowledge_base_categories/{category_id}/content": {
       "get": {
-        "summary": "Fetch Knowledge Base Category content in default locale",
-        "description": "Fetches a knowledge base category with content in the default locale",
+        "summary": "Get knowledge base category content in default locale",
+        "description": "Fetches a knowledge base category with content in the default locale.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
           "Knowledge Bases"
         ],
@@ -8709,7 +8728,7 @@
       },
       "patch": {
         "summary": "Update knowledge base category in default locale",
-        "description": "Updates a knowledge base category in the default locale. Will republish the knowledge base if the knowledge base is currently published",
+        "description": "Updates a knowledge base category in the default locale. Will republish the knowledge base if the knowledge base is currently published.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
           "Knowledge Bases"
         ],
@@ -8743,8 +8762,8 @@
     },
     "/knowledge_base_categories/{category_id}/locales/{locale}/content": {
       "get": {
-        "summary": "Fetch Knowledge Base Category with content in locale",
-        "description": "Fetches a knowledge base category with content for a given locale",
+        "summary": "Get knowledge base category with content in specified locale",
+        "description": "Fetches a knowledge base category with content for a given locale.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
           "Knowledge Bases"
         ],
@@ -8763,7 +8782,7 @@
             "in": "path",
             "name": "locale",
             "required": true,
-            "description": "The locale of the content to fetch",
+            "description": "The [locale](https://dev.frontapp.com/reference/knowledge-bases#locales) of the content to fetch",
             "schema": {
               "type": "string",
               "default": "en"
@@ -8777,8 +8796,8 @@
         }
       },
       "patch": {
-        "summary": "Update knowledge base category in locale",
-        "description": "Updates a knowledge base category for a given locale. Will republish the knowledge base if the knowledge base is currently published",
+        "summary": "Update knowledge base category in specified locale",
+        "description": "Updates a knowledge base category for a given locale. Will republish the knowledge base if the knowledge base is currently published.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
           "Knowledge Bases"
         ],
@@ -8797,7 +8816,7 @@
             "in": "path",
             "name": "locale",
             "required": true,
-            "description": "The locale of the updated content",
+            "description": "The [locale](https://dev.frontapp.com/reference/knowledge-bases#locales) of the updated content",
             "schema": {
               "type": "string",
               "default": "en"
@@ -8822,8 +8841,8 @@
     },
     "/knowledge_bases": {
       "get": {
-        "summary": "List Knowledge Bases",
-        "description": "List the knowledge bases of the company.",
+        "summary": "List knowledge bases",
+        "description": "List the knowledge bases of the company.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
           "Knowledge Bases"
         ],
@@ -8834,8 +8853,8 @@
         }
       },
       "post": {
-        "summary": "Create a Knowledge Base",
-        "description": "Create a knowledge base",
+        "summary": "Create a knowledge base",
+        "description": "Creates a knowledge base.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
           "Knowledge Bases"
         ],
@@ -8860,8 +8879,8 @@
     },
     "/knowledge_bases/{knowledge_base_id}": {
       "get": {
-        "summary": "Fetch a knowledge base",
-        "description": "Fetches a knowledge base",
+        "summary": "Get a knowledge base",
+        "description": "Fetches a knowledge base.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
           "Knowledge Bases"
         ],
@@ -8887,7 +8906,7 @@
     "/knowledge_bases/{knowledge_base_id}/articles": {
       "get": {
         "summary": "List articles in a knowledge base",
-        "description": "List articles in a knowledge base",
+        "description": "List articles in a knowledge base\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
           "Knowledge Bases"
         ],
@@ -8911,7 +8930,7 @@
       },
       "post": {
         "summary": "Create article in a knowledge base in default locale",
-        "description": "Create an article in a knowledge base in the default locale",
+        "description": "Creates an article in a knowledge base in the default locale.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
           "Knowledge Bases"
         ],
@@ -8951,7 +8970,7 @@
     "/knowledge_bases/{knowledge_base_id}/categories": {
       "get": {
         "summary": "List categories in a knowledge base",
-        "description": "List categories in a knowledge base",
+        "description": "List categories in a knowledge base.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
           "Knowledge Bases"
         ],
@@ -8974,8 +8993,8 @@
         }
       },
       "post": {
-        "summary": "Create Knowledge Base Category in default locale",
-        "description": "Create a Knowledge Base Category in the default locale",
+        "summary": "Create knowledge base category in default locale",
+        "description": "Creates a knowledge base category in the default locale.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
           "Knowledge Bases"
         ],
@@ -9012,8 +9031,8 @@
     },
     "/knowledge_bases/{knowledge_base_id}/content": {
       "get": {
-        "summary": "Fetch a knowledge base with content",
-        "description": "Fetches a knowledge base with its content in the default locale",
+        "summary": "Get a knowledge base with content in default locale",
+        "description": "Fetches a knowledge base with its content in the default locale.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
           "Knowledge Bases"
         ],
@@ -9036,8 +9055,8 @@
         }
       },
       "patch": {
-        "summary": "Update knowledge base",
-        "description": "Updates a knowledge base in the default locale. Will republish the knowledge base if the knowledge base is currently published.",
+        "summary": "Update knowledge base in default locale",
+        "description": "Updates a knowledge base in the default locale. Will republish the knowledge base if the knowledge base is currently published.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
           "Knowledge Bases"
         ],
@@ -9074,8 +9093,8 @@
     },
     "/knowledge_bases/{knowledge_base_id}/locales/{locale}/articles": {
       "post": {
-        "summary": "Create article in a knowledge base in locale",
-        "description": "Create an article for a given locale in a knowledge base",
+        "summary": "Create article in a knowledge base in specified locale",
+        "description": "Create an article for a given locale in a knowledge base.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
           "Knowledge Bases"
         ],
@@ -9094,7 +9113,7 @@
             "in": "path",
             "name": "locale",
             "required": true,
-            "description": "The locale of the article's content",
+            "description": "The [locale](https://dev.frontapp.com/reference/knowledge-bases#locales) of the article's content",
             "schema": {
               "type": "string",
               "default": "en"
@@ -9124,8 +9143,8 @@
     },
     "/knowledge_bases/{knowledge_base_id}/locales/{locale}/categories": {
       "post": {
-        "summary": "Create Knowledge Base Category in locale",
-        "description": "Create a Knowledge Base Category for a given locale",
+        "summary": "Create knowledge base category in specified locale",
+        "description": "Creates a knowledge base category for a given locale.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
           "Knowledge Bases"
         ],
@@ -9144,7 +9163,7 @@
             "in": "path",
             "name": "locale",
             "required": true,
-            "description": "The locale of the category's content",
+            "description": "The [locale](https://dev.frontapp.com/reference/knowledge-bases#locales) of the category's content",
             "schema": {
               "type": "string",
               "default": "en"
@@ -9172,8 +9191,8 @@
     },
     "/knowledge_bases/{knowledge_base_id}/locales/{locale}/content": {
       "get": {
-        "summary": "Fetch a knowledge base with content in locale",
-        "description": "Fetches a knowledge base with its content for a given locale",
+        "summary": "Get a knowledge base with content in specified locale",
+        "description": "Fetches a knowledge base with its content for a given locale.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
           "Knowledge Bases"
         ],
@@ -9192,7 +9211,7 @@
             "in": "path",
             "name": "locale",
             "required": true,
-            "description": "The locale of the content to fetch",
+            "description": "The [locale](https://dev.frontapp.com/reference/knowledge-bases#locales) of the content to fetch",
             "schema": {
               "type": "string",
               "default": "en"
@@ -9206,8 +9225,8 @@
         }
       },
       "patch": {
-        "summary": "Update knowledge base in locale",
-        "description": "Updates a knowledge base for a given locale. Will republish the knowledge base if the knowledge base is currently published.",
+        "summary": "Update knowledge base in specified locale",
+        "description": "Updates a knowledge base for a given locale. Will republish the knowledge base if the knowledge base is currently published.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
           "Knowledge Bases"
         ],
@@ -9226,7 +9245,7 @@
             "in": "path",
             "name": "locale",
             "required": true,
-            "description": "The locale of the updated content",
+            "description": "The [locale](https://dev.frontapp.com/reference/knowledge-bases#locales) of the updated content",
             "schema": {
               "type": "string",
               "default": "en"

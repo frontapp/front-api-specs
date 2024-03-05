@@ -2575,7 +2575,8 @@
           },
           "name": {
             "type": "string",
-            "description": "Name of the article"
+            "description": "Name of the article",
+            "example": "Billing 101"
           },
           "status": {
             "type": "string",
@@ -2829,7 +2830,7 @@
           },
           "is_hidden": {
             "type": "boolean",
-            "description": "Is the category hidden",
+            "description": "Is the category hidden from navigation and breadcrumbs (topics are accessed as direct links)",
             "example": false
           },
           "locales": {

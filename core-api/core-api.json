@@ -5501,6 +5501,16 @@
             "schema": {
               "type": "object",
               "properties": {
+                "_pagination": {
+                  "type": "object",
+                  "properties": {
+                    "next": {
+                      "type": "string",
+                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
+                      "example": "https://yourCompany.api.frontapp.com/knowledge_bases/knb_1/categories?page_token=134287aba8eaa55cf366400c63300a75bab0c"
+                    }
+                  }
+                },
                 "_links": {
                   "type": "object",
                   "properties": {
@@ -5529,6 +5539,16 @@
             "schema": {
               "type": "object",
               "properties": {
+                "_pagination": {
+                  "type": "object",
+                  "properties": {
+                    "next": {
+                      "type": "string",
+                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
+                      "example": "https://yourCompany.api.frontapp.com/knowledge_bases/knb_1/articles?page_token=134287aba8eaa55cf366400c63300a75bab0c"
+                    }
+                  }
+                },
                 "_links": {
                   "type": "object",
                   "properties": {
@@ -8697,6 +8717,12 @@
               "type": "string",
               "default": "kbc_123"
             }
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/pageToken"
           }
         ],
         "responses": {
@@ -8925,6 +8951,12 @@
               "type": "string",
               "default": "knb_123"
             }
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/pageToken"
           }
         ],
         "responses": {
@@ -8989,6 +9021,12 @@
               "type": "string",
               "default": "knb_123"
             }
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/pageToken"
           }
         ],
         "responses": {

@@ -238,7 +238,11 @@
           "Survey comment",
           "Segment closed",
           "Segment contains messages",
-          "Last segment activity"
+          "Last segment activity",
+          "Added tag",
+          "Added tag API ID",
+          "Removed tag",
+          "Removed tag API ID"
         ]
       },
       "AnalyticsActivitiesExportsColumns": {

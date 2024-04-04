@@ -47,8 +47,8 @@
             "description": "ID of the Account in an external system"
           },
           "custom_fields": {
-            "type": "object",
-            "description": "Custom field attributes for this account."
+            "description": "Custom fields for this account",
+            "$ref": "#/components/schemas/CustomFieldParameter"
           }
         }
       },
@@ -85,8 +85,8 @@
             }
           },
           "custom_fields": {
-            "type": "object",
-            "description": "Custom field attributes for this account. If you want to keep all custom fields the same when updating this resource, do not include any custom fields in the update. If you want to update custom fields, make sure to include all custom fields, not just the fields you want to add or update. If you send only the custom fields you want to update, the other custom fields will be erased. You can retrieve the existing custom fields before making the update to note the current fields."
+            "description": "Custom fields for this account. If you want to keep all custom fields the same when updating this resource, do not include any custom fields in the update. If you want to update custom fields, make sure to include all custom fields, not just the fields you want to add or update. If you send only the custom fields you want to update, the other custom fields will be erased. You can retrieve the existing custom fields before making the update to note the current fields.",
+            "$ref": "#/components/schemas/CustomFieldParameter"
           }
         }
       },
@@ -149,12 +149,8 @@
             "example": 8739674733
           },
           "custom_fields": {
-            "type": "object",
-            "description": "Custom Attributes for this account",
-            "example": {
-              "employees": 36,
-              "headquarters": "New York City"
-            }
+            "description": "Custom fields for this account",
+            "$ref": "#/components/schemas/CustomFieldParameter"
           },
           "created_at": {
             "type": "number",
@@ -962,8 +958,8 @@
             }
           },
           "custom_fields": {
-            "type": "object",
-            "description": "Custom field attributes for this contact. If you want to keep all custom fields the same when updating this resource, do not include any custom fields in the update. If you want to update custom fields, make sure to include all custom fields, not just the fields you want to add or update. If you send only the custom fields you want to update, the other custom fields will be erased. You can retrieve the existing custom fields before making the update to note the current fields."
+            "description": "Custom fields for this contact. If you want to keep all custom fields the same when updating this resource, do not include any custom fields in the update. If you want to update custom fields, make sure to include all custom fields, not just the fields you want to add or update. If you send only the custom fields you want to update, the other custom fields will be erased. You can retrieve the existing custom fields before making the update to note the current fields.",
+            "$ref": "#/components/schemas/CustomFieldParameter"
           }
         }
       },
@@ -1157,12 +1153,8 @@
             }
           },
           "custom_fields": {
-            "type": "object",
-            "description": "Custom field attributes for this contact.",
-            "example": {
-              "nemesis": "Jim Halpert",
-              "prankable": true
-            }
+            "description": "Custom fields for this contact.",
+            "$ref": "#/components/schemas/CustomFieldParameter"
           },
           "is_private": {
             "type": "boolean",
@@ -1262,11 +1254,8 @@
             }
           },
           "custom_fields": {
-            "type": "object",
-            "description": "Custom field attributes for this conversation",
-            "example": {
-              "last_assignee": "Jim Halpert"
-            }
+            "description": "Custom fields for this conversation",
+            "$ref": "#/components/schemas/CustomFieldParameter"
           },
           "created_at": {
             "type": "number",
@@ -1494,6 +1483,10 @@
                 }
               }
             }
+          },
+          "custom_fields": {
+            "description": "Custom fields for this conversation",
+            "$ref": "#/components/schemas/CustomFieldParameter"
           }
         }
       },
@@ -1899,6 +1892,65 @@
             "type": "boolean",
             "description": "Whether the tag is visible in conversation lists.",
             "default": false
+          }
+        }
+      },
+      "CustomFieldParameter": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "description": "The `name` property of the custom field",
+            "type": "string",
+            "example": "custom_key"
+          },
+          "value": {
+            "description": "The `value` property of the custom field as defined by https://dev.frontapp.com/reference/custom-fields",
+            "anyOf": [
+              {
+                "type": "string",
+                "description": "String or enum values",
+                "example": "London, UK"
+              },
+              {
+                "type": "boolean",
+                "description": "Boolean `true`/`false`",
+                "example": true
+              },
+              {
+                "type": "integer",
+                "description": "Integers",
+                "example": 90
+              },
+              {
+                "type": "integer",
+                "description": "Epoch Timestamps",
+                "example": 1525417200
+              },
+              {
+                "type": "string",
+                "description": "Inbox id",
+                "example": "inb_123"
+              },
+              {
+                "type": "string",
+                "format": "email",
+                "description": "Email address of a teammate",
+                "example": "leela@planet-express.com"
+              },
+              {
+                "type": "array",
+                "description": "List of email addresses of teammates",
+                "items": {
+                  "type": "string",
+                  "format": "email"
+                },
+                "example": [
+                  "leela@planet-express.com",
+                  "fry@planet-express.com",
+                  "bender@planet-express.com"
+                ]
+              }
+            ]
           }
         }
       },
@@ -2475,12 +2527,8 @@
             "example": false
           },
           "custom_fields": {
-            "type": "object",
-            "description": "Custom field attributes for this inbox",
-            "example": {
-              "manager": "Michael Scott",
-              "triager": "Pam Beesly"
-            }
+            "description": "Custom fields for this inbox",
+            "$ref": "#/components/schemas/CustomFieldParameter"
           }
         }
       },
@@ -3066,11 +3114,8 @@
             "example": "https://dundermifflin.atlassian.net/browse/PB-SCRAN-4567"
           },
           "custom_fields": {
-            "type": "object",
-            "description": "Custom field attributes for this link",
-            "example": {
-              "related_tms_entry": "SCR-848930-8902DK"
-            }
+            "description": "Custom fields for this link",
+            "$ref": "#/components/schemas/CustomFieldParameter"
           }
         }
       },
@@ -4263,12 +4308,8 @@
             "example": false
           },
           "custom_fields": {
-            "type": "object",
-            "description": "Custom field attributes for this teammate",
-            "example": {
-              "nemesis": "Toby Flenderson",
-              "prankable": true
-            }
+            "description": "Custom fields for this teammate",
+            "$ref": "#/components/schemas/CustomFieldParameter"
           }
         }
       },
@@ -4339,8 +4380,8 @@
             }
           },
           "custom_fields": {
-            "type": "object",
-            "description": "Custom field attributes for this conversation. If you want to keep all custom fields the same when updating this resource, do not include any custom fields in the update. If you want to update custom fields, make sure to include all custom fields, not just the fields you want to add or update. If you send only the custom fields you want to update, the other custom fields will be erased. You can retrieve the existing custom fields before making the update to note the current fields."
+            "description": "Custom fields for this conversation. If you want to keep all custom fields the same when updating this resource, do not include any custom fields in the update. If you want to update custom fields, make sure to include all custom fields, not just the fields you want to add or update. If you send only the custom fields you want to update, the other custom fields will be erased. You can retrieve the existing custom fields before making the update to note the current fields.",
+            "$ref": "#/components/schemas/CustomFieldParameter"
           }
         }
       },
@@ -4556,8 +4597,8 @@
             "description": "New availability status"
           },
           "custom_fields": {
-            "type": "object",
-            "description": "Custom field attributes for this teammate. If you want to keep all custom fields the same when updating this resource, do not include any custom fields in the update. If you want to update custom fields, make sure to include all custom fields, not just the fields you want to add or update. If you send only the custom fields you want to update, the other custom fields will be erased. You can retrieve the existing custom fields before making the update to note the current fields."
+            "description": "Custom fields for this teammate. If you want to keep all custom fields the same when updating this resource, do not include any custom fields in the update. If you want to update custom fields, make sure to include all custom fields, not just the fields you want to add or update. If you send only the custom fields you want to update, the other custom fields will be erased. You can retrieve the existing custom fields before making the update to note the current fields.",
+            "$ref": "#/components/schemas/CustomFieldParameter"
           }
         }
       }

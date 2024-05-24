@@ -1890,66 +1890,15 @@
       },
       "CustomFieldParameter": {
         "type": "object",
-        "properties": {
-          "key": {
-            "description": "The `name` property of the custom field",
-            "type": "string",
-            "example": "custom_key"
-          },
-          "value": {
-            "description": "The `value` property of the custom field as defined by https://dev.frontapp.com/reference/custom-fields",
-            "anyOf": [
-              {
-                "type": "string",
-                "description": "String values",
-                "example": "London, UK"
-              },
-              {
-                "type": "boolean",
-                "description": "Boolean `true`/`false`",
-                "example": true
-              },
-              {
-                "type": "integer",
-                "description": "Epoch Timestamps",
-                "example": 1525417200
-              },
-              {
-                "type": "integer",
-                "description": "Integers",
-                "example": 90
-              },
-              {
-                "type": "string",
-                "format": "email",
-                "description": "Email address of a teammate",
-                "example": "leela@planet-express.com"
-              },
-              {
-                "type": "array",
-                "description": "List of email addresses of teammates",
-                "items": {
-                  "type": "string",
-                  "format": "email"
-                },
-                "example": [
-                  "leela@planet-express.com",
-                  "fry@planet-express.com",
-                  "bender@planet-express.com"
-                ]
-              },
-              {
-                "type": "string",
-                "description": "Inbox id",
-                "example": "inb_55c8c149"
-              },
-              {
-                "type": "string",
-                "description": "Enum string values",
-                "example": "firefighter"
-              }
-            ]
-          }
+        "description": "An object whose key is the `name` property defined for the custom field in the Front UI. The value of the key must use the same `type` specified for the custom field, as described in https://dev.frontapp.com/reference/custom-fields",
+        "example": {
+          "city": "London, UK",
+          "isVIP": true,
+          "renewal_date": 1525417200,
+          "sla_time": 90,
+          "owner": "leela@planet-express.com",
+          "replyTo": "inb_55c8c149",
+          "Job Title": "firefighter"
         }
       },
       "CustomFieldResponse": {

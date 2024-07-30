@@ -914,6 +914,11 @@
               "$ref": "#/components/schemas/Attachment"
             },
             "description": "List of files attached to the comment"
+          },
+          "is_pinned": {
+            "type": "boolean",
+            "description": "Whether or not the comment is pinned in its conversation",
+            "example": true
           }
         }
       },
@@ -1361,6 +1366,10 @@
           "body": {
             "type": "string",
             "description": "Content of the comment. Can include markdown formatting."
+          },
+          "is_pinned": {
+            "type": "boolean",
+            "description": "Whether or not the comment is pinned in its conversation."
           },
           "attachments": {
             "description": "Binary data of attached files. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb) or read more about [Attachments](https://dev.frontapp.com/docs/attachments-1).  Max 25 MB.",
@@ -4301,6 +4310,18 @@
           }
         }
       },
+      "UpdateComment": {
+        "properties": {
+          "body": {
+            "type": "string",
+            "description": "Content of the comment. Can include markdown formatting. Can only be updated if the comment\nwas created using the same token.\n"
+          },
+          "is_pinned": {
+            "type": "boolean",
+            "description": "Whether or not the comment is pinned in its conversation."
+          }
+        }
+      },
       "UpdateConversation": {
         "properties": {
           "assignee_id": {
@@ -6521,6 +6542,42 @@
         ],
         "responses": {
           "200": {
+            "$ref": "#/components/responses/comment"
+          }
+        }
+      }
+    },
+    "/comments/{comment_id}/": {
+      "patch": {
+        "summary": "Update comment",
+        "operationId": "update-comment",
+        "description": "Update a comment in a [conversation](https://dev.frontapp.com/reference/conversations).",
+        "tags": [
+          "Comments"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "comment_id",
+            "required": true,
+            "description": "The Comment ID",
+            "schema": {
+              "type": "string",
+              "default": "com_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateComment"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
             "$ref": "#/components/responses/comment"
           }
         }

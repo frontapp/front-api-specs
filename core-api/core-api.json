@@ -4314,7 +4314,7 @@
         "properties": {
           "body": {
             "type": "string",
-            "description": "Content of the comment. Can include markdown formatting. Can only be updated if the comment\nwas created using the same token.\n"
+            "description": "Content of the comment. Can include markdown formatting. Can only be updated if the comment was created using the same token."
           },
           "is_pinned": {
             "type": "boolean",
@@ -6577,7 +6577,7 @@
           }
         },
         "responses": {
-          "201": {
+          "200": {
             "$ref": "#/components/responses/comment"
           }
         }

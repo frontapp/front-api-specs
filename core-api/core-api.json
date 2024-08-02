@@ -1897,6 +1897,48 @@
           }
         }
       },
+      "CreateTeammateGroup": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the teammate group"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the teammate group"
+          },
+          "permissions": {
+            "type": "object",
+            "description": "Permissions for the teammate group",
+            "properties": {
+              "contacts": {
+                "type": "object",
+                "description": "Permissions for accessing contact lists. This only applies if shared contacts permissions are enabled.",
+                "required": [
+                  "access"
+                ],
+                "properties": {
+                  "access": {
+                    "type": "string",
+                    "description": "One of 'all', 'contact_groups', or 'none'."
+                  },
+                  "contact_group_ids": {
+                    "type": "array",
+                    "description": "List of contact group ids. Can only be specified if access is set to 'contact_groups'.",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "CustomFieldParameter": {
         "type": "object",
         "description": "An object whose key is the `name` property defined for the custom field in the Front UI. The value of the key must use the same `type` specified for the custom field, as described in https://dev.frontapp.com/reference/custom-fields",
@@ -4183,6 +4225,77 @@
           }
         }
       },
+      "TeammateGroupResponse": {
+        "description": "A teammate group is a group of teammates in Front.",
+        "properties": {
+          "_links": {
+            "type": "object",
+            "properties": {
+              "self": {
+                "type": "string",
+                "description": "Link to resource",
+                "example": "https://yourCompany.api.frontapp.com/teammate_groups/cir_123"
+              },
+              "related": {
+                "type": "object",
+                "properties": {
+                  "teammates": {
+                    "type": "string",
+                    "description": "Link to list of teammate members",
+                    "example": "https://yourCompany.api.frontapp.com/teammate_groups/cir_123/teammates"
+                  }
+                }
+              }
+            }
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of the teammate group",
+            "example": "cir_123"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the teammate group",
+            "example": "Sales team"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the teammate group",
+            "example": "Best sales team ever"
+          },
+          "type": {
+            "type": "string",
+            "description": "scim or not"
+          },
+          "permissions": {
+            "type": "object",
+            "description": "Permissions for the teammate group",
+            "properties": {
+              "contacts": {
+                "type": "object",
+                "description": "Permissions for teammate group access to contact groups",
+                "properties": {
+                  "access": {
+                    "type": "string",
+                    "description": "Level of access for the teammate group to contact groups"
+                  },
+                  "contact_group_ids": {
+                    "type": "array",
+                    "description": "List of contact groups the teammate group is allowed to access, if access is limited",
+                    "example": [
+                      "grp_123",
+                      "grp_456"
+                    ],
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "TeammateIds": {
         "type": "object",
         "required": [
@@ -4571,6 +4684,45 @@
             "$ref": "#/components/schemas/CustomFieldParameter"
           }
         }
+      },
+      "UpdateTeammateGroup": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the teammate group"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the teammate group"
+          },
+          "permissions": {
+            "type": "object",
+            "description": "Permissions for the teammate group",
+            "properties": {
+              "contacts": {
+                "type": "object",
+                "description": "Permissions for accessing contact lists. This only applies if shared contacts permissions are enabled.",
+                "required": [
+                  "access"
+                ],
+                "properties": {
+                  "access": {
+                    "type": "string",
+                    "description": "One of 'all', 'contact_groups', or 'none'."
+                  },
+                  "contact_group_ids": {
+                    "type": "array",
+                    "description": "List of contact group ids. Can only be specified if access is set to 'contact_groups'.",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "securitySchemes": {
@@ -4938,6 +5090,34 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/TeammateResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "listOfTeammateGroups": {
+        "description": "Array of teammate groups",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "_links": {
+                  "type": "object",
+                  "properties": {
+                    "self": {
+                      "type": "string",
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/teammate_groups"
+                    }
+                  }
+                },
+                "_results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TeammateGroupResponse"
                   }
                 }
               }
@@ -5777,6 +5957,16 @@
           "application/json": {
             "schema": {
               "$ref": "#/components/schemas/TeammateResponse"
+            }
+          }
+        }
+      },
+      "teammateGroup": {
+        "description": "A teammate group",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/TeammateGroupResponse"
             }
           }
         }
@@ -10616,6 +10806,201 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/listOfConversations"
+          }
+        }
+      }
+    },
+    "/teammate_groups": {
+      "get": {
+        "summary": "List teammate groups",
+        "operationId": "list-company-teammate-groups",
+        "description": "List the teammate groups in the company.",
+        "tags": [
+          "Teammate groups"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfTeammateGroups"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create teammate group",
+        "operationId": "create-company-teammate-group",
+        "description": "Create a new teammate group.",
+        "tags": [
+          "Teammate groups"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTeammateGroup"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/teammateGroup"
+          }
+        }
+      }
+    },
+    "/teammate_groups/{teammate_group_id}": {
+      "get": {
+        "summary": "Get teammate group",
+        "operationId": "get-company-teammate-group",
+        "description": "Fetch a teammate group.",
+        "tags": [
+          "Teammates groups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "teammate_group_id",
+            "required": true,
+            "description": "The teammate group ID.",
+            "schema": {
+              "type": "string",
+              "default": "cir_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/teammateGroup"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update a teammate group",
+        "operationId": "update-a-company-teammate-group",
+        "description": "Updates a teammate group. Note - You cannot modify a teammate group that is managed by SCIM.",
+        "tags": [
+          "Teammate groups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "teammate_group_id",
+            "required": true,
+            "description": "The teammate group ID.",
+            "schema": {
+              "type": "string",
+              "default": "cir_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTeammateGroup"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content"
+          }
+        }
+      }
+    },
+    "/teammate_groups/{teammate_group_id}/teammates": {
+      "get": {
+        "summary": "List teammate group teammates",
+        "operationId": "list-company-teammate-group-teammates",
+        "description": "List teammate group teammates.",
+        "tags": [
+          "Teammate groups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "teammate_group_id",
+            "required": true,
+            "description": "The teammate group ID.",
+            "schema": {
+              "type": "string",
+              "default": "cir_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfTeammates"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add teammate group teammates",
+        "operationId": "add-company-teammate-group-teammates",
+        "description": "Add teammate group teammates. Note - You cannot modify a teammate group that is managed by SCIM.",
+        "tags": [
+          "Teammate groups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "teammate_group_id",
+            "required": true,
+            "description": "The teammate group ID.",
+            "schema": {
+              "type": "string",
+              "default": "cir_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Teammate IDs to add. Alternatively, you can supply emails as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TeammateIds"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove teammate group teammates",
+        "operationId": "remove-company-teammate-group-teammates",
+        "description": "Remove teammate group teammates. Note - You cannot modify a teammate group that is managed by SCIM.",
+        "tags": [
+          "Teammate groups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "teammate_group_id",
+            "required": true,
+            "description": "The teammate group ID.",
+            "schema": {
+              "type": "string",
+              "default": "cir_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Teammate IDs to remove. Alternatively, you can supply emails as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TeammateIds"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content"
           }
         }
       }

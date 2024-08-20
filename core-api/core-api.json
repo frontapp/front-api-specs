@@ -4278,13 +4278,23 @@
             "description": "Description of the teammate group",
             "example": "Best sales team ever"
           },
-          "type": {
-            "type": "string",
-            "description": "scim or not"
+          "is_managed_by_scim": {
+            "type": "boolean",
+            "description": "Is teammate group managed by SCIM or by Front",
+            "example": false
           },
           "permissions": {
             "type": "object",
             "description": "Permissions for the teammate group",
+            "example": {
+              "contacts": {
+                "access": "contact_groups",
+                "contact_group_ids": [
+                  "grp_1",
+                  "grp_2"
+                ]
+              }
+            },
             "properties": {
               "contacts": {
                 "type": "object",
@@ -4292,11 +4302,11 @@
                 "properties": {
                   "access": {
                     "type": "string",
-                    "description": "Level of access for the teammate group to contact groups"
+                    "description": "Level of access for the teammate group to contact groups. Must be one of 'all', 'contact_groups', or 'none'."
                   },
                   "contact_group_ids": {
                     "type": "array",
-                    "description": "List of contact groups the teammate group is allowed to access, if access is limited",
+                    "description": "List of contact groups the teammate group is allowed to access. May only be specified if 'access' is set to 'contact_groups'.",
                     "example": [
                       "grp_123",
                       "grp_456"
@@ -10968,16 +10978,6 @@
             }
           }
         ],
-        "requestBody": {
-          "description": "Team IDs to add",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TeamIds"
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "$ref": "#/components/responses/listOfInboxes"

@@ -2524,6 +2524,11 @@
             "description": "Whether or not the inbox is individual",
             "example": false
           },
+          "is_public": {
+            "type": "boolean",
+            "description": "Whether or not the inbox is available to all members of a team by default",
+            "example": true
+          },
           "custom_fields": {
             "description": "Custom fields for this inbox",
             "$ref": "#/components/schemas/CustomFieldParameter"

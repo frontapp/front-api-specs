@@ -4243,6 +4243,16 @@
                     "type": "string",
                     "description": "Link to list of teammate members",
                     "example": "https://yourCompany.api.frontapp.com/teammate_groups/cir_123/teammates"
+                  },
+                  "teams": {
+                    "type": "string",
+                    "description": "Link to list of associated teams",
+                    "example": "https://yourCompany.api.frontapp.com/teammate_groups/cir_123/teams"
+                  },
+                  "inboxes": {
+                    "type": "string",
+                    "description": "Link to list of inboxes that teammate members can access",
+                    "example": "https://yourCompany.api.frontapp.com/teammate_groups/cir_123/inboxes"
                   }
                 }
               }
@@ -10853,7 +10863,7 @@
         "operationId": "get-company-teammate-group",
         "description": "Fetch a teammate group.",
         "tags": [
-          "Teammates groups"
+          "Teammate groups"
         ],
         "parameters": [
           {
@@ -10897,6 +10907,138 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateTeammateGroup"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete teammate group",
+        "operationId": "delete-company-teammate-group",
+        "description": "Deletes a teammate group. Note - You cannot delete a teammate group that is managed by SCIM.",
+        "tags": [
+          "Teammate groups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "teammate_group_id",
+            "required": true,
+            "description": "The teammate group ID.",
+            "schema": {
+              "type": "string",
+              "default": "cir_123"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No content"
+          }
+        }
+      }
+    },
+    "/teammate_groups/{teammate_group_id}/inboxes": {
+      "get": {
+        "summary": "List teammate group team inboxes",
+        "operationId": "list-company-teammate-group-team-inboxes",
+        "description": "List inboxes that the teammate group has access to via its associated teams.",
+        "tags": [
+          "Teammate groups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "teammate_group_id",
+            "required": true,
+            "description": "The teammate group ID.",
+            "schema": {
+              "type": "string",
+              "default": "cir_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Team IDs to add",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TeamIds"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfInboxes"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add teammate group team inboxes",
+        "operationId": "add-company-teammate-group-team-inboxes",
+        "description": "Links non-public inboxes to the teammate group. The inbox must be part of a team that has been added to the teammate group.",
+        "tags": [
+          "Teammate groups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "teammate_group_id",
+            "required": true,
+            "description": "The teammate group ID.",
+            "schema": {
+              "type": "string",
+              "default": "cir_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Inbox IDs to add",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InboxIds"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove teammate group team inboxes",
+        "operationId": "remove-company-teammate-group-team-inboxes",
+        "description": "Unlinks non-public inboxes from the teammate group.",
+        "tags": [
+          "Teammate groups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "teammate_group_id",
+            "required": true,
+            "description": "The teammate group ID.",
+            "schema": {
+              "type": "string",
+              "default": "cir_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Inbox IDs to remove",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InboxIds"
               }
             }
           }
@@ -10994,6 +11136,103 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/TeammateIds"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content"
+          }
+        }
+      }
+    },
+    "/teammate_groups/{teammate_group_id}/teams": {
+      "get": {
+        "summary": "List teammate group teams",
+        "operationId": "list-company-teammate-group-teams",
+        "description": "List teams added to the teammate group. Any teams added to the teammate group will automatically link public inboxes.",
+        "tags": [
+          "Teammate groups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "teammate_group_id",
+            "required": true,
+            "description": "The teammate group ID.",
+            "schema": {
+              "type": "string",
+              "default": "cir_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfTeams"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add teammate group teams",
+        "operationId": "add-company-teammate-group-teams",
+        "description": "Adds teams to the teammate group. Any teams added to the teammate group will automatically link public inboxes. Non-public inboxes can be added to the teammate group separately.",
+        "tags": [
+          "Teammate groups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "teammate_group_id",
+            "required": true,
+            "description": "The teammate group ID.",
+            "schema": {
+              "type": "string",
+              "default": "cir_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Team IDs to add",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TeamIds"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove teammate group teams",
+        "operationId": "remove-company-teammate-group-teams",
+        "description": "Remove teams from the teammate group. Unlinks to any associated team inboxes.",
+        "tags": [
+          "Teammate groups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "teammate_group_id",
+            "required": true,
+            "description": "The teammate group ID.",
+            "schema": {
+              "type": "string",
+              "default": "cir_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Team IDs to remove.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TeamIds"
               }
             }
           }

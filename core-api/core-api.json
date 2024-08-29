@@ -238,7 +238,8 @@
           "Added tag",
           "Added tag API ID",
           "Removed tag",
-          "Removed tag API ID"
+          "Removed tag API ID",
+          "Segment cumulative teammates"
         ]
       },
       "AnalyticsActivitiesExportsColumns": {
@@ -469,7 +470,8 @@
           "Segment start",
           "Segment end",
           "Segment closed",
-          "Last segment activity"
+          "Last segment activity",
+          "Segment cumulative teammates"
         ]
       },
       "AnalyticsMessagesExportColumns": {

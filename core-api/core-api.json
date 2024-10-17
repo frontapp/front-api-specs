@@ -279,6 +279,8 @@
               "Response time",
               "Stage resolution time",
               "Replies to resolution",
+              "Ticket resolution time",
+              "Ticket replies to resolution",
               "Attributed to",
               "Assignee",
               "Author",

@@ -8691,7 +8691,7 @@
         "operationId": "get-a-knowledge-base-article",
         "description": "Fetches a knowledge base article.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
-          "Knowledge Bases"
+          "Knowledge Base Articles"
         ],
         "parameters": [
           {
@@ -8716,7 +8716,7 @@
         "operationId": "delete-an-article",
         "description": "Deletes an article and all its content and translations.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
-          "Knowledge Bases"
+          "Knowledge Base Articles"
         ],
         "parameters": [
           {
@@ -8743,7 +8743,7 @@
         "operationId": "get-knowledge-base-article-with-content-in-default-locale",
         "description": "Fetches a knowledge base article with content in the default locale.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
-          "Knowledge Bases"
+          "Knowledge Base Articles"
         ],
         "parameters": [
           {
@@ -8768,7 +8768,7 @@
         "operationId": "update-article-content-in-default-locale",
         "description": "Updates an article's content in the default locale\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
-          "Knowledge Bases"
+          "Knowledge Base Articles"
         ],
         "parameters": [
           {
@@ -8808,7 +8808,7 @@
         "operationId": "download-attachment-from-an-article",
         "description": "Downloads the attachment from an article.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
-          "Knowledge Bases"
+          "Knowledge Base Articles"
         ],
         "parameters": [
           {
@@ -8844,7 +8844,7 @@
         "operationId": "get-knowledge-base-article-with-content-in-specified-locale",
         "description": "Fetches a knowledge base article with content for a given locale.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
-          "Knowledge Bases"
+          "Knowledge Base Articles"
         ],
         "parameters": [
           {
@@ -8879,7 +8879,7 @@
         "operationId": "update-article-content-in-specified-locale",
         "description": "Updates an article's content for a given locale.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
-          "Knowledge Bases"
+          "Knowledge Base Articles"
         ],
         "parameters": [
           {
@@ -8929,7 +8929,7 @@
         "operationId": "get-a-knowledge-base-category",
         "description": "Fetches a knowledge base category.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
-          "Knowledge Bases"
+          "Knowledge Base Categories"
         ],
         "parameters": [
           {
@@ -8954,7 +8954,7 @@
         "operationId": "delete-a-knowledge-base-category",
         "description": "Deletes a knowledge base category.\n\n> ⚠️ Warning\n>\n> When a category is deleted, all articles in the category are also deleted.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
-          "Knowledge Bases"
+          "Knowledge Base Categories"
         ],
         "parameters": [
           {
@@ -8981,7 +8981,7 @@
         "operationId": "list-articles-in-a-category",
         "description": "List articles in a category.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
-          "Knowledge Bases"
+          "Knowledge Base Articles"
         ],
         "parameters": [
           {
@@ -9014,7 +9014,7 @@
         "operationId": "get-knowledge-base-category-content-in-default-locale",
         "description": "Fetches a knowledge base category with content in the default locale.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
-          "Knowledge Bases"
+          "Knowledge Base Categories"
         ],
         "parameters": [
           {
@@ -9039,7 +9039,7 @@
         "operationId": "update-knowledge-base-category-in-default-locale",
         "description": "Updates a knowledge base category in the default locale. Will republish the knowledge base if the knowledge base is currently published.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
-          "Knowledge Bases"
+          "Knowledge Base Categories"
         ],
         "parameters": [
           {
@@ -9075,7 +9075,7 @@
         "operationId": "get-knowledge-base-category-with-content-in-specified-locale",
         "description": "Fetches a knowledge base category with content for a given locale.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
-          "Knowledge Bases"
+          "Knowledge Base Categories"
         ],
         "parameters": [
           {
@@ -9110,7 +9110,7 @@
         "operationId": "update-knowledge-base-category-in-specified-locale",
         "description": "Updates a knowledge base category for a given locale. Will republish the knowledge base if the knowledge base is currently published.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
-          "Knowledge Bases"
+          "Knowledge Base Categories"
         ],
         "parameters": [
           {
@@ -9223,7 +9223,7 @@
         "operationId": "list-articles-in-a-knowledge-base",
         "description": "List articles in a knowledge base\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
-          "Knowledge Bases"
+          "Knowledge Base Articles"
         ],
         "parameters": [
           {
@@ -9295,7 +9295,7 @@
         "operationId": "list-categories-in-a-knowledge-base",
         "description": "List categories in a knowledge base.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
         "tags": [
-          "Knowledge Bases"
+          "Knowledge Base Categories"
         ],
         "parameters": [
           {

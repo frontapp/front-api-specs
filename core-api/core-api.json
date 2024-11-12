@@ -205,6 +205,8 @@
           "Response time",
           "Stage resolution time",
           "Replies to resolution",
+          "Ticket resolution time",
+          "Ticket replies to resolution",
           "Attributed to",
           "Assignee",
           "Author",
@@ -250,7 +252,7 @@
         "properties": {
           "columns": {
             "type": "array",
-            "description": "List of the columns to include in the export.\n❗️Columns \"Resolution time\" and \"Final resolution\" are deprecated and not supported anymore through the \"columns\" field.\n",
+            "description": "List of the columns to include in the export.\n",
             "items": {
               "$ref": "#/components/schemas/AnalyticsActivitiesColumns"
             },
@@ -277,8 +279,6 @@
               "Total reply time",
               "Handle time",
               "Response time",
-              "Stage resolution time",
-              "Replies to resolution",
               "Ticket resolution time",
               "Ticket replies to resolution",
               "Attributed to",
@@ -310,7 +310,12 @@
               "Survey comment",
               "Segment closed",
               "Segment contains messages",
-              "Last segment activity"
+              "Last segment activity",
+              "Added tag",
+              "Added tag API ID",
+              "Removed tag",
+              "Removed tag API ID",
+              "Segment cumulative teammates"
             ]
           }
         }
@@ -484,7 +489,7 @@
         "properties": {
           "columns": {
             "type": "array",
-            "description": "List of the columns to include in the export.\n❗️ Columns \"Resolution time\", \"Final resolution\" and \"Replies to resolve\" are deprecated and not supported anymore through the \"columns\" field.\n",
+            "description": "List of the columns to include in the export.\n",
             "items": {
               "$ref": "#/components/schemas/AnalyticsMessagesColumns"
             },
@@ -523,7 +528,8 @@
               "Segment start",
               "Segment end",
               "Segment closed",
-              "Last segment activity"
+              "Last segment activity",
+              "Segment cumulative teammates"
             ]
           }
         }

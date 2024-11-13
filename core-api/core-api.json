@@ -1879,7 +1879,8 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Name of the tag"
+            "description": "Name of the tag",
+            "maxLength": 64
           },
           "description": {
             "type": "string",
@@ -4665,7 +4666,8 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Name of the tag"
+            "description": "Name of the tag",
+            "maxLength": 64
           },
           "description": {
             "type": "string",

@@ -4369,6 +4369,11 @@
                     "type": "string",
                     "description": "Link to teammate's conversations",
                     "example": "https://yourCompany.api.frontapp.com/teammates/tea_6r55a/conversations"
+                  },
+                  "botSource": {
+                    "type": "string",
+                    "description": "Link to the source resource of the bot (e.g. rule)",
+                    "example": "https://yourCompany.api.frontapp.com/rules/rul_6r55a"
                   }
                 }
               }
@@ -4413,6 +4418,19 @@
             "type": "boolean",
             "description": "Whether or not the teammate account has been blocked",
             "example": false
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of the teammate, normal teammates are denoted as \"user\", while visitors are denoted as \"visitor\".\nBot users are denoted by their parent resource type.\nThe following bot types are available:\n  * rule: acting on behalf of a Rule, author of comments and drafts\n  * macro: acting on behalf of a Macro, author of comments and drafts\n  * API: acting on behalf of OAuth clients\n  * integration: acting on behalf of an Integration\n  * CSAT: used for authoring CSAT response comments\n",
+            "enum": [
+              "user",
+              "visitor",
+              "rule",
+              "macro",
+              "API",
+              "integration",
+              "CSAT"
+            ]
           },
           "custom_fields": {
             "description": "Custom fields for this teammate",

@@ -3551,7 +3551,7 @@
           },
           "should_add_default_signature": {
             "type": "boolean",
-            "description": "Whether or not Front should try to resolve a signature for the message. Is ignored if signature_id is included. Default false;"
+            "description": "Whether or not Front should try to resolve a signature for the message. Is ignored if signature_id is included or if author_id is omitted. Default false;"
           }
         }
       },
@@ -3640,7 +3640,7 @@
           },
           "should_add_default_signature": {
             "type": "boolean",
-            "description": "Whether or not Front should try to resolve a signature for the message. Is ignored if signature_id is included. Default false;"
+            "description": "Whether or not Front should try to resolve a signature for the message. Is ignored if signature_id is included or if author_id is omitted. Default false;"
           }
         }
       },

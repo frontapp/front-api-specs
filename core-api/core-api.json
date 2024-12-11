@@ -1605,7 +1605,7 @@
           },
           "pattern": {
             "type": "string",
-            "description": "The string that dynamic object configurations will match on to update a specific dynamic object. For example, if you've configured a dynamic object to match on ORDER-{Digits}, and you want to specifically update the dynamic objects for ORDER-777 to retrieve the latest information from external systems, send \"ORDER-777\". Repeat for other specific identifiers, such as \"ORDER-435\".",
+            "description": "The string that application object configurations will match on to update a specific application object. For example, if you've configured an application object to match on ORDER-{Digits}, and you want to specifically update the application objects for ORDER-777 to retrieve the latest information from external systems, send \"ORDER-777\". Repeat for other specific identifiers, such as \"ORDER-435\".",
             "example": "ORDER-123"
           }
         }
@@ -7942,7 +7942,7 @@
       "post": {
         "summary": "Add conversation link",
         "operationId": "add-conversation-link",
-        "description": "Adds one or more links to a conversation",
+        "description": "Adds one or more links to a conversation\nFor more information on links, see the [Links](https://dev.frontapp.com/reference/links) topic.\n",
         "tags": [
           "Conversations"
         ],
@@ -7994,7 +7994,7 @@
       "delete": {
         "summary": "Remove conversation links",
         "operationId": "remove-conversation-links",
-        "description": "Removes one or more links to a conversation",
+        "description": "Removes one or more links to a conversation.\nFor more information on links, see the [Links](https://dev.frontapp.com/reference/links) topic.\n",
         "tags": [
           "Conversations"
         ],
@@ -9637,7 +9637,7 @@
       "get": {
         "summary": "List links",
         "operationId": "list-links",
-        "description": "List the links of the company paginated by id. Allows filtering by link type via the q.types param.",
+        "description": "List the links of the company paginated by id. Allows filtering by link type via the q.types param.\nThese links include application objects; for more details, see the [Links](https://dev.frontapp.com/reference/links) topic.\n",
         "tags": [
           "Links"
         ],
@@ -9667,7 +9667,7 @@
       "post": {
         "summary": "Create link",
         "operationId": "create-link",
-        "description": "Create a link. You must supply either `pattern` or `external_url` in the request, but not both (`pattern` is for dynamic objects while `external_url` is for standard links). If `pattern` is provided, the API call updates the dynamic objects matching the exact pattern. If the link is resolved to an installed links integration, any name retrieved from the integration will override the provided name in the request.",
+        "description": "Create a link. You must supply either `pattern` or `external_url` in the request, but not both (`pattern` is for application objects while `external_url` is for standard links). If `pattern` is provided, the API call updates the application objects matching the exact pattern. Keep in mind this endpoint only creates or updates an existing link from an application object. It does not create new application objects. If the link is resolved to an installed links integration, any name retrieved from the integration will override the provided name in the request.",
         "tags": [
           "Links"
         ],
@@ -9692,7 +9692,7 @@
       "get": {
         "summary": "List Link's custom fields",
         "operationId": "list-link-custom-fields",
-        "description": "Lists the custom fields that can be attached to a Link.",
+        "description": "Lists the custom fields that can be attached to a Link.\nFor more information on links, see the [Links](https://dev.frontapp.com/reference/links) topic.\n",
         "tags": [
           "Custom Fields"
         ],
@@ -9707,7 +9707,7 @@
       "get": {
         "summary": "Get link",
         "operationId": "get-link",
-        "description": "Fetch a link.",
+        "description": "Fetch a link.\nFor more information on links, see the [Links](https://dev.frontapp.com/reference/links) topic.\n",
         "tags": [
           "Links"
         ],
@@ -9732,7 +9732,7 @@
       "patch": {
         "summary": "Update a link",
         "operationId": "update-a-link",
-        "description": "Update a link.",
+        "description": "Update a link.\nFor more information on links, see the [Links](https://dev.frontapp.com/reference/links) topic.\n",
         "tags": [
           "Links"
         ],
@@ -9769,7 +9769,7 @@
       "get": {
         "summary": "List link conversations",
         "operationId": "list-link-conversations",
-        "description": "List the conversations linked to a specific link. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n",
+        "description": "List the conversations linked to a specific link. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\nFor more information on links, see the [Links](https://dev.frontapp.com/reference/links) topic.\n",
         "tags": [
           "Links"
         ],

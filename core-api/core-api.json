@@ -6828,6 +6828,43 @@
         }
       }
     },
+    "/comments/{comment_id}/download/{attachment_link_id}": {
+      "get": {
+        "summary": "Download attachment for a comment",
+        "operationId": "download-attachment-for-a-comment",
+        "description": "Download an attachment file for a given comment ID",
+        "tags": [
+          "Attachments"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "comment_id",
+            "required": true,
+            "description": "The Comment ID",
+            "schema": {
+              "type": "string",
+              "default": "com_1v3ef"
+            }
+          },
+          {
+            "in": "path",
+            "name": "attachment_link_id",
+            "required": true,
+            "description": "The Attachment ID",
+            "schema": {
+              "type": "string",
+              "default": "fil_55c8c149"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/attachment"
+          }
+        }
+      }
+    },
     "/comments/{comment_id}/mentions": {
       "get": {
         "summary": "List comment mentions",
@@ -10212,6 +10249,43 @@
         }
       }
     },
+    "/message_templates/{message_template_id}/download/{attachment_link_id}": {
+      "get": {
+        "summary": "Download attachment for a message template",
+        "operationId": "download-attachment-for-a-message-template",
+        "description": "Download an attachment file for a given comment ID",
+        "tags": [
+          "Attachments"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "message_template_id",
+            "required": true,
+            "description": "The Message Template ID",
+            "schema": {
+              "type": "string",
+              "default": "rsp_1v3ef"
+            }
+          },
+          {
+            "in": "path",
+            "name": "attachment_link_id",
+            "required": true,
+            "description": "The Attachment ID",
+            "schema": {
+              "type": "string",
+              "default": "fil_55c8c149"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/attachment"
+          }
+        }
+      }
+    },
     "/messages/{message_id}": {
       "get": {
         "summary": "Get message",
@@ -10235,6 +10309,43 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/message"
+          }
+        }
+      }
+    },
+    "/messages/{message_id}/download/{attachment_link_id}": {
+      "get": {
+        "summary": "Download attachment for a message",
+        "operationId": "download-attachment-for-a-message",
+        "description": "Download an attachment file for a given message id. Should be used by partner channels.",
+        "tags": [
+          "Attachments"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "message_id",
+            "required": true,
+            "description": "The Message ID",
+            "schema": {
+              "type": "string",
+              "default": "msg_12345"
+            }
+          },
+          {
+            "in": "path",
+            "name": "attachment_link_id",
+            "required": true,
+            "description": "The Attachment ID",
+            "schema": {
+              "type": "string",
+              "default": "fil_55c8c149"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/attachment"
           }
         }
       }

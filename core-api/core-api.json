@@ -186,6 +186,7 @@
           "Source",
           "Message ID",
           "Conversation ID",
+          "Ticket IDs",
           "Segment",
           "Segment start",
           "Segment end",
@@ -262,6 +263,7 @@
               "Source",
               "Message ID",
               "Conversation ID",
+              "Ticket IDs",
               "Segment",
               "Segment start",
               "Segment end",
@@ -445,6 +447,7 @@
         "enum": [
           "Message ID",
           "Conversation ID",
+          "Ticket IDs",
           "Segment",
           "Direction",
           "Status",
@@ -496,6 +499,7 @@
             "default": [
               "Message ID",
               "Conversation ID",
+              "Ticket IDs",
               "Segment",
               "Direction",
               "Status",

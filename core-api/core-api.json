@@ -10257,7 +10257,7 @@
       "get": {
         "summary": "Download attachment for a message template",
         "operationId": "download-attachment-for-a-message-template",
-        "description": "Download an attachment file for a given comment ID",
+        "description": "Download an attachment file for a given message template ID",
         "tags": [
           "Attachments"
         ],

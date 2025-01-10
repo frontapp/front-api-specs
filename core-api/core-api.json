@@ -4795,7 +4795,7 @@
       "activityQuery": {
         "name": "q",
         "in": "query",
-        "description": "[Search query object](https://dev.frontapp.com/docs/query-object-q) with optional properties `before`, `after`, or `types`. `before` and `after` should be a timestamp in seconds with up to 3 decimal places. `types` should be a list of [event types](https://dev.frontapp.com/reference/events).",
+        "description": "[Search query object](https://dev.frontapp.com/docs/query-object-q) with optional properties `before`, `after`, `types`, or `inboxes`. `before` and `after` should be a timestamp in seconds with up to 3 decimal places. `types` should be a list of [event types](https://dev.frontapp.com/reference/events). `inboxes` should be a list of inbox IDs.",
         "schema": {
           "type": "string"
         }
@@ -8380,7 +8380,7 @@
       "get": {
         "summary": "List events",
         "operationId": "list-events",
-        "description": "Lists all the detailed events which occured in the inboxes of the company ordered in reverse chronological order (newest first).\nRefer to the [Events](https://dev.frontapp.com/reference/events) topic for more information, including sorting and filtering.\n",
+        "description": "Lists all the detailed events which occurred in the inboxes of the company ordered in reverse chronological order (newest first).\nRefer to the [Events](https://dev.frontapp.com/reference/events) topic for more information, including sorting and filtering.\n",
         "tags": [
           "Events"
         ],

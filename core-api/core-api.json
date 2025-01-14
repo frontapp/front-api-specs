@@ -1508,13 +1508,12 @@
       },
       "CreateDraft": {
         "required": [
-          "author_id",
           "body"
         ],
         "properties": {
           "author_id": {
             "type": "string",
-            "description": "ID of the teammate on behalf of whom the draft will be created. Alternatively, you can supply the author ID as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1)."
+            "description": "ID of the teammate on behalf of whom the draft will be created. Alternatively, you can supply the author ID as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1). If omitted, will post as the API Token or Application making the request."
           },
           "to": {
             "type": "array",
@@ -2134,7 +2133,6 @@
       },
       "EditDraft": {
         "required": [
-          "author_id",
           "body",
           "channel_id"
         ],
@@ -3739,7 +3737,6 @@
       },
       "ReplyDraft": {
         "required": [
-          "author_id",
           "body",
           "channel_id"
         ],

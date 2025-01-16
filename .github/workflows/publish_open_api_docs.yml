@@ -16,9 +16,9 @@ jobs:
       - name: Sync Public API definition
         uses: readmeio/rdme@v10
         with:
-          rdme: openapi upload core-api/core-api.json --key=${{ secrets.README_API_KEY }}
+          rdme: openapi upload core-api/core-api.json --slug=core-api.json --key=${{ secrets.README_API_KEY }}
       
       - name: Sync Channel API definition
         uses: readmeio/rdme@v10
         with:
-          rdme: openapi upload channel-api/channel-api.json --key=${{ secrets.README_API_KEY }}
+          rdme: openapi upload channel-api/channel-api.json --slug=channel-api.json --key=${{ secrets.README_API_KEY }}

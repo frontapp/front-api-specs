@@ -2191,7 +2191,7 @@
               "mention",
               "inbound",
               "outbound",
-              "outbound_reply",
+              "out_reply",
               "move",
               "forward",
               "tag",

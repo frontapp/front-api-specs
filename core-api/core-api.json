@@ -2733,6 +2733,11 @@
             "description": "Unique identifier of the knowledge base article",
             "example": "kba_12"
           },
+          "slug": {
+            "type": "string",
+            "description": "URL slug of the article. Construct the full URL using the template <protocol>://<knowldge base domain>/<locale>/<slug>",
+            "example": "/articles/5"
+          },
           "locales": {
             "type": "array",
             "description": "List of the locales the article supports",
@@ -2898,6 +2903,11 @@
             "type": "string",
             "description": "Unique identifier of the knowledge base category",
             "example": "kbc_12"
+          },
+          "slug": {
+            "type": "string",
+            "description": "URL slug of the category. Construct the full URL using the template <protocol>://<knowldge base domain>/<locale>/<slug>",
+            "example": "/categories/2"
           },
           "is_hidden": {
             "type": "boolean",

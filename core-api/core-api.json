@@ -2735,7 +2735,7 @@
           },
           "slug": {
             "type": "string",
-            "description": "URL slug of the article. Construct the full URL using the template <protocol>://<knowldge base domain>/<locale>/<slug>",
+            "description": "URL slug of the article. Construct the full URL using the template of protocol/knowledge base domain/locale/slug, such as https://yourDomain.com/en/articles/5",
             "example": "/articles/5"
           },
           "locales": {
@@ -2906,7 +2906,7 @@
           },
           "slug": {
             "type": "string",
-            "description": "URL slug of the category. Construct the full URL using the template <protocol>://<knowldge base domain>/<locale>/<slug>",
+            "description": "URL slug of the category. Construct the full URL using the template of protocol/knowledge base domain/locale/slug, such as https://yourDomain.com/en/categories/2",
             "example": "/categories/2"
           },
           "is_hidden": {

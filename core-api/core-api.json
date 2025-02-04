@@ -362,7 +362,12 @@
           "filters": {
             "$ref": "#/components/schemas/AnalyticsFilters"
           }
-        }
+        },
+        "required": [
+          "start",
+          "end",
+          "type"
+        ]
       },
       "AnalyticsExportResponse": {
         "properties": {

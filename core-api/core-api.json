@@ -1252,6 +1252,21 @@
             ],
             "example": "assigned"
           },
+          "status_id": {
+            "type": "string",
+            "description": "Unique identifier of the conversation status category, only present if ticketing is enabled",
+            "example": "sts_5x"
+          },
+          "status_category": {
+            "type": "string",
+            "description": "Status category of the conversation",
+            "enum": [
+              "open",
+              "waiting",
+              "resolved"
+            ],
+            "example": "resolved"
+          },
           "assignee": {
             "$ref": "#/components/schemas/TeammateResponse",
             "description": "Partial representation of the teammate assigned to the conversation"
@@ -4529,6 +4544,11 @@
               "spam"
             ]
           },
+          "status_id": {
+            "type": "string",
+            "description": "Unique identifier of the status to set the conversation to. Only one of status and status_id should be provided. Ticketing must be enabled for the company to use this field.",
+            "example": "sts_123"
+          },
           "tag_ids": {
             "type": "array",
             "description": "List of all the tag IDs replacing the old conversation tags",
@@ -4827,7 +4847,7 @@
       "conversationQuery": {
         "name": "q",
         "in": "query",
-        "description": "[Search query object](https://dev.frontapp.com/docs/query-object-q) with a property `statuses`, whose value should be a list of conversation statuses (`assigned`, `unassigned`, `archived`, or `deleted`).",
+        "description": "[Search query object](https://dev.frontapp.com/docs/query-object-q) with a property `statuses`, whose value should be a list of conversation statuses (`assigned`, `unassigned`, `archived`, or `deleted`), or a property `status_categories`, whose value should be a list of conversation status categories (`open`, `waiting`, `resolved`).",
         "schema": {
           "type": "string"
         }

@@ -164,14 +164,14 @@
           }
         }
       },
-      "AddContactsToGroup": {
+      "AddContactsToList": {
         "required": [
           "contact_ids"
         ],
         "properties": {
           "contact_ids": {
             "type": "array",
-            "description": "List of IDs of the contacts to add in the requested group. Alternatively, you can supply the contact source and handle as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
+            "description": "List of IDs of the contacts to add in the requested contact list. Alternatively, you can supply the contact source and handle as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "items": {
               "$ref": "#/components/schemas/ResourceID"
             }
@@ -973,7 +973,14 @@
           },
           "group_names": {
             "type": "array",
-            "description": "List of all the group names the contact belongs to. It will automatically create missing groups",
+            "description": "List of all the group names the contact belongs to. It will automatically create missing groups. ⚠️ Deprecated. Use `list_names` instead.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "list_names": {
+            "type": "array",
+            "description": "List of all the contact list names the contact belongs to. It will automatically create missing groups",
             "items": {
               "type": "string"
             }
@@ -981,50 +988,6 @@
           "custom_fields": {
             "description": "Custom fields for this contact. If you want to keep all custom fields the same when updating this resource, do not include any custom fields in the update. If you want to update custom fields, make sure to include all custom fields, not just the fields you want to add or update. If you send only the custom fields you want to update, the other custom fields will be erased. You can retrieve the existing custom fields before making the update to note the current fields.",
             "$ref": "#/components/schemas/CustomFieldParameter"
-          }
-        }
-      },
-      "ContactGroupResponses": {
-        "properties": {
-          "_links": {
-            "type": "object",
-            "properties": {
-              "self": {
-                "type": "string",
-                "description": "Link to resource",
-                "example": "https://yourCompany.api.frontapp.com/contact_groups/grp_3j342"
-              },
-              "related": {
-                "type": "object",
-                "properties": {
-                  "contacts": {
-                    "type": "string",
-                    "description": "Link to group contacts",
-                    "example": "https://yourCompany.api.frontapp.com/contact_groups/grp_3j342/contacts"
-                  },
-                  "owner": {
-                    "type": "string",
-                    "description": "Link to group owner",
-                    "example": "https://yourCompany.api.frontapp.com/teammates/tea_e35u"
-                  }
-                }
-              }
-            }
-          },
-          "id": {
-            "type": "string",
-            "description": "Unique identifier of the group",
-            "example": "grp_3j342"
-          },
-          "name": {
-            "type": "string",
-            "description": "Name of the group",
-            "example": "Party Planning Committee"
-          },
-          "is_private": {
-            "type": "boolean",
-            "description": "Whether or not the contact is individual",
-            "example": false
           }
         }
       },
@@ -1068,6 +1031,50 @@
             "items": {
               "$ref": "#/components/schemas/ResourceID"
             }
+          }
+        }
+      },
+      "ContactListResponses": {
+        "properties": {
+          "_links": {
+            "type": "object",
+            "properties": {
+              "self": {
+                "type": "string",
+                "description": "Link to resource",
+                "example": "https://yourCompany.api.frontapp.com/contact_lists/grp_3j342"
+              },
+              "related": {
+                "type": "object",
+                "properties": {
+                  "contacts": {
+                    "type": "string",
+                    "description": "Link to contact list contacts",
+                    "example": "https://yourCompany.api.frontapp.com/contact_lists/grp_3j342/contacts"
+                  },
+                  "owner": {
+                    "type": "string",
+                    "description": "Link to list owner",
+                    "example": "https://yourCompany.api.frontapp.com/teammates/tea_e35u"
+                  }
+                }
+              }
+            }
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of the list",
+            "example": "grp_3j342"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the list",
+            "example": "Party Planning Committee"
+          },
+          "is_private": {
+            "type": "boolean",
+            "description": "Whether or not the contact is individual",
+            "example": false
           }
         }
       },
@@ -1161,9 +1168,17 @@
           },
           "groups": {
             "type": "array",
-            "description": "List of the groups the contact belongs to.",
+            "deprecated": true,
+            "description": "List of the groups the contact belongs to. ⚠️ Deprecated. use `lists` instead.",
             "items": {
-              "$ref": "#/components/schemas/ContactGroupResponses"
+              "$ref": "#/components/schemas/ContactListResponses"
+            }
+          },
+          "lists": {
+            "type": "array",
+            "description": "List of the contact lists the contact belongs to.",
+            "items": {
+              "$ref": "#/components/schemas/ContactListResponses"
             }
           },
           "handles": {
@@ -1441,7 +1456,7 @@
           }
         ]
       },
-      "CreateContactGroup": {
+      "CreateContactList": {
         "type": "object",
         "required": [
           "name"
@@ -1449,7 +1464,7 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Name of the group"
+            "description": "Name of the contact list"
           }
         }
       },
@@ -1962,11 +1977,19 @@
                 "properties": {
                   "access": {
                     "type": "string",
-                    "description": "One of 'all', 'contact_groups', or 'none'."
+                    "description": "One of 'all', 'contact_groups', 'contact_lists', or 'none'."
                   },
                   "contact_group_ids": {
                     "type": "array",
-                    "description": "List of contact group ids. Can only be specified if access is set to 'contact_groups'.",
+                    "deprecated": true,
+                    "description": "List of contact group ids. Can only be specified if access is set to 'contact_groups'. ⚠️ Deprecated. Use access 'contact_lists' and 'contact_list_ids' instead.",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "contact_list_ids": {
+                    "type": "array",
+                    "description": "List of contact list ids. Can only be specified if access is set to 'contact_lists'.",
                     "items": {
                       "type": "string"
                     }
@@ -3754,14 +3777,14 @@
           }
         }
       },
-      "RemoveContactsFromGroup": {
+      "RemoveContactsFromList": {
         "required": [
           "contact_ids"
         ],
         "properties": {
           "contact_ids": {
             "type": "array",
-            "description": "List of IDs of the contacts to remove from the requested group. Alternatively, you can supply the contact source and handle as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
+            "description": "List of IDs of the contacts to remove from the requested contact list. Alternatively, you can supply the contact source and handle as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
             "maxItems": 50,
             "items": {
               "$ref": "#/components/schemas/ResourceID"
@@ -4344,15 +4367,27 @@
             "properties": {
               "contacts": {
                 "type": "object",
-                "description": "Permissions for teammate group access to contact groups",
+                "description": "Permissions for teammate group access to contact lists",
                 "properties": {
                   "access": {
                     "type": "string",
-                    "description": "Level of access for the teammate group to contact groups. Must be one of 'all', 'contact_groups', or 'none'."
+                    "description": "Level of access for the teammate group to contact lists. Must be one of 'all', 'contact_groups', 'contact_lists', or 'none'."
                   },
                   "contact_group_ids": {
                     "type": "array",
-                    "description": "List of contact groups the teammate group is allowed to access. May only be specified if 'access' is set to 'contact_groups'.",
+                    "deprecated": true,
+                    "description": "List of contact groups the teammate group is allowed to access. May only be specified if 'access' is set to 'contact_groups'. ⚠️ Deprecated. Use 'contact_list_ids' instead.",
+                    "example": [
+                      "grp_123",
+                      "grp_456"
+                    ],
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "contact_list_ids": {
+                    "type": "array",
+                    "description": "List of contact lists the teammate group is allowed to access. May only be specified if 'access' is set to 'contact_lists'.",
                     "example": [
                       "grp_123",
                       "grp_456"
@@ -4586,6 +4621,10 @@
           "scheduled_at": {
             "type": "number",
             "description": "Timestamp to schedule the reminder for. Set to null to cancel."
+          },
+          "status_id": {
+            "type": "string",
+            "description": "ID of the waiting status to which the conversation will be set. Ticketing must be enabled for the company to use this field. If no status is supplied and ticket is enabled, the default waiting status will be used."
           }
         }
       },
@@ -4804,11 +4843,19 @@
                 "properties": {
                   "access": {
                     "type": "string",
-                    "description": "One of 'all', 'contact_groups', or 'none'."
+                    "description": "One of 'all', 'contact_groups', 'contact_lists', or 'none'."
                   },
                   "contact_group_ids": {
                     "type": "array",
-                    "description": "List of contact group ids. Can only be specified if access is set to 'contact_groups'.",
+                    "deprecated": true,
+                    "description": "List of contact group ids. Can only be specified if access is set to 'contact_groups'. ⚠️ Deprecated. Use access 'contact_lists' and 'contact_list_ids' instead.",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "contact_list_ids": {
+                    "type": "array",
+                    "description": "List of contact list ids. Can only be specified if access is set to 'contact_lists'.",
                     "items": {
                       "type": "string"
                     }
@@ -4847,7 +4894,7 @@
       "conversationQuery": {
         "name": "q",
         "in": "query",
-        "description": "[Search query object](https://dev.frontapp.com/docs/query-object-q) with a property `statuses`, whose value should be a list of conversation statuses (`assigned`, `unassigned`, `archived`, or `deleted`), or a property `status_categories`, whose value should be a list of conversation status categories (`open`, `waiting`, `resolved`).",
+        "description": "[Search query object](https://dev.frontapp.com/docs/query-object-q) with a property `statuses`, whose value should be a list of conversation statuses (`assigned`, `unassigned`, `archived`, or `deleted`). If ticketing is enabled, this endpoint accepts either `status_categories` (`open`, `waiting`, `resolved`) or `status_ids` as an alternative.",
         "schema": {
           "type": "string"
         }
@@ -5324,8 +5371,8 @@
           }
         }
       },
-      "listOfContactGroups": {
-        "description": "Array of contact groups",
+      "listOfContactLists": {
+        "description": "Array of contact lists",
         "content": {
           "application/json": {
             "schema": {
@@ -5337,14 +5384,14 @@
                     "self": {
                       "type": "string",
                       "description": "Link to resource",
-                      "example": "https://yourCompany.api.frontapp.com/contact_groups"
+                      "example": "https://yourCompany.api.frontapp.com/contact_lists"
                     }
                   }
                 },
                 "_results": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ContactGroupResponses"
+                    "$ref": "#/components/schemas/ContactListResponses"
                   }
                 }
               }
@@ -7001,22 +7048,24 @@
     },
     "/contact_groups": {
       "get": {
+        "deprecated": true,
         "summary": "List groups",
         "operationId": "list-groups",
-        "description": "List the contact groups.",
+        "description": "List the contact groups.\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `GET /contact_lists`.\n",
         "tags": [
           "Contact Groups"
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/listOfContactGroups"
+            "$ref": "#/components/responses/listOfContactLists"
           }
         }
       },
       "post": {
+        "deprecated": true,
         "summary": "Create group",
         "operationId": "create-group",
-        "description": "Create a new contact group in the default team (workspace).",
+        "description": "Create a new contact group in the default team (workspace).\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `POST /contact_lists`.\n",
         "tags": [
           "Contact Groups"
         ],
@@ -7024,7 +7073,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateContactGroup"
+                "$ref": "#/components/schemas/CreateContactList"
               }
             }
           }
@@ -7038,9 +7087,10 @@
     },
     "/contact_groups/{contact_group_id}": {
       "delete": {
+        "deprecated": true,
         "summary": "Delete group",
         "operationId": "delete-group",
-        "description": "Delete a contact group.",
+        "description": "Delete a contact group.\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `DELETE /contact_lists/{contact_list_id}`.\n",
         "tags": [
           "Contact Groups"
         ],
@@ -7065,9 +7115,10 @@
     },
     "/contact_groups/{contact_group_id}/contacts": {
       "get": {
+        "deprecated": true,
         "summary": "List contacts in group",
         "operationId": "list-contacts-in-group",
-        "description": "List the contacts belonging to the requested group.",
+        "description": "List the contacts belonging to the requested group.\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `GET /contact_lists/{contact_list_id}/contacts`.\n",
         "tags": [
           "Contact Groups"
         ],
@@ -7096,9 +7147,10 @@
         }
       },
       "post": {
+        "deprecated": true,
         "summary": "Add contacts to group",
         "operationId": "add-contacts-to-group",
-        "description": "Add contacts to the requested group.",
+        "description": "Add contacts to the requested group.\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `POST /contact_lists/{contact_list_id}/contacts`.\n",
         "tags": [
           "Contact Groups"
         ],
@@ -7118,7 +7170,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/AddContactsToGroup"
+                "$ref": "#/components/schemas/AddContactsToList"
               }
             }
           }
@@ -7132,7 +7184,7 @@
       "delete": {
         "summary": "Remove contacts from group",
         "operationId": "remove-contacts-from-group",
-        "description": "Remove contacts from the requested group.",
+        "description": "Remove contacts from the requested group.\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `DELETE /contact_lists/{contact_list_id}/contacts`.\n",
         "tags": [
           "Contact Groups"
         ],
@@ -7152,7 +7204,172 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/RemoveContactsFromGroup"
+                "$ref": "#/components/schemas/RemoveContactsFromList"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content"
+          }
+        }
+      }
+    },
+    "/contact_lists": {
+      "get": {
+        "summary": "List contact lists",
+        "operationId": "list-contact-lists",
+        "description": "List contact lists.",
+        "tags": [
+          "Contact Lists"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfContactLists"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create contact list",
+        "operationId": "create-contact-list",
+        "description": "Create a new contact list in the default team (workspace).",
+        "tags": [
+          "Contact Lists"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateContactList"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content"
+          }
+        }
+      }
+    },
+    "/contact_lists/{contact_list_id}": {
+      "delete": {
+        "summary": "Delete contact list",
+        "operationId": "delete-contact-list",
+        "description": "Delete a contact lists.",
+        "tags": [
+          "Contact Lists"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "contact_list_id",
+            "required": true,
+            "description": "The contact list ID",
+            "schema": {
+              "type": "string",
+              "default": "grp_123"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No content"
+          }
+        }
+      }
+    },
+    "/contact_lists/{contact_list_id}/contacts": {
+      "get": {
+        "summary": "List contacts in contact list",
+        "operationId": "list-contacts-in-contact-list",
+        "description": "List the contacts belonging to the requested contact list.",
+        "tags": [
+          "Contact Lists"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "contact_list_id",
+            "required": true,
+            "description": "The contact list ID",
+            "schema": {
+              "type": "string",
+              "default": "grp_123"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/pageToken"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfContacts"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add contacts to contact list",
+        "operationId": "add-contacts-to-contact-list",
+        "description": "Add contacts to the requested contact list.",
+        "tags": [
+          "Contact Lists"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "contact_list_id",
+            "required": true,
+            "description": "The contact list ID",
+            "schema": {
+              "type": "string",
+              "default": "grp_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddContactsToList"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove contacts from contact list",
+        "operationId": "remove-contacts-from-contact-list",
+        "description": "Remove contacts from the requested contact list.",
+        "tags": [
+          "Contact Lists"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "contact_list_id",
+            "required": true,
+            "description": "The contact list ID",
+            "schema": {
+              "type": "string",
+              "default": "grp_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RemoveContactsFromList"
               }
             }
           }
@@ -11550,9 +11767,10 @@
     },
     "/teammates/{teammate_id}/contact_groups": {
       "get": {
+        "deprecated": true,
         "summary": "List teammate groups",
         "operationId": "list-teammate-groups",
-        "description": "List the contact groups belonging to the requested teammate.",
+        "description": "List the contact groups belonging to the requested teammate.\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `GET /teammates/{teammate_id}/contact_lists`.\n",
         "tags": [
           "Contact Groups"
         ],
@@ -11570,14 +11788,15 @@
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/listOfContactGroups"
+            "$ref": "#/components/responses/listOfContactLists"
           }
         }
       },
       "post": {
+        "deprecated": true,
         "summary": "Create teammate group",
         "operationId": "create-teammate-group",
-        "description": "Create a new contact group for the requested teammate.",
+        "description": "Create a new contact group for the requested teammate.\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `POST /teammates/{teammate_id}/contact_lists`.\n",
         "tags": [
           "Contact Groups"
         ],
@@ -11597,7 +11816,68 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateContactGroup"
+                "$ref": "#/components/schemas/CreateContactList"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content"
+          }
+        }
+      }
+    },
+    "/teammates/{teammate_id}/contact_lists": {
+      "get": {
+        "summary": "List teammate contact lists",
+        "operationId": "list-teammate-contact-lists",
+        "description": "List the contact lists belonging to the requested teammate.",
+        "tags": [
+          "Contact Lists"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "teammate_id",
+            "required": true,
+            "description": "The teammate ID. Alternatively, you can supply an email as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
+            "schema": {
+              "type": "string",
+              "default": "tea_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfContactLists"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create teammate contact list",
+        "operationId": "create-teammate-contact-list",
+        "description": "Create a new contact list for the requested teammate.",
+        "tags": [
+          "Contact Lists"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "teammate_id",
+            "required": true,
+            "description": "The teammate ID. Alternatively, you can supply an email as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
+            "schema": {
+              "type": "string",
+              "default": "tea_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateContactList"
               }
             }
           }
@@ -12146,9 +12426,10 @@
     },
     "/teams/{team_id}/contact_groups": {
       "get": {
+        "deprecated": true,
         "summary": "List team groups",
         "operationId": "list-team-groups",
-        "description": "List contact groups belonging to the requested team (workspace).",
+        "description": "List contact groups belonging to the requested team (workspace).\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `GET /teams/{team_id}/contact_lists`.\n",
         "tags": [
           "Contact Groups"
         ],
@@ -12166,14 +12447,15 @@
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/listOfContactGroups"
+            "$ref": "#/components/responses/listOfContactLists"
           }
         }
       },
       "post": {
+        "deprecated": true,
         "summary": "Create team group",
         "operationId": "create-team-group",
-        "description": "Create a new contact group for the requested team (workspace).",
+        "description": "Create a new contact group for the requested team (workspace).\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `POST /teams/{team_id}/contact_lists`.\n",
         "tags": [
           "Contact Groups"
         ],
@@ -12193,7 +12475,68 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateContactGroup"
+                "$ref": "#/components/schemas/CreateContactList"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content"
+          }
+        }
+      }
+    },
+    "/teams/{team_id}/contact_lists": {
+      "get": {
+        "summary": "List team contact lists",
+        "operationId": "list-team-contact-lists",
+        "description": "List contact lists belonging to the requested team (workspace).",
+        "tags": [
+          "Contact Lists"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "team_id",
+            "required": true,
+            "description": "The team ID",
+            "schema": {
+              "type": "string",
+              "default": "tim_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfContactLists"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create team contact list",
+        "operationId": "create-team-contact-list",
+        "description": "Create a new contact list for the requested team (workspace).",
+        "tags": [
+          "Contact Lists"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "team_id",
+            "required": true,
+            "description": "The team ID",
+            "schema": {
+              "type": "string",
+              "default": "tim_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateContactList"
               }
             }
           }

@@ -1282,6 +1282,16 @@
             ],
             "example": "resolved"
           },
+          "ticket_ids": {
+            "type": "array",
+            "description": "List of ticket ids associated with the conversation",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "TICKET-1"
+            ]
+          },
           "assignee": {
             "$ref": "#/components/schemas/TeammateResponse",
             "description": "Partial representation of the teammate assigned to the conversation"

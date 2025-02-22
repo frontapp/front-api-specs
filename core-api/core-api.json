@@ -4127,6 +4127,57 @@
           }
         }
       },
+      "StatusResponse": {
+        "type": "object",
+        "description": "A ticket status of a conversation.",
+        "properties": {
+          "_links": {
+            "type": "object",
+            "properties": {
+              "self": {
+                "type": "string",
+                "description": "Link to ticket status",
+                "example": "https://yourCompany.api.frontapp.com/company/statuses/sts_5z"
+              }
+            }
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of the ticket status",
+            "example": "sts_5z"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the ticket status. Default statuses match the category name. Custom statuses have a unique name.",
+            "example": "Open"
+          },
+          "category": {
+            "type": "string",
+            "description": "Category of the ticket status.",
+            "enum": [
+              "open",
+              "waiting",
+              "resolved"
+            ],
+            "example": "open"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the ticket status",
+            "example": "New or currently being worked on"
+          },
+          "updated_at": {
+            "type": "number",
+            "description": "Timestamp of the last ticket status update",
+            "example": 1699575875.186
+          },
+          "created_at": {
+            "type": "number",
+            "description": "Timestamp of ticket status create creation",
+            "example": 1682538996.583
+          }
+        }
+      },
       "TagIds": {
         "type": "object",
         "required": [
@@ -5715,6 +5766,34 @@
           }
         }
       },
+      "listOfStatuses": {
+        "description": "Array of ticket statuses",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "_links": {
+                  "type": "object",
+                  "properties": {
+                    "self": {
+                      "type": "string",
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/company/statuses"
+                    }
+                  }
+                },
+                "_results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StatusResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "listOfLinks": {
         "description": "Array of Links",
         "content": {
@@ -5979,6 +6058,16 @@
           "application/json": {
             "schema": {
               "$ref": "#/components/schemas/TagResponse"
+            }
+          }
+        }
+      },
+      "status": {
+        "description": "A ticket status",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/StatusResponse"
             }
           }
         }
@@ -7000,6 +7089,51 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/listOfRules"
+          }
+        }
+      }
+    },
+    "/company/statuses": {
+      "get": {
+        "summary": "List company ticket statuses",
+        "operationId": "list-company-ticket-statuses",
+        "description": "List the ticket statuses available for your company.",
+        "tags": [
+          "Statuses"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfStatuses"
+          },
+          "404": {
+            "description": "Ticketing is not enabled, therefore, there are no ticket statuses."
+          }
+        }
+      }
+    },
+    "/company/statuses/{status_id}": {
+      "get": {
+        "summary": "Get ticket status",
+        "operationId": "get-ticket-status-by-id",
+        "description": "Fetch a ticket status.",
+        "tags": [
+          "Statuses"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "status_id",
+            "required": true,
+            "description": "The ticket status ID",
+            "schema": {
+              "type": "string",
+              "default": "sts_5z"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/status"
           }
         }
       }

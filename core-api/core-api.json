@@ -4418,8 +4418,8 @@
             "description": "Permissions for the teammate group",
             "example": {
               "contacts": {
-                "access": "contact_groups",
-                "contact_group_ids": [
+                "access": "contact_lists",
+                "contact_list_ids": [
                   "grp_1",
                   "grp_2"
                 ]
@@ -4432,7 +4432,7 @@
                 "properties": {
                   "access": {
                     "type": "string",
-                    "description": "Level of access for the teammate group to contact lists. Must be one of 'all', 'contact_groups', 'contact_lists', or 'none'."
+                    "description": "Level of access for the teammate group to contact lists. Must be one of 'all', 'contact_lists', or 'none'. 'contact_groups' has been deprecated."
                   },
                   "contact_group_ids": {
                     "type": "array",

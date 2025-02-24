@@ -91,6 +91,7 @@
         }
       },
       "AccountResponse": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",
@@ -370,6 +371,7 @@
         ]
       },
       "AnalyticsExportResponse": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",
@@ -609,6 +611,7 @@
         ]
       },
       "AnalyticsReportResponse": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",
@@ -716,6 +719,7 @@
         }
       },
       "Attachment": {
+        "type": "object",
         "properties": {
           "id": {
             "type": "string",
@@ -775,6 +779,7 @@
         }
       },
       "ChannelResponse": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",
@@ -886,6 +891,7 @@
         }
       },
       "CommentResponse": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",
@@ -1035,6 +1041,7 @@
         }
       },
       "ContactListResponses": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",
@@ -1099,6 +1106,7 @@
         }
       },
       "ContactResponse": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",
@@ -1200,6 +1208,7 @@
         }
       },
       "ConversationResponse": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",
@@ -2024,6 +2033,7 @@
         }
       },
       "CustomFieldResponse": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",
@@ -2216,7 +2226,8 @@
         ]
       },
       "EventResponse": {
-        "description": "An event is created everytime something interesting is happening in Front.",
+        "type": "object",
+        "description": "An event is created every time something interesting is happening in Front.",
         "properties": {
           "_links": {
             "type": "object",
@@ -2367,6 +2378,7 @@
         }
       },
       "IdentityResponse": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",
@@ -2543,6 +2555,7 @@
         }
       },
       "InboxResponse": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",
@@ -2754,6 +2767,7 @@
         }
       },
       "KnowledgeBaseArticleSlimResponse": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",
@@ -2925,6 +2939,7 @@
         }
       },
       "KnowledgeBaseCategorySlimResponse": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",
@@ -3026,6 +3041,7 @@
         }
       },
       "KnowledgeBaseResponse": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",
@@ -3224,6 +3240,7 @@
         }
       },
       "MessageResponse": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",
@@ -3415,6 +3432,7 @@
         }
       },
       "MessageTemplateFolderResponse": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",
@@ -3474,6 +3492,7 @@
         }
       },
       "MessageTemplateResponse": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",
@@ -3714,6 +3733,7 @@
         }
       },
       "RecipientResponse": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",
@@ -3754,6 +3774,7 @@
         }
       },
       "Reminder": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",
@@ -3826,6 +3847,7 @@
         "type": "string"
       },
       "RoleResponse": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",
@@ -3854,6 +3876,7 @@
         }
       },
       "RuleResponse": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",
@@ -3906,6 +3929,7 @@
         }
       },
       "SeenReceiptResponse": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",
@@ -4059,6 +4083,7 @@
         }
       },
       "SignatureResponse": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",
@@ -4323,6 +4348,7 @@
         }
       },
       "TeamResponse": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",
@@ -4361,6 +4387,7 @@
         }
       },
       "TeammateGroupResponse": {
+        "type": "object",
         "description": "A teammate group is a group of teammates in Front.",
         "properties": {
           "_links": {
@@ -4478,6 +4505,7 @@
         }
       },
       "TeammateResponse": {
+        "type": "object",
         "description": "A teammate is a user in Front.",
         "properties": {
           "_links": {
@@ -5086,6 +5114,7 @@
                   "properties": {
                     "next": {
                       "type": "string",
+                      "nullable": true,
                       "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
                       "example": "https://yourCompany.api.frontapp.com/message_templates?page_token=9fa92a7f385fd7be43f7153055b30e6d"
                     }
@@ -5124,6 +5153,7 @@
                   "properties": {
                     "next": {
                       "type": "string",
+                      "nullable": true,
                       "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
                       "example": "https://yourCompany.api.frontapp.com/message_template_folders?page_token=9fa92a7f385fd7be43f7153055b30e6d"
                     }
@@ -5162,6 +5192,7 @@
                   "properties": {
                     "next": {
                       "type": "string",
+                      "nullable": true,
                       "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
                       "example": "https://yourCompany.api.frontapp.com/signatures?page_token=9fa92a7f385fd7be43f7153055b30e6d"
                     }
@@ -5368,6 +5399,7 @@
                   "properties": {
                     "next": {
                       "type": "string",
+                      "nullable": true,
                       "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
                       "example": "https://yourCompany.api.frontapp.com/contacts?page_token=e0b5767cb0f1100743d46f67fcd765caac2ed"
                     }
@@ -5406,6 +5438,7 @@
                   "properties": {
                     "next": {
                       "type": "string",
+                      "nullable": true,
                       "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
                       "example": "https://yourCompany.api.frontapp.com/accounts?page_token=abae846b73ddd80f67fff73c491c41b8b0e74972f3a1079c3c8800416e06cf46"
                     }
@@ -5500,6 +5533,7 @@
                   "properties": {
                     "next": {
                       "type": "string",
+                      "nullable": true,
                       "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
                       "example": "https://yourCompany.api.frontapp.com/conversations/cnv_y4xb93i/messages?page_token=klsljs8023j09suidfjlsjiei00043lllwww998303dkef0g"
                     }
@@ -5538,6 +5572,7 @@
                   "properties": {
                     "next": {
                       "type": "string",
+                      "nullable": true,
                       "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
                       "example": "https://yourCompany.api.frontapp.com/messages/msg_1p4lvjym/seen?page_token=jk7893fgeet644abnn39"
                     }
@@ -5576,6 +5611,7 @@
                   "properties": {
                     "next": {
                       "type": "string",
+                      "nullable": true,
                       "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
                       "example": "https://yourCompany.api.frontapp.com/conversations?page_token=ce787da6f075740cf187d926f5e9f612bc7875763a8dd37d5"
                     }
@@ -5614,6 +5650,7 @@
                   "properties": {
                     "next": {
                       "type": "string",
+                      "nullable": true,
                       "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
                       "example": "https://yourCompany.api.frontapp.com/conversations/search/:query:?page_token=d4d5f065c89f1284ea262fa6b19456239b0"
                     }
@@ -5657,6 +5694,7 @@
                   "properties": {
                     "next": {
                       "type": "string",
+                      "nullable": true,
                       "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
                       "example": "https://yourCompany.api.frontapp.com/events?page_token=2d018a5809eb90d349bc08c52cb1f4987bef"
                     }
@@ -5806,6 +5844,7 @@
                   "properties": {
                     "next": {
                       "type": "string",
+                      "nullable": true,
                       "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
                       "example": "https://yourCompany.api.frontapp.com/links?page_token=4fcb1f8ca11971c5da59c21ea686fd50"
                     }
@@ -5928,6 +5967,7 @@
                   "properties": {
                     "next": {
                       "type": "string",
+                      "nullable": true,
                       "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
                       "example": "https://yourCompany.api.frontapp.com/knowledge_bases/knb_1/categories?page_token=134287aba8eaa55cf366400c63300a75bab0c"
                     }
@@ -5966,6 +6006,7 @@
                   "properties": {
                     "next": {
                       "type": "string",
+                      "nullable": true,
                       "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
                       "example": "https://yourCompany.api.frontapp.com/knowledge_bases/knb_1/articles?page_token=134287aba8eaa55cf366400c63300a75bab0c"
                     }

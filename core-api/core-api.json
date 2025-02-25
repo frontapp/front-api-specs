@@ -2675,6 +2675,7 @@
         }
       },
       "KnowledgeBaseArticleResponse": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",
@@ -2866,6 +2867,7 @@
         }
       },
       "KnowledgeBaseCategoryResponse": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",
@@ -3118,6 +3120,7 @@
         }
       },
       "KnowledgeBaseSlimResponse": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",
@@ -4324,6 +4327,7 @@
         }
       },
       "TeamPreviewResponse": {
+        "type": "object",
         "properties": {
           "_links": {
             "type": "object",

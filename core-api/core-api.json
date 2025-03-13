@@ -9202,7 +9202,7 @@
       "get": {
         "summary": "Get a knowledge base article",
         "operationId": "get-a-knowledge-base-article",
-        "description": "Fetches a knowledge base article.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
+        "description": "Fetches a knowledge base article.",
         "tags": [
           "Knowledge Base Articles"
         ],
@@ -9227,7 +9227,7 @@
       "delete": {
         "summary": "Delete an article",
         "operationId": "delete-an-article",
-        "description": "Deletes an article and all its content and translations.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
+        "description": "Deletes an article and all its content and translations.",
         "tags": [
           "Knowledge Base Articles"
         ],
@@ -9254,7 +9254,7 @@
       "get": {
         "summary": "Get knowledge base article with content in default locale",
         "operationId": "get-knowledge-base-article-with-content-in-default-locale",
-        "description": "Fetches a knowledge base article with content in the default locale.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
+        "description": "Fetches a knowledge base article with content in the default locale.",
         "tags": [
           "Knowledge Base Articles"
         ],
@@ -9279,7 +9279,7 @@
       "patch": {
         "summary": "Update article content in default locale.",
         "operationId": "update-article-content-in-default-locale",
-        "description": "Updates an article's content in the default locale\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
+        "description": "Updates an article's content in the default locale",
         "tags": [
           "Knowledge Base Articles"
         ],
@@ -9319,7 +9319,7 @@
       "get": {
         "summary": "Download attachment from an article",
         "operationId": "download-attachment-from-an-article",
-        "description": "Downloads the attachment from an article.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
+        "description": "Downloads the attachment from an article.",
         "tags": [
           "Knowledge Base Articles"
         ],
@@ -9355,7 +9355,7 @@
       "get": {
         "summary": "Get knowledge base article with content in specified locale",
         "operationId": "get-knowledge-base-article-with-content-in-specified-locale",
-        "description": "Fetches a knowledge base article with content for a given locale.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
+        "description": "Fetches a knowledge base article with content for a given locale.",
         "tags": [
           "Knowledge Base Articles"
         ],
@@ -9390,7 +9390,7 @@
       "patch": {
         "summary": "Update article content in specified locale",
         "operationId": "update-article-content-in-specified-locale",
-        "description": "Updates an article's content for a given locale.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
+        "description": "Updates an article's content for a given locale.",
         "tags": [
           "Knowledge Base Articles"
         ],
@@ -9440,7 +9440,7 @@
       "get": {
         "summary": "Get a knowledge base category",
         "operationId": "get-a-knowledge-base-category",
-        "description": "Fetches a knowledge base category.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
+        "description": "Fetches a knowledge base category.",
         "tags": [
           "Knowledge Base Categories"
         ],
@@ -9465,7 +9465,7 @@
       "delete": {
         "summary": "Delete a knowledge base category",
         "operationId": "delete-a-knowledge-base-category",
-        "description": "Deletes a knowledge base category.\n\n> ⚠️ Warning\n>\n> When a category is deleted, all articles in the category are also deleted.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
+        "description": "Deletes a knowledge base category.\n\n> ⚠️ Warning\n>\n> When a category is deleted, all articles in the category are also deleted.\n",
         "tags": [
           "Knowledge Base Categories"
         ],
@@ -9492,7 +9492,7 @@
       "get": {
         "summary": "List articles in a category",
         "operationId": "list-articles-in-a-category",
-        "description": "List articles in a category.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
+        "description": "List articles in a category.",
         "tags": [
           "Knowledge Base Articles"
         ],
@@ -9525,7 +9525,7 @@
       "get": {
         "summary": "Get knowledge base category content in default locale",
         "operationId": "get-knowledge-base-category-content-in-default-locale",
-        "description": "Fetches a knowledge base category with content in the default locale.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
+        "description": "Fetches a knowledge base category with content in the default locale.",
         "tags": [
           "Knowledge Base Categories"
         ],
@@ -9550,7 +9550,7 @@
       "patch": {
         "summary": "Update knowledge base category in default locale",
         "operationId": "update-knowledge-base-category-in-default-locale",
-        "description": "Updates a knowledge base category in the default locale. Will republish the knowledge base if the knowledge base is currently published.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
+        "description": "Updates a knowledge base category in the default locale. Will republish the knowledge base if the knowledge base is currently published.",
         "tags": [
           "Knowledge Base Categories"
         ],
@@ -9586,7 +9586,7 @@
       "get": {
         "summary": "Get knowledge base category with content in specified locale",
         "operationId": "get-knowledge-base-category-with-content-in-specified-locale",
-        "description": "Fetches a knowledge base category with content for a given locale.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
+        "description": "Fetches a knowledge base category with content for a given locale.",
         "tags": [
           "Knowledge Base Categories"
         ],
@@ -9621,7 +9621,7 @@
       "patch": {
         "summary": "Update knowledge base category in specified locale",
         "operationId": "update-knowledge-base-category-in-specified-locale",
-        "description": "Updates a knowledge base category for a given locale. Will republish the knowledge base if the knowledge base is currently published.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
+        "description": "Updates a knowledge base category for a given locale. Will republish the knowledge base if the knowledge base is currently published.",
         "tags": [
           "Knowledge Base Categories"
         ],
@@ -9667,7 +9667,7 @@
       "get": {
         "summary": "List knowledge bases",
         "operationId": "list-knowledge-bases",
-        "description": "List the knowledge bases of the company.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
+        "description": "List the knowledge bases of the company.",
         "tags": [
           "Knowledge Bases"
         ],
@@ -9680,7 +9680,7 @@
       "post": {
         "summary": "Create a knowledge base",
         "operationId": "create-a-knowledge-base",
-        "description": "Creates a knowledge base.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
+        "description": "Creates a knowledge base.",
         "tags": [
           "Knowledge Bases"
         ],
@@ -9707,7 +9707,7 @@
       "get": {
         "summary": "Get a knowledge base",
         "operationId": "get-a-knowledge-base",
-        "description": "Fetches a knowledge base.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
+        "description": "Fetches a knowledge base.",
         "tags": [
           "Knowledge Bases"
         ],
@@ -9734,7 +9734,7 @@
       "get": {
         "summary": "List articles in a knowledge base",
         "operationId": "list-articles-in-a-knowledge-base",
-        "description": "List articles in a knowledge base\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
+        "description": "List articles in a knowledge base",
         "tags": [
           "Knowledge Base Articles"
         ],
@@ -9765,7 +9765,7 @@
       "post": {
         "summary": "Create article in a knowledge base in default locale",
         "operationId": "create-article-in-a-knowledge-base-in-default-locale",
-        "description": "Creates an article in a knowledge base in the default locale.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
+        "description": "Creates an article in a knowledge base in the default locale.",
         "tags": [
           "Knowledge Bases"
         ],
@@ -9806,7 +9806,7 @@
       "get": {
         "summary": "List categories in a knowledge base",
         "operationId": "list-categories-in-a-knowledge-base",
-        "description": "List categories in a knowledge base.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
+        "description": "List categories in a knowledge base.",
         "tags": [
           "Knowledge Base Categories"
         ],
@@ -9837,7 +9837,7 @@
       "post": {
         "summary": "Create knowledge base category in default locale",
         "operationId": "create-knowledge-base-category-in-default-locale",
-        "description": "Creates a knowledge base category in the default locale.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
+        "description": "Creates a knowledge base category in the default locale.",
         "tags": [
           "Knowledge Bases"
         ],
@@ -9876,7 +9876,7 @@
       "get": {
         "summary": "Get a knowledge base with content in default locale",
         "operationId": "get-a-knowledge-base-with-content-in-default-locale",
-        "description": "Fetches a knowledge base with its content in the default locale.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
+        "description": "Fetches a knowledge base with its content in the default locale.",
         "tags": [
           "Knowledge Bases"
         ],
@@ -9901,7 +9901,7 @@
       "patch": {
         "summary": "Update knowledge base in default locale",
         "operationId": "update-knowledge-base-in-default-locale",
-        "description": "Updates a knowledge base in the default locale. Will republish the knowledge base if the knowledge base is currently published.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
+        "description": "Updates a knowledge base in the default locale. Will republish the knowledge base if the knowledge base is currently published.",
         "tags": [
           "Knowledge Bases"
         ],
@@ -9940,7 +9940,7 @@
       "post": {
         "summary": "Create article in a knowledge base in specified locale",
         "operationId": "create-article-in-a-knowledge-base-in-specified-locale",
-        "description": "Create an article for a given locale in a knowledge base.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
+        "description": "Create an article for a given locale in a knowledge base.",
         "tags": [
           "Knowledge Bases"
         ],
@@ -9991,7 +9991,7 @@
       "post": {
         "summary": "Create knowledge base category in specified locale",
         "operationId": "create-knowledge-base-category-in-specified-locale",
-        "description": "Creates a knowledge base category for a given locale.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
+        "description": "Creates a knowledge base category for a given locale.",
         "tags": [
           "Knowledge Bases"
         ],
@@ -10040,7 +10040,7 @@
       "get": {
         "summary": "Get a knowledge base with content in specified locale",
         "operationId": "get-a-knowledge-base-with-content-in-specified-locale",
-        "description": "Fetches a knowledge base with its content for a given locale.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
+        "description": "Fetches a knowledge base with its content for a given locale.",
         "tags": [
           "Knowledge Bases"
         ],
@@ -10075,7 +10075,7 @@
       "patch": {
         "summary": "Update knowledge base in specified locale",
         "operationId": "update-knowledge-base-in-specified-locale",
-        "description": "Updates a knowledge base for a given locale. Will republish the knowledge base if the knowledge base is currently published.\n\n**Note**: You must use an API token to authenticate. OAuth is not supported at this time.\n",
+        "description": "Updates a knowledge base for a given locale. Will republish the knowledge base if the knowledge base is currently published.",
         "tags": [
           "Knowledge Bases"
         ],

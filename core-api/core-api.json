@@ -4467,19 +4467,7 @@
                 "properties": {
                   "access": {
                     "type": "string",
-                    "description": "Level of access for the teammate group to contact lists. Must be one of 'all', 'contact_lists', or 'none'. 'contact_groups' has been deprecated."
-                  },
-                  "contact_group_ids": {
-                    "type": "array",
-                    "deprecated": true,
-                    "description": "List of contact groups the teammate group is allowed to access. May only be specified if 'access' is set to 'contact_groups'. ⚠️ Deprecated. Use 'contact_list_ids' instead.",
-                    "example": [
-                      "grp_123",
-                      "grp_456"
-                    ],
-                    "items": {
-                      "type": "string"
-                    }
+                    "description": "Level of access for the teammate group to contact lists. Must be one of 'all', 'contact_lists', or 'none'."
                   },
                   "contact_list_ids": {
                     "type": "array",

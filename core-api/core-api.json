@@ -1426,7 +1426,7 @@
           },
           "send_as": {
             "type": "string",
-            "description": "Sending address of your channel. Required for SMTP channels."
+            "description": "Sending address of your channel. Required for SMTP and Twilio channels."
           }
         }
       },

@@ -2754,6 +2754,11 @@
             },
             "description": "List of files attached to the article"
           },
+          "slug": {
+            "type": "string",
+            "description": "URL slug of the article. Construct the full URL using the template of protocol/knowledge base domain/locale/slug, such as https://yourDomain.com/en/articles/5",
+            "example": "/articles/5"
+          },
           "last_edited_at": {
             "type": "number",
             "description": "Timestamp when the article was last edited",

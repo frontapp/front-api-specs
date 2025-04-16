@@ -4992,7 +4992,7 @@
       "topicQuery": {
         "name": "q",
         "in": "query",
-        "description": "[Search query object](https://dev.frontapp.com/docs/query-object-q) with a property `types`, whose value should be a list of link types (examples - `web`, `jira`, `asana` ).",
+        "description": "[Search query object](https://dev.frontapp.com/docs/query-object-q) with a property `types`, whose value should be a list of link types. Links created via the API have type `web` and links created by application objects have type `app_<uid>`, matching the app UID where the object is configured. There are also types `jira`, `asana`, `monday`, `trello`, and `github`, which correspond to the integrations built by Front.",
         "schema": {
           "type": "string"
         }

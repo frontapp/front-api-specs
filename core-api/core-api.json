@@ -722,6 +722,32 @@
           }
         }
       },
+      "AppEvent": {
+        "required": [
+          "event_type",
+          "app_object"
+        ],
+        "properties": {
+          "event_type": {
+            "type": "string",
+            "description": "The type of event this application should handle"
+          },
+          "app_object": {
+            "type": "object",
+            "description": "Identifier for the app object to which the event is related. Either an ID or an external link is required.\nIf both are provided, the ID will be favored.\n",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "ID of the app object"
+              },
+              "ext_link": {
+                "type": "string",
+                "description": "External link of the app object"
+              }
+            }
+          }
+        }
+      },
       "Attachment": {
         "type": "object",
         "properties": {
@@ -6777,6 +6803,42 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/applications/{application_uid}/events": {
+      "post": {
+        "summary": "Trigger application event",
+        "operationId": "trigger-app-event",
+        "description": "Triggers an event on behalf of an application. These events can trigger Front workflows, like rules.\nFor more information, see the [developer docs](https://dev.frontapp.com/docs/application-triggers#/).\n",
+        "tags": [
+          "Applications"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "application_uid",
+            "required": true,
+            "description": "The application UID",
+            "schema": {
+              "type": "string",
+              "default": "1f773a300ecb4076"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AppEvent"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content"
           }
         }
       }

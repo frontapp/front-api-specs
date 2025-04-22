@@ -6822,8 +6822,7 @@
             "required": true,
             "description": "The application UID",
             "schema": {
-              "type": "string",
-              "default": "1f773a300ecb4076"
+              "type": "string"
             }
           }
         ],

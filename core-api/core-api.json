@@ -2551,7 +2551,8 @@
               },
               "is_archived": {
                 "type": "boolean",
-                "description": "Determines if message is archived after import."
+                "description": "Determines if message is archived after import.",
+                "default": true
               },
               "should_skip_rules": {
                 "type": "boolean",

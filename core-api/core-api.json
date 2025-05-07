@@ -8100,6 +8100,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/conversation"
+          },
+          "301": {
+            "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
         }
       },
@@ -8134,6 +8137,9 @@
         "responses": {
           "204": {
             "description": "No content"
+          },
+          "301": {
+            "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           },
           "400": {
             "description": "Invalid input, such as invalid custom fields"
@@ -8173,6 +8179,9 @@
         "responses": {
           "204": {
             "description": "No content"
+          },
+          "301": {
+            "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
         }
       }
@@ -8200,6 +8209,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/listOfComments"
+          },
+          "301": {
+            "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
         }
       },
@@ -8234,6 +8246,9 @@
         "responses": {
           "201": {
             "$ref": "#/components/responses/comment"
+          },
+          "301": {
+            "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
         }
       }
@@ -8261,6 +8276,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/listOfMessages"
+          },
+          "301": {
+            "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
         }
       },
@@ -8295,6 +8313,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/message"
+          },
+          "301": {
+            "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
         }
       }
@@ -8328,6 +8349,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/listOfEvents"
+          },
+          "301": {
+            "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
         }
       }
@@ -8355,6 +8379,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/listOfTeammates"
+          },
+          "301": {
+            "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
         }
       },
@@ -8402,6 +8429,9 @@
         "responses": {
           "204": {
             "description": "No content"
+          },
+          "301": {
+            "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
         }
       },
@@ -8449,6 +8479,9 @@
         "responses": {
           "204": {
             "description": "No content"
+          },
+          "301": {
+            "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
         }
       }
@@ -8476,6 +8509,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/listOfInboxes"
+          },
+          "301": {
+            "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
         }
       }
@@ -8530,6 +8566,9 @@
         "responses": {
           "204": {
             "description": "No content"
+          },
+          "301": {
+            "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
         }
       },
@@ -8577,6 +8616,9 @@
         "responses": {
           "204": {
             "description": "No content"
+          },
+          "301": {
+            "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
         }
       }
@@ -8616,6 +8658,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/listOfMessages"
+          },
+          "301": {
+            "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
         }
       },
@@ -8650,6 +8695,9 @@
         "responses": {
           "202": {
             "$ref": "#/components/responses/message"
+          },
+          "301": {
+            "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
         }
       }
@@ -8686,6 +8734,9 @@
         "responses": {
           "204": {
             "description": "No content"
+          },
+          "301": {
+            "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
         }
       }
@@ -8723,6 +8774,9 @@
         "responses": {
           "204": {
             "description": "No content"
+          },
+          "301": {
+            "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
         }
       },
@@ -8758,6 +8812,9 @@
         "responses": {
           "204": {
             "description": "No content"
+          },
+          "301": {
+            "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
         }
       }

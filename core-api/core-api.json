@@ -2099,7 +2099,6 @@
               "datetime",
               "number",
               "teammate",
-              "teammate_list",
               "inbox",
               "enum"
             ],

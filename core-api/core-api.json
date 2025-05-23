@@ -6351,7 +6351,7 @@
         }
       },
       "acceptedMessage": {
-        "description": "An accepted message",
+        "description": "An accepted response acknowledging your request to create a message",
         "content": {
           "application/json": {
             "schema": {
@@ -6365,7 +6365,7 @@
                 },
                 "message_uid": {
                   "type": "string",
-                  "description": "Message unique identifier. You can use the message UID as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1) for the message ID.",
+                  "description": "Message unique identifier. Use the message UID as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1) to check whether the [message is created successfully](https://dev.frontapp.com/reference/messages#creating-a-new-message).",
                   "example": "1eab543f84a0785f7b6b8967cck18f4d"
                 }
               }
@@ -7022,7 +7022,7 @@
         },
         "responses": {
           "202": {
-            "$ref": "#/components/responses/message"
+            "$ref": "#/components/responses/acceptedMessage"
           }
         }
       }
@@ -8693,7 +8693,7 @@
         },
         "responses": {
           "202": {
-            "$ref": "#/components/responses/message"
+            "$ref": "#/components/responses/acceptedMessage"
           },
           "301": {
             "description": "If the conversation has been merged, the response redirects you to the merged conversation."

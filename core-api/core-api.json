@@ -996,10 +996,6 @@
             "description": "Binary data of avatar. Must use `Content-Type: multipart/form-data` if specified. See [example](https://gist.github.com/hdornier/e04d04921032e98271f46ff8a539a4cb) or read more about [Attachments](https://dev.frontapp.com/docs/attachments-1).  Max 25 MB.",
             "format": "binary"
           },
-          "is_spammer": {
-            "type": "boolean",
-            "description": "Whether or not the contact is marked as a spammer"
-          },
           "links": {
             "type": "array",
             "description": "List of all the links of the contact",
@@ -1187,11 +1183,6 @@
             "type": "string",
             "description": "URL of the contact's avatar",
             "example": "https://yourCompany.api.frontapp.com/contacts/crd_3cgz4ge/avatar-1673436467707"
-          },
-          "is_spammer": {
-            "type": "boolean",
-            "description": "Whether or not the contact is marked as a spammer",
-            "example": false
           },
           "links": {
             "type": "array",

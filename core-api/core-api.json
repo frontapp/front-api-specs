@@ -1970,7 +1970,7 @@
           },
           "highlight": {
             "type": "string",
-            "description": "Highlight color of the tag.",
+            "description": "Highlight color or emoji of the tag.",
             "enum": [
               "grey",
               "pink",
@@ -1980,7 +1980,8 @@
               "green",
               "light-blue",
               "blue",
-              "purple"
+              "purple",
+              "😁"
             ]
           },
           "is_visible_in_conversation_lists": {
@@ -4302,7 +4303,7 @@
           },
           "highlight": {
             "type": "string",
-            "description": "Highlight color of the tag.",
+            "description": "Highlight color or emoji of the tag. Null if the tag does not have a highlight or emoji.",
             "enum": [
               "grey",
               "pink",
@@ -4312,7 +4313,8 @@
               "green",
               "light-blue",
               "blue",
-              "purple"
+              "purple",
+              "😁"
             ],
             "example": null
           },
@@ -4879,7 +4881,7 @@
           },
           "highlight": {
             "type": "string",
-            "description": "Highlight color of the tag.",
+            "description": "Highlight color or emoji of the tag.",
             "enum": [
               "grey",
               "pink",
@@ -4889,7 +4891,8 @@
               "green",
               "light-blue",
               "blue",
-              "purple"
+              "purple",
+              "😁"
             ]
           },
           "parent_tag_id": {
@@ -6701,7 +6704,7 @@
     },
     "/analytics/exports/{export_id}": {
       "get": {
-        "summary": "Fetch an analytics export.",
+        "summary": "Fetch an analytics export",
         "operationId": "get-analytics-export",
         "description": "Fetch an analytics exports. Refer to the [Analytics](https://dev.frontapp.com/reference/analytics) topic for details about specific metrics.",
         "tags": [
@@ -6735,7 +6738,7 @@
     },
     "/analytics/reports": {
       "post": {
-        "summary": "Create a new analytics report.",
+        "summary": "Create a new analytics report",
         "operationId": "create-analytics-report",
         "description": "Create a new analytics report for a set of metrics over a specific time span. Different filters (e.g. Inbox v Tag v Teammates) will be joined with AND logic, but the IDs within a filter will be joined with OR logic (e.g. Inbox A or Inbox B, Tag A or Tag B).\nThe report will be executed asynchronously. The response will include a link that can be used to retrieve the\nreport status & result. Refer to the [Analytics](https://dev.frontapp.com/reference/analytics) topic for details about specific metrics.\n",
         "tags": [
@@ -6766,7 +6769,7 @@
     },
     "/analytics/reports/{report_uid}": {
       "get": {
-        "summary": "Fetch an analytics report.",
+        "summary": "Fetch an analytics report",
         "operationId": "get-analytics-report",
         "description": "Fetch an analytics report. Refer to the [Analytics](https://dev.frontapp.com/reference/analytics) topic for details about specific metrics.",
         "tags": [

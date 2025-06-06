@@ -6673,7 +6673,7 @@
     },
     "/analytics/exports": {
       "post": {
-        "summary": "Create a new analytics export.",
+        "summary": "Create a new analytics export",
         "operationId": "create-analytics-export",
         "description": "Create a new analytics export of messages or events (activities) over a specific time span.\nThe export will be executed asynchronously. The response will include a link that can be used to retrieve the export status & result. Refer to the [Analytics](https://dev.frontapp.com/reference/analytics) topic for details about specific metrics.\n",
         "tags": [

@@ -7175,6 +7175,42 @@
         }
       }
     },
+    "/comments/{comment_id}/replies": {
+      "post": {
+        "summary": "Add comment reply",
+        "operationId": "add-comment-reply",
+        "description": "Add a reply to a comment on a [conversation](https://dev.frontapp.com/reference/conversations). Comment replies visually indicate which comment is being responded to, helping users follow the conversation.",
+        "tags": [
+          "Comments"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "comment_id",
+            "required": true,
+            "description": "The comment ID to reply to",
+            "schema": {
+              "type": "string",
+              "default": "com_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateComment"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/comment"
+          }
+        }
+      }
+    },
     "/company/rules": {
       "get": {
         "summary": "List all company rules",

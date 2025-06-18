@@ -1970,7 +1970,7 @@
           },
           "highlight": {
             "type": "string",
-            "description": "Highlight color or emoji of the tag.",
+            "description": "Highlight color of the tag.",
             "enum": [
               "grey",
               "pink",
@@ -1980,8 +1980,7 @@
               "green",
               "light-blue",
               "blue",
-              "purple",
-              "😁"
+              "purple"
             ]
           },
           "is_visible_in_conversation_lists": {
@@ -4308,19 +4307,7 @@
           },
           "highlight": {
             "type": "string",
-            "description": "Highlight color or emoji of the tag. Null if the tag does not have a highlight or emoji.",
-            "enum": [
-              "grey",
-              "pink",
-              "red",
-              "orange",
-              "yellow",
-              "green",
-              "light-blue",
-              "blue",
-              "purple",
-              "😁"
-            ],
+            "description": "Highlight color or emoji of the tag. Null if the tag does not have a highlight.",
             "example": null
           },
           "is_private": {
@@ -4886,7 +4873,7 @@
           },
           "highlight": {
             "type": "string",
-            "description": "Highlight color or emoji of the tag.",
+            "description": "Highlight color of the tag.",
             "enum": [
               "grey",
               "pink",
@@ -4896,8 +4883,7 @@
               "green",
               "light-blue",
               "blue",
-              "purple",
-              "😁"
+              "purple"
             ]
           },
           "parent_tag_id": {

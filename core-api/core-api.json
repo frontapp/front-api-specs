@@ -1712,8 +1712,8 @@
           },
           "body": {
             "type": "string",
-            "description": "Body of the message template",
-            "example": "Sorry, I'm OOO until October 25th."
+            "description": "Body of the message template. You can supply HTML with inline CSS to structure and style your template.",
+            "example": "<p>Sorry, I'm OOO until <span style=\"color: green;\">October 25th</span>.</p>\n"
           },
           "inbox_ids": {
             "type": "array",
@@ -1778,8 +1778,8 @@
           },
           "body": {
             "type": "string",
-            "description": "Body of the message template",
-            "example": "Sorry, I'm OOO until October 25th."
+            "description": "Body of the message template. You can supply HTML with inline CSS to structure and style your template.",
+            "example": "<p>Sorry, I'm OOO until <span style=\"color: green;\">October 25th</span>.</p>\n"
           },
           "folder_id": {
             "type": "string",
@@ -1842,8 +1842,8 @@
           },
           "body": {
             "type": "string",
-            "description": "Body of the message template",
-            "example": "Sorry, I'm OOO until October 25th."
+            "description": "Body of the message template. You can supply HTML with inline CSS to structure and style your template.",
+            "example": "<p>Sorry, I'm OOO until <span style=\"color: green;\">October 25th</span>.</p>\n"
           },
           "folder_id": {
             "type": "string",
@@ -3571,7 +3571,7 @@
           "body": {
             "type": "string",
             "description": "Body of the message template",
-            "example": "Pam is spending time planning her wedding at the office. This message WAS NOT sent by Angela."
+            "example": "<div><p>Pam is spending time planning her <span style=\"color:red;\">wedding</span> at the office. This message <b>WAS NOT</b> sent by Angela.</p></div>\n"
           },
           "attachments": {
             "type": "array",
@@ -4749,7 +4749,8 @@
           },
           "body": {
             "type": "string",
-            "description": "Body of the message template"
+            "description": "Body of the message template. You can supply HTML with inline CSS to structure and style your template.",
+            "example": "<p>Sorry, I'm OOO until <span style=\"color: green;\">October 25th</span>.</p>\n"
           },
           "folder_id": {
             "type": "string",

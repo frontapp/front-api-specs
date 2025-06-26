@@ -83,7 +83,7 @@
           },
           "body": {
             "type": "string",
-            "description": "Body of the message"
+            "description": "The body of the message in HTML or plain text format."
           },
           "metadata": {
             "type": "object",
@@ -160,7 +160,7 @@
           },
           "body": {
             "type": "string",
-            "description": "Body of the message"
+            "description": "The body of the message in HTML or plain text format."
           },
           "metadata": {
             "type": "object",

@@ -13412,7 +13412,7 @@
       "delete": {
         "summary": "Remove teammates from team",
         "operationId": "remove-teammates-from-team",
-        "description": "Remove one or more teammates from a team (workspace). Alternatively, you can supply emails as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
+        "description": "Remove one or more teammates from a team (workspace).",
         "tags": [
           "Teams"
         ],
@@ -13429,7 +13429,7 @@
           }
         ],
         "requestBody": {
-          "description": "Teammate IDs to remove from the team",
+          "description": "Teammate IDs to remove from the team. Alternatively, you can supply emails as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
           "content": {
             "application/json": {
               "schema": {

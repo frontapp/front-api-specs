@@ -11036,7 +11036,45 @@
         }
       }
     },
-    "/shift/{shift_id}": {
+    "/shifts": {
+      "get": {
+        "summary": "List Shifts",
+        "operationId": "list-shifts",
+        "description": "List the shifts.",
+        "tags": [
+          "Shifts"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfShifts"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create shift",
+        "operationId": "create-shift",
+        "description": "Create a shift.",
+        "tags": [
+          "Shifts"
+        ],
+        "requestBody": {
+          "description": "Shift to create details",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateShift"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/shift"
+          }
+        }
+      }
+    },
+    "/shifts/{shift_id}": {
       "get": {
         "summary": "Get shift",
         "operationId": "get-shift",
@@ -11061,9 +11099,44 @@
             "$ref": "#/components/responses/shift"
           }
         }
+      },
+      "patch": {
+        "summary": "Update shift",
+        "operationId": "update-shift",
+        "description": "Update a shift.",
+        "tags": [
+          "Shifts"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "shift_id",
+            "required": true,
+            "description": "The Shift ID",
+            "schema": {
+              "type": "string",
+              "default": "shf_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Updated Shift Body",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateShift"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content"
+          }
+        }
       }
     },
-    "/shift/{shift_id}/teammates": {
+    "/shifts/{shift_id}/teammates": {
       "get": {
         "summary": "List shift's teammates",
         "operationId": "list-shifts-teammates",
@@ -11149,81 +11222,6 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/TeammateIds"
-              }
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "No content"
-          }
-        }
-      }
-    },
-    "/shifts": {
-      "get": {
-        "summary": "List Shifts",
-        "operationId": "list-shifts",
-        "description": "List the shifts.",
-        "tags": [
-          "Shifts"
-        ],
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/listOfShifts"
-          }
-        }
-      },
-      "post": {
-        "summary": "Create shift",
-        "operationId": "create-shift",
-        "description": "Create a shift.",
-        "tags": [
-          "Shifts"
-        ],
-        "requestBody": {
-          "description": "Shift to create details",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateShift"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "$ref": "#/components/responses/shift"
-          }
-        }
-      }
-    },
-    "/shifts/{shift_id}": {
-      "patch": {
-        "summary": "Update shift",
-        "operationId": "update-shift",
-        "description": "Update a shift.",
-        "tags": [
-          "Shifts"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "shift_id",
-            "required": true,
-            "description": "The Shift ID",
-            "schema": {
-              "type": "string",
-              "default": "shf_123"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "Updated Shift Body",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateShift"
               }
             }
           }

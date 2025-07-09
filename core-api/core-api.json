@@ -10962,7 +10962,7 @@
       "post": {
         "summary": "Mark message seen",
         "operationId": "mark-message-seen",
-        "description": "Mark an outbound message from Front as seen. Note, the message seen route should only be called in response to an actual end-user's message-seen action. In accordance with this behavior, the route is rate limited to 10 requests per hour. The request body should send an empty object.",
+        "description": "Mark an outbound message from Front as seen. Note, the message seen route should only be called in response to an actual end-user's message-seen action. In accordance with this behavior, the route is rate limited to 10 requests per message per hour.",
         "tags": [
           "Messages"
         ],

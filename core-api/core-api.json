@@ -5960,7 +5960,7 @@
                 "_results": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/KnowledgeBaseResponse"
+                    "$ref": "#/components/schemas/KnowledgeBaseSlimResponse"
                   }
                 }
               }

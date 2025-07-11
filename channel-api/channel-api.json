@@ -318,58 +318,6 @@
           }
         }
       }
-    },
-    "/messages/{message_id}/status": {
-      "put": {
-        "summary": "Update message status",
-        "operationId": "update-message-status",
-        "description": "Update the status of an outbound message. This endpoint is used by external systems (like SMS providers or custom channels)\nto notify Front when a message's delivery status has changed.\n\n**Available status changes:**\n- `failed`: Mark a message as failed. When marked as failed, the conversation is reopened so the team can take action.\n\n**Note:** This endpoint is only available for outbound messages.\n",
-        "tags": [
-          "Messages"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "message_id",
-            "required": true,
-            "description": "The message ID",
-            "schema": {
-              "type": "string",
-              "default": "msg_123"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "required": [
-                  "status"
-                ],
-                "properties": {
-                  "status": {
-                    "type": "string",
-                    "enum": [
-                      "failed"
-                    ],
-                    "description": "The status to set for the message. Currently only 'failed' is supported."
-                  },
-                  "reason": {
-                    "type": "string",
-                    "description": "Optional reason for the status change. This will be displayed to users and logged for debugging purposes."
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "No content"
-          }
-        }
-      }
     }
   }
 }

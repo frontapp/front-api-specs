@@ -4232,7 +4232,7 @@
           },
           "created_at": {
             "type": "number",
-            "description": "Timestamp of ticket status create creation",
+            "description": "Timestamp of ticket status creation",
             "example": 1682538996.583
           }
         }

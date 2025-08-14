@@ -3213,6 +3213,14 @@
       "LinkResponse": {
         "type": "object",
         "description": "A link used to connect a Front conversation to an external resource.",
+        "required": [
+          "_links",
+          "id",
+          "name",
+          "type",
+          "external_url",
+          "custom_fields"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -4118,6 +4126,17 @@
       },
       "SignatureResponse": {
         "type": "object",
+        "required": [
+          "_links",
+          "id",
+          "name",
+          "body",
+          "sender_info",
+          "is_private",
+          "is_visible_for_all_teammate_channels",
+          "is_default",
+          "channel_ids"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -4146,6 +4165,7 @@
           },
           "name": {
             "type": "string",
+            "nullable": true,
             "description": "Name of the signature",
             "example": "Finer Things Club signature"
           },
@@ -4156,6 +4176,7 @@
           },
           "sender_info": {
             "type": "string",
+            "nullable": true,
             "description": "Sender info of the signature",
             "example": {
               "[object Object]": null
@@ -4178,6 +4199,7 @@
           },
           "channel_ids": {
             "type": "array",
+            "nullable": true,
             "items": {
               "type": "string",
               "description": "List of channels the signature is available in. If belonging to a teammate, represents all channels this can be used in. If belonging to a team, represents all team channels this can be used in. If null, there are no restrictions.",
@@ -4189,6 +4211,13 @@
       "StatusResponse": {
         "type": "object",
         "description": "A ticket status of a conversation.",
+        "required": [
+          "_links",
+          "id",
+          "name",
+          "category",
+          "description"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -4212,6 +4241,7 @@
           },
           "category": {
             "type": "string",
+            "nullable": true,
             "description": "Category of the ticket status.",
             "enum": [
               "open",
@@ -4222,18 +4252,19 @@
           },
           "description": {
             "type": "string",
+            "nullable": true,
             "description": "Description of the ticket status",
             "example": "New or currently being worked on"
-          },
-          "updated_at": {
-            "type": "number",
-            "description": "Timestamp of the last ticket status update",
-            "example": 1699575875.186
           },
           "created_at": {
             "type": "number",
             "description": "Timestamp of ticket status creation",
             "example": 1682538996.583
+          },
+          "updated_at": {
+            "type": "number",
+            "description": "Timestamp of the last ticket status update",
+            "example": 1699575875.186
           }
         }
       },
@@ -4254,6 +4285,15 @@
       "TagResponse": {
         "type": "object",
         "description": "A tag is a label that can be used to classify conversations.",
+        "required": [
+          "_links",
+          "id",
+          "name",
+          "description",
+          "highlight",
+          "is_private",
+          "is_visible_in_conversation_lists"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -4273,16 +4313,19 @@
                   },
                   "owner": {
                     "type": "string",
+                    "nullable": true,
                     "description": "Link to tag owner",
                     "example": "https://yourCompany.api.frontapp.com/teammates/tea_6jydq"
                   },
                   "parent_tag": {
                     "type": "string",
+                    "nullable": true,
                     "description": "Link to parent tag",
                     "example": "https://yourCompany.api.frontapp.com/tags/tag_3h07ym"
                   },
                   "children": {
                     "type": "string",
+                    "nullable": true,
                     "description": "Link to tag children",
                     "example": "https://yourCompany.api.frontapp.com/tags/tag_2oxhvy/children"
                   }
@@ -4302,11 +4345,13 @@
           },
           "description": {
             "type": "string",
+            "nullable": true,
             "description": "Description of the tag",
             "example": "Sitting on your biscuit, never having to risk it"
           },
           "highlight": {
             "type": "string",
+            "nullable": true,
             "description": "Highlight color or emoji of the tag. Null if the tag does not have a highlight.",
             "example": null
           },
@@ -4348,6 +4393,11 @@
       },
       "TeamPreviewResponse": {
         "type": "object",
+        "required": [
+          "_links",
+          "id",
+          "name"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -4373,6 +4423,13 @@
       },
       "TeamResponse": {
         "type": "object",
+        "required": [
+          "_links",
+          "id",
+          "name",
+          "inboxes",
+          "members"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -4519,6 +4576,20 @@
       "TeammateResponse": {
         "type": "object",
         "description": "A teammate is a user in Front.",
+        "required": [
+          "_links",
+          "id",
+          "email",
+          "username",
+          "first_name",
+          "last_name",
+          "license_type",
+          "is_admin",
+          "is_available",
+          "is_blocked",
+          "type",
+          "custom_fields"
+        ],
         "properties": {
           "_links": {
             "type": "object",

@@ -3817,6 +3817,9 @@
       },
       "Reminder": {
         "type": "object",
+        "required": [
+          "_links"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -3890,6 +3893,11 @@
       },
       "RoleResponse": {
         "type": "object",
+        "required": [
+          "_links",
+          "id",
+          "name"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -3919,6 +3927,13 @@
       },
       "RuleResponse": {
         "type": "object",
+        "required": [
+          "_links",
+          "id",
+          "name",
+          "actions",
+          "is_private"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -3934,7 +3949,8 @@
                   "owner": {
                     "type": "string",
                     "description": "Link to rule owner",
-                    "example": null
+                    "example": null,
+                    "nullable": true
                   }
                 }
               }
@@ -3972,6 +3988,11 @@
       },
       "SeenReceiptResponse": {
         "type": "object",
+        "required": [
+          "_links",
+          "first_seen_at",
+          "seen_by"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -3999,7 +4020,8 @@
             "example": 1701298738269
           },
           "seen_by": {
-            "$ref": "#/components/schemas/ContactHandle"
+            "$ref": "#/components/schemas/ContactHandle",
+            "nullable": true
           }
         }
       },
@@ -4050,6 +4072,14 @@
       },
       "ShiftResponse": {
         "type": "object",
+        "required": [
+          "_links",
+          "id",
+          "name",
+          "color",
+          "timezone",
+          "times"
+        ],
         "properties": {
           "_links": {
             "type": "object",

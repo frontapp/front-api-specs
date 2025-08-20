@@ -7603,7 +7603,7 @@
       "post": {
         "summary": "Create contact list",
         "operationId": "create-contact-list",
-        "description": "Create a new contact list in the default team (workspace).",
+        "description": "Create a new contact list in the oldest active workspace that the token has access to. If you need to specify the workspace, we recommend using the [Create team contact list](https://dev.frontapp.com/reference/create-team-contact-list) endpoint instead.",
         "tags": [
           "Contact Lists"
         ],
@@ -7785,7 +7785,7 @@
       "post": {
         "summary": "Create contact",
         "operationId": "create-contact",
-        "description": "Create a new contact.",
+        "description": "Create a new contact at the company level.",
         "tags": [
           "Contacts"
         ],
@@ -9138,7 +9138,7 @@
       "post": {
         "summary": "Create inbox",
         "operationId": "create-inbox",
-        "description": "Create an inbox in the default team (workspace). The default team will be the oldest team created that still exists at the time of the request.",
+        "description": "Create an inbox in the oldest active workspace that the token has access to. If you need to specify the workspace, we recommend using the [Create team inbox](https://dev.frontapp.com/reference/create-team-inbox) endpoint instead.",
         "tags": [
           "Inboxes"
         ],
@@ -10568,7 +10568,7 @@
       "post": {
         "summary": "Create folder",
         "operationId": "create-folder",
-        "description": "Create a new message template folder.",
+        "description": "Create a new message template folder in the oldest active workspace that the token has access to. If you need to specify the workspace, we recommend using the [Create team folder](https://dev.frontapp.com/reference/create-team-folder) endpoint instead.",
         "tags": [
           "Message Template Folders"
         ],
@@ -10825,7 +10825,7 @@
       "post": {
         "summary": "Create message template",
         "operationId": "create-message-template",
-        "description": "Create a new message template.",
+        "description": "Create a new message template in the oldest active workspace that the token has access to. If you need to specify the workspace, we recommend using the [Create team message template](https://dev.frontapp.com/reference/create-team-message-template) endpoint instead.",
         "tags": [
           "Message Templates"
         ],
@@ -11154,7 +11154,7 @@
       "post": {
         "summary": "Create shift",
         "operationId": "create-shift",
-        "description": "Create a shift.",
+        "description": "Create a shift in the oldest active workspace that the token has access to. If you need to specify the workspace, we recommend using the [Create team shift](https://dev.frontapp.com/reference/create-team-shift) endpoint instead.",
         "tags": [
           "Shifts"
         ],

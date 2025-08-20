@@ -101,6 +101,11 @@
                 "type": "string",
                 "maxLength": 200,
                 "description": "External identifier of the conversation. Will be used to thread messages."
+              },
+              "referenced_message_external_id": {
+                "type": "string",
+                "maxLength": 200,
+                "description": "External identifier of the message that this message is replying to. Use this for explicit replies."
               }
             }
           },
@@ -178,6 +183,11 @@
                 "type": "string",
                 "maxLength": 200,
                 "description": "External identifier of the conversation. Will be used to thread messages."
+              },
+              "referenced_message_external_id": {
+                "type": "string",
+                "maxLength": 200,
+                "description": "External identifier of the message that this message is replying to. Use this for explicit replies."
               }
             }
           },

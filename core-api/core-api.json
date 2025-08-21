@@ -2697,6 +2697,17 @@
       },
       "KnowledgeBaseArticleResponse": {
         "type": "object",
+        "required": [
+          "_links",
+          "id",
+          "slug",
+          "name",
+          "status",
+          "keywords",
+          "content",
+          "locale",
+          "attachments"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -2732,6 +2743,11 @@
             "type": "string",
             "description": "Unique identifier of the knowledge base article",
             "example": "kba_12"
+          },
+          "slug": {
+            "type": "string",
+            "description": "URL slug of the article. Construct the full URL using the template of protocol/knowledge base domain/locale/slug, such as https://yourDomain.com/en/articles/5",
+            "example": "/articles/5"
           },
           "name": {
             "type": "string",
@@ -2771,11 +2787,6 @@
             },
             "description": "List of files attached to the article"
           },
-          "slug": {
-            "type": "string",
-            "description": "URL slug of the article. Construct the full URL using the template of protocol/knowledge base domain/locale/slug, such as https://yourDomain.com/en/articles/5",
-            "example": "/articles/5"
-          },
           "last_edited_at": {
             "type": "number",
             "description": "Timestamp when the article was last edited",
@@ -2795,6 +2806,12 @@
       },
       "KnowledgeBaseArticleSlimResponse": {
         "type": "object",
+        "required": [
+          "_links",
+          "id",
+          "slug",
+          "locales"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -2814,6 +2831,7 @@
                   },
                   "category": {
                     "type": "string",
+                    "nullable": true,
                     "description": "Link to the article's category",
                     "example": "https://yourCompany.api.frontapp.com/knowledge_base_category/kbc_12"
                   },
@@ -2894,6 +2912,14 @@
       },
       "KnowledgeBaseCategoryResponse": {
         "type": "object",
+        "required": [
+          "_links",
+          "id",
+          "name",
+          "description",
+          "is_hidden",
+          "locale"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -2913,6 +2939,7 @@
                   },
                   "parent_category": {
                     "type": "string",
+                    "nullable": true,
                     "description": "Link to the category's parent",
                     "example": "https://yourCompany.api.frontapp.com/knowledge_base_catgories/kbc_10"
                   },
@@ -2932,11 +2959,13 @@
           },
           "name": {
             "type": "string",
+            "nullable": true,
             "description": "Category name",
             "example": "Getting started"
           },
           "description": {
             "type": "string",
+            "nullable": true,
             "description": "Description of the category",
             "example": "How to get started in Front"
           },
@@ -2968,6 +2997,13 @@
       },
       "KnowledgeBaseCategorySlimResponse": {
         "type": "object",
+        "required": [
+          "_links",
+          "id",
+          "slug",
+          "is_hidden",
+          "locales"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -2987,6 +3023,7 @@
                   },
                   "parent_category": {
                     "type": "string",
+                    "nullable": true,
                     "description": "Link to the category's parent",
                     "example": "https://yourCompany.api.frontapp.com/knowledge_base_catgories/kbc_10"
                   },
@@ -3070,6 +3107,14 @@
       },
       "KnowledgeBaseResponse": {
         "type": "object",
+        "required": [
+          "_links",
+          "id",
+          "name",
+          "status",
+          "type",
+          "locale"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -3147,6 +3192,12 @@
       },
       "KnowledgeBaseSlimResponse": {
         "type": "object",
+        "required": [
+          "_links",
+          "id",
+          "type",
+          "locales"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -3776,6 +3827,12 @@
       },
       "RecipientResponse": {
         "type": "object",
+        "required": [
+          "_links",
+          "name",
+          "handle",
+          "role"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -3785,6 +3842,7 @@
                 "properties": {
                   "contact": {
                     "type": "string",
+                    "nullable": true,
                     "description": "Link to recipient contact",
                     "example": "https://yourCompany.api.frontapp.com/contacts/crd_2njtoem"
                   }
@@ -3794,6 +3852,7 @@
           },
           "name": {
             "type": "string",
+            "nullable": true,
             "description": "Name of the recipient.",
             "example": "Phyllis Lapin-Vance"
           },
@@ -3809,7 +3868,8 @@
               "from",
               "to",
               "cc",
-              "bcc"
+              "bcc",
+              "reply-to"
             ],
             "example": "cc"
           }

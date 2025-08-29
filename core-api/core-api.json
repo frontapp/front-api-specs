@@ -750,6 +750,14 @@
       },
       "Attachment": {
         "type": "object",
+        "required": [
+          "id",
+          "url",
+          "filename",
+          "content_type",
+          "size",
+          "metadata"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -3526,6 +3534,11 @@
       },
       "MessageTemplateFolderResponse": {
         "type": "object",
+        "required": [
+          "_links",
+          "id",
+          "name"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -3540,21 +3553,25 @@
                 "properties": {
                   "owner": {
                     "type": "string",
+                    "nullable": true,
                     "description": "Link to resource's owner. Null if the current folder does not have an owner.",
                     "example": "https://yourCompany.api.frontapp.com/teams/tim_s47"
                   },
                   "parent_folder": {
                     "type": "string",
+                    "nullable": true,
                     "description": "Link to parent folder. Null if the current folder does not have a parent.",
                     "example": "https://yourCompany.api.frontapp.com/message_template_folders/rsf_g1"
                   },
                   "child_folders": {
                     "type": "string",
+                    "nullable": true,
                     "description": "Link to child folders. Null if the current folder does not have children.",
                     "example": "https://yourCompany.api.frontapp.com/message_template_folders/rsf_g2/message_template_folders"
                   },
                   "child_answers": {
                     "type": "string",
+                    "nullable": true,
                     "description": "Link to message templates contained within this folder or children folders. Null if the current folder does not have any message templates.",
                     "example": "https://yourCompany.api.frontapp.com/message_template_folders/rsf_g2/message_templates"
                   }
@@ -3586,6 +3603,16 @@
       },
       "MessageTemplateResponse": {
         "type": "object",
+        "required": [
+          "_links",
+          "id",
+          "name",
+          "subject",
+          "body",
+          "attachments",
+          "is_available_for_all_inboxes",
+          "inbox_ids"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -3600,10 +3627,12 @@
                 "properties": {
                   "owner": {
                     "type": "string",
+                    "nullable": true,
                     "description": "Link to resource's owner",
                     "example": "https://yourCompany.api.frontapp.com/teams/tim_s47"
                   },
                   "parent_folder": {
+                    "nullable": true,
                     "type": "string",
                     "description": "Link to the parent folder that contains the message template",
                     "example": "https://yourCompany.api.frontapp.com/message_template_folders/rsf_g2"
@@ -3624,6 +3653,7 @@
           },
           "subject": {
             "type": "string",
+            "nullable": true,
             "description": "Subject of the message template",
             "example": "Work time being used for wedding planning"
           },
@@ -3646,6 +3676,7 @@
           },
           "inbox_ids": {
             "type": "array",
+            "nullable": true,
             "description": "List of inboxes the template is available in. Null if there are no restrictions.",
             "items": {
               "type": "string",

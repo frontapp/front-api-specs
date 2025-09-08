@@ -1238,6 +1238,21 @@
       },
       "ConversationResponse": {
         "type": "object",
+        "required": [
+          "_links",
+          "id",
+          "subject",
+          "status",
+          "ticket_ids",
+          "assignee",
+          "recipient",
+          "tags",
+          "links",
+          "custom_fields",
+          "is_private",
+          "scheduled_reminders",
+          "metadata"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -1331,10 +1346,12 @@
             ]
           },
           "assignee": {
+            "nullable": true,
             "$ref": "#/components/schemas/TeammateResponse",
             "description": "Partial representation of the teammate assigned to the conversation"
           },
           "recipient": {
+            "nullable": true,
             "$ref": "#/components/schemas/RecipientResponse",
             "description": "Main recipient of the conversation"
           },
@@ -2063,6 +2080,13 @@
       },
       "CustomFieldResponse": {
         "type": "object",
+        "required": [
+          "_links",
+          "id",
+          "name",
+          "type",
+          "description"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -2122,14 +2146,7 @@
               }
             }
           }
-        },
-        "required": [
-          "_links",
-          "id",
-          "name",
-          "type",
-          "description"
-        ]
+        }
       },
       "CustomMessage": {
         "required": [
@@ -4591,6 +4608,14 @@
       "TeammateGroupResponse": {
         "type": "object",
         "description": "A teammate group is a group of teammates in Front.",
+        "required": [
+          "_links",
+          "id",
+          "name",
+          "description",
+          "is_managed_by_scim",
+          "permissions"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -4634,6 +4659,7 @@
           },
           "description": {
             "type": "string",
+            "nullable": true,
             "description": "Description of the teammate group",
             "example": "Best sales team ever"
           },

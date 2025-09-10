@@ -92,6 +92,16 @@
       },
       "AccountResponse": {
         "type": "object",
+        "required": [
+          "_links",
+          "id",
+          "name",
+          "logo_url",
+          "description",
+          "domains",
+          "external_id",
+          "custom_fields"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -125,11 +135,13 @@
           },
           "logo_url": {
             "type": "string",
+            "nullable": true,
             "description": "URL of the Account's logo",
             "example": "https://yourCompany.api.frontapp.com/accounts/acc_aq/logo-1654309308278"
           },
           "description": {
             "type": "string",
+            "nullable": true,
             "description": "Account Description",
             "example": "Limitless Paper in a Paperless World"
           },
@@ -146,6 +158,7 @@
           },
           "external_id": {
             "type": "string",
+            "nullable": true,
             "description": "ID of the Account in an External system, such as your backoffice system or CRM",
             "example": 8739674733
           },
@@ -930,6 +943,14 @@
       },
       "CommentResponse": {
         "type": "object",
+        "required": [
+          "_links",
+          "id",
+          "author",
+          "body",
+          "attachments",
+          "is_pinned"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -942,7 +963,7 @@
               "related": {
                 "type": "object",
                 "properties": {
-                  "conversations": {
+                  "conversation": {
                     "type": "string",
                     "description": "Link to comment's conversation",
                     "example": "https://yourCompany.api.frontapp.com/conversations/cnv_y4xb93i"
@@ -1121,7 +1142,34 @@
       },
       "ContactNoteResponses": {
         "type": "object",
+        "required": [
+          "_links",
+          "author",
+          "body",
+          "is_private"
+        ],
         "properties": {
+          "_links": {
+            "type": "object",
+            "properties": {
+              "related": {
+                "type": "object",
+                "properties": {
+                  "author": {
+                    "type": "string",
+                    "description": "Link to the teammate who wrote the note",
+                    "example": "https://yourCompany.api.frontapp.com/teammates/tea_6r55a"
+                  },
+                  "owner": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "Link to the owner of the note",
+                    "example": "https://yourCompany.api.frontapp.com/teammates/tea_e35u"
+                  }
+                }
+              }
+            }
+          },
           "author": {
             "$ref": "#/components/schemas/TeammateResponse",
             "description": "Teammate who wrote the note",
@@ -2424,6 +2472,11 @@
       },
       "IdentityResponse": {
         "type": "object",
+        "required": [
+          "_links",
+          "id",
+          "name"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -2436,7 +2489,7 @@
             }
           },
           "id": {
-            "type": "integer",
+            "type": "string",
             "description": "Unique ID of company",
             "example": "cmp_k30"
           },

@@ -9473,7 +9473,7 @@
       "post": {
         "summary": "Import message",
         "operationId": "import-inbox-message",
-        "description": "Import a new message in an inbox. **Only use this endpoint to import historical, non-active conversations**. Do not use it to create messages for new conversations.",
+        "description": "Use this endpoint to import conversations into Front without sending data through a channel. Typical use cases include importing historical conversations or creating new conversations from non-standard sources, such as web form submissions that can't use the default Form channel (for example, forms that don't have static URLs or form providers that send email notifications after submission). Avoid using this endpoint for conversations that can be handled by a dedicated Front channel—instead, use the [Create message](https://dev.frontapp.com/reference/create-message) endpoint to send (rather than import) a new message.",
         "tags": [
           "Messages"
         ],

@@ -387,6 +387,13 @@
       },
       "AnalyticsExportResponse": {
         "type": "object",
+        "required": [
+          "_links",
+          "id",
+          "status",
+          "progress",
+          "filters"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -397,6 +404,11 @@
                 "example": "https://yourCompany.api.frontapp.com/analytics/exports/exp_o9y1a"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "The public ID of the analytics export",
+            "example": "exp_o9y1a"
           },
           "status": {
             "type": "string",
@@ -428,6 +440,7 @@
           },
           "size": {
             "type": "number",
+            "nullable": true,
             "description": "Size (in bytes) of the export data. Only displays after you make a GET request to the link included in the POST response.",
             "example": 26639
           },
@@ -629,6 +642,13 @@
       },
       "AnalyticsReportResponse": {
         "type": "object",
+        "required": [
+          "_links",
+          "uid",
+          "status",
+          "progress",
+          "metrics"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -639,6 +659,11 @@
                 "example": "https://yourCompany.api.frontapp.com/analytics/reports/b45efa66237cc453252d9019449c7a64f5cfdb491b6c2c1d6df33c1050d60e33"
               }
             }
+          },
+          "uid": {
+            "type": "string",
+            "description": "The UID of the analytics report",
+            "example": "b45efa66237cc453252d9019449c7a64f5cfdb491b6c2c1d6df33c1050d60e33"
           },
           "status": {
             "type": "string",
@@ -667,6 +692,12 @@
         }
       },
       "AnalyticsScalar": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "value"
+        ],
         "properties": {
           "id": {
             "$ref": "#/components/schemas/AnalyticsMetricId"
@@ -686,54 +717,50 @@
           "number",
           "percentage",
           "string",
-          "duration"
+          "duration",
+          "resource"
         ]
       },
       "AnalyticsScalarValue": {
-        "properties": {
-          "id": {
-            "$ref": "#/components/schemas/AnalyticsMetricId"
+        "oneOf": [
+          {
+            "type": "integer"
           },
-          "type": {
-            "$ref": "#/components/schemas/AnalyticsScalarType"
+          {
+            "type": "string"
           },
-          "value": {
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
+          {
+            "type": "object",
+            "properties": {
+              "label": {
                 "type": "string"
               },
-              {
+              "resource": {
                 "type": "object",
+                "required": [
+                  "id",
+                  "_links"
+                ],
                 "properties": {
-                  "label": {
+                  "id": {
                     "type": "string"
                   },
-                  "resource": {
+                  "_links": {
                     "type": "object",
                     "properties": {
-                      "id": {
-                        "type": "number"
-                      },
-                      "_links": {
-                        "type": "object",
-                        "properties": {
-                          "self": {
-                            "type": "string",
-                            "description": "Link to a resource."
-                          }
-                        }
+                      "self": {
+                        "type": "string",
+                        "description": "Link to a resource."
                       }
                     }
                   }
                 }
               }
-            ],
-            "description": "The value of a scalar metric."
+            }
           }
-        }
+        ],
+        "nullable": true,
+        "description": "The value of a scalar metric."
       },
       "AppEvent": {
         "required": [

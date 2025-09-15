@@ -6435,11 +6435,28 @@
         }
       },
       "attachment": {
-        "description": "An attachment",
+        "description": "The binary content of the attachment file",
         "content": {
-          "application/json": {
+          "*/*": {
             "schema": {
-              "$ref": "#/components/schemas/Attachment"
+              "type": "string",
+              "format": "binary"
+            }
+          }
+        },
+        "headers": {
+          "Content-Type": {
+            "description": "The MIME type of the attachment file",
+            "schema": {
+              "type": "string",
+              "example": "application/pdf"
+            }
+          },
+          "Content-Length": {
+            "description": "The size of the attachment file in bytes",
+            "schema": {
+              "type": "string",
+              "example": "1024"
             }
           }
         }

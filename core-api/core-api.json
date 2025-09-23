@@ -2389,7 +2389,10 @@
               "conversations_merged",
               "link_added",
               "link_removed",
-              "custom_field_updated"
+              "custom_field_updated",
+              "macro_triggered",
+              "topic_identified",
+              "ticket_status_update"
             ],
             "example": "inbound"
           },

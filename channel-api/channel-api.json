@@ -50,9 +50,104 @@
             }
           }
         }
+      },
+      "applicationMessageTemplate": {
+        "description": "An application message template",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ApplicationMessageTemplateResponse"
+            }
+          }
+        }
       }
     },
     "schemas": {
+      "ApplicationMessageTemplate": {
+        "required": [
+          "external_id",
+          "name",
+          "blurb",
+          "is_disabled",
+          "status_name",
+          "variable_mappings",
+          "template_preview"
+        ],
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationMessageTemplateEditBlob"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "external_id": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "ApplicationMessageTemplateEditBlob": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the message template."
+          },
+          "blurb": {
+            "type": "string",
+            "description": "A limited preview of the message template content."
+          },
+          "is_disabled": {
+            "type": "boolean",
+            "description": "Whether the message template is enabled for use in the external service."
+          },
+          "status_name": {
+            "type": "string",
+            "description": "Either \"PENDING\", \"APPROVED\", or \"REJECTED\". This value helps admins understand why a template may be enabled or disabled in the external service."
+          },
+          "variable_mappings": {
+            "type": "array",
+            "description": "List of variable mappings",
+            "items": {
+              "type": "object",
+              "required": [
+                "uid",
+                "type",
+                "name"
+              ],
+              "properties": {
+                "uid": {
+                  "type": "string",
+                  "description": "Value of the variable"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Name of the variable"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "Type of the variable"
+                }
+              }
+            }
+          },
+          "template_preview": {
+            "type": "string",
+            "description": "Preview of the template"
+          }
+        }
+      },
+      "ApplicationMessageTemplateResponse": {
+        "description": "Response for an application message template.",
+        "type": "object",
+        "properties": {
+          "template_id": {
+            "type": "number",
+            "description": "ID of the application message template",
+            "example": "msg_777"
+          }
+        }
+      },
       "InboundMessage": {
         "required": [
           "sender",
@@ -253,6 +348,94 @@
         "responses": {
           "204": {
             "description": "No content"
+          }
+        }
+      }
+    },
+    "/channels/{channel_id}/application_message_templates": {
+      "put": {
+        "summary": "Sync application message template",
+        "operationId": "sync-application-message-template",
+        "description": "Import an application message template from an external service (such as WhatsApp or Facebook). The message template becomes available for use by the channel specified if configured as described in [this topic](https://dev.frontapp.com/update/docs/application-channel-message-templates).",
+        "tags": [
+          "Application Message Templates"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "channel_id",
+            "required": true,
+            "description": "The channel ID. Alternatively, you can supply the channel address as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
+            "schema": {
+              "type": "string",
+              "default": "cha_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApplicationMessageTemplate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/applicationMessageTemplate"
+          },
+          "400": {
+            "description": "Channel is not an application channel or does not support application message templates."
+          }
+        }
+      }
+    },
+    "/channels/{channel_id}/application_message_templates/{external_id}": {
+      "patch": {
+        "summary": "Update application message template",
+        "operationId": "update-application-message-template",
+        "description": "Update an application message template that already exists in Front.",
+        "tags": [
+          "Application Message Templates"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "channel_id",
+            "required": true,
+            "description": "The channel ID. Alternatively, you can supply the channel address as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
+            "schema": {
+              "type": "string",
+              "default": "cha_123"
+            }
+          },
+          {
+            "in": "path",
+            "name": "external_id",
+            "required": true,
+            "description": "The external ID of the application message template.",
+            "schema": {
+              "type": "string",
+              "default": "ext_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApplicationMessageTemplateEditBlob"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/applicationMessageTemplate"
+          },
+          "400": {
+            "description": "Channel is not an application channel or does not support application message templates."
           }
         }
       }

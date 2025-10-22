@@ -8741,6 +8741,15 @@
               "type": "string",
               "default": "cnv_123"
             }
+          },
+          {
+            "in": "query",
+            "name": "ignore_errors",
+            "description": "Whether to ignore invalid teammate IDs and continue adding valid ones.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
           }
         ],
         "requestBody": {

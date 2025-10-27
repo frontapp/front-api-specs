@@ -999,6 +999,12 @@
                     "type": "string",
                     "description": "Link to comment mentions",
                     "example": "https://yourCompany.api.frontapp.com/comments/com_1ywg3f2/mentions"
+                  },
+                  "comment_replied_to": {
+                    "nullable": true,
+                    "type": "string",
+                    "description": "Link to the comment that is being replied to.",
+                    "example": "https://yourCompany.api.frontapp.com/comments/com_1ywg3f2"
                   }
                 }
               }

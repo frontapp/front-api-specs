@@ -1456,7 +1456,12 @@
           },
           "created_at": {
             "type": "number",
-            "description": "Timestamp at which the conversation have been created.",
+            "description": "Timestamp at which the conversation was created.",
+            "example": 1701292649.333
+          },
+          "updated_at": {
+            "type": "number",
+            "description": "Timestamp at which the conversation was last updated.",
             "example": 1701292649.333
           },
           "waiting_since": {

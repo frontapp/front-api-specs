@@ -858,6 +858,14 @@
       },
       "ChannelResponse": {
         "type": "object",
+        "required": [
+          "_links",
+          "id",
+          "type",
+          "settings",
+          "is_private",
+          "is_valid"
+        ],
         "properties": {
           "_links": {
             "type": "object",
@@ -872,6 +880,7 @@
                 "properties": {
                   "inbox": {
                     "type": "string",
+                    "nullable": true,
                     "description": "Link to channel inbox",
                     "example": "https://yourCompany.api.frontapp.com/inboxes/inb_1ix6"
                   },
@@ -899,7 +908,7 @@
             "description": "Address receiving the messages",
             "example": "sales@dundermifflin.com"
           },
-          "types": {
+          "type": {
             "type": "string",
             "description": "Type of the channel",
             "enum": [

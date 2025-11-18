@@ -199,6 +199,7 @@
           "Type",
           "Source",
           "Message ID",
+          "Segment ID",
           "Conversation ID",
           "Ticket IDs",
           "Segment",
@@ -277,6 +278,7 @@
               "Type",
               "Source",
               "Message ID",
+              "Segment ID",
               "Conversation ID",
               "Ticket IDs",
               "Segment",
@@ -481,6 +483,7 @@
         "type": "string",
         "enum": [
           "Message ID",
+          "Segment ID",
           "Conversation ID",
           "Ticket IDs",
           "Segment",
@@ -536,6 +539,7 @@
             },
             "default": [
               "Message ID",
+              "Segment ID",
               "Conversation ID",
               "Ticket IDs",
               "Segment",

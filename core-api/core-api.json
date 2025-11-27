@@ -258,7 +258,11 @@
           "Added tag API ID",
           "Removed tag",
           "Removed tag API ID",
-          "Segment cumulative teammates"
+          "Segment cumulative teammates",
+          "Ticket status name",
+          "Ticket status name at activity time",
+          "Ticket status category",
+          "Ticket status category at activity time"
         ]
       },
       "AnalyticsActivitiesExportsColumns": {
@@ -522,7 +526,11 @@
           "Segment end",
           "Segment closed",
           "Last segment activity",
-          "Segment cumulative teammates"
+          "Segment cumulative teammates",
+          "Ticket status name",
+          "Ticket status name at activity time",
+          "Ticket status category",
+          "Ticket status category at activity time"
         ]
       },
       "AnalyticsMessagesExportColumns": {
@@ -5055,6 +5063,7 @@
         }
       },
       "UpdateLink": {
+        "type": "object",
         "properties": {
           "name": {
             "type": "string",
@@ -10712,7 +10721,7 @@
             "in": "path",
             "name": "link_id",
             "required": true,
-            "description": "The link ID",
+            "description": "The Link ID",
             "schema": {
               "type": "string",
               "default": "top_123"

@@ -250,6 +250,10 @@
                 "handle": {
                   "type": "string",
                   "description": "Handle of the recipient. It can be any string used to uniquely identify the sender. **Important:** When sending a phone number, include a country code preceded by a plus (+) sign. For example, +33 for France. If you do not send a country code or include a plus sign, Front will normalize your phone number to the USA (+1)."
+                },
+                "email": {
+                  "type": "string",
+                  "description": "Email of the recipient. When provided, links this contact to existing contacts with the same email to prevent duplicates across channels."
                 }
               }
             }

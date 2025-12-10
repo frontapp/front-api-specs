@@ -5054,7 +5054,7 @@
           },
           "scheduled_at": {
             "type": "number",
-            "description": "Timestamp to schedule the reminder for. Set to null to cancel."
+            "description": "Unix timestamp in seconds to schedule the reminder for. Must be in the future and within 50 years. Set to null to cancel."
           },
           "status_id": {
             "type": "string",

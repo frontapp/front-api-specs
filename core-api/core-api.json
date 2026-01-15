@@ -1047,7 +1047,7 @@
           },
           "posted_at": {
             "type": "number",
-            "description": "Date at which the comment was posted",
+            "description": "The timestamp when the comment was posted",
             "example": 1698943401.378
           },
           "attachments": {
@@ -1236,7 +1236,7 @@
           },
           "created_at": {
             "type": "number",
-            "description": "Date at which the note have been created",
+            "description": "The timestamp when the note was created",
             "example": 1701806790.536
           }
         }
@@ -2424,13 +2424,22 @@
               "custom_field_updated",
               "macro_triggered",
               "topic_identified",
-              "ticket_status_update"
+              "ticket_status_update",
+              "call_started",
+              "call_abandoned",
+              "call_queued",
+              "call_on_hold",
+              "call_resumed",
+              "call_connected",
+              "call_missed",
+              "call_hangup",
+              "call_transferred"
             ],
             "example": "inbound"
           },
           "emitted_at": {
             "type": "number",
-            "description": "Date at which the event has been emitted",
+            "description": "The timestamp when the event has been emitted",
             "example": 1703102616
           },
           "source": {
@@ -3558,7 +3567,7 @@
           },
           "created_at": {
             "type": "number",
-            "description": "Date at which the message as been sent or received",
+            "description": "The timestamp when the message was sent or received",
             "example": 1701292639
           },
           "subject": {

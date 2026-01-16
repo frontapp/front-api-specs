@@ -3834,21 +3834,21 @@
         "properties": {
           "to": {
             "type": "array",
-            "description": "List of the recipient handles who will receive this message",
+            "description": "List of the recipient handles who will receive this message. One of `to`, `cc`, or `bcc` is required.",
             "items": {
               "type": "string"
             }
           },
           "cc": {
             "type": "array",
-            "description": "List of the recipient handles who will receive a copy of this message",
+            "description": "List of the recipient handles who will receive a copy of this message. One of `to`, `cc`, or `bcc` is required.",
             "items": {
               "type": "string"
             }
           },
           "bcc": {
             "type": "array",
-            "description": "List of the recipient handles who will receive a blind copy of this message",
+            "description": "List of the recipient handles who will receive a blind copy of this message. One of `to`, `cc`, or `bcc` is required.",
             "items": {
               "type": "string"
             }

@@ -2172,6 +2172,61 @@
           }
         }
       },
+      "CreateView": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the view"
+          },
+          "inbox_ids": {
+            "type": "array",
+            "description": "List of inbox IDs to filter by",
+            "items": {
+              "$ref": "#/components/schemas/ResourceID"
+            }
+          },
+          "tag_ids": {
+            "type": "array",
+            "description": "List of tag IDs to filter by",
+            "items": {
+              "$ref": "#/components/schemas/ResourceID"
+            }
+          },
+          "not_tag_ids": {
+            "type": "array",
+            "description": "List of tag IDs to exclude",
+            "items": {
+              "$ref": "#/components/schemas/ResourceID"
+            }
+          },
+          "no_tags": {
+            "type": "boolean",
+            "description": "Whether to filter for conversations without tags"
+          },
+          "assignee_ids": {
+            "type": "array",
+            "description": "List of assignee IDs to filter by",
+            "items": {
+              "$ref": "#/components/schemas/ResourceID"
+            }
+          },
+          "not_assignee_ids": {
+            "type": "array",
+            "description": "List of assignee IDs to exclude",
+            "items": {
+              "$ref": "#/components/schemas/ResourceID"
+            }
+          },
+          "highlight": {
+            "type": "string",
+            "description": "Color highlight for the view"
+          }
+        },
+        "required": [
+          "name",
+          "inbox_ids"
+        ]
+      },
       "CustomFieldParameter": {
         "type": "object",
         "description": "An object whose key is the `name` property defined for the custom field in the Front UI. The value of the key must use the same `type` specified for the custom field, as described in https://dev.frontapp.com/reference/custom-fields",
@@ -5403,6 +5458,57 @@
             }
           }
         }
+      },
+      "UpdateView": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the view"
+          },
+          "inbox_ids": {
+            "type": "array",
+            "description": "List of inbox IDs to filter by",
+            "items": {
+              "$ref": "#/components/schemas/ResourceID"
+            }
+          },
+          "tag_ids": {
+            "type": "array",
+            "description": "List of tag IDs to filter by",
+            "items": {
+              "$ref": "#/components/schemas/ResourceID"
+            }
+          },
+          "not_tag_ids": {
+            "type": "array",
+            "description": "List of tag IDs to exclude",
+            "items": {
+              "$ref": "#/components/schemas/ResourceID"
+            }
+          },
+          "no_tags": {
+            "type": "boolean",
+            "description": "Whether to filter for conversations without tags"
+          },
+          "assignee_ids": {
+            "type": "array",
+            "description": "List of assignee IDs to filter by",
+            "items": {
+              "$ref": "#/components/schemas/ResourceID"
+            }
+          },
+          "not_assignee_ids": {
+            "type": "array",
+            "description": "List of assignee IDs to exclude",
+            "items": {
+              "$ref": "#/components/schemas/ResourceID"
+            }
+          },
+          "highlight": {
+            "type": "string",
+            "description": "Color highlight for the view"
+          }
+        }
       }
     },
     "securitySchemes": {
@@ -6482,6 +6588,45 @@
           }
         }
       },
+      "listOfViews": {
+        "description": "Array of views",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "_pagination": {
+                  "type": "object",
+                  "properties": {
+                    "next": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
+                      "example": "https://yourCompany.api.frontapp.com/views?page_token=ce787da6f075740cf187d926f5e9f612bc7875763a8dd37d5"
+                    }
+                  }
+                },
+                "_links": {
+                  "type": "object",
+                  "properties": {
+                    "self": {
+                      "type": "string",
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/views"
+                    }
+                  }
+                },
+                "_results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SharedViewResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "account": {
         "description": "An Account",
         "content": {
@@ -6785,6 +6930,16 @@
           "application/json": {
             "schema": {
               "$ref": "#/components/schemas/KnowledgeBaseArticleSlimResponse"
+            }
+          }
+        }
+      },
+      "view": {
+        "description": "A view",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/SharedViewResponse"
             }
           }
         }
@@ -13894,6 +14049,207 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/TeammateIds"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content"
+          }
+        }
+      }
+    },
+    "/teams/{team_id}/views": {
+      "get": {
+        "summary": "List team views",
+        "operationId": "list-team-views",
+        "description": "List the views of a team.",
+        "tags": [
+          "Views"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "team_id",
+            "required": true,
+            "description": "The team ID",
+            "schema": {
+              "type": "string",
+              "default": "tim_xyz"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/pageToken"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfViews"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create team view",
+        "operationId": "create-team-view",
+        "description": "Create a new view for a team.",
+        "tags": [
+          "Views"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "team_id",
+            "required": true,
+            "description": "The team ID",
+            "schema": {
+              "type": "string",
+              "default": "tim_xyz"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "View to create",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateView"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/view"
+          }
+        }
+      }
+    },
+    "/views": {
+      "get": {
+        "summary": "List views",
+        "operationId": "list-views",
+        "description": "List the views accessible to the authenticated token.",
+        "tags": [
+          "Views"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/pageToken"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfViews"
+          }
+        }
+      }
+    },
+    "/views/{view_id}": {
+      "get": {
+        "summary": "Get view",
+        "operationId": "get-view",
+        "description": "Fetch a view.",
+        "tags": [
+          "Views"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "view_id",
+            "required": true,
+            "description": "The view ID",
+            "schema": {
+              "type": "string",
+              "default": "lns_abc123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/view"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update view",
+        "operationId": "update-view",
+        "description": "Update a view.",
+        "tags": [
+          "Views"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "view_id",
+            "required": true,
+            "description": "The view ID",
+            "schema": {
+              "type": "string",
+              "default": "lns_abc123"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "View properties to update",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateView"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content"
+          }
+        }
+      }
+    },
+    "/views/{view_id}/teammates": {
+      "post": {
+        "summary": "Add view to teammate sidebars",
+        "operationId": "add-view-teammates",
+        "description": "Makes this view visible in specified teammates' sidebar navigation.",
+        "tags": [
+          "Views"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "view_id",
+            "required": true,
+            "description": "The view ID",
+            "schema": {
+              "type": "string",
+              "default": "lns_abc123"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Teammate IDs to add. Alternatively, you can supply emails as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "teammate_ids"
+                ],
+                "properties": {
+                  "teammate_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
               }
             }
           }

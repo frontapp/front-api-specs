@@ -7013,7 +7013,7 @@
       "get": {
         "summary": "List Accounts",
         "operationId": "list-accounts",
-        "description": "List the accounts of the company.",
+        "description": "List the accounts of the company.\n\nRequired scope: `accounts:read`",
         "tags": [
           "Accounts"
         ],
@@ -7035,12 +7035,15 @@
           "200": {
             "$ref": "#/components/responses/listOfAccounts"
           }
-        }
+        },
+        "x-required-scopes": [
+          "accounts:read"
+        ]
       },
       "post": {
         "summary": "Create account",
         "operationId": "create-account",
-        "description": "Create a new account.",
+        "description": "Create a new account.\n\nRequired scope: `accounts:write`",
         "tags": [
           "Accounts"
         ],
@@ -7060,7 +7063,10 @@
           "201": {
             "$ref": "#/components/responses/account"
           }
-        }
+        },
+        "x-required-scopes": [
+          "accounts:write"
+        ]
       }
     },
     "/accounts/custom_fields": {
@@ -7082,7 +7088,7 @@
       "get": {
         "summary": "Fetch an account",
         "operationId": "fetch-an-account",
-        "description": "Fetches an account",
+        "description": "Fetches an account\n\nRequired scope: `accounts:read`",
         "tags": [
           "Accounts"
         ],
@@ -7102,12 +7108,15 @@
           "200": {
             "$ref": "#/components/responses/account"
           }
-        }
+        },
+        "x-required-scopes": [
+          "accounts:read"
+        ]
       },
       "patch": {
         "summary": "Update account",
         "operationId": "update-account",
-        "description": "Updates an account.",
+        "description": "Updates an account.\n\nRequired scope: `accounts:write`",
         "tags": [
           "Accounts"
         ],
@@ -7136,12 +7145,15 @@
           "200": {
             "$ref": "#/components/responses/account"
           }
-        }
+        },
+        "x-required-scopes": [
+          "accounts:write"
+        ]
       },
       "delete": {
         "summary": "Delete an account",
         "operationId": "delete-an-account",
-        "description": "Deletes an account",
+        "description": "Deletes an account\n\nRequired scope: `accounts:delete`",
         "tags": [
           "Accounts"
         ],
@@ -7161,14 +7173,17 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "accounts:delete"
+        ]
       }
     },
     "/accounts/{account_id}/contacts": {
       "get": {
         "summary": "List account contacts",
         "operationId": "list-account-contacts",
-        "description": "Lists the contacts associated with an Account",
+        "description": "Lists the contacts associated with an Account\n\nRequired scope: `contacts:read`",
         "tags": [
           "Accounts"
         ],
@@ -7200,12 +7215,15 @@
           "200": {
             "$ref": "#/components/responses/listOfContacts"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:read"
+        ]
       },
       "post": {
         "summary": "Add contact to Account",
         "operationId": "add-contact-to-account",
-        "description": "Adds a list of contacts to an Account",
+        "description": "Adds a list of contacts to an Account\n\nRequired scope: `accounts:write`",
         "tags": [
           "Accounts"
         ],
@@ -7234,12 +7252,15 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "accounts:write"
+        ]
       },
       "delete": {
         "summary": "Remove contact from Account",
         "operationId": "remove-contact-from-account",
-        "description": "Removes a list of contacts from an Account",
+        "description": "Removes a list of contacts from an Account\n\nRequired scope: `accounts:write`",
         "tags": [
           "Accounts"
         ],
@@ -7268,14 +7289,17 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "accounts:write"
+        ]
       }
     },
     "/analytics/exports": {
       "post": {
         "summary": "Create a new analytics export",
         "operationId": "create-analytics-export",
-        "description": "Create a new analytics export of messages or events (activities) over a specific time span.\nThe export will be executed asynchronously. The response will include a link that can be used to retrieve the export status & result. Refer to the [Analytics](https://dev.frontapp.com/reference/analytics) topic for details about specific metrics.\n",
+        "description": "Create a new analytics export of messages or events (activities) over a specific time span.\nThe export will be executed asynchronously. The response will include a link that can be used to retrieve the export status & result. Refer to the [Analytics](https://dev.frontapp.com/reference/analytics) topic for details about specific metrics.\n\n\nRequired scope: `analytics:read`",
         "tags": [
           "Analytics"
         ],
@@ -7299,14 +7323,17 @@
               }
             }
           }
-        }
+        },
+        "x-required-scopes": [
+          "analytics:read"
+        ]
       }
     },
     "/analytics/exports/{export_id}": {
       "get": {
         "summary": "Fetch an analytics export",
         "operationId": "get-analytics-export",
-        "description": "Fetch an analytics exports. Refer to the [Analytics](https://dev.frontapp.com/reference/analytics) topic for details about specific metrics.",
+        "description": "Fetch an analytics exports. Refer to the [Analytics](https://dev.frontapp.com/reference/analytics) topic for details about specific metrics.\n\nRequired scope: `analytics:read`",
         "tags": [
           "Analytics"
         ],
@@ -7333,14 +7360,17 @@
               }
             }
           }
-        }
+        },
+        "x-required-scopes": [
+          "analytics:read"
+        ]
       }
     },
     "/analytics/reports": {
       "post": {
         "summary": "Create a new analytics report",
         "operationId": "create-analytics-report",
-        "description": "Create a new analytics report for a set of metrics over a specific time span. Different filters (e.g. Inbox v Tag v Teammates) will be joined with AND logic, but the IDs within a filter will be joined with OR logic (e.g. Inbox A or Inbox B, Tag A or Tag B).\nThe report will be executed asynchronously. The response will include a link that can be used to retrieve the\nreport status & result. Refer to the [Analytics](https://dev.frontapp.com/reference/analytics) topic for details about specific metrics.\n",
+        "description": "Create a new analytics report for a set of metrics over a specific time span. Different filters (e.g. Inbox v Tag v Teammates) will be joined with AND logic, but the IDs within a filter will be joined with OR logic (e.g. Inbox A or Inbox B, Tag A or Tag B).\nThe report will be executed asynchronously. The response will include a link that can be used to retrieve the\nreport status & result. Refer to the [Analytics](https://dev.frontapp.com/reference/analytics) topic for details about specific metrics.\n\n\nRequired scope: `analytics:read`",
         "tags": [
           "Analytics"
         ],
@@ -7364,14 +7394,17 @@
               }
             }
           }
-        }
+        },
+        "x-required-scopes": [
+          "analytics:read"
+        ]
       }
     },
     "/analytics/reports/{report_uid}": {
       "get": {
         "summary": "Fetch an analytics report",
         "operationId": "get-analytics-report",
-        "description": "Fetch an analytics report. Refer to the [Analytics](https://dev.frontapp.com/reference/analytics) topic for details about specific metrics.",
+        "description": "Fetch an analytics report. Refer to the [Analytics](https://dev.frontapp.com/reference/analytics) topic for details about specific metrics.\n\nRequired scope: `analytics:read`",
         "tags": [
           "Analytics"
         ],
@@ -7398,7 +7431,10 @@
               }
             }
           }
-        }
+        },
+        "x-required-scopes": [
+          "analytics:read"
+        ]
       }
     },
     "/applications/{application_uid}/events": {
@@ -7815,7 +7851,7 @@
       "get": {
         "summary": "List all company rules",
         "operationId": "list-all-company-rules",
-        "description": "List the company rules.",
+        "description": "List the company rules.\n\nRequired scope: `rules:read`",
         "tags": [
           "Rules"
         ],
@@ -7823,7 +7859,10 @@
           "200": {
             "$ref": "#/components/responses/listOfRules"
           }
-        }
+        },
+        "x-required-scopes": [
+          "rules:read"
+        ]
       }
     },
     "/company/statuses": {
@@ -7875,7 +7914,7 @@
       "get": {
         "summary": "List company tags",
         "operationId": "list-company-tags",
-        "description": "List the company tags.",
+        "description": "List the company tags.\n\nRequired scope: `tags:read`",
         "tags": [
           "Tags"
         ],
@@ -7897,12 +7936,15 @@
           "200": {
             "$ref": "#/components/responses/listOfTags"
           }
-        }
+        },
+        "x-required-scopes": [
+          "tags:read"
+        ]
       },
       "post": {
         "summary": "Create company tag",
         "operationId": "create-company-tag",
-        "description": "Create a company tag.",
+        "description": "Create a company tag.\n\nRequired scope: `tags:write`",
         "tags": [
           "Tags"
         ],
@@ -7920,7 +7962,10 @@
           "201": {
             "$ref": "#/components/responses/tag"
           }
-        }
+        },
+        "x-required-scopes": [
+          "tags:write"
+        ]
       }
     },
     "/contact_groups": {
@@ -7928,7 +7973,7 @@
         "deprecated": true,
         "summary": "List groups",
         "operationId": "list-groups",
-        "description": "List the contact groups.\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `GET /contact_lists`.\n",
+        "description": "List the contact groups.\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `GET /contact_lists`.\n\n\nRequired scope: `contacts:read`",
         "tags": [
           "Contact Groups"
         ],
@@ -7936,13 +7981,16 @@
           "200": {
             "$ref": "#/components/responses/listOfContactLists"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:read"
+        ]
       },
       "post": {
         "deprecated": true,
         "summary": "Create group",
         "operationId": "create-group",
-        "description": "Create a new contact group in the default team (workspace).\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `POST /contact_lists`.\n",
+        "description": "Create a new contact group in the default team (workspace).\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `POST /contact_lists`.\n\n\nRequired scope: `contacts:write`",
         "tags": [
           "Contact Groups"
         ],
@@ -7959,7 +8007,10 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:write"
+        ]
       }
     },
     "/contact_groups/{contact_group_id}": {
@@ -7967,7 +8018,7 @@
         "deprecated": true,
         "summary": "Delete group",
         "operationId": "delete-group",
-        "description": "Delete a contact group.\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `DELETE /contact_lists/{contact_list_id}`.\n",
+        "description": "Delete a contact group.\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `DELETE /contact_lists/{contact_list_id}`.\n\n\nRequired scope: `contacts:delete`",
         "tags": [
           "Contact Groups"
         ],
@@ -7987,7 +8038,10 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:delete"
+        ]
       }
     },
     "/contact_groups/{contact_group_id}/contacts": {
@@ -7995,7 +8049,7 @@
         "deprecated": true,
         "summary": "List contacts in group",
         "operationId": "list-contacts-in-group",
-        "description": "List the contacts belonging to the requested group.\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `GET /contact_lists/{contact_list_id}/contacts`.\n",
+        "description": "List the contacts belonging to the requested group.\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `GET /contact_lists/{contact_list_id}/contacts`.\n\n\nRequired scope: `contacts:read`",
         "tags": [
           "Contact Groups"
         ],
@@ -8021,13 +8075,16 @@
           "200": {
             "$ref": "#/components/responses/listOfContacts"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:read"
+        ]
       },
       "post": {
         "deprecated": true,
         "summary": "Add contacts to group",
         "operationId": "add-contacts-to-group",
-        "description": "Add contacts to the requested group.\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `POST /contact_lists/{contact_list_id}/contacts`.\n",
+        "description": "Add contacts to the requested group.\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `POST /contact_lists/{contact_list_id}/contacts`.\n\n\nRequired scope: `contacts:write`",
         "tags": [
           "Contact Groups"
         ],
@@ -8056,12 +8113,15 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:write"
+        ]
       },
       "delete": {
         "summary": "Remove contacts from group",
         "operationId": "remove-contacts-from-group",
-        "description": "Remove contacts from the requested group.\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `DELETE /contact_lists/{contact_list_id}/contacts`.\n",
+        "description": "Remove contacts from the requested group.\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `DELETE /contact_lists/{contact_list_id}/contacts`.\n\n\nRequired scope: `contacts:write`",
         "tags": [
           "Contact Groups"
         ],
@@ -8090,14 +8150,17 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:write"
+        ]
       }
     },
     "/contact_lists": {
       "get": {
         "summary": "List contact lists",
         "operationId": "list-contact-lists",
-        "description": "List contact lists.",
+        "description": "List contact lists.\n\nRequired scope: `contacts:read`",
         "tags": [
           "Contact Lists"
         ],
@@ -8105,12 +8168,15 @@
           "200": {
             "$ref": "#/components/responses/listOfContactLists"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:read"
+        ]
       },
       "post": {
         "summary": "Create contact list",
         "operationId": "create-contact-list",
-        "description": "Create a new contact list in the oldest active workspace that the token has access to. If you need to specify the workspace, we recommend using the [Create team contact list](https://dev.frontapp.com/reference/create-team-contact-list) endpoint instead.",
+        "description": "Create a new contact list in the oldest active workspace that the token has access to. If you need to specify the workspace, we recommend using the [Create team contact list](https://dev.frontapp.com/reference/create-team-contact-list) endpoint instead.\n\nRequired scope: `contacts:write`",
         "tags": [
           "Contact Lists"
         ],
@@ -8127,14 +8193,17 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:write"
+        ]
       }
     },
     "/contact_lists/{contact_list_id}": {
       "delete": {
         "summary": "Delete contact list",
         "operationId": "delete-contact-list",
-        "description": "Delete a contact lists.",
+        "description": "Delete a contact lists.\n\nRequired scope: `contacts:delete`",
         "tags": [
           "Contact Lists"
         ],
@@ -8154,14 +8223,17 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:delete"
+        ]
       }
     },
     "/contact_lists/{contact_list_id}/contacts": {
       "get": {
         "summary": "List contacts in contact list",
         "operationId": "list-contacts-in-contact-list",
-        "description": "List the contacts belonging to the requested contact list.",
+        "description": "List the contacts belonging to the requested contact list.\n\nRequired scope: `contacts:read`",
         "tags": [
           "Contact Lists"
         ],
@@ -8187,12 +8259,15 @@
           "200": {
             "$ref": "#/components/responses/listOfContacts"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:read"
+        ]
       },
       "post": {
         "summary": "Add contacts to contact list",
         "operationId": "add-contacts-to-contact-list",
-        "description": "Add contacts to the requested contact list.",
+        "description": "Add contacts to the requested contact list.\n\nRequired scope: `contacts:write`",
         "tags": [
           "Contact Lists"
         ],
@@ -8221,12 +8296,15 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:write"
+        ]
       },
       "delete": {
         "summary": "Remove contacts from contact list",
         "operationId": "remove-contacts-from-contact-list",
-        "description": "Remove contacts from the requested contact list.",
+        "description": "Remove contacts from the requested contact list.\n\nRequired scope: `contacts:write`",
         "tags": [
           "Contact Lists"
         ],
@@ -8255,14 +8333,17 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:write"
+        ]
       }
     },
     "/contacts": {
       "get": {
         "summary": "List contacts",
         "operationId": "list-contacts",
-        "description": "List the contacts of the company.",
+        "description": "List the contacts of the company.\n\nRequired scope: `contacts:read`",
         "tags": [
           "Contacts"
         ],
@@ -8287,12 +8368,15 @@
           "200": {
             "$ref": "#/components/responses/listOfContacts"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:read"
+        ]
       },
       "post": {
         "summary": "Create contact",
         "operationId": "create-contact",
-        "description": "Create a new contact at the company level.",
+        "description": "Create a new contact at the company level.\n\nRequired scope: `contacts:write`",
         "tags": [
           "Contacts"
         ],
@@ -8309,7 +8393,10 @@
           "201": {
             "$ref": "#/components/responses/contact"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:write"
+        ]
       }
     },
     "/contacts/custom_fields": {
@@ -8331,7 +8418,7 @@
       "post": {
         "summary": "Merge contacts",
         "operationId": "merge-contacts",
-        "description": "Merges the contacts specified into a single contact, deleting the merged-in contacts.\nIf a target contact ID is supplied, the other contacts will be merged into that one.\nOtherwise, some contact in the contact ID list will be treated as the target contact.\nMerge conflicts will be resolved in the following ways:\n  * name will prioritize manually-updated and non-private contact names\n  * descriptions will be concatenated and separated by newlines in order from\n    oldest to newest with the (optional) target contact's description first\n  * all handles, groups, links, and notes will be preserved\n  * other conflicts will use the most recently updated contact's value\n",
+        "description": "Merges the contacts specified into a single contact, deleting the merged-in contacts.\nIf a target contact ID is supplied, the other contacts will be merged into that one.\nOtherwise, some contact in the contact ID list will be treated as the target contact.\nMerge conflicts will be resolved in the following ways:\n  * name will prioritize manually-updated and non-private contact names\n  * descriptions will be concatenated and separated by newlines in order from\n    oldest to newest with the (optional) target contact's description first\n  * all handles, groups, links, and notes will be preserved\n  * other conflicts will use the most recently updated contact's value\n\n\nRequired scope: `contacts:write`",
         "tags": [
           "Contacts"
         ],
@@ -8348,14 +8435,17 @@
           "200": {
             "$ref": "#/components/responses/contact"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:write"
+        ]
       }
     },
     "/contacts/{contact_id}": {
       "get": {
         "summary": "Get contact",
         "operationId": "get-contact",
-        "description": "Fetch a contact.",
+        "description": "Fetch a contact.\n\nRequired scope: `contacts:read`",
         "tags": [
           "Contacts"
         ],
@@ -8375,12 +8465,15 @@
           "200": {
             "$ref": "#/components/responses/contact"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:read"
+        ]
       },
       "patch": {
         "summary": "Update a contact",
         "operationId": "update-a-contact",
-        "description": "Updates a contact.",
+        "description": "Updates a contact.\n\nRequired scope: `contacts:write`",
         "tags": [
           "Contacts"
         ],
@@ -8409,12 +8502,15 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:write"
+        ]
       },
       "delete": {
         "summary": "Delete a contact",
         "operationId": "delete-a-contact",
-        "description": "Delete a contact.",
+        "description": "Delete a contact.\n\nRequired scope: `contacts:delete`",
         "tags": [
           "Contacts"
         ],
@@ -8434,14 +8530,17 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:delete"
+        ]
       }
     },
     "/contacts/{contact_id}/conversations": {
       "get": {
         "summary": "List contact conversations",
         "operationId": "list-contact-conversations",
-        "description": "List the conversations for a contact in reverse chronological order (newest first). For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n",
+        "description": "List the conversations for a contact in reverse chronological order (newest first). For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n\n\nRequired scope: `conversations:read`",
         "tags": [
           "Contacts"
         ],
@@ -8470,14 +8569,17 @@
           "200": {
             "$ref": "#/components/responses/listOfConversations"
           }
-        }
+        },
+        "x-required-scopes": [
+          "conversations:read"
+        ]
       }
     },
     "/contacts/{contact_id}/handles": {
       "post": {
         "summary": "Add contact handle",
         "operationId": "add-contact-handle",
-        "description": "Adds a new handle to a contact.",
+        "description": "Adds a new handle to a contact.\n\nRequired scope: `contacts:write`",
         "tags": [
           "Contact Handles"
         ],
@@ -8506,12 +8608,15 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:write"
+        ]
       },
       "delete": {
         "summary": "Delete contact handle",
         "operationId": "delete-contact-handle",
-        "description": "Remove a handle from a contact.",
+        "description": "Remove a handle from a contact.\n\nRequired scope: `contacts:write`",
         "tags": [
           "Contact Handles"
         ],
@@ -8540,14 +8645,17 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:write"
+        ]
       }
     },
     "/contacts/{contact_id}/notes": {
       "get": {
         "summary": "List notes",
         "operationId": "list-notes",
-        "description": "List the notes added to a contact.",
+        "description": "List the notes added to a contact.\n\nRequired scope: `contacts:read`",
         "tags": [
           "Contact Notes"
         ],
@@ -8567,12 +8675,15 @@
           "202": {
             "$ref": "#/components/responses/listOfContactNotes"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:read"
+        ]
       },
       "post": {
         "summary": "Add note",
         "operationId": "add-note",
-        "description": "Create a new note on a contact.",
+        "description": "Create a new note on a contact.\n\nRequired scope: `contacts:write`",
         "tags": [
           "Contact Notes"
         ],
@@ -8601,7 +8712,10 @@
           "201": {
             "$ref": "#/components/responses/contactNote"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:write"
+        ]
       }
     },
     "/conversations": {
@@ -8772,6 +8886,43 @@
           },
           "400": {
             "description": "Invalid input, such as invalid custom fields"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete conversation",
+        "operationId": "delete-conversation",
+        "description": "Permanently delete a conversation. The conversation must have status \"trashed\"\n(in the trash) before it can be permanently deleted. This action cannot be undone.\n\n\nRequired scope: `conversations:delete`",
+        "x-required-scopes": [
+          "conversations:delete"
+        ],
+        "tags": [
+          "Conversations"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "conversation_id",
+            "required": true,
+            "description": "The conversation ID",
+            "schema": {
+              "type": "string",
+              "default": "cnv_123"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No content"
+          },
+          "400": {
+            "description": "Conversation must have status \"trashed\" before it can be permanently deleted"
+          },
+          "403": {
+            "description": "Token lacks the required `conversations:delete` scope"
+          },
+          "404": {
+            "description": "Conversation not found"
           }
         }
       }
@@ -9641,7 +9792,7 @@
       "get": {
         "summary": "List inboxes",
         "operationId": "list-inboxes",
-        "description": "List the inboxes of the company.",
+        "description": "List the inboxes of the company.\n\nRequired scope: `inboxes:read`",
         "tags": [
           "Inboxes"
         ],
@@ -9649,12 +9800,15 @@
           "200": {
             "$ref": "#/components/responses/listOfInboxes"
           }
-        }
+        },
+        "x-required-scopes": [
+          "inboxes:read"
+        ]
       },
       "post": {
         "summary": "Create inbox",
         "operationId": "create-inbox",
-        "description": "Create an inbox in the oldest active workspace that the token has access to. If you need to specify the workspace, we recommend using the [Create team inbox](https://dev.frontapp.com/reference/create-team-inbox) endpoint instead.",
+        "description": "Create an inbox in the oldest active workspace that the token has access to. If you need to specify the workspace, we recommend using the [Create team inbox](https://dev.frontapp.com/reference/create-team-inbox) endpoint instead.\n\nRequired scope: `inboxes:write`",
         "tags": [
           "Inboxes"
         ],
@@ -9672,7 +9826,10 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "inboxes:write"
+        ]
       }
     },
     "/inboxes/custom_fields": {
@@ -9694,7 +9851,7 @@
       "get": {
         "summary": "Get inbox",
         "operationId": "get-inbox",
-        "description": "Fetch an inbox.",
+        "description": "Fetch an inbox.\n\nRequired scope: `inboxes:read`",
         "tags": [
           "Inboxes"
         ],
@@ -9714,14 +9871,17 @@
           "200": {
             "$ref": "#/components/responses/inbox"
           }
-        }
+        },
+        "x-required-scopes": [
+          "inboxes:read"
+        ]
       }
     },
     "/inboxes/{inbox_id}/channels": {
       "get": {
         "summary": "List inbox channels",
         "operationId": "list-inbox-channels",
-        "description": "List the channels in an inbox.",
+        "description": "List the channels in an inbox.\n\nRequired scope: `channels:read`",
         "tags": [
           "Inboxes"
         ],
@@ -9741,7 +9901,10 @@
           "200": {
             "$ref": "#/components/responses/listOfChannels"
           }
-        }
+        },
+        "x-required-scopes": [
+          "channels:read"
+        ]
       },
       "post": {
         "summary": "Create a channel",
@@ -9783,7 +9946,7 @@
       "get": {
         "summary": "List inbox conversations",
         "operationId": "list-inbox-conversations",
-        "description": "List the conversations in an inbox. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n",
+        "description": "List the conversations in an inbox. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n\n\nRequired scope: `conversations:read`",
         "tags": [
           "Inboxes"
         ],
@@ -9812,7 +9975,10 @@
           "200": {
             "$ref": "#/components/responses/listOfConversations"
           }
-        }
+        },
+        "x-required-scopes": [
+          "conversations:read"
+        ]
       }
     },
     "/inboxes/{inbox_id}/imported_messages": {
@@ -9855,7 +10021,7 @@
       "get": {
         "summary": "List inbox access",
         "operationId": "list-inbox-access",
-        "description": "List the teammates with access to an inbox.",
+        "description": "List the teammates with access to an inbox.\n\nRequired scope: `teammates:read`",
         "tags": [
           "Inboxes"
         ],
@@ -9875,12 +10041,15 @@
           "200": {
             "$ref": "#/components/responses/listOfTeammates"
           }
-        }
+        },
+        "x-required-scopes": [
+          "teammates:read"
+        ]
       },
       "post": {
         "summary": "Add inbox access",
         "operationId": "add-inbox-access",
-        "description": "Give access to one or more teammates to an inbox.",
+        "description": "Give access to one or more teammates to an inbox.\n\nRequired scope: `inboxes:write`",
         "tags": [
           "Inboxes"
         ],
@@ -9910,12 +10079,15 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "inboxes:write"
+        ]
       },
       "delete": {
         "summary": "Removes inbox access",
         "operationId": "removes-inbox-access",
-        "description": "Remove access of one or more teammates from an inbox.",
+        "description": "Remove access of one or more teammates from an inbox.\n\nRequired scope: `inboxes:write`",
         "tags": [
           "Inboxes"
         ],
@@ -9945,14 +10117,17 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "inboxes:write"
+        ]
       }
     },
     "/knowledge_base_articles/{article_id}": {
       "get": {
         "summary": "Get a knowledge base article",
         "operationId": "get-a-knowledge-base-article",
-        "description": "Fetches a knowledge base article.",
+        "description": "Fetches a knowledge base article.\n\nRequired scope: `knowledge_bases:read`",
         "tags": [
           "Knowledge Base Articles"
         ],
@@ -9972,12 +10147,15 @@
           "200": {
             "$ref": "#/components/responses/knowledgeBaseArticleSlim"
           }
-        }
+        },
+        "x-required-scopes": [
+          "knowledge_bases:read"
+        ]
       },
       "delete": {
         "summary": "Delete an article",
         "operationId": "delete-an-article",
-        "description": "Deletes an article and all its content and translations.",
+        "description": "Deletes an article and all its content and translations.\n\nRequired scope: `knowledge_bases:delete`",
         "tags": [
           "Knowledge Base Articles"
         ],
@@ -9997,14 +10175,17 @@
           "200": {
             "$ref": "#/components/responses/knowledgeBaseArticleSlim"
           }
-        }
+        },
+        "x-required-scopes": [
+          "knowledge_bases:delete"
+        ]
       }
     },
     "/knowledge_base_articles/{article_id}/content": {
       "get": {
         "summary": "Get knowledge base article with content in default locale",
         "operationId": "get-knowledge-base-article-with-content-in-default-locale",
-        "description": "Fetches a knowledge base article with content in the default locale.",
+        "description": "Fetches a knowledge base article with content in the default locale.\n\nRequired scope: `knowledge_bases:read`",
         "tags": [
           "Knowledge Base Articles"
         ],
@@ -10024,12 +10205,15 @@
           "200": {
             "$ref": "#/components/responses/knowledgeBaseArticle"
           }
-        }
+        },
+        "x-required-scopes": [
+          "knowledge_bases:read"
+        ]
       },
       "patch": {
         "summary": "Update article content in default locale.",
         "operationId": "update-article-content-in-default-locale",
-        "description": "Updates an article's content in the default locale",
+        "description": "Updates an article's content in the default locale\n\nRequired scope: `knowledge_bases:write`",
         "tags": [
           "Knowledge Base Articles"
         ],
@@ -10062,14 +10246,17 @@
           "200": {
             "$ref": "#/components/responses/knowledgeBaseArticle"
           }
-        }
+        },
+        "x-required-scopes": [
+          "knowledge_bases:write"
+        ]
       }
     },
     "/knowledge_base_articles/{article_id}/download/{attachment_id}": {
       "get": {
         "summary": "Download attachment from an article",
         "operationId": "download-attachment-from-an-article",
-        "description": "Downloads the attachment from an article.",
+        "description": "Downloads the attachment from an article.\n\nRequired scope: `knowledge_bases:read`",
         "tags": [
           "Knowledge Base Articles"
         ],
@@ -10098,14 +10285,17 @@
           "200": {
             "$ref": "#/components/responses/attachment"
           }
-        }
+        },
+        "x-required-scopes": [
+          "knowledge_bases:read"
+        ]
       }
     },
     "/knowledge_base_articles/{article_id}/locales/{locale}/content": {
       "get": {
         "summary": "Get knowledge base article with content in specified locale",
         "operationId": "get-knowledge-base-article-with-content-in-specified-locale",
-        "description": "Fetches a knowledge base article with content for a given locale.",
+        "description": "Fetches a knowledge base article with content for a given locale.\n\nRequired scope: `knowledge_bases:read`",
         "tags": [
           "Knowledge Base Articles"
         ],
@@ -10135,12 +10325,15 @@
           "200": {
             "$ref": "#/components/responses/knowledgeBaseArticle"
           }
-        }
+        },
+        "x-required-scopes": [
+          "knowledge_bases:read"
+        ]
       },
       "patch": {
         "summary": "Update article content in specified locale",
         "operationId": "update-article-content-in-specified-locale",
-        "description": "Updates an article's content for a given locale.",
+        "description": "Updates an article's content for a given locale.\n\nRequired scope: `knowledge_bases:write`",
         "tags": [
           "Knowledge Base Articles"
         ],
@@ -10183,14 +10376,17 @@
           "200": {
             "$ref": "#/components/responses/knowledgeBaseArticle"
           }
-        }
+        },
+        "x-required-scopes": [
+          "knowledge_bases:write"
+        ]
       }
     },
     "/knowledge_base_categories/{category_id}": {
       "get": {
         "summary": "Get a knowledge base category",
         "operationId": "get-a-knowledge-base-category",
-        "description": "Fetches a knowledge base category.",
+        "description": "Fetches a knowledge base category.\n\nRequired scope: `knowledge_bases:read`",
         "tags": [
           "Knowledge Base Categories"
         ],
@@ -10210,12 +10406,15 @@
           "200": {
             "$ref": "#/components/responses/knowledgeBaseCategorySlim"
           }
-        }
+        },
+        "x-required-scopes": [
+          "knowledge_bases:read"
+        ]
       },
       "delete": {
         "summary": "Delete a knowledge base category",
         "operationId": "delete-a-knowledge-base-category",
-        "description": "Deletes a knowledge base category.\n\n> ⚠️ Warning\n>\n> When a category is deleted, all articles in the category are also deleted.\n",
+        "description": "Deletes a knowledge base category.\n\n> ⚠️ Warning\n>\n> When a category is deleted, all articles in the category are also deleted.\n\n\nRequired scope: `knowledge_bases:delete`",
         "tags": [
           "Knowledge Base Categories"
         ],
@@ -10235,14 +10434,17 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "knowledge_bases:delete"
+        ]
       }
     },
     "/knowledge_base_categories/{category_id}/articles": {
       "get": {
         "summary": "List articles in a category",
         "operationId": "list-articles-in-a-category",
-        "description": "List articles in a category.",
+        "description": "List articles in a category.\n\nRequired scope: `knowledge_bases:read`",
         "tags": [
           "Knowledge Base Articles"
         ],
@@ -10268,14 +10470,17 @@
           "200": {
             "$ref": "#/components/responses/listOfKnowledgeBaseArticles"
           }
-        }
+        },
+        "x-required-scopes": [
+          "knowledge_bases:read"
+        ]
       }
     },
     "/knowledge_base_categories/{category_id}/content": {
       "get": {
         "summary": "Get knowledge base category content in default locale",
         "operationId": "get-knowledge-base-category-content-in-default-locale",
-        "description": "Fetches a knowledge base category with content in the default locale.",
+        "description": "Fetches a knowledge base category with content in the default locale.\n\nRequired scope: `knowledge_bases:read`",
         "tags": [
           "Knowledge Base Categories"
         ],
@@ -10295,12 +10500,15 @@
           "200": {
             "$ref": "#/components/responses/knowledgeBaseCategory"
           }
-        }
+        },
+        "x-required-scopes": [
+          "knowledge_bases:read"
+        ]
       },
       "patch": {
         "summary": "Update knowledge base category in default locale",
         "operationId": "update-knowledge-base-category-in-default-locale",
-        "description": "Updates a knowledge base category in the default locale. Will republish the knowledge base if the knowledge base is currently published.",
+        "description": "Updates a knowledge base category in the default locale. Will republish the knowledge base if the knowledge base is currently published.\n\nRequired scope: `knowledge_bases:write`",
         "tags": [
           "Knowledge Base Categories"
         ],
@@ -10329,14 +10537,17 @@
           "200": {
             "$ref": "#/components/responses/knowledgeBaseCategory"
           }
-        }
+        },
+        "x-required-scopes": [
+          "knowledge_bases:write"
+        ]
       }
     },
     "/knowledge_base_categories/{category_id}/locales/{locale}/content": {
       "get": {
         "summary": "Get knowledge base category with content in specified locale",
         "operationId": "get-knowledge-base-category-with-content-in-specified-locale",
-        "description": "Fetches a knowledge base category with content for a given locale.",
+        "description": "Fetches a knowledge base category with content for a given locale.\n\nRequired scope: `knowledge_bases:read`",
         "tags": [
           "Knowledge Base Categories"
         ],
@@ -10366,12 +10577,15 @@
           "200": {
             "$ref": "#/components/responses/knowledgeBaseCategory"
           }
-        }
+        },
+        "x-required-scopes": [
+          "knowledge_bases:read"
+        ]
       },
       "patch": {
         "summary": "Update knowledge base category in specified locale",
         "operationId": "update-knowledge-base-category-in-specified-locale",
-        "description": "Updates a knowledge base category for a given locale. Will republish the knowledge base if the knowledge base is currently published.",
+        "description": "Updates a knowledge base category for a given locale. Will republish the knowledge base if the knowledge base is currently published.\n\nRequired scope: `knowledge_bases:write`",
         "tags": [
           "Knowledge Base Categories"
         ],
@@ -10410,14 +10624,17 @@
           "200": {
             "$ref": "#/components/responses/knowledgeBaseCategory"
           }
-        }
+        },
+        "x-required-scopes": [
+          "knowledge_bases:write"
+        ]
       }
     },
     "/knowledge_bases": {
       "get": {
         "summary": "List knowledge bases",
         "operationId": "list-knowledge-bases",
-        "description": "List the knowledge bases of the company.",
+        "description": "List the knowledge bases of the company.\n\nRequired scope: `knowledge_bases:read`",
         "tags": [
           "Knowledge Bases"
         ],
@@ -10425,12 +10642,15 @@
           "200": {
             "$ref": "#/components/responses/listOfKnowledgeBases"
           }
-        }
+        },
+        "x-required-scopes": [
+          "knowledge_bases:read"
+        ]
       },
       "post": {
         "summary": "Create a knowledge base",
         "operationId": "create-a-knowledge-base",
-        "description": "Creates a knowledge base.",
+        "description": "Creates a knowledge base.\n\nRequired scope: `knowledge_bases:write`",
         "tags": [
           "Knowledge Bases"
         ],
@@ -10450,14 +10670,17 @@
           "201": {
             "$ref": "#/components/responses/knowledgeBase"
           }
-        }
+        },
+        "x-required-scopes": [
+          "knowledge_bases:write"
+        ]
       }
     },
     "/knowledge_bases/{knowledge_base_id}": {
       "get": {
         "summary": "Get a knowledge base",
         "operationId": "get-a-knowledge-base",
-        "description": "Fetches a knowledge base.",
+        "description": "Fetches a knowledge base.\n\nRequired scope: `knowledge_bases:read`",
         "tags": [
           "Knowledge Bases"
         ],
@@ -10477,14 +10700,17 @@
           "200": {
             "$ref": "#/components/responses/knowledgeBaseSlim"
           }
-        }
+        },
+        "x-required-scopes": [
+          "knowledge_bases:read"
+        ]
       }
     },
     "/knowledge_bases/{knowledge_base_id}/articles": {
       "get": {
         "summary": "List articles in a knowledge base",
         "operationId": "list-articles-in-a-knowledge-base",
-        "description": "List articles in a knowledge base",
+        "description": "List articles in a knowledge base\n\nRequired scope: `knowledge_bases:read`",
         "tags": [
           "Knowledge Base Articles"
         ],
@@ -10510,12 +10736,15 @@
           "200": {
             "$ref": "#/components/responses/listOfKnowledgeBaseArticles"
           }
-        }
+        },
+        "x-required-scopes": [
+          "knowledge_bases:read"
+        ]
       },
       "post": {
         "summary": "Create article in a knowledge base in default locale",
         "operationId": "create-article-in-a-knowledge-base-in-default-locale",
-        "description": "Creates an article in a knowledge base in the default locale.",
+        "description": "Creates an article in a knowledge base in the default locale.\n\nRequired scope: `knowledge_bases:write`",
         "tags": [
           "Knowledge Bases"
         ],
@@ -10549,14 +10778,17 @@
           "201": {
             "$ref": "#/components/responses/knowledgeBaseArticle"
           }
-        }
+        },
+        "x-required-scopes": [
+          "knowledge_bases:write"
+        ]
       }
     },
     "/knowledge_bases/{knowledge_base_id}/categories": {
       "get": {
         "summary": "List categories in a knowledge base",
         "operationId": "list-categories-in-a-knowledge-base",
-        "description": "List categories in a knowledge base.",
+        "description": "List categories in a knowledge base.\n\nRequired scope: `knowledge_bases:read`",
         "tags": [
           "Knowledge Base Categories"
         ],
@@ -10582,12 +10814,15 @@
           "200": {
             "$ref": "#/components/responses/listOfKnowledgeBaseCategories"
           }
-        }
+        },
+        "x-required-scopes": [
+          "knowledge_bases:read"
+        ]
       },
       "post": {
         "summary": "Create knowledge base category in default locale",
         "operationId": "create-knowledge-base-category-in-default-locale",
-        "description": "Creates a knowledge base category in the default locale.",
+        "description": "Creates a knowledge base category in the default locale.\n\nRequired scope: `knowledge_bases:write`",
         "tags": [
           "Knowledge Bases"
         ],
@@ -10619,14 +10854,17 @@
           "201": {
             "$ref": "#/components/responses/knowledgeBaseCategory"
           }
-        }
+        },
+        "x-required-scopes": [
+          "knowledge_bases:write"
+        ]
       }
     },
     "/knowledge_bases/{knowledge_base_id}/content": {
       "get": {
         "summary": "Get a knowledge base with content in default locale",
         "operationId": "get-a-knowledge-base-with-content-in-default-locale",
-        "description": "Fetches a knowledge base with its content in the default locale.",
+        "description": "Fetches a knowledge base with its content in the default locale.\n\nRequired scope: `knowledge_bases:read`",
         "tags": [
           "Knowledge Bases"
         ],
@@ -10646,12 +10884,15 @@
           "200": {
             "$ref": "#/components/responses/knowledgeBase"
           }
-        }
+        },
+        "x-required-scopes": [
+          "knowledge_bases:read"
+        ]
       },
       "patch": {
         "summary": "Update knowledge base in default locale",
         "operationId": "update-knowledge-base-in-default-locale",
-        "description": "Updates a knowledge base in the default locale. Will republish the knowledge base if the knowledge base is currently published.",
+        "description": "Updates a knowledge base in the default locale. Will republish the knowledge base if the knowledge base is currently published.\n\nRequired scope: `knowledge_bases:write`",
         "tags": [
           "Knowledge Bases"
         ],
@@ -10683,14 +10924,17 @@
           "200": {
             "$ref": "#/components/responses/knowledgeBase"
           }
-        }
+        },
+        "x-required-scopes": [
+          "knowledge_bases:write"
+        ]
       }
     },
     "/knowledge_bases/{knowledge_base_id}/locales/{locale}/articles": {
       "post": {
         "summary": "Create article in a knowledge base in specified locale",
         "operationId": "create-article-in-a-knowledge-base-in-specified-locale",
-        "description": "Create an article for a given locale in a knowledge base.",
+        "description": "Create an article for a given locale in a knowledge base.\n\nRequired scope: `knowledge_bases:write`",
         "tags": [
           "Knowledge Bases"
         ],
@@ -10734,14 +10978,17 @@
           "201": {
             "$ref": "#/components/responses/knowledgeBaseArticle"
           }
-        }
+        },
+        "x-required-scopes": [
+          "knowledge_bases:write"
+        ]
       }
     },
     "/knowledge_bases/{knowledge_base_id}/locales/{locale}/categories": {
       "post": {
         "summary": "Create knowledge base category in specified locale",
         "operationId": "create-knowledge-base-category-in-specified-locale",
-        "description": "Creates a knowledge base category for a given locale.",
+        "description": "Creates a knowledge base category for a given locale.\n\nRequired scope: `knowledge_bases:write`",
         "tags": [
           "Knowledge Bases"
         ],
@@ -10783,14 +11030,17 @@
           "201": {
             "$ref": "#/components/responses/knowledgeBaseCategory"
           }
-        }
+        },
+        "x-required-scopes": [
+          "knowledge_bases:write"
+        ]
       }
     },
     "/knowledge_bases/{knowledge_base_id}/locales/{locale}/content": {
       "get": {
         "summary": "Get a knowledge base with content in specified locale",
         "operationId": "get-a-knowledge-base-with-content-in-specified-locale",
-        "description": "Fetches a knowledge base with its content for a given locale.",
+        "description": "Fetches a knowledge base with its content for a given locale.\n\nRequired scope: `knowledge_bases:read`",
         "tags": [
           "Knowledge Bases"
         ],
@@ -10820,12 +11070,15 @@
           "200": {
             "$ref": "#/components/responses/knowledgeBase"
           }
-        }
+        },
+        "x-required-scopes": [
+          "knowledge_bases:read"
+        ]
       },
       "patch": {
         "summary": "Update knowledge base in specified locale",
         "operationId": "update-knowledge-base-in-specified-locale",
-        "description": "Updates a knowledge base for a given locale. Will republish the knowledge base if the knowledge base is currently published.",
+        "description": "Updates a knowledge base for a given locale. Will republish the knowledge base if the knowledge base is currently published.\n\nRequired scope: `knowledge_bases:write`",
         "tags": [
           "Knowledge Bases"
         ],
@@ -10867,7 +11120,10 @@
           "200": {
             "$ref": "#/components/responses/knowledgeBase"
           }
-        }
+        },
+        "x-required-scopes": [
+          "knowledge_bases:write"
+        ]
       }
     },
     "/links": {
@@ -11615,7 +11871,7 @@
       "get": {
         "summary": "List rules",
         "operationId": "list-rules",
-        "description": "List the rules of the company.",
+        "description": "List the rules of the company.\n\nRequired scope: `rules:read`",
         "tags": [
           "Rules"
         ],
@@ -11623,14 +11879,17 @@
           "200": {
             "$ref": "#/components/responses/listOfRules"
           }
-        }
+        },
+        "x-required-scopes": [
+          "rules:read"
+        ]
       }
     },
     "/rules/{rule_id}": {
       "get": {
         "summary": "Get rule",
         "operationId": "get-rule",
-        "description": "Fetch a rule.",
+        "description": "Fetch a rule.\n\nRequired scope: `rules:read`",
         "tags": [
           "Rules"
         ],
@@ -11650,14 +11909,17 @@
           "200": {
             "$ref": "#/components/responses/rule"
           }
-        }
+        },
+        "x-required-scopes": [
+          "rules:read"
+        ]
       }
     },
     "/shifts": {
       "get": {
         "summary": "List Shifts",
         "operationId": "list-shifts",
-        "description": "List the shifts.",
+        "description": "List the shifts.\n\nRequired scope: `shifts:read`",
         "tags": [
           "Shifts"
         ],
@@ -11665,12 +11927,15 @@
           "200": {
             "$ref": "#/components/responses/listOfShifts"
           }
-        }
+        },
+        "x-required-scopes": [
+          "shifts:read"
+        ]
       },
       "post": {
         "summary": "Create shift",
         "operationId": "create-shift",
-        "description": "Create a shift in the oldest active workspace that the token has access to. If you need to specify the workspace, we recommend using the [Create team shift](https://dev.frontapp.com/reference/create-team-shift) endpoint instead.",
+        "description": "Create a shift in the oldest active workspace that the token has access to. If you need to specify the workspace, we recommend using the [Create team shift](https://dev.frontapp.com/reference/create-team-shift) endpoint instead.\n\nRequired scope: `shifts:write`",
         "tags": [
           "Shifts"
         ],
@@ -11688,14 +11953,17 @@
           "201": {
             "$ref": "#/components/responses/shift"
           }
-        }
+        },
+        "x-required-scopes": [
+          "shifts:write"
+        ]
       }
     },
     "/shifts/{shift_id}": {
       "get": {
         "summary": "Get shift",
         "operationId": "get-shift",
-        "description": "Fetch a shift.",
+        "description": "Fetch a shift.\n\nRequired scope: `shifts:read`",
         "tags": [
           "Shifts"
         ],
@@ -11715,12 +11983,15 @@
           "200": {
             "$ref": "#/components/responses/shift"
           }
-        }
+        },
+        "x-required-scopes": [
+          "shifts:read"
+        ]
       },
       "patch": {
         "summary": "Update shift",
         "operationId": "update-shift",
-        "description": "Update a shift.",
+        "description": "Update a shift.\n\nRequired scope: `shifts:write`",
         "tags": [
           "Shifts"
         ],
@@ -11750,14 +12021,17 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "shifts:write"
+        ]
       }
     },
     "/shifts/{shift_id}/teammates": {
       "get": {
         "summary": "List shift's teammates",
         "operationId": "list-shifts-teammates",
-        "description": "List the teammates assigned to a shift.",
+        "description": "List the teammates assigned to a shift.\n\nRequired scope: `teammates:read`",
         "tags": [
           "Shifts"
         ],
@@ -11777,12 +12051,15 @@
           "200": {
             "$ref": "#/components/responses/listOfTeammates"
           }
-        }
+        },
+        "x-required-scopes": [
+          "teammates:read"
+        ]
       },
       "post": {
         "summary": "Add teammates to shift",
         "operationId": "add-teammates-to-shift",
-        "description": "Add teammates to a shift. The selected teammates must be in the team that owns the shift.",
+        "description": "Add teammates to a shift. The selected teammates must be in the team that owns the shift.\n\nRequired scope: `shifts:write`",
         "tags": [
           "Shifts"
         ],
@@ -11812,12 +12089,15 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "shifts:write"
+        ]
       },
       "delete": {
         "summary": "Remove teammates from shift",
         "operationId": "remove-teammates-from-shift",
-        "description": "Remove teammates from a shift.",
+        "description": "Remove teammates from a shift.\n\nRequired scope: `shifts:write`",
         "tags": [
           "Shifts"
         ],
@@ -11847,7 +12127,10 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "shifts:write"
+        ]
       }
     },
     "/signatures/{signature_id}": {
@@ -11941,7 +12224,7 @@
       "get": {
         "summary": "List tags",
         "operationId": "list-tags",
-        "description": "List all the tags of the company that the API token has access to, whether they be company tags, team tags, or teammate tags.",
+        "description": "List all the tags of the company that the API token has access to, whether they be company tags, team tags, or teammate tags.\n\nRequired scope: `tags:read`",
         "tags": [
           "Tags"
         ],
@@ -11963,12 +12246,15 @@
           "200": {
             "$ref": "#/components/responses/listOfTags"
           }
-        }
+        },
+        "x-required-scopes": [
+          "tags:read"
+        ]
       },
       "post": {
         "summary": "Create tag",
         "operationId": "create-tag",
-        "description": "Create a tag in the oldest team (workspace). This is a legacy endpoint. Use the Create company tag, Create team tag, or Create teammate tag endpoints instead.",
+        "description": "Create a tag in the oldest team (workspace). This is a legacy endpoint. Use the Create company tag, Create team tag, or Create teammate tag endpoints instead.\n\nRequired scope: `tags:write`",
         "tags": [
           "Tags"
         ],
@@ -11986,14 +12272,17 @@
           "201": {
             "$ref": "#/components/responses/tag"
           }
-        }
+        },
+        "x-required-scopes": [
+          "tags:write"
+        ]
       }
     },
     "/tags/{tag_id}": {
       "get": {
         "summary": "Get tag",
         "operationId": "get-tag",
-        "description": "Fetch a tag.",
+        "description": "Fetch a tag.\n\nRequired scope: `tags:read`",
         "tags": [
           "Tags"
         ],
@@ -12013,12 +12302,15 @@
           "200": {
             "$ref": "#/components/responses/tag"
           }
-        }
+        },
+        "x-required-scopes": [
+          "tags:read"
+        ]
       },
       "patch": {
         "summary": "Update a tag",
         "operationId": "update-a-tag",
-        "description": "Update a tag.",
+        "description": "Update a tag.\n\nRequired scope: `tags:write`",
         "tags": [
           "Tags"
         ],
@@ -12048,12 +12340,15 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "tags:write"
+        ]
       },
       "delete": {
         "summary": "Delete tag",
         "operationId": "delete-tag",
-        "description": "Delete a tag.",
+        "description": "Delete a tag.\n\nRequired scope: `tags:delete`",
         "tags": [
           "Tags"
         ],
@@ -12073,14 +12368,17 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "tags:delete"
+        ]
       }
     },
     "/tags/{tag_id}/children": {
       "get": {
         "summary": "List tag children",
         "operationId": "list-tag-children",
-        "description": "List the children of a specific tag.",
+        "description": "List the children of a specific tag.\n\nRequired scope: `tags:read`",
         "tags": [
           "Tags"
         ],
@@ -12100,12 +12398,15 @@
           "200": {
             "$ref": "#/components/responses/listOfTags"
           }
-        }
+        },
+        "x-required-scopes": [
+          "tags:read"
+        ]
       },
       "post": {
         "summary": "Create child tag",
         "operationId": "create-child-tag",
-        "description": "Creates a child tag.",
+        "description": "Creates a child tag.\n\nRequired scope: `tags:write`",
         "tags": [
           "Tags"
         ],
@@ -12135,14 +12436,17 @@
           "201": {
             "$ref": "#/components/responses/tag"
           }
-        }
+        },
+        "x-required-scopes": [
+          "tags:write"
+        ]
       }
     },
     "/tags/{tag_id}/conversations": {
       "get": {
         "summary": "List tagged conversations",
         "operationId": "list-tagged-conversations",
-        "description": "List the conversations tagged with a tag. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n",
+        "description": "List the conversations tagged with a tag. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n\n\nRequired scope: `conversations:read`",
         "tags": [
           "Tags"
         ],
@@ -12171,7 +12475,10 @@
           "200": {
             "$ref": "#/components/responses/listOfConversations"
           }
-        }
+        },
+        "x-required-scopes": [
+          "conversations:read"
+        ]
       }
     },
     "/teammate_groups": {
@@ -12711,7 +13018,7 @@
         "deprecated": true,
         "summary": "List teammate groups",
         "operationId": "list-teammate-groups",
-        "description": "List the contact groups belonging to the requested teammate.\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `GET /teammates/{teammate_id}/contact_lists`.\n",
+        "description": "List the contact groups belonging to the requested teammate.\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `GET /teammates/{teammate_id}/contact_lists`.\n\n\nRequired scope: `contacts:read`",
         "tags": [
           "Contact Groups"
         ],
@@ -12731,13 +13038,16 @@
           "200": {
             "$ref": "#/components/responses/listOfContactLists"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:read"
+        ]
       },
       "post": {
         "deprecated": true,
         "summary": "Create teammate group",
         "operationId": "create-teammate-group",
-        "description": "Create a new contact group for the requested teammate.\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `POST /teammates/{teammate_id}/contact_lists`.\n",
+        "description": "Create a new contact group for the requested teammate.\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `POST /teammates/{teammate_id}/contact_lists`.\n\n\nRequired scope: `contacts:write`",
         "tags": [
           "Contact Groups"
         ],
@@ -12766,14 +13076,17 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:write"
+        ]
       }
     },
     "/teammates/{teammate_id}/contact_lists": {
       "get": {
         "summary": "List teammate contact lists",
         "operationId": "list-teammate-contact-lists",
-        "description": "List the contact lists belonging to the requested teammate.",
+        "description": "List the contact lists belonging to the requested teammate.\n\nRequired scope: `contacts:read`",
         "tags": [
           "Contact Lists"
         ],
@@ -12793,12 +13106,15 @@
           "200": {
             "$ref": "#/components/responses/listOfContactLists"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:read"
+        ]
       },
       "post": {
         "summary": "Create teammate contact list",
         "operationId": "create-teammate-contact-list",
-        "description": "Create a new contact list for the requested teammate.",
+        "description": "Create a new contact list for the requested teammate.\n\nRequired scope: `contacts:write`",
         "tags": [
           "Contact Lists"
         ],
@@ -12827,14 +13143,17 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:write"
+        ]
       }
     },
     "/teammates/{teammate_id}/contacts": {
       "get": {
         "summary": "List teammate contacts",
         "operationId": "list-teammate-contacts",
-        "description": "List the contacts of a teammate.",
+        "description": "List the contacts of a teammate.\n\nRequired scope: `contacts:read`",
         "tags": [
           "Contacts"
         ],
@@ -12869,12 +13188,15 @@
           "200": {
             "$ref": "#/components/responses/listOfContacts"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:read"
+        ]
       },
       "post": {
         "summary": "Create teammate contact",
         "operationId": "create-teammate-contact",
-        "description": "Create a contact for a teammate.",
+        "description": "Create a contact for a teammate.\n\nRequired scope: `contacts:write`",
         "tags": [
           "Contacts"
         ],
@@ -12903,7 +13225,10 @@
           "201": {
             "$ref": "#/components/responses/contact"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:write"
+        ]
       }
     },
     "/teammates/{teammate_id}/conversations": {
@@ -13110,7 +13435,7 @@
       "get": {
         "summary": "List teammate rules",
         "operationId": "list-teammate-rules",
-        "description": "List the rules of a teammate.",
+        "description": "List the rules of a teammate.\n\nRequired scope: `rules:read`",
         "tags": [
           "Rules"
         ],
@@ -13130,14 +13455,17 @@
           "200": {
             "$ref": "#/components/responses/listOfRules"
           }
-        }
+        },
+        "x-required-scopes": [
+          "rules:read"
+        ]
       }
     },
     "/teammates/{teammate_id}/shifts": {
       "get": {
         "summary": "List Teammate Shifts",
         "operationId": "list-teammate-shifts",
-        "description": "Lists all the shifts for the teammate.",
+        "description": "Lists all the shifts for the teammate.\n\nRequired scope: `shifts:read`",
         "tags": [
           "Shifts"
         ],
@@ -13157,7 +13485,10 @@
           "200": {
             "$ref": "#/components/responses/listOfShifts"
           }
-        }
+        },
+        "x-required-scopes": [
+          "shifts:read"
+        ]
       }
     },
     "/teammates/{teammate_id}/signatures": {
@@ -13226,7 +13557,7 @@
       "get": {
         "summary": "List teammate tags",
         "operationId": "list-teammate-tags",
-        "description": "List the tags for a teammate.",
+        "description": "List the tags for a teammate.\n\nRequired scope: `tags:read`",
         "tags": [
           "Tags"
         ],
@@ -13258,12 +13589,15 @@
           "200": {
             "$ref": "#/components/responses/listOfTags"
           }
-        }
+        },
+        "x-required-scopes": [
+          "tags:read"
+        ]
       },
       "post": {
         "summary": "Create teammate tag",
         "operationId": "create-teammate-tag",
-        "description": "Create a tag for a teammate.",
+        "description": "Create a tag for a teammate.\n\nRequired scope: `tags:write`",
         "tags": [
           "Tags"
         ],
@@ -13293,14 +13627,17 @@
           "201": {
             "$ref": "#/components/responses/tag"
           }
-        }
+        },
+        "x-required-scopes": [
+          "tags:write"
+        ]
       }
     },
     "/teams": {
       "get": {
         "summary": "List teams",
         "operationId": "list-teams",
-        "description": "List the teams (workspaces) in the company.",
+        "description": "List the teams (workspaces) in the company.\n\nRequired scope: `teams:read`",
         "tags": [
           "Teams"
         ],
@@ -13308,14 +13645,17 @@
           "200": {
             "$ref": "#/components/responses/listOfTeams"
           }
-        }
+        },
+        "x-required-scopes": [
+          "teams:read"
+        ]
       }
     },
     "/teams/{team_id}": {
       "get": {
         "summary": "Get team",
         "operationId": "get-team",
-        "description": "Fetch a team (workspace).",
+        "description": "Fetch a team (workspace).\n\nRequired scope: `teams:read`",
         "tags": [
           "Teams"
         ],
@@ -13335,7 +13675,10 @@
           "200": {
             "$ref": "#/components/responses/team"
           }
-        }
+        },
+        "x-required-scopes": [
+          "teams:read"
+        ]
       }
     },
     "/teams/{team_id}/channels": {
@@ -13370,7 +13713,7 @@
         "deprecated": true,
         "summary": "List team groups",
         "operationId": "list-team-groups",
-        "description": "List contact groups belonging to the requested team (workspace).\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `GET /teams/{team_id}/contact_lists`.\n",
+        "description": "List contact groups belonging to the requested team (workspace).\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `GET /teams/{team_id}/contact_lists`.\n\n\nRequired scope: `contacts:read`",
         "tags": [
           "Contact Groups"
         ],
@@ -13390,13 +13733,16 @@
           "200": {
             "$ref": "#/components/responses/listOfContactLists"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:read"
+        ]
       },
       "post": {
         "deprecated": true,
         "summary": "Create team group",
         "operationId": "create-team-group",
-        "description": "Create a new contact group for the requested team (workspace).\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `POST /teams/{team_id}/contact_lists`.\n",
+        "description": "Create a new contact group for the requested team (workspace).\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the compatible contact list endpoints instead.\n> - `POST /teams/{team_id}/contact_lists`.\n\n\nRequired scope: `contacts:write`",
         "tags": [
           "Contact Groups"
         ],
@@ -13425,14 +13771,17 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:write"
+        ]
       }
     },
     "/teams/{team_id}/contact_lists": {
       "get": {
         "summary": "List team contact lists",
         "operationId": "list-team-contact-lists",
-        "description": "List contact lists belonging to the requested team (workspace).",
+        "description": "List contact lists belonging to the requested team (workspace).\n\nRequired scope: `contacts:read`",
         "tags": [
           "Contact Lists"
         ],
@@ -13452,12 +13801,15 @@
           "200": {
             "$ref": "#/components/responses/listOfContactLists"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:read"
+        ]
       },
       "post": {
         "summary": "Create team contact list",
         "operationId": "create-team-contact-list",
-        "description": "Create a new contact list for the requested team (workspace).",
+        "description": "Create a new contact list for the requested team (workspace).\n\nRequired scope: `contacts:write`",
         "tags": [
           "Contact Lists"
         ],
@@ -13486,14 +13838,17 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:write"
+        ]
       }
     },
     "/teams/{team_id}/contacts": {
       "get": {
         "summary": "List team contacts",
         "operationId": "list-team-contacts",
-        "description": "List the contacts of a team (workspace).",
+        "description": "List the contacts of a team (workspace).\n\nRequired scope: `contacts:read`",
         "tags": [
           "Contacts"
         ],
@@ -13528,12 +13883,15 @@
           "200": {
             "$ref": "#/components/responses/listOfContacts"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:read"
+        ]
       },
       "post": {
         "summary": "Create team contact",
         "operationId": "create-team-contact",
-        "description": "Create a contact for a team (workspace).",
+        "description": "Create a contact for a team (workspace).\n\nRequired scope: `contacts:write`",
         "tags": [
           "Contacts"
         ],
@@ -13562,14 +13920,17 @@
           "201": {
             "$ref": "#/components/responses/contact"
           }
-        }
+        },
+        "x-required-scopes": [
+          "contacts:write"
+        ]
       }
     },
     "/teams/{team_id}/inboxes": {
       "get": {
         "summary": "List team inboxes",
         "operationId": "list-team-inboxes",
-        "description": "List the inboxes belonging to a team (workspace).",
+        "description": "List the inboxes belonging to a team (workspace).\n\nRequired scope: `inboxes:read`",
         "tags": [
           "Inboxes"
         ],
@@ -13589,12 +13950,15 @@
           "200": {
             "$ref": "#/components/responses/listOfInboxes"
           }
-        }
+        },
+        "x-required-scopes": [
+          "inboxes:read"
+        ]
       },
       "post": {
         "summary": "Create team inbox",
         "operationId": "create-team-inbox",
-        "description": "Create an inbox for a team (workspace).",
+        "description": "Create an inbox for a team (workspace).\n\nRequired scope: `inboxes:write`",
         "tags": [
           "Inboxes"
         ],
@@ -13624,7 +13988,10 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "inboxes:write"
+        ]
       }
     },
     "/teams/{team_id}/message_template_folders": {
@@ -13767,7 +14134,7 @@
       "get": {
         "summary": "List team rules",
         "operationId": "list-team-rules",
-        "description": "List the rules of a team (workspace).",
+        "description": "List the rules of a team (workspace).\n\nRequired scope: `rules:read`",
         "tags": [
           "Rules"
         ],
@@ -13787,14 +14154,17 @@
           "200": {
             "$ref": "#/components/responses/listOfRules"
           }
-        }
+        },
+        "x-required-scopes": [
+          "rules:read"
+        ]
       }
     },
     "/teams/{team_id}/shifts": {
       "get": {
         "summary": "List team Shifts",
         "operationId": "list-team-shifts",
-        "description": "List the shifts for a team (workspace).",
+        "description": "List the shifts for a team (workspace).\n\nRequired scope: `shifts:read`",
         "tags": [
           "Shifts"
         ],
@@ -13814,12 +14184,15 @@
           "200": {
             "$ref": "#/components/responses/listOfShifts"
           }
-        }
+        },
+        "x-required-scopes": [
+          "shifts:read"
+        ]
       },
       "post": {
         "summary": "Create team shift",
         "operationId": "create-team-shift",
-        "description": "Create a shift for a team (workspace).",
+        "description": "Create a shift for a team (workspace).\n\nRequired scope: `shifts:write`",
         "tags": [
           "Shifts"
         ],
@@ -13849,7 +14222,10 @@
           "201": {
             "$ref": "#/components/responses/shift"
           }
-        }
+        },
+        "x-required-scopes": [
+          "shifts:write"
+        ]
       }
     },
     "/teams/{team_id}/signatures": {
@@ -13918,7 +14294,7 @@
       "get": {
         "summary": "List team tags",
         "operationId": "list-team-tags",
-        "description": "List the tags for a team (workspace).",
+        "description": "List the tags for a team (workspace).\n\nRequired scope: `tags:read`",
         "tags": [
           "Tags"
         ],
@@ -13950,12 +14326,15 @@
           "200": {
             "$ref": "#/components/responses/listOfTags"
           }
-        }
+        },
+        "x-required-scopes": [
+          "tags:read"
+        ]
       },
       "post": {
         "summary": "Create team tag",
         "operationId": "create-team-tag",
-        "description": "Create a tag for a team (workspace).",
+        "description": "Create a tag for a team (workspace).\n\nRequired scope: `tags:write`",
         "tags": [
           "Tags"
         ],
@@ -13985,14 +14364,17 @@
           "201": {
             "$ref": "#/components/responses/tag"
           }
-        }
+        },
+        "x-required-scopes": [
+          "tags:write"
+        ]
       }
     },
     "/teams/{team_id}/teammates": {
       "post": {
         "summary": "Add teammates to team",
         "operationId": "add-teammates-to-team",
-        "description": "Add one or more teammates to a team (workspace).",
+        "description": "Add one or more teammates to a team (workspace).\n\nRequired scope: `teams:write`",
         "tags": [
           "Teams"
         ],
@@ -14022,12 +14404,15 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "teams:write"
+        ]
       },
       "delete": {
         "summary": "Remove teammates from team",
         "operationId": "remove-teammates-from-team",
-        "description": "Remove one or more teammates from a team (workspace).",
+        "description": "Remove one or more teammates from a team (workspace).\n\nRequired scope: `teams:write`",
         "tags": [
           "Teams"
         ],
@@ -14057,7 +14442,10 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "teams:write"
+        ]
       }
     },
     "/teams/{team_id}/views": {

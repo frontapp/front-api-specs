@@ -7073,7 +7073,7 @@
       "get": {
         "summary": "List Account's custom fields",
         "operationId": "list-account-custom-fields",
-        "description": "Lists the custom fields that can be attached to an Account.",
+        "description": "Lists the custom fields that can be attached to an Account.\n\nRequired scope: `custom_fields:read`",
         "tags": [
           "Custom Fields"
         ],
@@ -7081,7 +7081,10 @@
           "200": {
             "$ref": "#/components/responses/listOfCustomFields"
           }
-        }
+        },
+        "x-required-scopes": [
+          "custom_fields:read"
+        ]
       }
     },
     "/accounts/{account_id}": {
@@ -7441,7 +7444,7 @@
       "post": {
         "summary": "Trigger application event",
         "operationId": "trigger-app-event",
-        "description": "Triggers an event on behalf of an application. These events can trigger Front workflows, like rules.\nFor more information, see the [developer docs](https://dev.frontapp.com/docs/application-triggers#/).\n",
+        "description": "Triggers an event on behalf of an application. These events can trigger Front workflows, like rules.\nFor more information, see the [developer docs](https://dev.frontapp.com/docs/application-triggers#/).\n\n\nRequired scope: `feature:app_trigger`",
         "tags": [
           "Applications"
         ],
@@ -7469,14 +7472,17 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "feature:app_trigger"
+        ]
       }
     },
     "/channels": {
       "get": {
         "summary": "List channels",
         "operationId": "list-channels",
-        "description": "List the channels of the company.",
+        "description": "List the channels of the company.\n\nRequired scope: `channels:read`",
         "tags": [
           "Channels"
         ],
@@ -7484,14 +7490,17 @@
           "200": {
             "$ref": "#/components/responses/listOfChannels"
           }
-        }
+        },
+        "x-required-scopes": [
+          "channels:read"
+        ]
       }
     },
     "/channels/{channel_id}": {
       "get": {
         "summary": "Get channel",
         "operationId": "get-channel",
-        "description": "Fetch a channel.",
+        "description": "Fetch a channel.\n\nRequired scope: `channels:read`",
         "tags": [
           "Channels"
         ],
@@ -7511,12 +7520,15 @@
           "200": {
             "$ref": "#/components/responses/channel"
           }
-        }
+        },
+        "x-required-scopes": [
+          "channels:read"
+        ]
       },
       "patch": {
         "summary": "Update Channel",
         "operationId": "update-channel",
-        "description": "Update a channel.",
+        "description": "Update a channel.\n\nRequired scope: `channels:write`",
         "tags": [
           "Channels"
         ],
@@ -7546,14 +7558,17 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "channels:write"
+        ]
       }
     },
     "/channels/{channel_id}/drafts": {
       "post": {
         "summary": "Create draft",
         "operationId": "create-draft",
-        "description": "Create a draft message which is the first message of a new [conversation](https://dev.frontapp.com/reference/conversations).",
+        "description": "Create a draft message which is the first message of a new [conversation](https://dev.frontapp.com/reference/conversations).\n\nRequired scope: `drafts:write`",
         "tags": [
           "Drafts"
         ],
@@ -7582,14 +7597,17 @@
           "200": {
             "$ref": "#/components/responses/message"
           }
-        }
+        },
+        "x-required-scopes": [
+          "drafts:write"
+        ]
       }
     },
     "/channels/{channel_id}/incoming_messages": {
       "post": {
         "summary": "Receive custom messages",
         "operationId": "receive-custom-messages",
-        "description": "Receive a custom message in Front. This endpoint is available for custom channels **ONLY**.",
+        "description": "Receive a custom message in Front. This endpoint is available for custom channels **ONLY**.\n\nRequired scope: `messages:write`",
         "tags": [
           "Messages"
         ],
@@ -7618,14 +7636,17 @@
           "202": {
             "$ref": "#/components/responses/acceptedMessage"
           }
-        }
+        },
+        "x-required-scopes": [
+          "messages:write"
+        ]
       }
     },
     "/channels/{channel_id}/messages": {
       "post": {
         "summary": "Create message",
         "operationId": "create-message",
-        "description": "Send a new message from a channel. This is one of the ways to create a new [conversation](https://dev.frontapp.com/reference/conversations#creating-a-new-conversation). The new conversation will support both messages and comments (discussions).",
+        "description": "Send a new message from a channel. This is one of the ways to create a new [conversation](https://dev.frontapp.com/reference/conversations#creating-a-new-conversation). The new conversation will support both messages and comments (discussions).\n\nRequired scope: `messages:send`",
         "tags": [
           "Messages"
         ],
@@ -7654,14 +7675,17 @@
           "202": {
             "$ref": "#/components/responses/acceptedMessage"
           }
-        }
+        },
+        "x-required-scopes": [
+          "messages:send"
+        ]
       }
     },
     "/channels/{channel_id}/validate": {
       "post": {
         "summary": "Validate channel",
         "operationId": "validate-channel",
-        "description": "Asynchronously validate an SMTP channel (this endpoint is irrelevant to other channel types). When you create an SMTP channel via the API, [create a channel](https://dev.frontapp.com/reference/post_inboxes-inbox-id-channels) with type smtp and the send_as set to the needed email address. You then [configure the email provider](https://help.front.com/en/articles/2081), after which you use this endpoint to asynchronously validate the SMTP settings.",
+        "description": "Asynchronously validate an SMTP channel (this endpoint is irrelevant to other channel types). When you create an SMTP channel via the API, [create a channel](https://dev.frontapp.com/reference/post_inboxes-inbox-id-channels) with type smtp and the send_as set to the needed email address. You then [configure the email provider](https://help.front.com/en/articles/2081), after which you use this endpoint to asynchronously validate the SMTP settings.\n\nRequired scope: `channels:write`",
         "tags": [
           "Channels"
         ],
@@ -7681,14 +7705,17 @@
           "202": {
             "$ref": "#/components/responses/accepted"
           }
-        }
+        },
+        "x-required-scopes": [
+          "channels:write"
+        ]
       }
     },
     "/comments/{comment_id}": {
       "get": {
         "summary": "Get comment",
         "operationId": "get-comment",
-        "description": "Fetches a comment.",
+        "description": "Fetches a comment.\n\nRequired scope: `comments:read`",
         "tags": [
           "Comments"
         ],
@@ -7708,14 +7735,17 @@
           "200": {
             "$ref": "#/components/responses/comment"
           }
-        }
+        },
+        "x-required-scopes": [
+          "comments:read"
+        ]
       }
     },
     "/comments/{comment_id}/": {
       "patch": {
         "summary": "Update comment",
         "operationId": "update-comment",
-        "description": "Update a comment in a [conversation](https://dev.frontapp.com/reference/conversations).",
+        "description": "Update a comment in a [conversation](https://dev.frontapp.com/reference/conversations).\n\nRequired scope: `comments:write`",
         "tags": [
           "Comments"
         ],
@@ -7744,14 +7774,17 @@
           "200": {
             "$ref": "#/components/responses/comment"
           }
-        }
+        },
+        "x-required-scopes": [
+          "comments:write"
+        ]
       }
     },
     "/comments/{comment_id}/download/{attachment_link_id}": {
       "get": {
         "summary": "Download attachment for a comment",
         "operationId": "download-attachment-for-a-comment",
-        "description": "Download an attachment file for a given comment ID",
+        "description": "Download an attachment file for a given comment ID\n\nRequired scope: `attachments:read`",
         "tags": [
           "Attachments"
         ],
@@ -7781,14 +7814,17 @@
           "200": {
             "$ref": "#/components/responses/attachment"
           }
-        }
+        },
+        "x-required-scopes": [
+          "attachments:read"
+        ]
       }
     },
     "/comments/{comment_id}/mentions": {
       "get": {
         "summary": "List comment mentions",
         "operationId": "list-comment-mentions",
-        "description": "List the teammates mentioned in a comment.",
+        "description": "List the teammates mentioned in a comment.\n\nRequired scope: `teammates:read`",
         "tags": [
           "Comments"
         ],
@@ -7808,14 +7844,17 @@
           "200": {
             "$ref": "#/components/responses/listOfTeammates"
           }
-        }
+        },
+        "x-required-scopes": [
+          "teammates:read"
+        ]
       }
     },
     "/comments/{comment_id}/replies": {
       "post": {
         "summary": "Add comment reply",
         "operationId": "add-comment-reply",
-        "description": "Add a reply to a comment on a [conversation](https://dev.frontapp.com/reference/conversations). Comment replies visually indicate which comment is being responded to, helping users follow the conversation.",
+        "description": "Add a reply to a comment on a [conversation](https://dev.frontapp.com/reference/conversations). Comment replies visually indicate which comment is being responded to, helping users follow the conversation.\n\nRequired scope: `comments:write`",
         "tags": [
           "Comments"
         ],
@@ -7844,7 +7883,10 @@
           "201": {
             "$ref": "#/components/responses/comment"
           }
-        }
+        },
+        "x-required-scopes": [
+          "comments:write"
+        ]
       }
     },
     "/company/rules": {
@@ -7869,7 +7911,7 @@
       "get": {
         "summary": "List company ticket statuses",
         "operationId": "list-company-ticket-statuses",
-        "description": "List the ticket statuses available for your company.",
+        "description": "List the ticket statuses available for your company.\n\nRequired scope: `statuses:read`",
         "tags": [
           "Statuses"
         ],
@@ -7880,14 +7922,17 @@
           "404": {
             "description": "Ticketing is not enabled, therefore, there are no ticket statuses."
           }
-        }
+        },
+        "x-required-scopes": [
+          "statuses:read"
+        ]
       }
     },
     "/company/statuses/{status_id}": {
       "get": {
         "summary": "Get ticket status",
         "operationId": "get-ticket-status-by-id",
-        "description": "Fetch a ticket status.",
+        "description": "Fetch a ticket status.\n\nRequired scope: `statuses:read`",
         "tags": [
           "Statuses"
         ],
@@ -7907,7 +7952,10 @@
           "200": {
             "$ref": "#/components/responses/status"
           }
-        }
+        },
+        "x-required-scopes": [
+          "statuses:read"
+        ]
       }
     },
     "/company/tags": {
@@ -8403,7 +8451,7 @@
       "get": {
         "summary": "List Contact's custom fields",
         "operationId": "list-contact-custom-fields",
-        "description": "Lists the custom fields that can be attached to a Contact.",
+        "description": "Lists the custom fields that can be attached to a Contact.\n\nRequired scope: `custom_fields:read`",
         "tags": [
           "Custom Fields"
         ],
@@ -8411,7 +8459,10 @@
           "200": {
             "$ref": "#/components/responses/listOfCustomFields"
           }
-        }
+        },
+        "x-required-scopes": [
+          "custom_fields:read"
+        ]
       }
     },
     "/contacts/merge": {
@@ -8722,7 +8773,7 @@
       "get": {
         "summary": "List conversations",
         "operationId": "list-conversations",
-        "description": "List the conversations in the company in reverse chronological order (most recently updated first). The order will respect your company's [bump settings](https://help.front.com/t/y729th/customize-when-conversations-bump-up), which determine when conversations bump to the top. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n",
+        "description": "List the conversations in the company in reverse chronological order (most recently updated first). The order will respect your company's [bump settings](https://help.front.com/t/y729th/customize-when-conversations-bump-up), which determine when conversations bump to the top. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n\n\nRequired scope: `conversations:read`",
         "tags": [
           "Conversations"
         ],
@@ -8747,12 +8798,15 @@
           "200": {
             "$ref": "#/components/responses/listOfConversations"
           }
-        }
+        },
+        "x-required-scopes": [
+          "conversations:read"
+        ]
       },
       "post": {
         "summary": "Create discussion conversation",
         "operationId": "create-conversation",
-        "description": "Create a new [conversation](https://dev.frontapp.com/reference/conversations#creating-a-new-conversation) that only supports comments (known as discussions in Front). If you want to create a conversation that supports messages, use the [Create message](https://dev.frontapp.com/reference/post_channels-channel-id-messages) endpoint. If you want to add a comment to an existing conversation, use the [Add comment](https://dev.frontapp.com/reference/post_conversations-conversation-id-comments) endpoint.",
+        "description": "Create a new [conversation](https://dev.frontapp.com/reference/conversations#creating-a-new-conversation) that only supports comments (known as discussions in Front). If you want to create a conversation that supports messages, use the [Create message](https://dev.frontapp.com/reference/post_channels-channel-id-messages) endpoint. If you want to add a comment to an existing conversation, use the [Add comment](https://dev.frontapp.com/reference/post_conversations-conversation-id-comments) endpoint.\n\nRequired scope: `conversations:write`",
         "tags": [
           "Conversations"
         ],
@@ -8769,14 +8823,17 @@
           "201": {
             "$ref": "#/components/responses/conversation"
           }
-        }
+        },
+        "x-required-scopes": [
+          "conversations:write"
+        ]
       }
     },
     "/conversations/custom_fields": {
       "get": {
         "summary": "List Conversation's custom fields",
         "operationId": "list-conversation-custom-fields",
-        "description": "Lists the custom fields that can be attached to a Conversation.",
+        "description": "Lists the custom fields that can be attached to a Conversation.\n\nRequired scope: `custom_fields:read`",
         "tags": [
           "Custom Fields"
         ],
@@ -8784,14 +8841,17 @@
           "200": {
             "$ref": "#/components/responses/listOfCustomFields"
           }
-        }
+        },
+        "x-required-scopes": [
+          "custom_fields:read"
+        ]
       }
     },
     "/conversations/search/{query}": {
       "get": {
         "summary": "Search conversations",
         "operationId": "search-conversations",
-        "description": "Search for conversations. Response will include a count of total matches and an array of conversations in descending order by last activity.\nSee the [search syntax documentation](https://dev.frontapp.com/docs/search-1) for usage examples.\n**Note:** This endpoint is subject to [proportional rate limiting](https://dev.frontapp.com/docs/rate-limiting#additional-proportional-limiting) at 40% of your company's rate limit.\n",
+        "description": "Search for conversations. Response will include a count of total matches and an array of conversations in descending order by last activity.\nSee the [search syntax documentation](https://dev.frontapp.com/docs/search-1) for usage examples.\n**Note:** This endpoint is subject to [proportional rate limiting](https://dev.frontapp.com/docs/rate-limiting#additional-proportional-limiting) at 40% of your company's rate limit.\n\n\nRequired scope: `conversations:read`",
         "tags": [
           "Conversations"
         ],
@@ -8817,14 +8877,17 @@
           "200": {
             "$ref": "#/components/responses/listOfConversationSearchResults"
           }
-        }
+        },
+        "x-required-scopes": [
+          "conversations:read"
+        ]
       }
     },
     "/conversations/{conversation_id}": {
       "get": {
         "summary": "Get conversation",
         "operationId": "get-conversation-by-id",
-        "description": "Fetch a conversation.\n",
+        "description": "Fetch a conversation.\n\n\nRequired scope: `conversations:read`",
         "tags": [
           "Conversations"
         ],
@@ -8847,12 +8910,15 @@
           "301": {
             "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
-        }
+        },
+        "x-required-scopes": [
+          "conversations:read"
+        ]
       },
       "patch": {
         "summary": "Update conversation",
         "operationId": "update-conversation",
-        "description": "Update a conversation.",
+        "description": "Update a conversation.\n\nRequired scope: `conversations:write`",
         "tags": [
           "Conversations"
         ],
@@ -8887,7 +8953,10 @@
           "400": {
             "description": "Invalid input, such as invalid custom fields"
           }
-        }
+        },
+        "x-required-scopes": [
+          "conversations:write"
+        ]
       },
       "delete": {
         "summary": "Delete conversation",
@@ -8931,7 +9000,7 @@
       "put": {
         "summary": "Update conversation assignee",
         "operationId": "update-conversation-assignee",
-        "description": "Assign or unassign a conversation.",
+        "description": "Assign or unassign a conversation.\n\nRequired scope: `conversations:write`",
         "tags": [
           "Conversations"
         ],
@@ -8963,14 +9032,17 @@
           "301": {
             "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
-        }
+        },
+        "x-required-scopes": [
+          "conversations:write"
+        ]
       }
     },
     "/conversations/{conversation_id}/comments": {
       "get": {
         "summary": "List conversation comments",
         "operationId": "list-conversation-comments",
-        "description": "List the comments in a conversation in reverse chronological order (newest first).",
+        "description": "List the comments in a conversation in reverse chronological order (newest first).\n\nRequired scope: `comments:read`",
         "tags": [
           "Comments"
         ],
@@ -8993,12 +9065,15 @@
           "301": {
             "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
-        }
+        },
+        "x-required-scopes": [
+          "comments:read"
+        ]
       },
       "post": {
         "summary": "Add comment",
         "operationId": "add-comment",
-        "description": "Add a comment to a [conversation](https://dev.frontapp.com/reference/conversations). If you want to create a new comment-only conversation, use the [Create discussion conversation](https://dev.frontapp.com/reference/create-conversation) endpoint.",
+        "description": "Add a comment to a [conversation](https://dev.frontapp.com/reference/conversations). If you want to create a new comment-only conversation, use the [Create discussion conversation](https://dev.frontapp.com/reference/create-conversation) endpoint.\n\nRequired scope: `comments:write`",
         "tags": [
           "Comments"
         ],
@@ -9030,14 +9105,17 @@
           "301": {
             "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
-        }
+        },
+        "x-required-scopes": [
+          "comments:write"
+        ]
       }
     },
     "/conversations/{conversation_id}/drafts": {
       "get": {
         "summary": "List conversation drafts",
         "operationId": "list-conversation-drafts",
-        "description": "List the drafts in a conversation.",
+        "description": "List the drafts in a conversation.\n\nRequired scope: `drafts:read`",
         "tags": [
           "Drafts"
         ],
@@ -9060,12 +9138,15 @@
           "301": {
             "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
-        }
+        },
+        "x-required-scopes": [
+          "drafts:read"
+        ]
       },
       "post": {
         "summary": "Create draft reply",
         "operationId": "create-draft-reply",
-        "description": "Create a new draft as a reply to the last message in the conversation.",
+        "description": "Create a new draft as a reply to the last message in the conversation.\n\nRequired scope: `drafts:write`",
         "tags": [
           "Drafts"
         ],
@@ -9097,14 +9178,17 @@
           "301": {
             "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
-        }
+        },
+        "x-required-scopes": [
+          "drafts:write"
+        ]
       }
     },
     "/conversations/{conversation_id}/events": {
       "get": {
         "summary": "List conversation events",
         "operationId": "list-conversation-events",
-        "description": "List the events that occured for a conversation in reverse chronological order (newest first). The order will respect your company's [bump settings](https://help.front.com/t/y729th/customize-when-conversations-bump-up), which determine when conversations bump to the top.",
+        "description": "List the events that occured for a conversation in reverse chronological order (newest first). The order will respect your company's [bump settings](https://help.front.com/t/y729th/customize-when-conversations-bump-up), which determine when conversations bump to the top.\n\nRequired scope: `events:*:read`",
         "tags": [
           "Conversations"
         ],
@@ -9133,14 +9217,17 @@
           "301": {
             "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
-        }
+        },
+        "x-required-scopes": [
+          "events:*:read"
+        ]
       }
     },
     "/conversations/{conversation_id}/followers": {
       "get": {
         "summary": "List conversation followers",
         "operationId": "list-conversation-followers",
-        "description": "List the teammates following a conversation.",
+        "description": "List the teammates following a conversation.\n\nRequired scope: `teammates:read`",
         "tags": [
           "Conversations"
         ],
@@ -9163,12 +9250,15 @@
           "301": {
             "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
-        }
+        },
+        "x-required-scopes": [
+          "teammates:read"
+        ]
       },
       "post": {
         "summary": "Add conversation followers",
         "operationId": "add-conversation-followers",
-        "description": "Adds teammates to the list of followers of a conversation.",
+        "description": "Adds teammates to the list of followers of a conversation.\n\nRequired scope: `conversations:write`",
         "tags": [
           "Conversations"
         ],
@@ -9222,12 +9312,15 @@
           "301": {
             "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
-        }
+        },
+        "x-required-scopes": [
+          "conversations:write"
+        ]
       },
       "delete": {
         "summary": "Delete conversation followers",
         "operationId": "delete-conversation-followers",
-        "description": "Removes teammates from the list of followers of a conversation.",
+        "description": "Removes teammates from the list of followers of a conversation.\n\nRequired scope: `conversations:write`",
         "tags": [
           "Conversations"
         ],
@@ -9272,14 +9365,17 @@
           "301": {
             "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
-        }
+        },
+        "x-required-scopes": [
+          "conversations:write"
+        ]
       }
     },
     "/conversations/{conversation_id}/inboxes": {
       "get": {
         "summary": "List conversation inboxes",
         "operationId": "list-conversation-inboxes",
-        "description": "List the inboxes in which a conversation is listed.",
+        "description": "List the inboxes in which a conversation is listed.\n\nRequired scope: `inboxes:read`",
         "tags": [
           "Conversations"
         ],
@@ -9302,14 +9398,17 @@
           "301": {
             "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
-        }
+        },
+        "x-required-scopes": [
+          "inboxes:read"
+        ]
       }
     },
     "/conversations/{conversation_id}/links": {
       "post": {
         "summary": "Add conversation link",
         "operationId": "add-conversation-link",
-        "description": "Adds one or more links to a conversation\nFor more information on links, see the [Links](https://dev.frontapp.com/reference/links) topic.\n",
+        "description": "Adds one or more links to a conversation\nFor more information on links, see the [Links](https://dev.frontapp.com/reference/links) topic.\n\n\nRequired scope: `conversations:write`",
         "tags": [
           "Conversations"
         ],
@@ -9359,12 +9458,15 @@
           "301": {
             "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
-        }
+        },
+        "x-required-scopes": [
+          "conversations:write"
+        ]
       },
       "delete": {
         "summary": "Remove conversation links",
         "operationId": "remove-conversation-links",
-        "description": "Removes one or more links to a conversation.\nFor more information on links, see the [Links](https://dev.frontapp.com/reference/links) topic.\n",
+        "description": "Removes one or more links to a conversation.\nFor more information on links, see the [Links](https://dev.frontapp.com/reference/links) topic.\n\n\nRequired scope: `conversations:write`",
         "tags": [
           "Conversations"
         ],
@@ -9409,14 +9511,17 @@
           "301": {
             "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
-        }
+        },
+        "x-required-scopes": [
+          "conversations:write"
+        ]
       }
     },
     "/conversations/{conversation_id}/messages": {
       "get": {
         "summary": "List conversation messages",
         "operationId": "list-conversation-messages",
-        "description": "List the messages in a conversation in reverse chronological order (newest first).",
+        "description": "List the messages in a conversation in reverse chronological order (newest first).\n\nRequired scope: `messages:read`",
         "tags": [
           "Conversations"
         ],
@@ -9451,12 +9556,15 @@
           "301": {
             "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
-        }
+        },
+        "x-required-scopes": [
+          "messages:read"
+        ]
       },
       "post": {
         "summary": "Create message reply",
         "operationId": "create-message-reply",
-        "description": "Reply to a conversation by sending a message and appending it to the conversation.",
+        "description": "Reply to a conversation by sending a message and appending it to the conversation.\n\nRequired scope: `messages:send`",
         "tags": [
           "Messages"
         ],
@@ -9488,14 +9596,17 @@
           "301": {
             "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
-        }
+        },
+        "x-required-scopes": [
+          "messages:send"
+        ]
       }
     },
     "/conversations/{conversation_id}/reminders": {
       "patch": {
         "summary": "Update conversation reminders",
         "operationId": "update-conversation-reminders",
-        "description": "Snooze or unsnooze a conversation for the provided user.\nFor private conversations, reminders can only be created and edited through the API for teammates that own the conversation.\nFor shared conversations, reminders created and edited through the API are shared for all teammates within the shared inbox(es) that the conversation belongs to.\n",
+        "description": "Snooze or unsnooze a conversation for the provided user.\nFor private conversations, reminders can only be created and edited through the API for teammates that own the conversation.\nFor shared conversations, reminders created and edited through the API are shared for all teammates within the shared inbox(es) that the conversation belongs to.\n\n\nRequired scope: `conversations:write`",
         "tags": [
           "Conversations"
         ],
@@ -9527,14 +9638,17 @@
           "301": {
             "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
-        }
+        },
+        "x-required-scopes": [
+          "conversations:write"
+        ]
       }
     },
     "/conversations/{conversation_id}/tags": {
       "post": {
         "summary": "Add conversation tag",
         "operationId": "add-conversation-tag",
-        "description": "Adds one or more tags to a conversation",
+        "description": "Adds one or more tags to a conversation\n\nRequired scope: `conversations:write`",
         "tags": [
           "Conversations"
         ],
@@ -9567,12 +9681,15 @@
           "301": {
             "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
-        }
+        },
+        "x-required-scopes": [
+          "conversations:write"
+        ]
       },
       "delete": {
         "summary": "Remove conversation tag",
         "operationId": "remove-conversation-tag",
-        "description": "Removes one or more tags to a conversation",
+        "description": "Removes one or more tags to a conversation\n\nRequired scope: `conversations:write`",
         "tags": [
           "Conversations"
         ],
@@ -9605,7 +9722,10 @@
           "301": {
             "description": "If the conversation has been merged, the response redirects you to the merged conversation."
           }
-        }
+        },
+        "x-required-scopes": [
+          "conversations:write"
+        ]
       }
     },
     "/custom_fields": {
@@ -9613,7 +9733,7 @@
         "deprecated": true,
         "summary": "List Contact's custom fields",
         "operationId": "list-custom-fields",
-        "description": "Lists the custom fields that can be attached to a Contact.\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the fully compatible `GET /contacts/custom_fields` endpoint instead.\n",
+        "description": "Lists the custom fields that can be attached to a Contact.\n\n> ⚠️ Deprecated endpoint\n>\n> This endpoint has been deprecated. Please use the fully compatible `GET /contacts/custom_fields` endpoint instead.\n\n\nRequired scope: `custom_fields:read`",
         "tags": [
           "Custom Fields"
         ],
@@ -9621,14 +9741,17 @@
           "200": {
             "$ref": "#/components/responses/listOfCustomFields"
           }
-        }
+        },
+        "x-required-scopes": [
+          "custom_fields:read"
+        ]
       }
     },
     "/download/{attachment_link_id}": {
       "get": {
         "summary": "Download attachment",
         "operationId": "download-attachment",
-        "description": "Download an attachment file.",
+        "description": "Download an attachment file.\n\nRequired scope: `attachments:read`",
         "tags": [
           "Attachments"
         ],
@@ -9648,14 +9771,17 @@
           "200": {
             "$ref": "#/components/responses/attachment"
           }
-        }
+        },
+        "x-required-scopes": [
+          "attachments:read"
+        ]
       }
     },
     "/drafts/{draft_id}": {
       "delete": {
         "summary": "Delete draft",
         "operationId": "delete-draft",
-        "description": "Delete a draft message.",
+        "description": "Delete a draft message.\n\nRequired scope: `drafts:delete`",
         "tags": [
           "Drafts"
         ],
@@ -9684,14 +9810,17 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "drafts:delete"
+        ]
       }
     },
     "/drafts/{message_id}/": {
       "patch": {
         "summary": "Edit draft",
         "operationId": "edit-draft",
-        "description": "Edit a draft message.",
+        "description": "Edit a draft message.\n\nRequired scope: `drafts:write`",
         "tags": [
           "Drafts"
         ],
@@ -9720,14 +9849,17 @@
           "200": {
             "$ref": "#/components/responses/message"
           }
-        }
+        },
+        "x-required-scopes": [
+          "drafts:write"
+        ]
       }
     },
     "/events": {
       "get": {
         "summary": "List events",
         "operationId": "list-events",
-        "description": "Lists all the detailed events which occurred in the inboxes of the company ordered in reverse chronological order (newest first).\nRefer to the [Events](https://dev.frontapp.com/reference/events) topic for more information, including sorting and filtering.\n",
+        "description": "Lists all the detailed events which occurred in the inboxes of the company ordered in reverse chronological order (newest first).\nRefer to the [Events](https://dev.frontapp.com/reference/events) topic for more information, including sorting and filtering.\n\n\nRequired scope: `events:*:read`",
         "tags": [
           "Events"
         ],
@@ -9758,14 +9890,17 @@
           "200": {
             "$ref": "#/components/responses/listOfEvents"
           }
-        }
+        },
+        "x-required-scopes": [
+          "events:*:read"
+        ]
       }
     },
     "/events/{event_id}": {
       "get": {
         "summary": "Get event",
         "operationId": "get-event",
-        "description": "Fetch an event.\nRefer to the [Events](https://dev.frontapp.com/reference/events) topic for more information, including sorting and filtering.\n",
+        "description": "Fetch an event.\nRefer to the [Events](https://dev.frontapp.com/reference/events) topic for more information, including sorting and filtering.\n\n\nRequired scope: `events:*:read`",
         "tags": [
           "Events"
         ],
@@ -9785,7 +9920,10 @@
           "200": {
             "$ref": "#/components/responses/event"
           }
-        }
+        },
+        "x-required-scopes": [
+          "events:*:read"
+        ]
       }
     },
     "/inboxes": {
@@ -9836,7 +9974,7 @@
       "get": {
         "summary": "List Inbox's custom fields",
         "operationId": "list-inbox-custom-fields",
-        "description": "Lists the custom fields that can be attached to an Inbox.",
+        "description": "Lists the custom fields that can be attached to an Inbox.\n\nRequired scope: `custom_fields:read`",
         "tags": [
           "Custom Fields"
         ],
@@ -9844,7 +9982,10 @@
           "200": {
             "$ref": "#/components/responses/listOfCustomFields"
           }
-        }
+        },
+        "x-required-scopes": [
+          "custom_fields:read"
+        ]
       }
     },
     "/inboxes/{inbox_id}": {
@@ -9909,7 +10050,7 @@
       "post": {
         "summary": "Create a channel",
         "operationId": "create-a-channel",
-        "description": "Create a channel in an inbox.",
+        "description": "Create a channel in an inbox.\n\nRequired scope: `channels:write`",
         "tags": [
           "Channels"
         ],
@@ -9939,7 +10080,10 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "channels:write"
+        ]
       }
     },
     "/inboxes/{inbox_id}/conversations": {
@@ -9985,7 +10129,7 @@
       "post": {
         "summary": "Import message",
         "operationId": "import-inbox-message",
-        "description": "Use this endpoint to import conversations into Front without sending data through a channel. Typical use cases include importing historical conversations or creating new conversations from non-standard sources, such as web form submissions that can't use the default Form channel (for example, forms that don't have static URLs or form providers that send email notifications after submission). Avoid using this endpoint for conversations that can be handled by a dedicated Front channel—instead, use the [Create message](https://dev.frontapp.com/reference/create-message) endpoint to send (rather than import) a new message.",
+        "description": "Use this endpoint to import conversations into Front without sending data through a channel. Typical use cases include importing historical conversations or creating new conversations from non-standard sources, such as web form submissions that can't use the default Form channel (for example, forms that don't have static URLs or form providers that send email notifications after submission). Avoid using this endpoint for conversations that can be handled by a dedicated Front channel—instead, use the [Create message](https://dev.frontapp.com/reference/create-message) endpoint to send (rather than import) a new message.\n\nRequired scope: `messages:write`",
         "tags": [
           "Messages"
         ],
@@ -10014,7 +10158,10 @@
           "202": {
             "$ref": "#/components/responses/acceptedMessage"
           }
-        }
+        },
+        "x-required-scopes": [
+          "messages:write"
+        ]
       }
     },
     "/inboxes/{inbox_id}/teammates": {
@@ -11130,7 +11277,7 @@
       "get": {
         "summary": "List links",
         "operationId": "list-links",
-        "description": "List the links of the company paginated by id. Allows filtering by link type via the q.types param.\nThese links include application objects; for more details, see the [Links](https://dev.frontapp.com/reference/links) topic.\n",
+        "description": "List the links of the company paginated by id. Allows filtering by link type via the q.types param.\nThese links include application objects; for more details, see the [Links](https://dev.frontapp.com/reference/links) topic.\n\n\nRequired scope: `links:read`",
         "tags": [
           "Links"
         ],
@@ -11155,12 +11302,15 @@
           "200": {
             "$ref": "#/components/responses/listOfLinks"
           }
-        }
+        },
+        "x-required-scopes": [
+          "links:read"
+        ]
       },
       "post": {
         "summary": "Create link",
         "operationId": "create-link",
-        "description": "Create a link. You must supply either `pattern` or `external_url` in the request, but not both (`pattern` is for application objects while `external_url` is for standard links). If `pattern` is provided, the API call updates the application objects matching the exact pattern. Keep in mind this endpoint only creates or updates an existing link from an application object. It does not create new application objects. If the link is resolved to an installed links integration, any name retrieved from the integration will override the provided name in the request.",
+        "description": "Create a link. You must supply either `pattern` or `external_url` in the request, but not both (`pattern` is for application objects while `external_url` is for standard links). If `pattern` is provided, the API call updates the application objects matching the exact pattern. Keep in mind this endpoint only creates or updates an existing link from an application object. It does not create new application objects. If the link is resolved to an installed links integration, any name retrieved from the integration will override the provided name in the request.\n\nRequired scope: `links:write`",
         "tags": [
           "Links"
         ],
@@ -11178,14 +11328,17 @@
           "201": {
             "$ref": "#/components/responses/link"
           }
-        }
+        },
+        "x-required-scopes": [
+          "links:write"
+        ]
       }
     },
     "/links/custom_fields": {
       "get": {
         "summary": "List Link's custom fields",
         "operationId": "list-link-custom-fields",
-        "description": "Lists the custom fields that can be attached to a Link.\nFor more information on links, see the [Links](https://dev.frontapp.com/reference/links) topic.\n",
+        "description": "Lists the custom fields that can be attached to a Link.\nFor more information on links, see the [Links](https://dev.frontapp.com/reference/links) topic.\n\n\nRequired scope: `custom_fields:read`",
         "tags": [
           "Custom Fields"
         ],
@@ -11193,14 +11346,17 @@
           "200": {
             "$ref": "#/components/responses/listOfCustomFields"
           }
-        }
+        },
+        "x-required-scopes": [
+          "custom_fields:read"
+        ]
       }
     },
     "/links/{link_id}": {
       "get": {
         "summary": "Get link",
         "operationId": "get-link",
-        "description": "Fetch a link.\nFor more information on links, see the [Links](https://dev.frontapp.com/reference/links) topic.\n",
+        "description": "Fetch a link.\nFor more information on links, see the [Links](https://dev.frontapp.com/reference/links) topic.\n\n\nRequired scope: `links:read`",
         "tags": [
           "Links"
         ],
@@ -11220,12 +11376,15 @@
           "200": {
             "$ref": "#/components/responses/link"
           }
-        }
+        },
+        "x-required-scopes": [
+          "links:read"
+        ]
       },
       "patch": {
         "summary": "Update a link",
         "operationId": "update-a-link",
-        "description": "Update a link.\nFor more information on links, see the [Links](https://dev.frontapp.com/reference/links) topic.\n",
+        "description": "Update a link.\nFor more information on links, see the [Links](https://dev.frontapp.com/reference/links) topic.\n\n\nRequired scope: `links:write`",
         "tags": [
           "Links"
         ],
@@ -11255,14 +11414,17 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "links:write"
+        ]
       }
     },
     "/links/{link_id}/conversations": {
       "get": {
         "summary": "List link conversations",
         "operationId": "list-link-conversations",
-        "description": "List the conversations linked to a specific link. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\nFor more information on links, see the [Links](https://dev.frontapp.com/reference/links) topic.\n",
+        "description": "List the conversations linked to a specific link. For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\nFor more information on links, see the [Links](https://dev.frontapp.com/reference/links) topic.\n\n\nRequired scope: `conversations:read`",
         "tags": [
           "Links"
         ],
@@ -11297,7 +11459,10 @@
           "200": {
             "$ref": "#/components/responses/listOfConversations"
           }
-        }
+        },
+        "x-required-scopes": [
+          "conversations:read"
+        ]
       }
     },
     "/me": {
@@ -11319,7 +11484,7 @@
       "get": {
         "summary": "List folders",
         "operationId": "list-folders",
-        "description": "List the message template folders.",
+        "description": "List the message template folders.\n\nRequired scope: `message_templates:read`",
         "tags": [
           "Message Template Folders"
         ],
@@ -11335,12 +11500,15 @@
           "200": {
             "$ref": "#/components/responses/listOfCannedAnswerFolders"
           }
-        }
+        },
+        "x-required-scopes": [
+          "message_templates:read"
+        ]
       },
       "post": {
         "summary": "Create folder",
         "operationId": "create-folder",
-        "description": "Create a new message template folder in the oldest active workspace that the token has access to. If you need to specify the workspace, we recommend using the [Create team folder](https://dev.frontapp.com/reference/create-team-folder) endpoint instead.",
+        "description": "Create a new message template folder in the oldest active workspace that the token has access to. If you need to specify the workspace, we recommend using the [Create team folder](https://dev.frontapp.com/reference/create-team-folder) endpoint instead.\n\nRequired scope: `message_templates:write`",
         "tags": [
           "Message Template Folders"
         ],
@@ -11358,14 +11526,17 @@
           "201": {
             "$ref": "#/components/responses/cannedAnswerFolder"
           }
-        }
+        },
+        "x-required-scopes": [
+          "message_templates:write"
+        ]
       }
     },
     "/message_template_folders/{message_template_folder_id}": {
       "get": {
         "summary": "Get folder",
         "operationId": "get-folder",
-        "description": "Fetch a message template folder.",
+        "description": "Fetch a message template folder.\n\nRequired scope: `message_templates:read`",
         "tags": [
           "Message Template Folders"
         ],
@@ -11385,12 +11556,15 @@
           "200": {
             "$ref": "#/components/responses/cannedAnswerFolder"
           }
-        }
+        },
+        "x-required-scopes": [
+          "message_templates:read"
+        ]
       },
       "patch": {
         "summary": "Update folder",
         "operationId": "update-folder",
-        "description": "Update message template folder",
+        "description": "Update message template folder\n\nRequired scope: `message_templates:write`",
         "tags": [
           "Message Template Folders"
         ],
@@ -11420,12 +11594,15 @@
           "200": {
             "$ref": "#/components/responses/cannedAnswerFolder"
           }
-        }
+        },
+        "x-required-scopes": [
+          "message_templates:write"
+        ]
       },
       "delete": {
         "summary": "Delete folder",
         "operationId": "delete-folder",
-        "description": "Delete a message template folder and child folders/templates",
+        "description": "Delete a message template folder and child folders/templates\n\nRequired scope: `message_templates:delete`",
         "tags": [
           "Message Template Folders"
         ],
@@ -11445,14 +11622,17 @@
           "202": {
             "$ref": "#/components/responses/acceptedCannedAnswerFolderDeletion"
           }
-        }
+        },
+        "x-required-scopes": [
+          "message_templates:delete"
+        ]
       }
     },
     "/message_template_folders/{message_template_folder_id}/message_template_folders": {
       "get": {
         "summary": "Get child folders",
         "operationId": "get-child-folders",
-        "description": "Fetch the child message templates folders of a message template folder.",
+        "description": "Fetch the child message templates folders of a message template folder.\n\nRequired scope: `message_templates:read`",
         "tags": [
           "Message Template Folders"
         ],
@@ -11472,12 +11652,15 @@
           "200": {
             "$ref": "#/components/responses/listOfCannedAnswerFolders"
           }
-        }
+        },
+        "x-required-scopes": [
+          "message_templates:read"
+        ]
       },
       "post": {
         "summary": "Create child folder",
         "operationId": "create-child-folder",
-        "description": "Create a new message template folder as a child of the given folder",
+        "description": "Create a new message template folder as a child of the given folder\n\nRequired scope: `message_templates:write`",
         "tags": [
           "Message Template Folders"
         ],
@@ -11507,14 +11690,17 @@
           "201": {
             "$ref": "#/components/responses/cannedAnswerFolder"
           }
-        }
+        },
+        "x-required-scopes": [
+          "message_templates:write"
+        ]
       }
     },
     "/message_template_folders/{message_template_folder_id}/message_templates": {
       "get": {
         "summary": "Get child templates",
         "operationId": "get-child-templates",
-        "description": "Fetch the child message templates of a message template folder.",
+        "description": "Fetch the child message templates of a message template folder.\n\nRequired scope: `message_templates:read`",
         "tags": [
           "Message Templates"
         ],
@@ -11534,12 +11720,15 @@
           "200": {
             "$ref": "#/components/responses/listOfCannedAnswerFolders"
           }
-        }
+        },
+        "x-required-scopes": [
+          "message_templates:read"
+        ]
       },
       "post": {
         "summary": "Create child template",
         "operationId": "create-child-template",
-        "description": "Create a new message template as a child of the given folder",
+        "description": "Create a new message template as a child of the given folder\n\nRequired scope: `message_templates:write`",
         "tags": [
           "Message Templates"
         ],
@@ -11569,14 +11758,17 @@
           "201": {
             "$ref": "#/components/responses/cannedAnswer"
           }
-        }
+        },
+        "x-required-scopes": [
+          "message_templates:write"
+        ]
       }
     },
     "/message_templates": {
       "get": {
         "summary": "List message templates",
         "operationId": "list-message-templates",
-        "description": "List the message templates.",
+        "description": "List the message templates.\n\nRequired scope: `message_templates:read`",
         "tags": [
           "Message Templates"
         ],
@@ -11592,12 +11784,15 @@
           "200": {
             "$ref": "#/components/responses/listOfCannedAnswers"
           }
-        }
+        },
+        "x-required-scopes": [
+          "message_templates:read"
+        ]
       },
       "post": {
         "summary": "Create message template",
         "operationId": "create-message-template",
-        "description": "Create a new message template in the oldest active workspace that the token has access to. If you need to specify the workspace, we recommend using the [Create team message template](https://dev.frontapp.com/reference/create-team-message-template) endpoint instead.",
+        "description": "Create a new message template in the oldest active workspace that the token has access to. If you need to specify the workspace, we recommend using the [Create team message template](https://dev.frontapp.com/reference/create-team-message-template) endpoint instead.\n\nRequired scope: `message_templates:write`",
         "tags": [
           "Message Templates"
         ],
@@ -11615,14 +11810,17 @@
           "201": {
             "$ref": "#/components/responses/cannedAnswer"
           }
-        }
+        },
+        "x-required-scopes": [
+          "message_templates:write"
+        ]
       }
     },
     "/message_templates/{message_template_id}": {
       "get": {
         "summary": "Get message template",
         "operationId": "get-message-template",
-        "description": "Fetch a message template.",
+        "description": "Fetch a message template.\n\nRequired scope: `message_templates:read`",
         "tags": [
           "Message Templates"
         ],
@@ -11642,12 +11840,15 @@
           "200": {
             "$ref": "#/components/responses/cannedAnswer"
           }
-        }
+        },
+        "x-required-scopes": [
+          "message_templates:read"
+        ]
       },
       "patch": {
         "summary": "Update message template",
         "operationId": "update-message-template",
-        "description": "Update message template",
+        "description": "Update message template\n\nRequired scope: `message_templates:write`",
         "tags": [
           "Message Templates"
         ],
@@ -11677,12 +11878,15 @@
           "200": {
             "$ref": "#/components/responses/cannedAnswer"
           }
-        }
+        },
+        "x-required-scopes": [
+          "message_templates:write"
+        ]
       },
       "delete": {
         "summary": "Delete message template",
         "operationId": "delete-message-template",
-        "description": "Delete a message template",
+        "description": "Delete a message template\n\nRequired scope: `message_templates:delete`",
         "tags": [
           "Message Templates"
         ],
@@ -11702,14 +11906,17 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "message_templates:delete"
+        ]
       }
     },
     "/message_templates/{message_template_id}/download/{attachment_link_id}": {
       "get": {
         "summary": "Download attachment for a message template",
         "operationId": "download-attachment-for-a-message-template",
-        "description": "Download an attachment file for a given message template ID",
+        "description": "Download an attachment file for a given message template ID\n\nRequired scope: `attachments:read`",
         "tags": [
           "Attachments"
         ],
@@ -11739,14 +11946,17 @@
           "200": {
             "$ref": "#/components/responses/attachment"
           }
-        }
+        },
+        "x-required-scopes": [
+          "attachments:read"
+        ]
       }
     },
     "/messages/{message_id}": {
       "get": {
         "summary": "Get message",
         "operationId": "get-message",
-        "description": "Fetch a message.\n\n> ℹ️ The HTTP Header `Accept` can be used to request the message in a different format.\n> By default, Front will return the documented JSON response. By requesting `message/rfc822`, the response will contain the message in the EML format (for email messages only).\n",
+        "description": "Fetch a message.\n\n> ℹ️ The HTTP Header `Accept` can be used to request the message in a different format.\n> By default, Front will return the documented JSON response. By requesting `message/rfc822`, the response will contain the message in the EML format (for email messages only).\n\n\nRequired scope: `messages:read`",
         "tags": [
           "Messages"
         ],
@@ -11766,14 +11976,17 @@
           "200": {
             "$ref": "#/components/responses/message"
           }
-        }
+        },
+        "x-required-scopes": [
+          "messages:read"
+        ]
       }
     },
     "/messages/{message_id}/download/{attachment_link_id}": {
       "get": {
         "summary": "Download attachment for a message",
         "operationId": "download-attachment-for-a-message",
-        "description": "Download an attachment file for a given message id. Should be used by partner channels.",
+        "description": "Download an attachment file for a given message id. Should be used by partner channels.\n\nRequired scope: `attachments:read`",
         "tags": [
           "Attachments"
         ],
@@ -11803,14 +12016,17 @@
           "200": {
             "$ref": "#/components/responses/attachment"
           }
-        }
+        },
+        "x-required-scopes": [
+          "attachments:read"
+        ]
       }
     },
     "/messages/{message_id}/seen": {
       "get": {
         "summary": "Get message seen status",
         "operationId": "get-message-seen-status",
-        "description": "Get the seen receipts for the given message. If no seen-by information is available, there will be a single entry for the first time the message was seen by any recipient. If seen-by information is available, there will be an entry for each recipient who has seen the message.",
+        "description": "Get the seen receipts for the given message. If no seen-by information is available, there will be a single entry for the first time the message was seen by any recipient. If seen-by information is available, there will be an entry for each recipient who has seen the message.\n\nRequired scope: `messages:read`",
         "tags": [
           "Messages"
         ],
@@ -11830,12 +12046,15 @@
           "200": {
             "$ref": "#/components/responses/listOfSeenReceipts"
           }
-        }
+        },
+        "x-required-scopes": [
+          "messages:read"
+        ]
       },
       "post": {
         "summary": "Mark message seen",
         "operationId": "mark-message-seen",
-        "description": "Mark an outbound message from Front as seen. Note, the message seen route should only be called in response to an actual end-user's message-seen action. In accordance with this behavior, the route is rate limited to 10 requests per message per hour.",
+        "description": "Mark an outbound message from Front as seen. Note, the message seen route should only be called in response to an actual end-user's message-seen action. In accordance with this behavior, the route is rate limited to 10 requests per message per hour.\n\nRequired scope: `messages:write`",
         "tags": [
           "Messages"
         ],
@@ -11864,7 +12083,10 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "messages:write"
+        ]
       }
     },
     "/rules": {
@@ -12137,7 +12359,7 @@
       "get": {
         "summary": "Get signatures",
         "operationId": "get-signatures",
-        "description": "Get the given signature.",
+        "description": "Get the given signature.\n\nRequired scope: `signatures:read`",
         "tags": [
           "Signatures"
         ],
@@ -12157,12 +12379,15 @@
           "200": {
             "$ref": "#/components/responses/signature"
           }
-        }
+        },
+        "x-required-scopes": [
+          "signatures:read"
+        ]
       },
       "patch": {
         "summary": "Update signature",
         "operationId": "update-signature",
-        "description": "Update signature",
+        "description": "Update signature\n\nRequired scope: `signatures:write`",
         "tags": [
           "Signatures"
         ],
@@ -12192,12 +12417,15 @@
           "200": {
             "$ref": "#/components/responses/signature"
           }
-        }
+        },
+        "x-required-scopes": [
+          "signatures:write"
+        ]
       },
       "delete": {
         "summary": "Delete signature",
         "operationId": "delete-signature",
-        "description": "Delete signature",
+        "description": "Delete signature\n\nRequired scope: `signatures:delete`",
         "tags": [
           "Signatures"
         ],
@@ -12217,7 +12445,10 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "signatures:delete"
+        ]
       }
     },
     "/tags": {
@@ -12485,7 +12716,7 @@
       "get": {
         "summary": "List teammate groups",
         "operationId": "list-company-teammate-groups",
-        "description": "List the teammate groups in the company.",
+        "description": "List the teammate groups in the company.\n\nRequired scope: `teammate_groups:read`",
         "tags": [
           "Teammate groups"
         ],
@@ -12493,12 +12724,15 @@
           "200": {
             "$ref": "#/components/responses/listOfTeammateGroups"
           }
-        }
+        },
+        "x-required-scopes": [
+          "teammate_groups:read"
+        ]
       },
       "post": {
         "summary": "Create teammate group",
         "operationId": "create-company-teammate-group",
-        "description": "Create a new teammate group.",
+        "description": "Create a new teammate group.\n\nRequired scope: `teammate_groups:write`",
         "tags": [
           "Teammate groups"
         ],
@@ -12515,14 +12749,17 @@
           "201": {
             "$ref": "#/components/responses/teammateGroup"
           }
-        }
+        },
+        "x-required-scopes": [
+          "teammate_groups:write"
+        ]
       }
     },
     "/teammate_groups/{teammate_group_id}": {
       "get": {
         "summary": "Get teammate group",
         "operationId": "get-company-teammate-group",
-        "description": "Fetch a teammate group.",
+        "description": "Fetch a teammate group.\n\nRequired scope: `teammate_groups:read`",
         "tags": [
           "Teammate groups"
         ],
@@ -12542,12 +12779,15 @@
           "200": {
             "$ref": "#/components/responses/teammateGroup"
           }
-        }
+        },
+        "x-required-scopes": [
+          "teammate_groups:read"
+        ]
       },
       "patch": {
         "summary": "Update a teammate group",
         "operationId": "update-a-company-teammate-group",
-        "description": "Updates a teammate group. Note - You cannot modify a teammate group that is managed by SCIM.",
+        "description": "Updates a teammate group. Note - You cannot modify a teammate group that is managed by SCIM.\n\nRequired scope: `teammate_groups:write`",
         "tags": [
           "Teammate groups"
         ],
@@ -12576,12 +12816,15 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "teammate_groups:write"
+        ]
       },
       "delete": {
         "summary": "Delete teammate group",
         "operationId": "delete-company-teammate-group",
-        "description": "Deletes a teammate group. Note - You cannot delete a teammate group that is managed by SCIM.",
+        "description": "Deletes a teammate group. Note - You cannot delete a teammate group that is managed by SCIM.\n\nRequired scope: `teammate_groups:delete`",
         "tags": [
           "Teammate groups"
         ],
@@ -12601,14 +12844,17 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "teammate_groups:delete"
+        ]
       }
     },
     "/teammate_groups/{teammate_group_id}/inboxes": {
       "get": {
         "summary": "List teammate group team inboxes",
         "operationId": "list-company-teammate-group-team-inboxes",
-        "description": "List inboxes that the teammate group has access to via its associated teams.",
+        "description": "List inboxes that the teammate group has access to via its associated teams.\n\nRequired scope: `inboxes:read`",
         "tags": [
           "Teammate groups"
         ],
@@ -12628,12 +12874,15 @@
           "200": {
             "$ref": "#/components/responses/listOfInboxes"
           }
-        }
+        },
+        "x-required-scopes": [
+          "inboxes:read"
+        ]
       },
       "post": {
         "summary": "Add teammate group team inboxes",
         "operationId": "add-company-teammate-group-team-inboxes",
-        "description": "Links non-public inboxes to the teammate group. The inbox must be part of a team that has been added to the teammate group.",
+        "description": "Links non-public inboxes to the teammate group. The inbox must be part of a team that has been added to the teammate group.\n\nRequired scope: `teammate_groups:write`",
         "tags": [
           "Teammate groups"
         ],
@@ -12663,12 +12912,15 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "teammate_groups:write"
+        ]
       },
       "delete": {
         "summary": "Remove teammate group team inboxes",
         "operationId": "remove-company-teammate-group-team-inboxes",
-        "description": "Unlinks non-public inboxes from the teammate group.",
+        "description": "Unlinks non-public inboxes from the teammate group.\n\nRequired scope: `teammate_groups:write`",
         "tags": [
           "Teammate groups"
         ],
@@ -12698,14 +12950,17 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "teammate_groups:write"
+        ]
       }
     },
     "/teammate_groups/{teammate_group_id}/teammates": {
       "get": {
         "summary": "List teammate group teammates",
         "operationId": "list-company-teammate-group-teammates",
-        "description": "List teammate group teammates.",
+        "description": "List teammate group teammates.\n\nRequired scope: `teammates:read`",
         "tags": [
           "Teammate groups"
         ],
@@ -12725,12 +12980,15 @@
           "200": {
             "$ref": "#/components/responses/listOfTeammates"
           }
-        }
+        },
+        "x-required-scopes": [
+          "teammates:read"
+        ]
       },
       "post": {
         "summary": "Add teammate group teammates",
         "operationId": "add-company-teammate-group-teammates",
-        "description": "Add teammate group teammates. Note - You cannot modify a teammate group that is managed by SCIM.",
+        "description": "Add teammate group teammates. Note - You cannot modify a teammate group that is managed by SCIM.\n\nRequired scope: `teammate_groups:write`",
         "tags": [
           "Teammate groups"
         ],
@@ -12760,12 +13018,15 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "teammate_groups:write"
+        ]
       },
       "delete": {
         "summary": "Remove teammate group teammates",
         "operationId": "remove-company-teammate-group-teammates",
-        "description": "Remove teammate group teammates. Note - You cannot modify a teammate group that is managed by SCIM.",
+        "description": "Remove teammate group teammates. Note - You cannot modify a teammate group that is managed by SCIM.\n\nRequired scope: `teammate_groups:write`",
         "tags": [
           "Teammate groups"
         ],
@@ -12795,14 +13056,17 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "teammate_groups:write"
+        ]
       }
     },
     "/teammate_groups/{teammate_group_id}/teams": {
       "get": {
         "summary": "List teammate group teams",
         "operationId": "list-company-teammate-group-teams",
-        "description": "List teams added to the teammate group. Any teams added to the teammate group will automatically link public inboxes.",
+        "description": "List teams added to the teammate group. Any teams added to the teammate group will automatically link public inboxes.\n\nRequired scope: `teams:read`",
         "tags": [
           "Teammate groups"
         ],
@@ -12822,12 +13086,15 @@
           "200": {
             "$ref": "#/components/responses/listOfTeams"
           }
-        }
+        },
+        "x-required-scopes": [
+          "teams:read"
+        ]
       },
       "post": {
         "summary": "Add teammate group teams",
         "operationId": "add-company-teammate-group-teams",
-        "description": "Adds teams to the teammate group. Any teams added to the teammate group will automatically link public inboxes. Non-public inboxes can be added to the teammate group separately.",
+        "description": "Adds teams to the teammate group. Any teams added to the teammate group will automatically link public inboxes. Non-public inboxes can be added to the teammate group separately.\n\nRequired scope: `teammate_groups:write`",
         "tags": [
           "Teammate groups"
         ],
@@ -12857,12 +13124,15 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "teammate_groups:write"
+        ]
       },
       "delete": {
         "summary": "Remove teammate group teams",
         "operationId": "remove-company-teammate-group-teams",
-        "description": "Remove teams from the teammate group. Unlinks to any associated team inboxes.",
+        "description": "Remove teams from the teammate group. Unlinks to any associated team inboxes.\n\nRequired scope: `teammate_groups:write`",
         "tags": [
           "Teammate groups"
         ],
@@ -12892,14 +13162,17 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "teammate_groups:write"
+        ]
       }
     },
     "/teammates": {
       "get": {
         "summary": "List teammates",
         "operationId": "list-teammates",
-        "description": "List the teammates in the company.",
+        "description": "List the teammates in the company.\n\nRequired scope: `teammates:read`",
         "tags": [
           "Teammates"
         ],
@@ -12907,14 +13180,17 @@
           "200": {
             "$ref": "#/components/responses/listOfTeammates"
           }
-        }
+        },
+        "x-required-scopes": [
+          "teammates:read"
+        ]
       }
     },
     "/teammates/custom_fields": {
       "get": {
         "summary": "List Teammate's custom fields",
         "operationId": "list-teammate-custom-fields",
-        "description": "Lists the custom fields that can be attached to a Teammate.",
+        "description": "Lists the custom fields that can be attached to a Teammate.\n\nRequired scope: `custom_fields:read`",
         "tags": [
           "Custom Fields"
         ],
@@ -12922,14 +13198,17 @@
           "200": {
             "$ref": "#/components/responses/listOfCustomFields"
           }
-        }
+        },
+        "x-required-scopes": [
+          "custom_fields:read"
+        ]
       }
     },
     "/teammates/{teammate_id}": {
       "get": {
         "summary": "Get teammate",
         "operationId": "get-teammate",
-        "description": "Fetch a teammate.",
+        "description": "Fetch a teammate.\n\nRequired scope: `teammates:read`",
         "tags": [
           "Teammates"
         ],
@@ -12949,12 +13228,15 @@
           "200": {
             "$ref": "#/components/responses/teammate"
           }
-        }
+        },
+        "x-required-scopes": [
+          "teammates:read"
+        ]
       },
       "patch": {
         "summary": "Update teammate",
         "operationId": "update-teammate",
-        "description": "Update a teammate.",
+        "description": "Update a teammate.\n\nRequired scope: `teammates:write`",
         "tags": [
           "Teammates"
         ],
@@ -12983,14 +13265,17 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "teammates:write"
+        ]
       }
     },
     "/teammates/{teammate_id}/channels": {
       "get": {
         "summary": "List teammate channels",
         "operationId": "list-teammate-channels",
-        "description": "List the channels of a teammate.",
+        "description": "List the channels of a teammate.\n\nRequired scope: `channels:read`",
         "tags": [
           "Channels"
         ],
@@ -13010,7 +13295,10 @@
           "200": {
             "$ref": "#/components/responses/listOfChannels"
           }
-        }
+        },
+        "x-required-scopes": [
+          "channels:read"
+        ]
       }
     },
     "/teammates/{teammate_id}/contact_groups": {
@@ -13235,7 +13523,7 @@
       "get": {
         "summary": "List assigned conversations",
         "operationId": "list-assigned-conversations",
-        "description": "List the conversations assigned to a teammate in reverse chronological order (most recently updated first). For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n",
+        "description": "List the conversations assigned to a teammate in reverse chronological order (most recently updated first). For more advanced filtering, see the [search endpoint](https://dev.frontapp.com/reference/conversations#search-conversations).\n\n\nRequired scope: `conversations:read`",
         "tags": [
           "Teammates"
         ],
@@ -13264,7 +13552,10 @@
           "200": {
             "$ref": "#/components/responses/listOfConversations"
           }
-        }
+        },
+        "x-required-scopes": [
+          "conversations:read"
+        ]
       }
     },
     "/teammates/{teammate_id}/inboxes": {
@@ -13272,7 +13563,7 @@
         "deprecated": true,
         "summary": "List teammate inboxes",
         "operationId": "list-teammate-inboxes",
-        "description": "Returns list of inboxes the teammate has access to.",
+        "description": "Returns list of inboxes the teammate has access to.\n\nRequired scope: `inboxes:read`",
         "tags": [
           "Teammates"
         ],
@@ -13292,14 +13583,17 @@
           "200": {
             "$ref": "#/components/responses/listOfInboxes"
           }
-        }
+        },
+        "x-required-scopes": [
+          "inboxes:read"
+        ]
       }
     },
     "/teammates/{teammate_id}/message_template_folders": {
       "get": {
         "summary": "List teammate folders",
         "operationId": "list-teammate-folders",
-        "description": "List the message template folders belonging to the requested teammate.",
+        "description": "List the message template folders belonging to the requested teammate.\n\nRequired scope: `message_templates:read`",
         "tags": [
           "Message Template Folders"
         ],
@@ -13325,12 +13619,15 @@
           "200": {
             "$ref": "#/components/responses/listOfCannedAnswerFolders"
           }
-        }
+        },
+        "x-required-scopes": [
+          "message_templates:read"
+        ]
       },
       "post": {
         "summary": "Create teammate folder",
         "operationId": "create-teammate-folder",
-        "description": "Create a new message template folder belonging to the requested teammate.",
+        "description": "Create a new message template folder belonging to the requested teammate.\n\nRequired scope: `message_templates:write`",
         "tags": [
           "Message Template Folders"
         ],
@@ -13360,14 +13657,17 @@
           "201": {
             "$ref": "#/components/responses/cannedAnswerFolder"
           }
-        }
+        },
+        "x-required-scopes": [
+          "message_templates:write"
+        ]
       }
     },
     "/teammates/{teammate_id}/message_templates": {
       "get": {
         "summary": "List teammate message templates",
         "operationId": "list-teammate-message-templates",
-        "description": "List the message templates belonging to the requested teammate.",
+        "description": "List the message templates belonging to the requested teammate.\n\nRequired scope: `message_templates:read`",
         "tags": [
           "Message Templates"
         ],
@@ -13393,12 +13693,15 @@
           "200": {
             "$ref": "#/components/responses/listOfCannedAnswers"
           }
-        }
+        },
+        "x-required-scopes": [
+          "message_templates:read"
+        ]
       },
       "post": {
         "summary": "Create teammate message template",
         "operationId": "create-teammate-message-template",
-        "description": "Create a new message template for the given teammate",
+        "description": "Create a new message template for the given teammate\n\nRequired scope: `message_templates:write`",
         "tags": [
           "Message Templates"
         ],
@@ -13428,7 +13731,10 @@
           "201": {
             "$ref": "#/components/responses/cannedAnswer"
           }
-        }
+        },
+        "x-required-scopes": [
+          "message_templates:write"
+        ]
       }
     },
     "/teammates/{teammate_id}/rules": {
@@ -13495,7 +13801,7 @@
       "get": {
         "summary": "List teammate signatures",
         "operationId": "list-teammate-signatures",
-        "description": "List the signatures belonging to the given teammate.",
+        "description": "List the signatures belonging to the given teammate.\n\nRequired scope: `signatures:read`",
         "tags": [
           "Signatures"
         ],
@@ -13515,12 +13821,15 @@
           "200": {
             "$ref": "#/components/responses/listOfSignatures"
           }
-        }
+        },
+        "x-required-scopes": [
+          "signatures:read"
+        ]
       },
       "post": {
         "summary": "Create teammate signature",
         "operationId": "create-teammate-signature",
-        "description": "Create a new signature for the given teammate",
+        "description": "Create a new signature for the given teammate\n\nRequired scope: `signatures:write`",
         "tags": [
           "Signatures"
         ],
@@ -13550,7 +13859,10 @@
           "201": {
             "$ref": "#/components/responses/signature"
           }
-        }
+        },
+        "x-required-scopes": [
+          "signatures:write"
+        ]
       }
     },
     "/teammates/{teammate_id}/tags": {
@@ -13685,7 +13997,7 @@
       "get": {
         "summary": "List team channels",
         "operationId": "list-team-channels",
-        "description": "List the channels of a team (workspace).",
+        "description": "List the channels of a team (workspace).\n\nRequired scope: `channels:read`",
         "tags": [
           "Channels"
         ],
@@ -13705,7 +14017,10 @@
           "200": {
             "$ref": "#/components/responses/listOfChannels"
           }
-        }
+        },
+        "x-required-scopes": [
+          "channels:read"
+        ]
       }
     },
     "/teams/{team_id}/contact_groups": {
@@ -13998,7 +14313,7 @@
       "get": {
         "summary": "List team folders",
         "operationId": "list-team-folders",
-        "description": "List the message template folders belonging to the requested team (workspace).",
+        "description": "List the message template folders belonging to the requested team (workspace).\n\nRequired scope: `message_templates:read`",
         "tags": [
           "Message Template Folders"
         ],
@@ -14024,12 +14339,15 @@
           "200": {
             "$ref": "#/components/responses/listOfCannedAnswerFolders"
           }
-        }
+        },
+        "x-required-scopes": [
+          "message_templates:read"
+        ]
       },
       "post": {
         "summary": "Create team folder",
         "operationId": "create-team-folder",
-        "description": "Create a new message template folder belonging to the requested team (workspace).",
+        "description": "Create a new message template folder belonging to the requested team (workspace).\n\nRequired scope: `message_templates:write`",
         "tags": [
           "Message Template Folders"
         ],
@@ -14059,14 +14377,17 @@
           "201": {
             "$ref": "#/components/responses/cannedAnswerFolder"
           }
-        }
+        },
+        "x-required-scopes": [
+          "message_templates:write"
+        ]
       }
     },
     "/teams/{team_id}/message_templates": {
       "get": {
         "summary": "List team message templates",
         "operationId": "list-team-message-templates",
-        "description": "List the message templates belonging to the requested team (workspace).",
+        "description": "List the message templates belonging to the requested team (workspace).\n\nRequired scope: `message_templates:read`",
         "tags": [
           "Message Templates"
         ],
@@ -14092,12 +14413,15 @@
           "200": {
             "$ref": "#/components/responses/listOfCannedAnswers"
           }
-        }
+        },
+        "x-required-scopes": [
+          "message_templates:read"
+        ]
       },
       "post": {
         "summary": "Create team message template",
         "operationId": "create-team-message-template",
-        "description": "Create a new message template for the given team (workspace).",
+        "description": "Create a new message template for the given team (workspace).\n\nRequired scope: `message_templates:write`",
         "tags": [
           "Message Templates"
         ],
@@ -14127,7 +14451,10 @@
           "201": {
             "$ref": "#/components/responses/cannedAnswer"
           }
-        }
+        },
+        "x-required-scopes": [
+          "message_templates:write"
+        ]
       }
     },
     "/teams/{team_id}/rules": {
@@ -14232,7 +14559,7 @@
       "get": {
         "summary": "List team signatures",
         "operationId": "list-team-signatures",
-        "description": "List the signatures belonging to the given team (workspace).",
+        "description": "List the signatures belonging to the given team (workspace).\n\nRequired scope: `signatures:read`",
         "tags": [
           "Signatures"
         ],
@@ -14252,12 +14579,15 @@
           "200": {
             "$ref": "#/components/responses/listOfSignatures"
           }
-        }
+        },
+        "x-required-scopes": [
+          "signatures:read"
+        ]
       },
       "post": {
         "summary": "Create team signature",
         "operationId": "create-team-signature",
-        "description": "Create a new signature for the given team (workspace).",
+        "description": "Create a new signature for the given team (workspace).\n\nRequired scope: `signatures:write`",
         "tags": [
           "Signatures"
         ],
@@ -14287,7 +14617,10 @@
           "201": {
             "$ref": "#/components/responses/signature"
           }
-        }
+        },
+        "x-required-scopes": [
+          "signatures:write"
+        ]
       }
     },
     "/teams/{team_id}/tags": {
@@ -14452,7 +14785,7 @@
       "get": {
         "summary": "List team views",
         "operationId": "list-team-views",
-        "description": "List the views of a team.",
+        "description": "List the views of a team.\n\nRequired scope: `views:read`",
         "tags": [
           "Views"
         ],
@@ -14478,12 +14811,15 @@
           "200": {
             "$ref": "#/components/responses/listOfViews"
           }
-        }
+        },
+        "x-required-scopes": [
+          "views:read"
+        ]
       },
       "post": {
         "summary": "Create team view",
         "operationId": "create-team-view",
-        "description": "Create a new view for a team.",
+        "description": "Create a new view for a team.\n\nRequired scope: `views:write`",
         "tags": [
           "Views"
         ],
@@ -14513,14 +14849,17 @@
           "201": {
             "$ref": "#/components/responses/view"
           }
-        }
+        },
+        "x-required-scopes": [
+          "views:write"
+        ]
       }
     },
     "/views": {
       "get": {
         "summary": "List views",
         "operationId": "list-views",
-        "description": "List the views accessible to the authenticated token.",
+        "description": "List the views accessible to the authenticated token.\n\nRequired scope: `views:read`",
         "tags": [
           "Views"
         ],
@@ -14536,14 +14875,17 @@
           "200": {
             "$ref": "#/components/responses/listOfViews"
           }
-        }
+        },
+        "x-required-scopes": [
+          "views:read"
+        ]
       }
     },
     "/views/{view_id}": {
       "get": {
         "summary": "Get view",
         "operationId": "get-view",
-        "description": "Fetch a view.",
+        "description": "Fetch a view.\n\nRequired scope: `views:read`",
         "tags": [
           "Views"
         ],
@@ -14563,12 +14905,15 @@
           "200": {
             "$ref": "#/components/responses/view"
           }
-        }
+        },
+        "x-required-scopes": [
+          "views:read"
+        ]
       },
       "patch": {
         "summary": "Update view",
         "operationId": "update-view",
-        "description": "Update a view.",
+        "description": "Update a view.\n\nRequired scope: `views:write`",
         "tags": [
           "Views"
         ],
@@ -14598,14 +14943,17 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "views:write"
+        ]
       }
     },
     "/views/{view_id}/teammates": {
       "post": {
         "summary": "Add view to teammate sidebars",
         "operationId": "add-view-teammates",
-        "description": "Makes this view visible in specified teammates' sidebar navigation.",
+        "description": "Makes this view visible in specified teammates' sidebar navigation.\n\nRequired scope: `views:write`",
         "tags": [
           "Views"
         ],
@@ -14646,7 +14994,10 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "views:write"
+        ]
       }
     }
   }

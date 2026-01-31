@@ -357,7 +357,10 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "channels:write"
+        ]
       }
     },
     "/channels/{channel_id}/application_message_templates": {
@@ -396,7 +399,10 @@
           "400": {
             "description": "Channel is not an application channel or does not support application message templates."
           }
-        }
+        },
+        "x-required-scopes": [
+          "message_templates:write"
+        ]
       }
     },
     "/channels/{channel_id}/application_message_templates/{external_id}": {
@@ -445,7 +451,10 @@
           "400": {
             "description": "Channel is not an application channel or does not support application message templates."
           }
-        }
+        },
+        "x-required-scopes": [
+          "message_templates:write"
+        ]
       }
     },
     "/channels/{channel_id}/conversations/{conv_ext_id}/messages/{message_ext_id}/status": {
@@ -515,7 +524,10 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "x-required-scopes": [
+          "messages:write"
+        ]
       }
     },
     "/channels/{channel_id}/inbound_messages": {
@@ -551,7 +563,10 @@
           "202": {
             "$ref": "#/components/responses/acceptedMessage"
           }
-        }
+        },
+        "x-required-scopes": [
+          "messages:write"
+        ]
       }
     },
     "/channels/{channel_id}/outbound_messages": {
@@ -587,7 +602,10 @@
           "202": {
             "$ref": "#/components/responses/acceptedMessage"
           }
-        }
+        },
+        "x-required-scopes": [
+          "messages:write"
+        ]
       }
     }
   }

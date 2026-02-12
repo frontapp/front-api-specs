@@ -273,9 +273,16 @@
         "properties": {
           "columns": {
             "type": "array",
-            "description": "List of the columns to include in the export.\n",
+            "description": "List of the columns to include in the export. In addition to the\npredefined columns, you can also include parameterized columns by\nappending the parameter value to the column name, separated by a\ncolon (`:`).\n\nExample: `[\"Message ID\", \"Time spent in Ticket Status:123\", \"Smart QA score:Comprehension\"]`\n",
             "items": {
-              "$ref": "#/components/schemas/AnalyticsActivitiesColumns"
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/AnalyticsActivitiesColumns"
+                },
+                {
+                  "$ref": "#/components/schemas/AnalyticsActivitiesParameterizedColumns"
+                }
+              ]
             },
             "default": [
               "Activity ID",
@@ -343,6 +350,51 @@
             ]
           }
         }
+      },
+      "AnalyticsActivitiesParameterizedColumns": {
+        "type": "string",
+        "oneOf": [
+          {
+            "type": "string",
+            "pattern": "^Time spent in Ticket Status:\\d+$"
+          },
+          {
+            "type": "string",
+            "pattern": "^Transitions to Ticket Status:\\d+$"
+          },
+          {
+            "type": "string",
+            "pattern": "^Smart QA score:\\w+$"
+          }
+        ]
+      },
+      "AnalyticsActivitiesSmartQAScoreParameters": {
+        "type": "string",
+        "enum": [
+          "Comprehension",
+          "Solution_Offered",
+          "Professionalism",
+          "Professional_Behavior",
+          "Professional_Relationship",
+          "Readability",
+          "Grammar_Spelling",
+          "General_Empathy",
+          "Cognitive_Empathy",
+          "Emotional_Empathy",
+          "Compassionate_Empathy",
+          "Tone",
+          "Adaptive_Tone",
+          "Neutral_Tone",
+          "Positive_Tone",
+          "Brevity",
+          "Demo_Offered",
+          "Information_Gathering",
+          "Upsell",
+          "Friendly",
+          "Greeting_Offered",
+          "Personalisation",
+          "Adaptability"
+        ]
       },
       "AnalyticsExportRequest": {
         "discriminator": {

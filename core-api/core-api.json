@@ -13789,6 +13789,36 @@
         ]
       }
     },
+    "/teammates/{teammate_id}/private_inboxes": {
+      "get": {
+        "summary": "List teammate private inboxes",
+        "operationId": "list-teammate-private-inboxes",
+        "description": "List the private inboxes of a teammate.\n\nRequired scope: `inboxes:read`",
+        "tags": [
+          "Inboxes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "teammate_id",
+            "required": true,
+            "description": "The teammate ID",
+            "schema": {
+              "type": "string",
+              "default": "tea_123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfInboxes"
+          }
+        },
+        "x-required-scopes": [
+          "inboxes:read"
+        ]
+      }
+    },
     "/teammates/{teammate_id}/rules": {
       "get": {
         "summary": "List teammate rules",

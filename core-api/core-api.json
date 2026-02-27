@@ -1854,6 +1854,14 @@
             "items": {
               "$ref": "#/components/schemas/ResourceID"
             }
+          },
+          "is_public": {
+            "type": "boolean",
+            "description": "Whether the inbox is public or not"
+          },
+          "custom_fields": {
+            "description": "Custom fields for this inbox",
+            "$ref": "#/components/schemas/CustomFieldParameter"
           }
         }
       },
@@ -1939,6 +1947,22 @@
             "type": "string",
             "description": "Name of the message template folder",
             "example": "PTO templates"
+          }
+        }
+      },
+      "CreatePrivateInbox": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the inbox"
+          },
+          "custom_fields": {
+            "description": "Custom fields for this inbox",
+            "$ref": "#/components/schemas/CustomFieldParameter"
           }
         }
       },
@@ -2171,6 +2195,33 @@
             "type": "boolean",
             "description": "Whether the tag is visible in conversation lists.",
             "default": false
+          }
+        }
+      },
+      "CreateTeamInbox": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the inbox"
+          },
+          "teammate_ids": {
+            "type": "array",
+            "description": "An array of teammate IDs that should have access to the inbox. Alternatively, you can supply teammate emails as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
+            "items": {
+              "$ref": "#/components/schemas/ResourceID"
+            }
+          },
+          "is_public": {
+            "type": "boolean",
+            "description": "Whether the inbox is public or not"
+          },
+          "custom_fields": {
+            "description": "Custom fields for this inbox",
+            "$ref": "#/components/schemas/CustomFieldParameter"
           }
         }
       },
@@ -10013,8 +10064,8 @@
           }
         },
         "responses": {
-          "204": {
-            "description": "No content"
+          "201": {
+            "$ref": "#/components/responses/inbox"
           }
         },
         "x-required-scopes": [
@@ -13817,6 +13868,44 @@
         "x-required-scopes": [
           "inboxes:read"
         ]
+      },
+      "post": {
+        "summary": "Create teammate private inbox",
+        "operationId": "create-teammate-private-inbox",
+        "description": "Create a private inbox for a teammate.\n\nRequired scope: `inboxes:write`",
+        "tags": [
+          "Inboxes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "teammate_id",
+            "required": true,
+            "description": "The teammate ID",
+            "schema": {
+              "type": "string",
+              "default": "tea_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Inbox details",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePrivateInbox"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/inbox"
+          }
+        },
+        "x-required-scopes": [
+          "inboxes:write"
+        ]
       }
     },
     "/teammates/{teammate_id}/rules": {
@@ -14376,14 +14465,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateInbox"
+                "$ref": "#/components/schemas/CreateTeamInbox"
               }
             }
           }
         },
         "responses": {
-          "204": {
-            "description": "No content"
+          "201": {
+            "$ref": "#/components/responses/inbox"
           }
         },
         "x-required-scopes": [

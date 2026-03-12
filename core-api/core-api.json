@@ -260,9 +260,12 @@
           "Removed tag API ID",
           "Segment cumulative teammates",
           "Ticket status name",
-          "Ticket status name at activity time",
           "Ticket status category",
-          "Ticket status category at activity time"
+          "Time spent in Ticket Status",
+          "Transitions to Ticket Status",
+          "Smart QA score",
+          "Custom Field",
+          "Updated Custom Field"
         ]
       },
       "AnalyticsActivitiesExportsColumns": {
@@ -273,7 +276,7 @@
         "properties": {
           "columns": {
             "type": "array",
-            "description": "List of the columns to include in the export. In addition to the\npredefined columns, you can also include parameterized columns by\nappending the parameter value to the column name, separated by a\ncolon (`:`).\n\nExample: `[\"Message ID\", \"Time spent in Ticket Status:123\", \"Smart QA score:Comprehension\"]`\n",
+            "description": "List of the columns to include in the export. In addition to the\npredefined columns, you can also include parameterized columns by\nappending the parameter value to the column name, separated by a\ncolon (`:`). List of supported prefixes:\n  - `Time spent in Ticket Status` (e.g., \"Time spent in Ticket Status:123\", where 123 is the ticket status tag ID)\n  - `Transitions to Ticket Status` (e.g., \"Transitions to Ticket Status:123\", where 123 is the ticket status tag ID)\n  - `Smart QA score` (e.g., \"Smart QA score:Comprehension\", where \"Comprehension\" is the Smart QA criteria ID)\n  - `Custom Field` (e.g., \"Custom Field:456\", where 456 is the custom field ID)\n  - `Updated Custom Field` (e.g., \"Updated Custom Field:456\", where 456 is the custom field ID)\n\nExample: `[\"Message ID\", \"Time spent in Ticket Status:123\", \"Smart QA score:Comprehension\"]`\n",
             "items": {
               "oneOf": [
                 {
@@ -365,6 +368,14 @@
           {
             "type": "string",
             "pattern": "^Smart QA score:\\w+$"
+          },
+          {
+            "type": "string",
+            "pattern": "^Custom Field:\\d+$"
+          },
+          {
+            "type": "string",
+            "pattern": "^Updated Custom Field:\\d+$"
           }
         ]
       },
@@ -580,9 +591,8 @@
           "Last segment activity",
           "Segment cumulative teammates",
           "Ticket status name",
-          "Ticket status name at activity time",
           "Ticket status category",
-          "Ticket status category at activity time"
+          "Custom Field"
         ]
       },
       "AnalyticsMessagesExportColumns": {

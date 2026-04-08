@@ -63,6 +63,49 @@
       }
     },
     "schemas": {
+      "AddCallRecordingFormFields": {
+        "type": "object",
+        "required": [
+          "recording_type"
+        ],
+        "properties": {
+          "recording_type": {
+            "type": "string",
+            "enum": [
+              "call",
+              "voicemail"
+            ]
+          }
+        }
+      },
+      "AddCallSummary": {
+        "type": "object",
+        "required": [
+          "content"
+        ],
+        "properties": {
+          "content": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Summary text for the call."
+          }
+        }
+      },
+      "AddCallTranscript": {
+        "type": "object",
+        "required": [
+          "lines"
+        ],
+        "properties": {
+          "lines": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/TranscriptLine"
+            }
+          }
+        }
+      },
       "ApplicationMessageTemplate": {
         "required": [
           "external_id",
@@ -145,6 +188,141 @@
             "type": "number",
             "description": "ID of the application message template",
             "example": "msg_777"
+          }
+        }
+      },
+      "CallParty": {
+        "type": "object",
+        "required": [
+          "handle"
+        ],
+        "properties": {
+          "handle": {
+            "type": "string",
+            "description": "Party identifier compatible with the application channel contact type."
+          },
+          "name": {
+            "type": "string",
+            "description": "Optional display name for the party."
+          }
+        }
+      },
+      "CreateCall": {
+        "discriminator": {
+          "propertyName": "direction",
+          "mapping": {
+            "inbound": "#/components/schemas/CreateCallInbound",
+            "outbound": "#/components/schemas/CreateCallOutbound"
+          }
+        },
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CreateCallInbound"
+          },
+          {
+            "$ref": "#/components/schemas/CreateCallOutbound"
+          }
+        ],
+        "properties": {
+          "direction": {
+            "type": "string",
+            "enum": [
+              "inbound",
+              "outbound"
+            ],
+            "description": "Use `inbound` with required `from` (external party); use `outbound` with required `to` (callee)."
+          }
+        }
+      },
+      "CreateCallInbound": {
+        "type": "object",
+        "required": [
+          "external_call_id",
+          "initial_status",
+          "direction",
+          "from",
+          "parent_external_call_id"
+        ],
+        "properties": {
+          "external_call_id": {
+            "type": "string",
+            "description": "Stable identifier for this call in the provider system."
+          },
+          "initial_status": {
+            "type": "string",
+            "enum": [
+              "queued",
+              "ringing"
+            ]
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "inbound"
+            ],
+            "description": "Inbound calls must include `from` (external party who initiated). The channel is treated as the receiving side (e.g. agent or queue)."
+          },
+          "from": {
+            "$ref": "#/components/schemas/CallParty",
+            "description": "External party who initiated the inbound call."
+          },
+          "started_at": {
+            "type": "number",
+            "description": "Optional Unix timestamp (ms) when the call started."
+          },
+          "parent_external_call_id": {
+            "type": "string",
+            "description": "External ID of the parent call (e.g. where the call was transferred from). This will be used to thread the call into an existing conversation with a matching parent call ID."
+          },
+          "agent_email_address": {
+            "type": "string",
+            "description": "Optional email of the teammate associated with the call."
+          }
+        }
+      },
+      "CreateCallOutbound": {
+        "type": "object",
+        "required": [
+          "external_call_id",
+          "initial_status",
+          "direction",
+          "to",
+          "parent_external_call_id"
+        ],
+        "properties": {
+          "external_call_id": {
+            "type": "string",
+            "description": "Stable identifier for this call in the provider system."
+          },
+          "initial_status": {
+            "type": "string",
+            "enum": [
+              "queued",
+              "ringing"
+            ]
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "outbound"
+            ],
+            "description": "Outbound calls must include `to` (callee). The channel is treated as the originating side (e.g. agent)."
+          },
+          "to": {
+            "$ref": "#/components/schemas/CallParty",
+            "description": "Party being called (callee)."
+          },
+          "started_at": {
+            "type": "number",
+            "description": "Optional Unix timestamp (ms) when the call started."
+          },
+          "parent_external_call_id": {
+            "type": "string",
+            "description": "External ID of the parent call (e.g. where the call was transferred from). This will be used to thread the call into an existing conversation with a matching parent call ID."
+          },
+          "agent_email_address": {
+            "type": "string",
+            "description": "Optional email of the teammate associated with the call."
           }
         }
       },
@@ -308,6 +486,63 @@
           }
         }
       },
+      "TranscriptLine": {
+        "type": "object",
+        "required": [
+          "speaker_name",
+          "content",
+          "start_time_seconds",
+          "speaker_type"
+        ],
+        "properties": {
+          "speaker_name": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "start_time_seconds": {
+            "type": "number"
+          },
+          "speaker_type": {
+            "type": "string",
+            "enum": [
+              "internal",
+              "external"
+            ],
+            "description": "internal for agent or system-side speech; external for the other party."
+          }
+        }
+      },
+      "UpdateCall": {
+        "type": "object",
+        "required": [
+          "call_status"
+        ],
+        "properties": {
+          "occurred_at": {
+            "type": "number",
+            "description": "Optional Unix timestamp (ms) when this status change occurred."
+          },
+          "call_status": {
+            "type": "string",
+            "enum": [
+              "queued",
+              "ringing",
+              "connected",
+              "hold",
+              "hangup",
+              "abandoned",
+              "missed",
+              "transferred"
+            ]
+          },
+          "agent_email_address": {
+            "type": "string",
+            "description": "Optional; include when the status update relates to a specific teammate."
+          }
+        }
+      },
       "UpdateChannel": {
         "properties": {
           "status": {
@@ -454,6 +689,270 @@
         },
         "x-required-scopes": [
           "message_templates:write"
+        ]
+      }
+    },
+    "/channels/{channel_id}/calls": {
+      "post": {
+        "summary": "Create a call",
+        "operationId": "create-call",
+        "description": "Creates a call in Front.",
+        "tags": [
+          "Calls"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "channel_id",
+            "required": true,
+            "description": "The Channel ID.",
+            "schema": {
+              "type": "string",
+              "default": "cha_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCall"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "x-required-scopes": [
+          "channels:write"
+        ]
+      }
+    },
+    "/channels/{channel_id}/calls/{external_call_id}": {
+      "patch": {
+        "summary": "Update call status",
+        "operationId": "update-call",
+        "description": "Updates the call status of a call in Front.",
+        "tags": [
+          "Calls"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "channel_id",
+            "required": true,
+            "description": "The Channel ID.",
+            "schema": {
+              "type": "string",
+              "default": "cha_123"
+            }
+          },
+          {
+            "in": "path",
+            "name": "external_call_id",
+            "required": true,
+            "description": "The external call ID from the provider system (same as `external_call_id` on create).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCall"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "x-required-scopes": [
+          "channels:write"
+        ]
+      }
+    },
+    "/channels/{channel_id}/calls/{external_call_id}/recording": {
+      "post": {
+        "summary": "Add call recording",
+        "operationId": "add-call-recording",
+        "description": "Adds a recording to a call in Front. Send `multipart/form-data` with exactly one file in the `attachments` field, `Content-Type: audio/*`, and required `recording_type` (`call` or `voicemail`).\n",
+        "tags": [
+          "Calls"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "channel_id",
+            "required": true,
+            "description": "The Channel ID.",
+            "schema": {
+              "type": "string",
+              "default": "cha_123"
+            }
+          },
+          {
+            "in": "path",
+            "name": "external_call_id",
+            "required": true,
+            "description": "The external call ID from the provider system.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "attachments",
+                  "recording_type"
+                ],
+                "properties": {
+                  "attachments": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "Exactly one audio file (`audio/*`)."
+                  },
+                  "recording_type": {
+                    "type": "string",
+                    "enum": [
+                      "call",
+                      "voicemail"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "x-required-scopes": [
+          "channels:write"
+        ]
+      }
+    },
+    "/channels/{channel_id}/calls/{external_call_id}/summary": {
+      "post": {
+        "summary": "Add call summary",
+        "operationId": "add-call-summary",
+        "description": "Adds a summary to a call in Front.",
+        "tags": [
+          "Calls"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "channel_id",
+            "required": true,
+            "description": "The Channel ID.",
+            "schema": {
+              "type": "string",
+              "default": "cha_123"
+            }
+          },
+          {
+            "in": "path",
+            "name": "external_call_id",
+            "required": true,
+            "description": "The external call ID from the provider system.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddCallSummary"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "x-required-scopes": [
+          "channels:write"
+        ]
+      }
+    },
+    "/channels/{channel_id}/calls/{external_call_id}/transcript": {
+      "post": {
+        "summary": "Add call transcript",
+        "operationId": "add-call-transcript",
+        "description": "Adds a transcript to a call in Front.",
+        "tags": [
+          "Calls"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "channel_id",
+            "required": true,
+            "description": "The Channel ID.",
+            "schema": {
+              "type": "string",
+              "default": "cha_123"
+            }
+          },
+          {
+            "in": "path",
+            "name": "external_call_id",
+            "required": true,
+            "description": "The external call ID from the provider system.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddCallTranscript"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "x-required-scopes": [
+          "channels:write"
         ]
       }
     },

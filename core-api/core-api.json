@@ -5201,9 +5201,9 @@
               "visitor",
               "rule",
               "macro",
-              "API",
+              "api",
               "integration",
-              "CSAT"
+              "csat"
             ]
           },
           "custom_fields": {

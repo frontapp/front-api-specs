@@ -5212,6 +5212,100 @@
           }
         }
       },
+      "TimeOffResponse": {
+        "type": "object",
+        "required": [
+          "_links",
+          "id",
+          "name",
+          "start_at",
+          "auto_responder"
+        ],
+        "properties": {
+          "_links": {
+            "type": "object",
+            "properties": {
+              "self": {
+                "type": "string",
+                "description": "Link to the time off resource",
+                "example": "https://yourCompany.api.frontapp.com/time_offs/vcr_1bri"
+              },
+              "related": {
+                "type": "object",
+                "properties": {
+                  "teammate": {
+                    "type": "string",
+                    "description": "Link to the teammate this time off belongs to",
+                    "example": "https://yourCompany.api.frontapp.com/teammates/tea_1bri"
+                  }
+                }
+              }
+            }
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of the time off",
+            "example": "vcr_1bri"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the time off",
+            "example": "Out of office"
+          },
+          "start_at": {
+            "type": "number",
+            "description": "Timestamp when the time off starts",
+            "example": 1606943265.298
+          },
+          "end_at": {
+            "type": "number",
+            "nullable": true,
+            "description": "Timestamp when the time off ends, or null if open-ended",
+            "example": 1607548065.298
+          },
+          "created_at": {
+            "type": "number",
+            "description": "Timestamp when the time off was created",
+            "example": 1606943265.298
+          },
+          "updated_at": {
+            "type": "number",
+            "description": "Timestamp when the time off was last updated",
+            "example": 1606943265.298
+          },
+          "auto_responder": {
+            "type": "object",
+            "properties": {
+              "is_enabled": {
+                "type": "boolean",
+                "description": "Whether the auto-responder is enabled",
+                "example": true
+              },
+              "channel_ids": {
+                "type": "array",
+                "description": "List of channel IDs the auto-responder applies to",
+                "items": {
+                  "type": "string"
+                },
+                "example": [
+                  "cha_1bri",
+                  "cha_2bri"
+                ]
+              },
+              "is_contacts_only": {
+                "type": "boolean",
+                "description": "Whether the auto-responder only replies to known contacts",
+                "example": false
+              },
+              "body": {
+                "type": "string",
+                "description": "The auto-reply message body",
+                "example": "Thanks for reaching out, I will reply when I am back."
+              }
+            }
+          }
+        }
+      },
       "UpdateChannel": {
         "properties": {
           "name": {
@@ -6943,6 +7037,16 @@
           "application/json": {
             "schema": {
               "$ref": "#/components/schemas/ShiftResponse"
+            }
+          }
+        }
+      },
+      "time_off": {
+        "description": "A time off",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/TimeOffResponse"
             }
           }
         }
@@ -15033,6 +15137,36 @@
         },
         "x-required-scopes": [
           "views:write"
+        ]
+      }
+    },
+    "/time_offs/{time_off_id}": {
+      "get": {
+        "summary": "Get time off",
+        "operationId": "get-time-off",
+        "description": "Fetch a time off.\n\nRequired scope: `time_off:read`",
+        "tags": [
+          "Time Off"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "time_off_id",
+            "required": true,
+            "description": "The time off ID",
+            "schema": {
+              "type": "string",
+              "default": "vcr_abc123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/time_off"
+          }
+        },
+        "x-required-scopes": [
+          "time_off:read"
         ]
       }
     },

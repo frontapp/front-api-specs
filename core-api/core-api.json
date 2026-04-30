@@ -6121,6 +6121,45 @@
           }
         }
       },
+      "listOfTimeOffs": {
+        "description": "Array of time offs",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "_pagination": {
+                  "type": "object",
+                  "properties": {
+                    "next": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "Link to next [page of results](https://dev.frontapp.com/docs/pagination)",
+                      "example": "https://yourCompany.api.frontapp.com/teams/tim_abc123/time_offs?page_token=9fa92a7f385fd7be43f7153055b30e6d"
+                    }
+                  }
+                },
+                "_links": {
+                  "type": "object",
+                  "properties": {
+                    "self": {
+                      "type": "string",
+                      "description": "Link to resource",
+                      "example": "https://yourCompany.api.frontapp.com/teams/tim_abc123/time_offs"
+                    }
+                  }
+                },
+                "_results": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TimeOffResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "listOfShifts": {
         "description": "Array of Shifts",
         "content": {
@@ -14230,6 +14269,42 @@
         ]
       }
     },
+    "/teammates/{teammate_id}/time_offs": {
+      "get": {
+        "summary": "List teammate time offs",
+        "operationId": "list-teammate-time-offs",
+        "description": "List the time offs of a teammate.\n\nRequired scope: `time_off:read`",
+        "tags": [
+          "Time Off"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "teammate_id",
+            "required": true,
+            "description": "The teammate ID",
+            "schema": {
+              "type": "string",
+              "default": "tea_abc123"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/pageToken"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfTimeOffs"
+          }
+        },
+        "x-required-scopes": [
+          "time_off:read"
+        ]
+      }
+    },
     "/teams": {
       "get": {
         "summary": "List teams",
@@ -15063,6 +15138,42 @@
         },
         "x-required-scopes": [
           "teams:write"
+        ]
+      }
+    },
+    "/teams/{team_id}/time_offs": {
+      "get": {
+        "summary": "List team time offs",
+        "operationId": "list-team-time-offs",
+        "description": "List the time offs of all teammates in a team.\n\nRequired scope: `time_off:read`",
+        "tags": [
+          "Time Off"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "team_id",
+            "required": true,
+            "description": "The team ID",
+            "schema": {
+              "type": "string",
+              "default": "tim_abc123"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/pageToken"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfTimeOffs"
+          }
+        },
+        "x-required-scopes": [
+          "time_off:read"
         ]
       }
     },

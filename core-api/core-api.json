@@ -2285,6 +2285,51 @@
           }
         }
       },
+      "CreateTimeOff": {
+        "required": [
+          "name",
+          "start_at"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the time off"
+          },
+          "start_at": {
+            "type": "number",
+            "description": "Timestamp when the time off starts (in seconds)"
+          },
+          "end_at": {
+            "type": "number",
+            "nullable": true,
+            "description": "Timestamp when the time off ends (in seconds), or null if open-ended"
+          },
+          "auto_responder": {
+            "type": "object",
+            "properties": {
+              "body": {
+                "type": "string",
+                "description": "The auto-reply message body"
+              },
+              "is_enabled": {
+                "type": "boolean",
+                "description": "Whether the auto-responder is enabled"
+              },
+              "is_contacts_only": {
+                "type": "boolean",
+                "description": "Whether the auto-responder only replies to known contacts"
+              },
+              "channel_ids": {
+                "type": "array",
+                "description": "List of channel IDs the auto-responder applies to",
+                "items": {
+                  "$ref": "#/components/schemas/ResourceID"
+                }
+              }
+            }
+          }
+        }
+      },
       "CreateView": {
         "properties": {
           "name": {
@@ -5660,6 +5705,47 @@
                       "type": "string"
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      },
+      "UpdateTimeOff": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the time off"
+          },
+          "start_at": {
+            "type": "number",
+            "description": "Timestamp when the time off starts (in seconds)"
+          },
+          "end_at": {
+            "type": "number",
+            "nullable": true,
+            "description": "Timestamp when the time off ends (in seconds), or null to clear it"
+          },
+          "auto_responder": {
+            "type": "object",
+            "properties": {
+              "body": {
+                "type": "string",
+                "description": "The auto-reply message body"
+              },
+              "is_enabled": {
+                "type": "boolean",
+                "description": "Whether the auto-responder is enabled"
+              },
+              "is_contacts_only": {
+                "type": "boolean",
+                "description": "Whether the auto-responder only replies to known contacts"
+              },
+              "channel_ids": {
+                "type": "array",
+                "description": "List of channel IDs the auto-responder applies to",
+                "items": {
+                  "$ref": "#/components/schemas/ResourceID"
                 }
               }
             }
@@ -14293,6 +14379,22 @@
           },
           {
             "$ref": "#/components/parameters/pageToken"
+          },
+          {
+            "in": "query",
+            "name": "active_from",
+            "description": "Unix timestamp (seconds). Return time offs active on or after this date.",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "in": "query",
+            "name": "active_until",
+            "description": "Unix timestamp (seconds). Return time offs that start before this date.",
+            "schema": {
+              "type": "number"
+            }
           }
         ],
         "responses": {
@@ -14302,6 +14404,44 @@
         },
         "x-required-scopes": [
           "time_off:read"
+        ]
+      },
+      "post": {
+        "summary": "Create time off",
+        "operationId": "create-time-off",
+        "description": "Create a time off for a teammate.\n\nRequired scope: `time_off:write`",
+        "tags": [
+          "Time Off"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "teammate_id",
+            "required": true,
+            "description": "The teammate ID. Alternatively, you can supply an email as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
+            "schema": {
+              "type": "string",
+              "default": "tea_abc123"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTimeOff"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/time_off"
+          }
+        },
+        "x-required-scopes": [
+          "time_off:write"
         ]
       }
     },
@@ -15165,6 +15305,22 @@
           },
           {
             "$ref": "#/components/parameters/pageToken"
+          },
+          {
+            "in": "query",
+            "name": "active_from",
+            "description": "Unix timestamp (seconds). Return time offs active on or after this date.",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "in": "query",
+            "name": "active_until",
+            "description": "Unix timestamp (seconds). Return time offs that start before this date.",
+            "schema": {
+              "type": "number"
+            }
           }
         ],
         "responses": {
@@ -15278,6 +15434,72 @@
         },
         "x-required-scopes": [
           "time_off:read"
+        ]
+      },
+      "patch": {
+        "summary": "Update time off",
+        "operationId": "update-time-off",
+        "description": "Update a time off.\n\nRequired scope: `time_off:write`",
+        "tags": [
+          "Time Off"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "time_off_id",
+            "required": true,
+            "description": "The time off ID",
+            "schema": {
+              "type": "string",
+              "default": "vcr_abc123"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTimeOff"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content"
+          }
+        },
+        "x-required-scopes": [
+          "time_off:write"
+        ]
+      },
+      "delete": {
+        "summary": "Delete time off",
+        "operationId": "delete-time-off",
+        "description": "Delete a time off.\n\nRequired scope: `time_off:delete`",
+        "tags": [
+          "Time Off"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "time_off_id",
+            "required": true,
+            "description": "The time off ID",
+            "schema": {
+              "type": "string",
+              "default": "vcr_abc123"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No content"
+          }
+        },
+        "x-required-scopes": [
+          "time_off:delete"
         ]
       }
     },

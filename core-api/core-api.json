@@ -12190,20 +12190,10 @@
       "patch": {
         "summary": "Update message template",
         "operationId": "update-message-template",
-        "description": "Update message template\n\nRequired scope: `message_templates:write`",
+        "description": "Update a message template.\n\nRequired scope: `message_templates:write`",
         "tags": [
           "Message Templates"
         ],
-        "requestBody": {
-          "description": "Message template to update",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateMessageTemplate"
-              }
-            }
-          }
-        },
         "parameters": [
           {
             "in": "path",

@@ -5828,6 +5828,14 @@
           "type": "string"
         }
       },
+      "timeOffQuery": {
+        "name": "q",
+        "in": "query",
+        "description": "[Search query object](https://dev.frontapp.com/docs/query-object-q) with the optional properties `active_from` and `active_until`, whose value should be a timestamp in seconds with up to 3 decimal places.",
+        "schema": {
+          "type": "string"
+        }
+      },
       "conversationQuery": {
         "name": "q",
         "in": "query",
@@ -14371,20 +14379,7 @@
             "$ref": "#/components/parameters/pageToken"
           },
           {
-            "in": "query",
-            "name": "active_from",
-            "description": "Unix timestamp (seconds). Return time offs active on or after this date.",
-            "schema": {
-              "type": "number"
-            }
-          },
-          {
-            "in": "query",
-            "name": "active_until",
-            "description": "Unix timestamp (seconds). Return time offs that start before this date.",
-            "schema": {
-              "type": "number"
-            }
+            "$ref": "#/components/parameters/timeOffQuery"
           }
         ],
         "responses": {
@@ -15297,20 +15292,7 @@
             "$ref": "#/components/parameters/pageToken"
           },
           {
-            "in": "query",
-            "name": "active_from",
-            "description": "Unix timestamp (seconds). Return time offs active on or after this date.",
-            "schema": {
-              "type": "number"
-            }
-          },
-          {
-            "in": "query",
-            "name": "active_until",
-            "description": "Unix timestamp (seconds). Return time offs that start before this date.",
-            "schema": {
-              "type": "number"
-            }
+            "$ref": "#/components/parameters/timeOffQuery"
           }
         ],
         "responses": {

@@ -284,6 +284,12 @@
                 },
                 {
                   "$ref": "#/components/schemas/AnalyticsActivitiesParameterizedColumns"
+                },
+                {
+                  "$ref": "#/components/schemas/AnalyticsActivitiesSmartQAParameterizedColumn"
+                },
+                {
+                  "$ref": "#/components/schemas/AnalyticsActivitiesNumericParameterizedColumn"
                 }
               ]
             },
@@ -354,6 +360,27 @@
           }
         }
       },
+      "AnalyticsActivitiesNumericParameterizedColumn": {
+        "type": "object",
+        "required": [
+          "name",
+          "id"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "enum": [
+              "Time spent in Ticket Status",
+              "Transitions to Ticket Status",
+              "Custom Field",
+              "Updated Custom Field"
+            ]
+          },
+          "id": {
+            "type": "integer"
+          }
+        }
+      },
       "AnalyticsActivitiesParameterizedColumns": {
         "type": "string",
         "oneOf": [
@@ -378,6 +405,24 @@
             "pattern": "^Updated Custom Field:\\d+$"
           }
         ]
+      },
+      "AnalyticsActivitiesSmartQAParameterizedColumn": {
+        "type": "object",
+        "required": [
+          "name",
+          "id"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "enum": [
+              "Smart QA score"
+            ]
+          },
+          "id": {
+            "$ref": "#/components/schemas/AnalyticsActivitiesSmartQAScoreParameters"
+          }
+        }
       },
       "AnalyticsActivitiesSmartQAScoreParameters": {
         "type": "string",

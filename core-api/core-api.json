@@ -5285,15 +5285,19 @@
           },
           "type": {
             "type": "string",
-            "description": "Type of the teammate, normal teammates are denoted as \"user\", while visitors are denoted as \"visitor\".\nBot users are denoted by their parent resource type.\nThe following bot types are available:\n  * rule: acting on behalf of a Rule, author of comments and drafts\n  * macro: acting on behalf of a Macro, author of comments and drafts\n  * API: acting on behalf of OAuth clients\n  * integration: acting on behalf of an Integration\n  * CSAT: used for authoring CSAT response comments\n",
+            "description": "Type of the teammate, normal teammates are denoted as \"user\", while visitors are denoted as \"visitor\".\nBot users are denoted by their parent resource type.\nThe following bot types are available:\n  * ai: acting on behalf of an AI\n  * api: acting on behalf of OAuth clients\n  * application: acting on behalf of an Application\n  * bulk_reply: acting on behalf of a Bulk Reply\n  * csat: used for authoring CSAT response comments\n  * integration: acting on behalf of an Integration\n  * macro: acting on behalf of a Macro, author of comments and drafts\n  * rule: acting on behalf of a Rule, author of comments and drafts\n  * smart_csat: acting on behalf of a Smart CSAT\n",
             "enum": [
               "user",
               "visitor",
-              "rule",
-              "macro",
-              "API",
+              "ai",
+              "api",
+              "application",
+              "bulk_reply",
+              "csat",
               "integration",
-              "CSAT"
+              "macro",
+              "rule",
+              "smart_csat"
             ]
           },
           "custom_fields": {

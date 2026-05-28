@@ -276,7 +276,7 @@
         "properties": {
           "columns": {
             "type": "array",
-            "description": "List of the columns to include in the export. In addition to the\npredefined columns, you can also include parameterized columns by\nappending the parameter value to the column name, separated by a\ncolon (`:`). List of supported prefixes:\n  - `Time spent in Ticket Status` (e.g., \"Time spent in Ticket Status:123\", where 123 is the ticket status tag ID)\n  - `Transitions to Ticket Status` (e.g., \"Transitions to Ticket Status:123\", where 123 is the ticket status tag ID)\n  - `Smart QA score` (e.g., \"Smart QA score:Comprehension\", where \"Comprehension\" is the Smart QA criteria ID)\n  - `Custom Field` (e.g., \"Custom Field:456\", where 456 is the custom field ID)\n  - `Updated Custom Field` (e.g., \"Updated Custom Field:456\", where 456 is the custom field ID)\n\nExample: `[\"Message ID\", \"Time spent in Ticket Status:123\", \"Smart QA score:Comprehension\"]`\n",
+            "description": "List of the columns to include in the export. In addition to the\npredefined columns, you can also include parameterized columns by\nappending the parameter value to the column name, separated by a\ncolon (`:`). List of supported prefixes:\n  - `Time spent in Ticket Status` (e.g., \"Time spent in Ticket Status:sts_123\", where sts_123 is the ticket status tag ID)\n  - `Transitions to Ticket Status` (e.g., \"Transitions to Ticket Status:sts_123\", where sts_123 is the ticket status tag ID)\n  - `Smart QA score` (e.g., \"Smart QA score:Comprehension\", where \"Comprehension\" is the Smart QA criteria ID)\n  - `Custom Field` (e.g., \"Custom Field:fld_456\", where fld_456 is the custom field ID)\n  - `Updated Custom Field` (e.g., \"Updated Custom Field:fld_456\", where fld_456 is the custom field ID)\n\nExample: `[\"Message ID\", \"Time spent in Ticket Status:sts_123\", \"Smart QA score:Comprehension\"]`\n",
             "items": {
               "oneOf": [
                 {
@@ -386,11 +386,11 @@
         "oneOf": [
           {
             "type": "string",
-            "pattern": "^Time spent in Ticket Status:\\d+$"
+            "pattern": "^Time spent in Ticket Status:sts_[a-z0-9]+$"
           },
           {
             "type": "string",
-            "pattern": "^Transitions to Ticket Status:\\d+$"
+            "pattern": "^Transitions to Ticket Status:sts_[a-z0-9]+$"
           },
           {
             "type": "string",
@@ -398,11 +398,11 @@
           },
           {
             "type": "string",
-            "pattern": "^Custom Field:\\d+$"
+            "pattern": "^Custom Field:fld_[a-z0-9]+$"
           },
           {
             "type": "string",
-            "pattern": "^Updated Custom Field:\\d+$"
+            "pattern": "^Updated Custom Field:fld_[a-z0-9]+$"
           }
         ]
       },

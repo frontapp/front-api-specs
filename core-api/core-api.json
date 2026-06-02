@@ -1450,6 +1450,7 @@
         "required": [
           "_links",
           "id",
+          "type",
           "subject",
           "status",
           "ticket_ids",
@@ -1512,6 +1513,16 @@
             "type": "string",
             "description": "Unique identifier of the conversation",
             "example": "cnv_yo1kg5q"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of the conversation",
+            "enum": [
+              "conversation",
+              "discussion",
+              "task"
+            ],
+            "example": "discussion"
           },
           "subject": {
             "type": "string",
@@ -1608,6 +1619,11 @@
             "items": {
               "$ref": "#/components/schemas/Reminder"
             }
+          },
+          "description": {
+            "type": "string",
+            "nullable": true,
+            "description": "Description of the task. Only present on task conversations."
           },
           "metadata": {
             "type": "object",
@@ -1767,15 +1783,15 @@
       "CreateConversation": {
         "required": [
           "type",
-          "subject",
-          "comment"
+          "subject"
         ],
         "properties": {
           "type": {
             "description": "Conversation type",
             "type": "string",
             "enum": [
-              "discussion"
+              "discussion",
+              "task"
             ]
           },
           "inbox_id": {
@@ -1790,11 +1806,11 @@
             }
           },
           "subject": {
-            "description": "Subject of the conversation",
+            "description": "Subject of the conversation. Used as the title for tasks.",
             "type": "string"
           },
           "comment": {
-            "description": "Details for the starter comment",
+            "description": "Details for the starter comment. Required for discussions, optional for tasks.",
             "type": "object",
             "required": [
               "body"
@@ -1817,6 +1833,11 @@
                 }
               }
             }
+          },
+          "description": {
+            "description": "Description of the task. Only allowed when type is `task`.",
+            "type": "string",
+            "maxLength": 65535
           },
           "custom_fields": {
             "description": "Custom fields for this conversation",
@@ -5482,6 +5503,12 @@
             "items": {
               "$ref": "#/components/schemas/ResourceID"
             }
+          },
+          "description": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 65535,
+            "description": "Description of the task. Only allowed on task conversations. Set to null to clear."
           },
           "custom_fields": {
             "description": "Custom fields for this conversation. If you want to keep all custom fields the same when updating this resource, do not include any custom fields in the update. If you want to update custom fields, make sure to include all custom fields, not just the fields you want to add or update. If you send only the custom fields you want to update, the other custom fields will be erased. You can retrieve the existing custom fields before making the update to note the current fields. Send as an object of key:value pairs where the key is the custom field name and the value is the custom field value.",
@@ -9203,9 +9230,9 @@
         ]
       },
       "post": {
-        "summary": "Create discussion conversation",
+        "summary": "Create discussion/task conversation",
         "operationId": "create-conversation",
-        "description": "Create a new [conversation](https://dev.frontapp.com/reference/conversations#creating-a-new-conversation) that only supports comments (known as discussions in Front). If you want to create a conversation that supports messages, use the [Create message](https://dev.frontapp.com/reference/post_channels-channel-id-messages) endpoint. If you want to add a comment to an existing conversation, use the [Add comment](https://dev.frontapp.com/reference/post_conversations-conversation-id-comments) endpoint.\n\nRequired scope: `conversations:write`",
+        "description": "Create a new [conversation](https://dev.frontapp.com/reference/conversations#creating-a-new-conversation) of type discussion or task. Both types only support comments. If you want to create a conversation that supports messages, use the [Create message](https://dev.frontapp.com/reference/post_channels-channel-id-messages) endpoint. If you want to add a comment to an existing conversation, use the [Add comment](https://dev.frontapp.com/reference/post_conversations-conversation-id-comments) endpoint.\n\nRequired scope: `conversations:write`",
         "tags": [
           "Conversations"
         ],

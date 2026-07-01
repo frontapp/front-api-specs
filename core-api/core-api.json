@@ -2712,7 +2712,9 @@
               "call_connected",
               "call_missed",
               "call_hangup",
-              "call_transferred"
+              "call_transferred",
+              "call_transcript_added",
+              "call_voicemail_transcript_added"
             ],
             "example": "inbound"
           },

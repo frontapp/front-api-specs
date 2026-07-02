@@ -1625,6 +1625,12 @@
             "nullable": true,
             "description": "Description of the task. Only present on task conversations."
           },
+          "due_at": {
+            "type": "number",
+            "nullable": true,
+            "description": "Unix timestamp in seconds when the task is due. Only present on task conversations.",
+            "example": 1701292649.333
+          },
           "metadata": {
             "type": "object",
             "description": "Optional metadata about the conversation",
@@ -1838,6 +1844,10 @@
             "description": "Description of the task. Only allowed when type is `task`.",
             "type": "string",
             "maxLength": 65535
+          },
+          "due_at": {
+            "description": "Unix timestamp in seconds when the task is due. Must be in the future and within 50 years. Only allowed when type is `task`.",
+            "type": "number"
           },
           "custom_fields": {
             "description": "Custom fields for this conversation",
@@ -5511,6 +5521,12 @@
             "nullable": true,
             "maxLength": 65535,
             "description": "Description of the task. Only allowed on task conversations. Set to null to clear."
+          },
+          "due_at": {
+            "type": "number",
+            "nullable": true,
+            "description": "Unix timestamp in seconds when the task is due. Must be in the future and within 50 years. Only allowed on task conversations. Set to null to clear.",
+            "example": 1701292649.333
           },
           "custom_fields": {
             "description": "Custom fields for this conversation. If you want to keep all custom fields the same when updating this resource, do not include any custom fields in the update. If you want to update custom fields, make sure to include all custom fields, not just the fields you want to add or update. If you send only the custom fields you want to update, the other custom fields will be erased. You can retrieve the existing custom fields before making the update to note the current fields. Send as an object of key:value pairs where the key is the custom field name and the value is the custom field value.",

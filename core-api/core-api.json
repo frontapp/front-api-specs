@@ -193,6 +193,7 @@
         }
       },
       "AnalyticsActivitiesColumns": {
+        "title": "Columns",
         "type": "string",
         "enum": [
           "Activity ID",
@@ -276,14 +277,11 @@
         "properties": {
           "columns": {
             "type": "array",
-            "description": "List of the columns to include in the export. In addition to the\npredefined columns, you can also include parameterized columns by\nappending the parameter value to the column name, separated by a\ncolon (`:`). List of supported prefixes:\n  - `Time spent in Ticket Status` (e.g., \"Time spent in Ticket Status:sts_123\", where sts_123 is the ticket status tag ID)\n  - `Transitions to Ticket Status` (e.g., \"Transitions to Ticket Status:sts_123\", where sts_123 is the ticket status tag ID)\n  - `Smart QA score` (e.g., \"Smart QA score:Comprehension\", where \"Comprehension\" is the Smart QA criteria ID)\n  - `Custom Field` (e.g., \"Custom Field:fld_456\", where fld_456 is the custom field ID)\n  - `Updated Custom Field` (e.g., \"Updated Custom Field:fld_456\", where fld_456 is the custom field ID)\n\nExample: `[\"Message ID\", \"Time spent in Ticket Status:sts_123\", \"Smart QA score:Comprehension\"]`\n",
+            "description": "List of the columns to include in the export.\n\n**Fixed columns** are plain strings selected from the predefined list (e.g., `\"Message ID\"`).\n\n**Parameterized columns** require an additional parameter and must be specified as an object\nwith `name` and `id` fields. Supported parameterized prefixes:\n  - `Time spent in Ticket Status` — `id` is the ticket status public API ID (e.g., `sts_123`)\n  - `Transitions to Ticket Status` — `id` is the ticket status public API ID (e.g., `sts_123`)\n  - `Smart QA score` — `id` is the Smart QA criteria name (e.g., `Comprehension`)\n  - `Custom Field` — `id` is the custom field public API ID (e.g., `fld_456`)\n  - `Updated Custom Field` — `id` is the custom field public API ID (e.g., `fld_456`)\n\nExample: `[\"Message ID\", {\"name\": \"Time spent in Ticket Status\", \"id\": \"sts_123\"}, {\"name\": \"Smart QA score\", \"id\": \"Comprehension\"}]`\n",
             "items": {
               "oneOf": [
                 {
                   "$ref": "#/components/schemas/AnalyticsActivitiesColumns"
-                },
-                {
-                  "$ref": "#/components/schemas/AnalyticsActivitiesParameterizedColumns"
                 },
                 {
                   "$ref": "#/components/schemas/AnalyticsActivitiesSmartQAParameterizedColumn"
@@ -361,6 +359,7 @@
         }
       },
       "AnalyticsActivitiesNumericParameterizedColumn": {
+        "title": "Columns with numeric parameter",
         "type": "object",
         "required": [
           "name",
@@ -377,7 +376,15 @@
             ]
           },
           "id": {
-            "type": "integer"
+            "description": "Public API string ID (e.g., sts_123 for ticket statuses, fld_456 for custom fields) or legacy numeric ID",
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              }
+            ]
           }
         }
       },
@@ -407,6 +414,7 @@
         ]
       },
       "AnalyticsActivitiesSmartQAParameterizedColumn": {
+        "title": "Smart QA Columns",
         "type": "object",
         "required": [
           "name",

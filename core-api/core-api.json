@@ -9285,7 +9285,7 @@
       "get": {
         "summary": "List Conversation's custom fields",
         "operationId": "list-conversation-custom-fields",
-        "description": "Lists the custom fields that can be attached to a Conversation.\n\nRequired scope: `custom_fields:read`",
+        "description": "Lists customer-managed custom fields that can be attached to a Conversation.\nFront-managed system fields are excluded.\n\n\nRequired scope: `custom_fields:read`",
         "tags": [
           "Custom Fields"
         ],

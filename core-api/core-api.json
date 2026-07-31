@@ -1713,6 +1713,14 @@
           "send_as": {
             "type": "string",
             "description": "Sending address of your channel. Required for SMTP and Twilio channels."
+          },
+          "application_uid": {
+            "type": "string",
+            "description": "The UID of a developer app that defines a channel. When provided, an application\nchannel bound to that app is created (the channel `type` must be \"custom\").\n"
+          },
+          "credentials": {
+            "type": "object",
+            "description": "Credentials used to authenticate requests to the application's service. Only used with\n`application_uid`, and its shape depends on the application server's authentication type:\n  - `none`: omit.\n  - `api_key`: `{ \"api_key\": string }`.\n  - `basic`: `{ \"username\": string, \"password\": string }`.\n  - `bearer`: `{ \"access_token\": string }`.\n  - OAuth2 `client_credentials`: `{ \"client_id\": string, \"client_secret\": string }`\n  - OAuth2 `password`: `{ \"username\": string, \"password\": string }`\n  - OAuth2 `authorization_code`: omit. The channel is created unauthenticated and the OAuth\n    flow must be completed interactively afterwards.\n"
           }
         }
       },

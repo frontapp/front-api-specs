@@ -2734,6 +2734,7 @@
               "call_abandoned",
               "call_queued",
               "call_on_hold",
+              "call_parked",
               "call_resumed",
               "call_connected",
               "call_missed",

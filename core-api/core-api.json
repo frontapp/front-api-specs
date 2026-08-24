@@ -266,7 +266,8 @@
           "Transitions to Ticket Status",
           "Smart QA score",
           "Custom Field",
-          "Updated Custom Field"
+          "Updated Custom Field",
+          "Attributed teammates"
         ]
       },
       "AnalyticsActivitiesExportsColumns": {
@@ -353,7 +354,8 @@
               "Added tag API ID",
               "Removed tag",
               "Removed tag API ID",
-              "Segment cumulative teammates"
+              "Segment cumulative teammates",
+              "Attributed teammates"
             ]
           }
         }
@@ -645,7 +647,8 @@
           "Segment cumulative teammates",
           "Ticket status name",
           "Ticket status category",
-          "Custom Field"
+          "Custom Field",
+          "Attributed teammates"
         ]
       },
       "AnalyticsMessagesExportColumns": {
@@ -701,7 +704,8 @@
               "Segment end",
               "Segment closed",
               "Last segment activity",
-              "Segment cumulative teammates"
+              "Segment cumulative teammates",
+              "Attributed teammates"
             ]
           }
         }

@@ -5524,6 +5524,7 @@
         "properties": {
           "assignee_id": {
             "type": "string",
+            "nullable": true,
             "description": "ID of the teammate to assign the conversation to. Set it to null to unassign."
           },
           "inbox_id": {
@@ -5577,6 +5578,7 @@
         "properties": {
           "assignee_id": {
             "type": "string",
+            "nullable": true,
             "description": "ID of the teammate to assign the conversation to. Set it to null to unassign."
           }
         }

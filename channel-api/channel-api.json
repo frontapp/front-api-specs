@@ -690,6 +690,47 @@
         "x-required-scopes": [
           "message_templates:write"
         ]
+      },
+      "delete": {
+        "summary": "Delete application message template",
+        "operationId": "delete-application-message-template",
+        "description": "Delete an application message template that no longer exists in the external service.",
+        "tags": [
+          "Application Message Templates"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "channel_id",
+            "required": true,
+            "description": "The channel ID. Alternatively, you can supply the channel address as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
+            "schema": {
+              "type": "string",
+              "default": "cha_123"
+            }
+          },
+          {
+            "in": "path",
+            "name": "external_id",
+            "required": true,
+            "description": "The external ID of the application message template.",
+            "schema": {
+              "type": "string",
+              "default": "ext_123"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No content"
+          },
+          "400": {
+            "description": "Channel is not an application channel or does not support application message templates."
+          }
+        },
+        "x-required-scopes": [
+          "message_templates:delete"
+        ]
       }
     },
     "/channels/{channel_id}/calls": {

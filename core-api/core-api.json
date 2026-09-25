@@ -148,19 +148,19 @@
           "domains": {
             "type": "array",
             "description": "List of domains associated to the Account",
+            "example": [
+              "dundermifflininc.com",
+              "limitlesspaper.com"
+            ],
             "items": {
-              "type": "string",
-              "example": [
-                "dundermifflininc.com",
-                "limitlesspaper.com"
-              ]
+              "type": "string"
             }
           },
           "external_id": {
             "type": "string",
             "nullable": true,
             "description": "ID of the Account in an External system, such as your backoffice system or CRM",
-            "example": 8739674733
+            "example": "8739674733"
           },
           "custom_fields": {
             "description": "Custom fields for this account",
@@ -1431,12 +1431,12 @@
           "links": {
             "type": "array",
             "description": "List of all the links of the contact",
+            "example": [
+              "https://shrutefarms.com",
+              "https://eatyourbeets.com"
+            ],
             "items": {
-              "type": "string",
-              "example": [
-                "https://shrutefarms.com",
-                "https://eatyourbeets.com"
-              ]
+              "type": "string"
             }
           },
           "groups": {
@@ -3238,12 +3238,12 @@
           "keywords": {
             "type": "array",
             "description": "Article keywords",
+            "example": [
+              "billing",
+              "returns"
+            ],
             "items": {
-              "type": "string",
-              "example": [
-                "billing",
-                "returns"
-              ]
+              "type": "string"
             }
           },
           "content": {
@@ -3333,12 +3333,12 @@
           "locales": {
             "type": "array",
             "description": "List of the locales the article supports",
+            "example": [
+              "en",
+              "es"
+            ],
             "items": {
-              "type": "string",
-              "example": [
-                "en",
-                "es"
-              ]
+              "type": "string"
             }
           },
           "created_at": {
@@ -3530,12 +3530,12 @@
           "locales": {
             "type": "array",
             "description": "List of the locales the category supports",
+            "example": [
+              "en",
+              "es"
+            ],
             "items": {
-              "type": "string",
-              "example": [
-                "en",
-                "es"
-              ]
+              "type": "string"
             }
           },
           "created_at": {
@@ -3717,12 +3717,12 @@
           "locales": {
             "type": "array",
             "description": "List of the KB's possible locales",
+            "example": [
+              "en",
+              "es"
+            ],
             "items": {
-              "type": "string",
-              "example": [
-                "en",
-                "es"
-              ]
+              "type": "string"
             }
           },
           "created_at": {
@@ -4528,14 +4528,14 @@
           "actions": {
             "type": "array",
             "description": "List of the rule's actions description",
+            "example": [
+              "Assign to Pam",
+              "Unassign from Michael",
+              "Tag with Scranton is the Best Branch",
+              "Tag with Michael is the Best Boss"
+            ],
             "items": {
-              "type": "string",
-              "example": [
-                "Assign to Pam",
-                "Unassign from Michael",
-                "Tag with Scranton is the Best Branch",
-                "Tag with Michael is the Best Boss"
-              ]
+              "type": "string"
             }
           },
           "is_private": {
@@ -4574,8 +4574,8 @@
             }
           },
           "first_seen_at": {
-            "type": "string",
-            "description": "Timestamp when message was seen",
+            "type": "number",
+            "description": "Unix timestamp in milliseconds when message was seen",
             "example": 1701298738269
           },
           "seen_by": {
@@ -4860,9 +4860,7 @@
             "type": "string",
             "nullable": true,
             "description": "Sender info of the signature",
-            "example": {
-              "[object Object]": null
-            }
+            "example": "{{user.name}}"
           },
           "is_visible_for_all_teammate_channels": {
             "type": "boolean",

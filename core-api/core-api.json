@@ -1527,6 +1527,16 @@
                     "description": "Link to conversation inboxes",
                     "example": "https://yourCompany.api.frontapp.com/conversations/cnv_yo1kg5q/inboxes"
                   },
+                  "linked_conversations": {
+                    "type": "string",
+                    "description": "Link to the conversations linked to this conversation's group. Only present when the conversation belongs to one.\n",
+                    "example": "https://yourCompany.api.frontapp.com/conversations/cnv_yo1kg5q/linked_conversations"
+                  },
+                  "original_conversation": {
+                    "type": "string",
+                    "description": "Link to the original conversation of the group. Only present on a conversation that is linked to one.\n",
+                    "example": "https://yourCompany.api.frontapp.com/conversations/cnv_yo1kg5q"
+                  },
                   "last_message": {
                     "type": "string",
                     "description": "Link to last message of the conversation",
@@ -9907,6 +9917,117 @@
         },
         "x-required-scopes": [
           "inboxes:read"
+        ]
+      }
+    },
+    "/conversations/{conversation_id}/linked_conversations": {
+      "get": {
+        "summary": "List linked conversations",
+        "operationId": "list-linked-conversations",
+        "description": "List the conversations linked to the original conversation in the path. Conversations the requester cannot access are omitted,\nso a page can hold fewer results than requested while more remain.\n\n\nRequired scope: `conversations:read`",
+        "tags": [
+          "Conversations"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "conversation_id",
+            "required": true,
+            "description": "The conversation ID",
+            "schema": {
+              "type": "string",
+              "default": "cnv_123"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/pageToken"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/listOfConversations"
+          },
+          "301": {
+            "description": "If the conversation has been merged, the response redirects you to the merged conversation."
+          },
+          "400": {
+            "description": "If the conversation has no conversations linked to it, or is itself linked to another conversation."
+          },
+          "403": {
+            "description": "If your plan does not include linked conversations."
+          },
+          "404": {
+            "description": "If the conversation does not exist or is not accessible."
+          }
+        },
+        "x-required-scopes": [
+          "conversations:read"
+        ]
+      },
+      "post": {
+        "summary": "Link conversations",
+        "operationId": "create-linked-conversations",
+        "description": "Adds conversations to the link group of the conversation in the path, which becomes the original conversation of the group.\nIf it belongs to no group yet, a new one is formed. A conversation belongs to at most one group, and a conversation that\nwas linked to another one cannot become an original conversation.\n\n\nRequired scope: `conversations:write`",
+        "tags": [
+          "Conversations"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "conversation_id",
+            "required": true,
+            "description": "The conversation ID",
+            "schema": {
+              "type": "string",
+              "default": "cnv_123"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "conversation_ids": {
+                    "description": "IDs of the conversations to link to the conversation in the path.",
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 20,
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "conversation_ids"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content"
+          },
+          "301": {
+            "description": "If the conversation has been merged, the response redirects you to the merged conversation."
+          },
+          "400": {
+            "description": "If a conversation is linked to itself, if no ids or more than 20 ids are supplied, if one of them already belongs to a group, or if the conversation in the path was itself linked to another conversation."
+          },
+          "403": {
+            "description": "If your plan does not include linked conversations."
+          },
+          "404": {
+            "description": "If the conversation in the path or one of the conversations to link does not exist or is not accessible."
+          }
+        },
+        "x-required-scopes": [
+          "conversations:write"
         ]
       }
     },

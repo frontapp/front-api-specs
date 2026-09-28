@@ -7528,6 +7528,7 @@
           "Accounts"
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -7616,6 +7617,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -7711,6 +7713,7 @@
           "Accounts"
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -7787,6 +7790,7 @@
           "Analytics"
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -7858,6 +7862,7 @@
           "Analytics"
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -7940,6 +7945,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -8025,6 +8031,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "description": "Channel details",
           "content": {
             "application/json": {
@@ -8065,6 +8072,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -8104,6 +8112,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -8143,6 +8152,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -8219,9 +8229,7 @@
         "x-required-scopes": [
           "comments:read"
         ]
-      }
-    },
-    "/comments/{comment_id}/": {
+      },
       "patch": {
         "summary": "Update comment",
         "operationId": "update-comment",
@@ -8242,6 +8250,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -8351,6 +8360,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -8477,6 +8487,7 @@
           "Tags"
         ],
         "requestBody": {
+          "required": true,
           "description": "Tag to create",
           "content": {
             "application/json": {
@@ -8523,6 +8534,7 @@
           "Contact Groups"
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -8629,6 +8641,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -8709,6 +8722,7 @@
           "Contact Lists"
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -8812,6 +8826,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -8909,6 +8924,7 @@
           "Contacts"
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -8954,6 +8970,7 @@
           "Contacts"
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -9021,6 +9038,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -9127,6 +9145,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -9231,6 +9250,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -9291,6 +9311,7 @@
           "Conversations"
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -9415,6 +9436,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -9497,6 +9519,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -9570,6 +9593,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -9643,6 +9667,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -9764,6 +9789,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -9905,6 +9931,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -10061,6 +10088,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -10103,6 +10131,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -10145,6 +10174,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "description": "Tag IDs to add",
           "content": {
             "application/json": {
@@ -10296,7 +10326,7 @@
         ]
       }
     },
-    "/drafts/{message_id}/": {
+    "/drafts/{message_id}": {
       "patch": {
         "summary": "Edit draft",
         "operationId": "edit-draft",
@@ -10317,6 +10347,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -10431,6 +10462,7 @@
           "Inboxes"
         ],
         "requestBody": {
+          "required": true,
           "description": "Inbox details",
           "content": {
             "application/json": {
@@ -10547,6 +10579,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "description": "Channel to create",
           "content": {
             "application/json": {
@@ -10626,6 +10659,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -10693,6 +10727,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "description": "Teammate IDs to add. Alternatively, you can supply teammate emails as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
           "content": {
             "application/json": {
@@ -10857,6 +10892,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -10987,6 +11023,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -11152,6 +11189,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -11239,6 +11277,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -11282,6 +11321,7 @@
           "Knowledge Bases"
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -11388,6 +11428,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -11466,6 +11507,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -11536,6 +11578,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -11588,6 +11631,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -11642,6 +11686,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -11732,6 +11777,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -11795,6 +11841,7 @@
           "Links"
         ],
         "requestBody": {
+          "required": true,
           "description": "Link to create",
           "content": {
             "application/json": {
@@ -11881,6 +11928,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "description": "Link fields to update",
           "content": {
             "application/json": {
@@ -11993,6 +12041,7 @@
           "Message Template Folders"
         ],
         "requestBody": {
+          "required": true,
           "description": "Message template folder to create",
           "content": {
             "application/json": {
@@ -12049,6 +12098,7 @@
           "Message Template Folders"
         ],
         "requestBody": {
+          "required": true,
           "description": "Message template folder to update",
           "content": {
             "application/json": {
@@ -12145,6 +12195,7 @@
           "Message Template Folders"
         ],
         "requestBody": {
+          "required": true,
           "description": "Message template folder to create",
           "content": {
             "application/json": {
@@ -12213,6 +12264,7 @@
           "Message Templates"
         ],
         "requestBody": {
+          "required": true,
           "description": "Message template to create",
           "content": {
             "application/json": {
@@ -12277,6 +12329,7 @@
           "Message Templates"
         ],
         "requestBody": {
+          "required": true,
           "description": "Message template to create",
           "content": {
             "application/json": {
@@ -12529,6 +12582,7 @@
           "Messages"
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -12632,6 +12686,7 @@
           "Shifts"
         ],
         "requestBody": {
+          "required": true,
           "description": "Shift to create details",
           "content": {
             "application/json": {
@@ -12700,6 +12755,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "description": "Updated Shift Body",
           "content": {
             "application/json": {
@@ -12768,6 +12824,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "description": "Teammate IDs to add. Alternatively, you can supply emails as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
           "content": {
             "application/json": {
@@ -12862,6 +12919,7 @@
           "Signatures"
         ],
         "requestBody": {
+          "required": true,
           "description": "Signature to update",
           "content": {
             "application/json": {
@@ -12960,6 +13018,7 @@
           "Tags"
         ],
         "requestBody": {
+          "required": true,
           "description": "Tag to create",
           "content": {
             "application/json": {
@@ -13028,6 +13087,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "description": "Child Tag to update",
           "content": {
             "application/json": {
@@ -13124,6 +13184,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "description": "Child Tag to create",
           "content": {
             "application/json": {
@@ -13207,6 +13268,7 @@
           "Teammate groups"
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -13274,6 +13336,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -13369,6 +13432,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "description": "Inbox IDs to add",
           "content": {
             "application/json": {
@@ -13475,6 +13539,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "description": "Teammate IDs to add. Alternatively, you can supply emails as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
           "content": {
             "application/json": {
@@ -13581,6 +13646,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "description": "Team IDs to add",
           "content": {
             "application/json": {
@@ -13723,6 +13789,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -13822,6 +13889,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -13889,6 +13957,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -13971,6 +14040,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -14102,6 +14172,7 @@
           "Message Template Folders"
         ],
         "requestBody": {
+          "required": true,
           "description": "Message template folder to create",
           "content": {
             "application/json": {
@@ -14176,6 +14247,7 @@
           "Message Templates"
         ],
         "requestBody": {
+          "required": true,
           "description": "Message template to create",
           "content": {
             "application/json": {
@@ -14256,6 +14328,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "description": "Inbox details",
           "content": {
             "application/json": {
@@ -14372,6 +14445,7 @@
           "Signatures"
         ],
         "requestBody": {
+          "required": true,
           "description": "Signature to create",
           "content": {
             "application/json": {
@@ -14464,6 +14538,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "description": "Tag to create",
           "content": {
             "application/json": {
@@ -14689,6 +14764,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -14756,6 +14832,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -14838,6 +14915,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -14905,6 +14983,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "description": "Inbox details",
           "content": {
             "application/json": {
@@ -14967,6 +15046,7 @@
           "Message Template Folders"
         ],
         "requestBody": {
+          "required": true,
           "description": "Message template folder to create",
           "content": {
             "application/json": {
@@ -15041,6 +15121,7 @@
           "Message Templates"
         ],
         "requestBody": {
+          "required": true,
           "description": "Message template to create",
           "content": {
             "application/json": {
@@ -15151,6 +15232,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "description": "Shift to create details",
           "content": {
             "application/json": {
@@ -15207,6 +15289,7 @@
           "Signatures"
         ],
         "requestBody": {
+          "required": true,
           "description": "Signature to create",
           "content": {
             "application/json": {
@@ -15299,6 +15382,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "description": "Tag to create",
           "content": {
             "application/json": {
@@ -15339,6 +15423,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "description": "Teammate IDs to add. Alternatively, you can supply emails as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
           "content": {
             "application/json": {
@@ -15490,6 +15575,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "description": "View to create",
           "content": {
             "application/json": {
@@ -15680,6 +15766,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "description": "View properties to update",
           "content": {
             "application/json": {
@@ -15720,6 +15807,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "description": "Teammate IDs to add. Alternatively, you can supply emails as a [resource alias](https://dev.frontapp.com/docs/resource-aliases-1).",
           "content": {
             "application/json": {

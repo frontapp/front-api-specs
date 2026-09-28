@@ -579,6 +579,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "description": "Channel details",
           "content": {
             "application/json": {
@@ -1091,6 +1092,7 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {

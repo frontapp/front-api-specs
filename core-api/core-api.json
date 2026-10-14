@@ -1487,6 +1487,7 @@
           "links",
           "custom_fields",
           "is_private",
+          "is_closed",
           "scheduled_reminders",
           "metadata"
         ],
@@ -1649,6 +1650,11 @@
             "type": "boolean",
             "description": "Whether or not the conversation is private",
             "example": true
+          },
+          "is_closed": {
+            "type": "boolean",
+            "description": "Whether the conversation is closed. Closed conversations cannot be reopened, and replies or drafts on them are rejected.",
+            "example": false
           },
           "scheduled_reminders": {
             "type": "array",

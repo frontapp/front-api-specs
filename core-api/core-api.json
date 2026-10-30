@@ -3978,6 +3978,12 @@
                 "description": "For `tweet` or 'custom' (partner channel token authenticated) messages only. Unique message identifier in the underlying provider (Twitter or Partner). For custom messages, only present for partner channel token authenticated requests.",
                 "example": "dkd84992kduo903"
               },
+              "rfc5322_message_id": {
+                "type": "string",
+                "nullable": true,
+                "description": "For `email` messages only. RFC 5322 Message-ID the email was sent or received with. `null` for drafts and for emails whose Message-ID Front doesn't know, such as API-imported emails.",
+                "example": "<CAHfOhZawbZjrSmM7Yv6OAN6cFUFw6p0k8AQP4THjr5hz@mail.gmail.com>"
+              },
               "twitter_url": {
                 "type": "string",
                 "description": "For `tweet` messages only. URL of the tweet.",

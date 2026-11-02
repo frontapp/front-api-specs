@@ -3924,6 +3924,7 @@
             "example": "It's high time we discuss the pranking culture in the office"
           },
           "author": {
+            "nullable": true,
             "$ref": "#/components/schemas/TeammateResponse",
             "description": "Front teammate who sent this message"
           },

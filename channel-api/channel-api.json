@@ -351,6 +351,10 @@
               "email": {
                 "type": "string",
                 "description": "Email of the sender. When provided, links this contact to existing contacts with the same email to prevent duplicates across channels."
+              },
+              "phone": {
+                "type": "string",
+                "description": "Phone number of the sender. When provided, links this contact to existing contacts with the same phone number to prevent duplicates across channels."
               }
             }
           },
